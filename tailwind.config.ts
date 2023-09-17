@@ -8,13 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
+      color: {
         "ted-red": "#FF2B06",
         "ted-black": "#000000",
         "ted-white": "#FFFFFF",
-      },
-      fontFamily: {
-        montserrat: ["var(--font-montserrat)"],
       },
     },
   },
