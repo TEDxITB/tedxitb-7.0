@@ -221,7 +221,7 @@ function ComingSoon() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex self-center">
+            <div className="mb-12 flex self-center">
               <form
                 className="mx-auto rounded-2xl border-2 p-2"
                 onSubmit={(e: FormEvent) => {
@@ -248,7 +248,6 @@ function ComingSoon() {
                 </button>
               </form>
             </div>
-            <br className="my-12" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -262,25 +261,25 @@ function ComingSoon() {
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <TagCloud
-              className="mx-auto max-w-4xl"
+              className="mx-auto mb-24 max-w-4xl"
               shuffle={false}
               minSize={16}
               maxSize={innerWidth <= 640 ? 24 : 38}
               tags={data}
             />
-            <br className="my-12" />
+
             <div className="flex flex-col gap-3 self-center text-justify">
               <h1 className="mx-auto w-fit bg-gradient-to-r from-ted-red to-ted-white bg-clip-text text-center font-bold text-ted-white text-transparent md:mx-0 md:text-start lg:text-4xl">
                 What is TEDxITB?
               </h1>
-              <p className="font-anderson lg:text-lg">
+              <p className="font-anderson text-sm lg:text-lg">
                 TEDx is an international community that organizes TED-style
                 events anywhere and everywhere, celebrating locally-driven ideas
                 and elevating them to a global stage. TEDx events are produced
                 independently of TED conferences, each event curates speakers on
                 their own, but based on TED&apos;s format and rules.
               </p>
-              <p className="font-anderson lg:text-lg">
+              <p className="font-anderson text-sm lg:text-lg">
                 TEDxITB is one of the members of the worldwide TEDx big
                 community. It holds the event independently with the local ideas
                 based on the format and rules by TED.

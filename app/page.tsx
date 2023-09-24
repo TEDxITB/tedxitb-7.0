@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-2">
-      <div className="items-start text-center">
+      <div className="mb-24 items-start text-center">
         <Image
           className="lg:w-[620px]"
           alt="Ted X Logo"
@@ -58,8 +58,6 @@ export default function Home() {
           7.0 Is Coming Soon!
         </h1>
       </div>
-
-      <br className="my-12" />
 
       <WordCloud />
 
