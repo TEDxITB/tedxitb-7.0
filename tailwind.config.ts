@@ -15,6 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],
+        anderson: ["var(--font-anderson)"],
       },
     },
   },

@@ -13,7 +13,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -24,7 +25,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -35,7 +37,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -46,7 +49,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -57,7 +61,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -68,7 +73,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -79,7 +85,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -90,7 +97,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -101,7 +109,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -112,7 +121,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -123,7 +133,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -134,7 +145,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -145,7 +157,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -156,7 +169,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -167,7 +181,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
   {
@@ -178,7 +193,8 @@ const data = [
       style: {
         margin: "1rem",
       },
-      className: "hover:cursor-pointer hover:scale-125",
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
     },
   },
 ];
@@ -193,7 +209,7 @@ function ComingSoon() {
         <p className="text-[13px] font-thin md:text-base lg:text-xl">
           In One Word,
         </p>
-        <h3 className="lg:text-xl">
+        <h3 className="mb-2 lg:text-xl">
           What Do You Think Of <span className="text-ted-red">TEDx</span>ITB?
         </h3>
       </div>
@@ -257,14 +273,14 @@ function ComingSoon() {
               <h1 className="mx-auto w-fit bg-gradient-to-r from-ted-red to-ted-white bg-clip-text text-center font-bold text-ted-white text-transparent md:mx-0 md:text-start lg:text-4xl">
                 What is TEDxITB?
               </h1>
-              <p className="lg:text-lg">
+              <p className="font-anderson lg:text-lg">
                 TEDx is an international community that organizes TED-style
                 events anywhere and everywhere, celebrating locally-driven ideas
                 and elevating them to a global stage. TEDx events are produced
                 independently of TED conferences, each event curates speakers on
                 their own, but based on TED&apos;s format and rules.
               </p>
-              <p className="lg:text-lg">
+              <p className="font-anderson lg:text-lg">
                 TEDxITB is one of the members of the worldwide TEDx big
                 community. It holds the event independently with the local ideas
                 based on the format and rules by TED.
