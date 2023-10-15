@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-2">
+    <main className="relative flex min-h-screen flex-col items-center overflow-hidden p-2">
       <div className="mb-24 items-start text-center">
         <Image
           className="lg:w-[620px]"
@@ -117,6 +117,24 @@ export default function Home() {
           </li>
         </ul>
       </div>
+
+      {/* Background Image */}
+      <Image
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        src="/background1.png"
+        alt="Background Image"
+        width={1080}
+        height={720}
+      />
+
+      {/* Effect in Top Right */}
+      <Image
+        className="absolute -right-36 -top-14 -z-10 aspect-square w-[500px] opacity-10 sm:-right-48 sm:-top-56 lg:-right-60 lg:-top-80 lg:w-[800px]"
+        src="/effect1.png"
+        alt="Effect 1 Image"
+        width={1000}
+        height={1000}
+      />
     </main>
   );
 }
