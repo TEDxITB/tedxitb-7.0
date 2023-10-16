@@ -7,11 +7,11 @@ import { TagCloud } from "react-tagcloud";
 const data = [
   {
     value: "Elegant",
-    count: 23,
+    count: 1,
     color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -19,11 +19,11 @@ const data = [
   },
   {
     value: "Classy",
-    count: 29,
+    count: 1,
     color: "#FFFFFF",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -31,11 +31,11 @@ const data = [
   },
   {
     value: "Share",
-    count: 19,
+    count: 1,
     color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -43,11 +43,11 @@ const data = [
   },
   {
     value: "Curiosity",
-    count: 18,
-    color: "#FF2B06",
+    count: 1,
+    color: "#FFFFFF",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -55,11 +55,11 @@ const data = [
   },
   {
     value: "Transformation",
-    count: 24,
-    color: "#FFFFFF",
+    count: 1,
+    color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -67,11 +67,11 @@ const data = [
   },
   {
     value: "Learn",
-    count: 24,
+    count: 1,
     color: "#FFFFFF",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -79,11 +79,11 @@ const data = [
   },
   {
     value: "Unique",
-    count: 24,
-    color: "#FFFFFF",
+    count: 1,
+    color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -91,11 +91,11 @@ const data = [
   },
   {
     value: "Insightful",
-    count: 38,
+    count: 2,
     color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -103,11 +103,11 @@ const data = [
   },
   {
     value: "Inspiring",
-    count: 42,
+    count: 2.5,
     color: "#FFFFFF",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -115,11 +115,11 @@ const data = [
   },
   {
     value: "Ideas",
-    count: 31,
+    count: 3.5,
     color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -127,11 +127,11 @@ const data = [
   },
   {
     value: "Collaboration",
-    count: 22,
-    color: "#FF2B06",
+    count: 2.5,
+    color: "#FFFFFF",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -139,11 +139,11 @@ const data = [
   },
   {
     value: "Technology",
-    count: 34,
-    color: "#FFFFFF",
+    count: 2,
+    color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -151,11 +151,11 @@ const data = [
   },
   {
     value: "Education",
-    count: 32,
-    color: "#FFFFFF",
+    count: 1,
+    color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -163,11 +163,11 @@ const data = [
   },
   {
     value: "Art",
-    count: 16,
-    color: "#FF2B06",
+    count: 1,
+    color: "#FFFFFF",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -175,11 +175,11 @@ const data = [
   },
   {
     value: "Life",
-    count: 25,
-    color: "#FFFFFF",
+    count: 1,
+    color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -187,11 +187,35 @@ const data = [
   },
   {
     value: "Talks",
-    count: 17,
+    count: 1,
+    color: "#FFFFFF",
+    props: {
+      style: {
+        margin: "0.3rem 1rem",
+      },
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
+    },
+  },
+  {
+    value: "Culture",
+    count: 1,
     color: "#FF2B06",
     props: {
       style: {
-        margin: "1rem",
+        margin: "0.3rem 1rem",
+      },
+      className:
+        "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
+    },
+  },
+  {
+    value: "Community",
+    count: 1,
+    color: "#FFFFFF",
+    props: {
+      style: {
+        margin: "0.3rem 1rem",
       },
       className:
         "hover:cursor-default transition ease-in-out duration-300 hover:scale-125",
@@ -261,9 +285,9 @@ function ComingSoon() {
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <TagCloud
-              className="mx-auto mb-24 max-w-4xl"
+              className="mx-auto mb-24 mt-10 max-w-4xl font-semibold"
               shuffle={false}
-              minSize={16}
+              minSize={18}
               maxSize={innerWidth <= 640 ? 24 : 38}
               tags={data}
             />
