@@ -230,10 +230,10 @@ function ComingSoon() {
   return (
     <div className="mb-6 flex max-w-xs flex-col gap-2 text-center sm:max-w-sm md:max-w-lg lg:mb-24 lg:max-w-3xl xl:max-w-5xl">
       <div className="self-center md:flex md:flex-row md:gap-1">
-        <p className="text-[13px] font-thin md:text-base lg:text-xl">
+        <p className="text-[13px] font-thin text-ted-white md:text-base lg:text-xl">
           In One Word,
         </p>
-        <h3 className="mb-2 lg:text-xl">
+        <h3 className="mb-2 text-ted-white lg:text-xl">
           What Do You Think Of <span className="text-ted-red">TEDx</span>ITB?
         </h3>
       </div>
@@ -254,7 +254,7 @@ function ComingSoon() {
                 }}
               >
                 <input
-                  className="w-56 bg-transparent pl-2 outline-none sm:w-72 md:w-96 lg:w-[600px] xl:w-[768px]"
+                  className="w-56 bg-transparent pl-2 text-ted-white outline-none sm:w-72 md:w-96 lg:w-[600px] xl:w-[768px]"
                   type="text"
                   placeholder="Type a word.."
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -296,14 +296,14 @@ function ComingSoon() {
               <h1 className="mx-auto w-fit bg-gradient-to-r from-ted-red to-ted-white bg-clip-text text-center font-bold text-ted-white text-transparent md:mx-0 md:text-start lg:text-4xl">
                 What is TEDxITB?
               </h1>
-              <p className="font-anderson text-sm lg:text-lg">
+              <p className="font-anderson text-sm text-ted-white lg:text-lg">
                 TEDx is an international community that organizes TED-style
                 events anywhere and everywhere, celebrating locally-driven ideas
                 and elevating them to a global stage. TEDx events are produced
                 independently of TED conferences, each event curates speakers on
                 their own, but based on TED&apos;s format and rules.
               </p>
-              <p className="font-anderson text-sm lg:text-lg">
+              <p className="font-anderson text-sm text-ted-white lg:text-lg">
                 TEDxITB is one of the members of the worldwide TEDx big
                 community. It holds the event independently with the local ideas
                 based on the format and rules by TED.

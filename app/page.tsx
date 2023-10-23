@@ -54,14 +54,14 @@ export default function Home() {
           width={390}
           height={195}
         />
-        <h1 className="mx-auto mt-[-30px] w-fit bg-gradient-to-r from-ted-red to-ted-white bg-clip-text font-bold text-ted-white text-transparent lg:mt-[-50px] lg:text-4xl">
+        <h1 className="mx-auto mt-[-30px] w-fit bg-gradient-to-r from-ted-red to-ted-white bg-clip-text font-bold text-transparent lg:mt-[-50px] lg:text-4xl">
           7.0 Is Coming Soon!
         </h1>
       </div>
 
       <WordCloud />
 
-      <div className="mb-8 mt-auto flex flex-col gap-4 text-center lg:gap-10">
+      <div className="mb-8 mt-auto flex flex-col gap-4 text-center text-ted-white lg:gap-10">
         <h3 className="font-bold lg:text-4xl">Our Contact</h3>
         <ul className="flex items-center gap-5 sm:gap-12">
           <li>
