@@ -37,9 +37,7 @@ export default function RootLayout({
       </body>
 
       {/* Hotjar */}
-      <Script
-        id="hotjar"
-      />
+      <Script id="hotjar" />
     </html>
   );
 }

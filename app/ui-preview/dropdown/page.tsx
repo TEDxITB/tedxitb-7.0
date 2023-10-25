@@ -10,7 +10,7 @@ import {
 
 export default function () {
   return (
-    <div className="flex flex-col justify-center items-center w-screen h-screen bg-white">
+    <div className="flex h-screen w-screen flex-col items-center justify-center bg-white">
       <Select>
         <SelectTrigger className="w-[300px]" label="Label">
           <SelectValue placeholder="Theme" />
