@@ -13,12 +13,12 @@ export default function () {
     <div className="flex h-screen w-screen flex-col items-center justify-center bg-white">
       <Select>
         <SelectTrigger className="w-[300px]" label="Label">
-          <SelectValue placeholder="Theme" />
+          <SelectValue placeholder="Select Option" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="light">Light</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
+          <SelectItem value="light">Option</SelectItem>
+          <SelectItem value="dark">Option</SelectItem>
+          <SelectItem value="system">Option</SelectItem>
         </SelectContent>
       </Select>
     </div>
