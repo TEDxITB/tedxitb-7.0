@@ -12,7 +12,7 @@ export default function () {
   return (
     <div className="flex flex-col justify-center items-center w-screen h-screen">
       <Select>
-        <SelectTrigger className="w-[300px]">
+        <SelectTrigger className="w-[300px]" label="Label">
           <SelectValue placeholder="Theme" />
         </SelectTrigger>
         <SelectContent>
