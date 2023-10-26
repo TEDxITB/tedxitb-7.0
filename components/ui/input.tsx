@@ -1,25 +1,85 @@
-import * as React from "react"
+"use client";
 
-import { cn } from "@/lib/utils"
+/**
+ * To do left:
+ * 1. Validator(?)
+ * 2. Font Inter
+ * 3. Input yang terakhir buat apa jir.
+ */
+import * as React from "react";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+import { cn } from "@/lib/utils";
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+export interface TedxInputProps extends InputProps {
+  label: string;
+  required?: boolean;
+  helpermessage: string;
+  successmessage: string;
+  errormessage: string;
+  validator?: (val: string) => boolean;
+}
+
+type InputState = "Unknown" | "Success" | "Error";
+
+const Input = React.forwardRef<HTMLInputElement, TedxInputProps>(
+  (
+    {
+      className,
+      type,
+      label,
+      required = false,
+      helpermessage,
+      successmessage,
+      errormessage,
+      ...props
+    },
+    ref
+  ) => {
+    const [current, setCurrent] = React.useState<InputState>("Unknown");
+    const extendStyle = {
+      Unknown: {
+        border: "border border-[#808080]",
+        message: "",
+      },
+      Success: {
+        border: "border-2 border-green-600",
+        message: "text-green-600",
+      },
+      Error: {
+        border: "border-2 border-red-500",
+        message: "text-red-500",
+      },
+    };
+
     return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    )
+      <>
+        <div>
+          <label className="text-xs">
+            {label} {required && <span className="text-ted-red">*</span>}
+          </label>
+          <input
+            type={type}
+            className={cn(
+              `font flex h-10 w-full rounded-md bg-background px-3 py-2 text-sm text-gray-400 text-opacity-80 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-[#EEE] disabled:opacity-50 ${extendStyle[current].border}`,
+              className
+            )}
+            ref={ref}
+            {...props}
+          />
+          <small className={`text-xs ${extendStyle[current].message}`}>
+            {current == "Unknown"
+              ? helpermessage
+              : current == "Success"
+              ? successmessage
+              : errormessage}
+          </small>
+        </div>
+      </>
+    );
   }
-)
-Input.displayName = "Input"
+);
+Input.displayName = "Input";
 
-export { Input }
+export { Input };
