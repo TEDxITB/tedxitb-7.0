@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import WordCloud from "./coming-soon-client";
 import { Metadata } from "next";
+import FileUpload from "@/components/file-upload";
 
 export const metadata: Metadata = {
   title: "TEDxITB 7.0",
