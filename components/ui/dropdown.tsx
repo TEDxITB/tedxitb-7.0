@@ -19,23 +19,20 @@ const SelectTrigger = React.forwardRef<
     label?: string;
   }
 >(({ className, children, ...props }, ref) => (
-  <div className="flex flex-col gap-1">
-    <div className="text-sm">{props.label || ""}</div>
-    <SelectPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-        "outline-none focus:ring-0 focus:ring-offset-0 data-[state=open]:ring-1 data-[state=open]:ring-ted-red",
-        className
-      )}
-      {...props}
-    >
-      {children}
-      <SelectPrimitive.Icon asChild>
-        <ChevronDown className="h-5 w-5" />
-      </SelectPrimitive.Icon>
-    </SelectPrimitive.Trigger>
-  </div>
+  <SelectPrimitive.Trigger
+    ref={ref}
+    className={cn(
+      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+      "outline-none ring-offset-2 focus:ring-1 data-[state=open]:ring-1 data-[state=open]:ring-ted-red",
+      className
+    )}
+    {...props}
+  >
+    {children}
+    <SelectPrimitive.Icon asChild>
+      <ChevronDown className="h-5 w-5" />
+    </SelectPrimitive.Icon>
+  </SelectPrimitive.Trigger>
 ));
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
