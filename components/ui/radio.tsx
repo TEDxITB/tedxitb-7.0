@@ -4,11 +4,11 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 interface radioProps {
-    color : string;
-    label : string;
+  color: string;
+  label: string;
 }
 
-export function RadioGroupDemo(props : radioProps) {
+export function RadioGroupDemo(props: radioProps) {
   return (
     <RadioGroup>
       <div className="flex items-center space-x-2">
