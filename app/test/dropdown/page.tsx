@@ -6,7 +6,7 @@ import {
   SelectValue,
   SelectContent,
   SelectItem,
-} from "@/components/ui/select";
+} from "@/components/ui/dropdown";
 
 export default function Page() {
   return (
