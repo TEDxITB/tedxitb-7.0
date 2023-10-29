@@ -9,25 +9,28 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        var1: "bg-[#FF2B06] text-primary-foreground",
-        var2:
-          "bg-[#FFE0DA] text-[#FF2B06]",
-        var3:
-          "bg-[#FFF] border border-solid border-[#FF2B06]",
-        var4: "bg-[#FFF]",
+        primary: "bg-ted-red text-primary-foreground",
+        secondary:
+          "bg-ted-opaque-red text-ted-red",
+        outline:
+          "bg-white border border-solid border-ted-red",
+        ghost: "bg-white",
+        link: "text-ted-red",
       },
       size: {
-        type1: "h-[65px] w-[125px] rounded-[50px] shadow-xl",
-        type2: "h-[65px] w-[160px] rounded-[50px] shadow-xl",
-        type3: "h-[65px] w-[65px] rounded-full shadow-xl",
-        type4: "h-[65px] w-[125px] rounded-[10px]",
-        type5: "h-[65px] w-[160px] rounded-[10px]",
-        type6: "h-[65px] w-[65px] rounded-[10px]"
+        "default-rounded": "rounded-full h-10 px-4 py-2",
+        "sm-rounded": "rounded-full h-9 px-3",
+        "lg-rounded": "rounded-full h-11 px-6",
+        "icon-rounded": "rounded-full h-10 w-10",
+        default: "h-10 rounded-md px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 px-6",
+        icon: "aspect-square h-10 w-10 rounded-md",
       },
     },
     defaultVariants: {
-      variant: "var1",
-      size: "type1",
+      variant: "primary",
+      size: "default-rounded",
     },
   }
 )

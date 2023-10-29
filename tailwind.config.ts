@@ -24,6 +24,7 @@ const config: Config = {
         "ted-red": "#FF2B06",
         "ted-black": "#000000",
         "ted-white": "#FFFFFF",
+        "ted-opaque-red": "#FFE0DA",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
