@@ -61,7 +61,7 @@ function Countdown({ date }: { date: Date }) {
               </AnimatePresence>
             </div>
           </div>
-          <p className="text-2xl font-black text-[#E8FE4D] shadow-[#FFFBB9] text-shadow-lg">
+          <p className="text-2xl font-black tracking-wider text-[#E8FE4D] shadow-[#FFFBB9] text-shadow-lg">
             Days
           </p>
         </div>
@@ -109,7 +109,7 @@ function Countdown({ date }: { date: Date }) {
               </AnimatePresence>
             </div>
           </div>
-          <p className="text-2xl font-black text-[#E8FE4D] shadow-[#FFFBB9] text-shadow-lg">
+          <p className="text-2xl font-black tracking-wider text-[#E8FE4D] shadow-[#FFFBB9] text-shadow-lg">
             Hours
           </p>
         </div>
@@ -157,7 +157,7 @@ function Countdown({ date }: { date: Date }) {
               </AnimatePresence>
             </div>
           </div>
-          <p className="text-2xl font-black text-[#E8FE4D] shadow-[#FFFBB9] text-shadow-lg">
+          <p className="text-2xl font-black tracking-wider text-[#E8FE4D] shadow-[#FFFBB9] text-shadow-lg">
             Minutes
           </p>
         </div>
@@ -205,7 +205,7 @@ function Countdown({ date }: { date: Date }) {
               </AnimatePresence>
             </div>
           </div>
-          <p className="text-2xl font-black text-[#E8FE4D] shadow-[#FFFBB9] text-shadow-lg">
+          <p className="text-2xl font-black tracking-wider text-[#E8FE4D] shadow-[#FFFBB9] text-shadow-lg">
             Seconds
           </p>
         </div>
