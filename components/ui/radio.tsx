@@ -1,19 +1,42 @@
 "use client";
-
+import React from "react";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 interface radioProps {
-  color: string;
+  color: "default" | "black" | "yellow" | "green";
   label: string;
+  isDisabled : boolean;
 }
 
 export function RadioGroupDemo(props: radioProps) {
+  const [isChecked, setIsChecked] = React.useState(false);
+
   return (
-    <RadioGroup>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem color={props.color} value="default" id="r1" />
-        <p className="font-montserrat text-ted-black">{props.label}</p>
+    <RadioGroup
+      onClick={() => setIsChecked(!isChecked)}
+      disabled={props.isDisabled}
+    >
+      <div
+        className={`flex cursor-not-allowed items-center space-x-2 ${
+          props.isDisabled ? "hover:cursor-not-allowed" : "hover:cursor-pointer"
+        }`}
+      >
+        <RadioGroupItem
+          color={props.color}
+          checked={props.isDisabled ? false : isChecked}
+          value="default"
+          id="r1"
+        />
+        <Label
+          className={`font-montserrat text-ted-black ${
+            props.isDisabled
+              ? "hover:cursor-not-allowed"
+              : "hover:cursor-pointer"
+          }`}
+        >
+          {props.label}
+        </Label>
       </div>
     </RadioGroup>
   );
