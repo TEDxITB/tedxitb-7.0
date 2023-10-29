@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export default function ButtonTest() {
   return (
@@ -33,9 +33,6 @@ export default function ButtonTest() {
         <Button variant="ghost" size="sm">Label</Button>
         <Button variant="ghost" size="icon">Label</Button>
       </div>
-
-      
-
     </main>
-  )
+  );
 }
