@@ -6,7 +6,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 interface radioProps {
   color: "default" | "black" | "yellow" | "green";
   label: string;
-  isDisabled : boolean;
+  isDisabled: boolean;
 }
 
 export function RadioGroupDemo(props: radioProps) {
