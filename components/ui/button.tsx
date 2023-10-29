@@ -10,10 +10,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: "bg-ted-red text-primary-foreground",
-        secondary:
-          "bg-ted-opaque-red text-ted-red",
-        outline:
-          "bg-white border border-solid border-ted-red",
+        secondary: "bg-ted-opaque-red text-ted-red",
+        outline: "bg-white border border-solid border-ted-red",
         ghost: "bg-white",
         link: "text-ted-red",
       },
