@@ -73,6 +73,76 @@ export default function ButtonTest() {
           Label
         </Button>
       </div>
+      <div className="flex flex-col gap-y-4">
+        <Button variant="primary" size="default-rounded" disabled>
+          Label
+        </Button>
+        <Button variant="primary" size="sm-rounded" disabled>
+          Label
+        </Button>
+        <Button variant="primary" size="sm-rounded" disabled>
+          Label
+        </Button>
+        <Button variant="primary" size="icon-rounded" disabled>
+          Label
+        </Button>
+      </div>
+      <div className="flex flex-col gap-y-4">
+        <Button variant="primary" size="default" disabled>
+          Label
+        </Button>
+        <Button variant="primary" size="sm" disabled>
+          Label
+        </Button>
+        <Button variant="primary" size="sm" disabled>
+          Label
+        </Button>
+        <Button variant="primary" size="icon" disabled>
+          Label
+        </Button>
+      </div>
+      <div className="flex flex-col gap-y-4">
+        <Button variant="secondary" size="default" disabled>
+          Label
+        </Button>
+        <Button variant="secondary" size="sm" disabled>
+          Label
+        </Button>
+        <Button variant="secondary" size="sm" disabled>
+          Label
+        </Button>
+        <Button variant="secondary" size="icon" disabled>
+          Label
+        </Button>
+      </div>
+      <div className="flex flex-col gap-y-4">
+        <Button variant="outline" size="default" disabled>
+          Label
+        </Button>
+        <Button variant="outline" size="sm" disabled>
+          Label
+        </Button>
+        <Button variant="outline" size="sm" disabled>
+          Label
+        </Button>
+        <Button variant="outline" size="icon" disabled>
+          Label
+        </Button>
+      </div>
+      <div className="flex flex-col gap-y-4">
+        <Button variant="ghost" size="default" disabled>
+          Label
+        </Button>
+        <Button variant="ghost" size="sm" disabled>
+          Label
+        </Button>
+        <Button variant="ghost" size="sm" disabled>
+          Label
+        </Button>
+        <Button variant="ghost" size="icon" disabled>
+          Label
+        </Button>
+      </div>
     </main>
   );
 }
