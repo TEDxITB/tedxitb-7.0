@@ -59,7 +59,6 @@ const fileValidation = z
     return file.type.startsWith("image/");
   }, "Only image type are supported");
 
-
 /**
  * Kalau menggunakan react hook form maka yang perlu di kirim ke component ini adalah form.setValue
  * kalu tidak menggunakan react hook form dan hanya mau menggunakan useState biasa maka yang perlu dikirimkan adalah setState nya

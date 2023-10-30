@@ -25,7 +25,7 @@ const formSchema = z.object({
 });
 
 const Tes = () => {
-  const [imgs, setImgs] = useState<Image[]>([])
+  const [imgs, setImgs] = useState<Image[]>([]);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -38,8 +38,6 @@ const Tes = () => {
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     console.log("data", data);
   };
-
-
 
   form.setError;
   return (
