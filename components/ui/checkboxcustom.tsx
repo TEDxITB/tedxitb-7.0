@@ -23,8 +23,14 @@ export function CheckboxWithText(props: checkboxProps) {
           : "text-ted-black hover:cursor-pointer"
       }`}
     >
-      <Checkbox id="terms1" disabled={isDisabled} checked={isDisabled ? false : isChecked}/>
-      <p className="font-montserrat text-sm leading-none">{props.label}</p>
+      <Checkbox
+        id="terms1"
+        disabled={isDisabled}
+        checked={isDisabled ? false : isChecked}
+      />
+      <label className={`font-montserrat text-sm leading-none ${isDisabled ? "hover:cursor-not-allowed" : "hover:cursor-pointer"}`}>
+        {props.label}
+      </label>
     </div>
   );
 }
