@@ -1,4 +1,6 @@
 import * as React from "react";
+import Image from "next/image";
+import { ImageProps } from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -17,27 +19,24 @@ const Card = React.forwardRef<
 ));
 Card.displayName = "Card";
 
-const CardImage = React.forwardRef<
-  HTMLImageElement,
-  React.ImgHTMLAttributes<HTMLImageElement>
->(({ className, ...props }, ref) => (
-  <img
-    ref={ref}
-    className={cn("h-auto w-full rounded-t-lg", className)}
-    {...props}
-  />
-));
+const CardImage = React.forwardRef<HTMLImageElement, ImageProps>(
+  ({ className, src, alt, ...props }, ref) => (
+    <Image
+      src={src}
+      alt={alt}
+      className={cn("h-auto w-full rounded-t-lg", className)}
+      ref={ref}
+      {...props}
+    />
+  )
+);
 CardImage.displayName = "CardImage";
 
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn("text-[30px] font-normal", className)}
-    {...props}
-  />
+  <h3 ref={ref} className={cn("text-[30px] font-bold", className)} {...props} />
 ));
 CardTitle.displayName = "CardTitle";
 
@@ -47,7 +46,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("mt-[14px] text-justify text-[18px]", className)}
+    className={cn("mt-[10px] text-justify text-[18px]", className)}
     {...props}
   />
 ));
@@ -57,11 +56,7 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("mx-[20px] mb-[47px] mt-[19px]", className)}
-    {...props}
-  />
+  <div ref={ref} className={cn("p-4", className)} {...props} />
 ));
 CardContent.displayName = "CardContent";
 
