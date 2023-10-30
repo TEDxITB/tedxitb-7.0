@@ -21,10 +21,8 @@ export function CheckboxWithText(props: checkboxProps) {
           : "text-ted-black hover:cursor-pointer"
       }`}
     >
-      <Checkbox id="terms1" disabled={isDisabled} checked={isChecked}/>
-      <div className="grid gap-1.5 leading-none">
-        <p className="font-montserrat text-sm leading-none">{props.label}</p>
-      </div>
+      <Checkbox id="terms1" disabled={isDisabled} checked={isDisabled ? false : isChecked}/>
+      <p className="font-montserrat text-sm leading-none">{props.label}</p>
     </div>
   );
 }
