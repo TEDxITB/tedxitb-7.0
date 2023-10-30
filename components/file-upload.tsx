@@ -77,7 +77,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
       if (setState) {
         setState([...images]);
       }
-    }, [images]);
+    }, [images, setState, setValue]);
 
     const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
       e.preventDefault();
