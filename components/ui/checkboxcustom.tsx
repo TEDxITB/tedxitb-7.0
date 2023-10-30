@@ -14,7 +14,9 @@ export function CheckboxWithText(props: checkboxProps) {
 
   return (
     <div
-      onClick={() => {setIsChecked(!isChecked)}}
+      onClick={() => {
+        setIsChecked(!isChecked);
+      }}
       className={`flex items-center space-x-2 ${
         isDisabled
           ? "text-[#A5A1A1] hover:cursor-not-allowed"
