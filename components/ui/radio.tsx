@@ -14,7 +14,7 @@ export function RadioGroupDemo(props: radioProps) {
 
   return (
     <RadioGroup
-      onClick={() => setIsChecked(!isChecked)}
+      onClick={() => setIsChecked(true)}
       disabled={props.isDisabled}
     >
       <div
