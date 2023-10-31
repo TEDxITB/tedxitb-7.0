@@ -13,10 +13,7 @@ export function RadioGroupDemo(props: radioProps) {
   const [isChecked, setIsChecked] = React.useState(false);
 
   return (
-    <RadioGroup
-      onClick={() => setIsChecked(true)}
-      disabled={props.isDisabled}
-    >
+    <RadioGroup onClick={() => setIsChecked(true)} disabled={props.isDisabled}>
       <div
         className={`flex cursor-not-allowed items-center space-x-2 ${
           props.isDisabled ? "hover:cursor-not-allowed" : "hover:cursor-pointer"
