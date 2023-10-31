@@ -201,7 +201,12 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           <p className="flex text-center font-anderson text-xs text-black/60 sm:hidden">
             Upload File kamu
           </p>
-          <Button variant="primary" size="default" className="text-[11px] py-[5px] sm:py-[6px] sm:text-base" onClick={handleClick}>
+          <Button
+            variant="primary"
+            size="default"
+            className="py-[5px] text-[11px] sm:py-[6px] sm:text-base"
+            onClick={handleClick}
+          >
             Choose File
           </Button>
           <input
