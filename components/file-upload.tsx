@@ -18,8 +18,7 @@ import FileX from "@/public/file-x.svg";
 import FileJPG from "@/public/file-jpg.svg";
 import FilePNG from "@/public/file-png.svg";
 import FileImage from "@/public/file-image.svg";
-import Retry from "@/public/retry.svg";
-import Trash from "@/public/trash.svg";
+import { RotateCw, Trash2 } from "lucide-react"
 import BgFileUpload from "@/public/bg-file-upload.svg";
 import BgFileUpload2 from "@/public/bg-file-upload2.svg";
 import { cn } from "@/lib/utils";
@@ -286,7 +285,7 @@ const FileItem: React.FC<FileItemProps> = ({
           <p
             className={cn(
               "hyphens-auto font-montserrat text-[11px] leading-[14px] sm:text-xs",
-              image.error ? "text-[#FF2B06]" : "text-[#1CCA00]"
+              image.error ? "text-ted-red" : "text-[#1CCA00]"
             )}
           >
             {image.error ? `${image.error}` : "Completed"}
@@ -295,41 +294,30 @@ const FileItem: React.FC<FileItemProps> = ({
       </div>
       <div className="flex flex-row items-center justify-end gap-2">
         {image.error ? (
-          <Image
-            src={Retry}
-            alt="retry"
-            className="flex h-[16px] w-[16px] cursor-pointer text-[#FF2B06]"
-            onClick={(e) => {
-              e.preventDefault();
-              handleRetry(image);
-            }}
-          />
+          <Button className="p-0" variant="ghost" onClick={(e) => {e.preventDefault(); handleRetry(image)}}>
+            <RotateCw className="h-[15px] w-[15px] sm:h-[16px] sm:w-[16px] text-ted-red"/>
+          </Button>
         ) : (
           <></>
         )}
         <div
           className={cn(
             "flex items-center justify-center rounded-md border  px-2 py-1",
-            image.error ? "border-[#FF2B06]" : "border-[#CDD3D8]"
+            image.error ? "border-ted-red" : "border-[#CDD3D8]"
           )}
         >
           <p
             className={cn(
               "font-anderson text-[11px] font-bold leading-3",
-              image.error ? "text-[#FF2B06]" : "text-[#242634]"
+              image.error ? "text-ted-red" : "text-[#242634]"
             )}
           >
             {image.error ? "ERROR" : `${Math.round(image.file.size / 1000)}KB`}
           </p>
         </div>
-        <Image
-          src={Trash}
-          alt="trash"
-          className={cn(
-            "h-[14px] w-[11px] cursor-pointer sm:h-[15px] sm:w-[12px]"
-          )}
-          onClick={() => handleDelete(image)}
-        />
+        <Button className="p-0" variant="ghost" onClick={() => handleDelete(image)}>
+          <Trash2 className="h-[15px] w-[15px] sm:h-[16px] sm:w-[16px]"/>
+        </Button>
       </div>
     </div>
   );
