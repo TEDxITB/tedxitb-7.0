@@ -25,6 +25,7 @@ import BgFileUpload2 from "@/public/bg-file-upload2.svg";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { UseFormSetValue } from "react-hook-form";
+import { Button } from "@/components/ui/button";
 
 interface FileUploadProps extends React.InputHTMLAttributes<HTMLInputElement> {
   setState?: Dispatch<SetStateAction<Image[]>>;
@@ -53,8 +54,8 @@ export interface Image {
 const fileValidation = z
   .any()
   .refine((file) => {
-    return file.size <= 10000000;
-  }, "Max image size is 10MB")
+    return file.size <= 3000000;
+  }, "Max image size is 3MB")
   .refine((file) => {
     return file.type.startsWith("image/");
   }, "Only image type are supported");
@@ -200,12 +201,9 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           <p className="flex text-center font-anderson text-xs text-black/60 sm:hidden">
             Upload File kamu
           </p>
-          <button
-            className="rounded-lg bg-[#FF2B06] px-2 py-[5px] font-montserrat text-[11px] text-white sm:py-[6px] sm:text-base"
-            onClick={handleClick}
-          >
+          <Button variant="primary" size="default" className="text-[11px] py-[5px] sm:py-[6px] sm:text-base" onClick={handleClick}>
             Choose File
-          </button>
+          </Button>
           <input
             multiple
             className="hidden"
