@@ -74,6 +74,20 @@ export default function ButtonTest() {
         </Button>
       </div>
       <div className="flex flex-col gap-y-4">
+        <Button variant="link" size="default">
+          Label
+        </Button>
+        <Button variant="link" size="sm">
+          Label
+        </Button>
+        <Button variant="link" size="sm">
+          Label
+        </Button>
+        <Button variant="link" size="icon">
+          Label
+        </Button>
+      </div>
+      <div className="flex flex-col gap-y-4">
         <Button variant="primary" size="default-rounded" disabled>
           Label
         </Button>

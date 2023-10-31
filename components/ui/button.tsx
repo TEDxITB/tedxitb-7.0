@@ -9,11 +9,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-ted-red text-primary-foreground",
-        secondary: "bg-ted-opaque-red text-ted-red",
+        primary: "bg-ted-red text-primary-foreground hover:bg-ted-red/90",
+        secondary: "bg-ted-opaque-red text-ted-red hover:bg-ted-opaque-red/90",
         outline: "bg-white border border-solid border-ted-red",
-        ghost: "bg-white",
-        link: "text-ted-red",
+        ghost: "bg-white hover:bg-white/90",
+        link: "text-ted-red hover:underline underline-ffset-4",
       },
       size: {
         "default-rounded": "rounded-full h-10 px-4 py-2",
@@ -28,7 +28,7 @@ const buttonVariants = cva(
     },
     defaultVariants: {
       variant: "primary",
-      size: "default-rounded",
+      size: "default",
     },
   }
 );
