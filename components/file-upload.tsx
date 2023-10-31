@@ -18,7 +18,7 @@ import FileX from "@/public/file-x.svg";
 import FileJPG from "@/public/file-jpg.svg";
 import FilePNG from "@/public/file-png.svg";
 import FileImage from "@/public/file-image.svg";
-import { RotateCw, Trash2 } from "lucide-react"
+import { RotateCw, Trash2 } from "lucide-react";
 import BgFileUpload from "@/public/bg-file-upload.svg";
 import BgFileUpload2 from "@/public/bg-file-upload2.svg";
 import { cn } from "@/lib/utils";
@@ -299,8 +299,15 @@ const FileItem: React.FC<FileItemProps> = ({
       </div>
       <div className="flex flex-row items-center justify-end gap-2">
         {image.error ? (
-          <Button className="p-0" variant="ghost" onClick={(e) => {e.preventDefault(); handleRetry(image)}}>
-            <RotateCw className="h-[15px] w-[15px] sm:h-[16px] sm:w-[16px] text-ted-red"/>
+          <Button
+            className="p-0"
+            variant="ghost"
+            onClick={(e) => {
+              e.preventDefault();
+              handleRetry(image);
+            }}
+          >
+            <RotateCw className="h-[15px] w-[15px] text-ted-red sm:h-[16px] sm:w-[16px]" />
           </Button>
         ) : (
           <></>
@@ -320,8 +327,12 @@ const FileItem: React.FC<FileItemProps> = ({
             {image.error ? "ERROR" : `${Math.round(image.file.size / 1000)}KB`}
           </p>
         </div>
-        <Button className="p-0" variant="ghost" onClick={() => handleDelete(image)}>
-          <Trash2 className="h-[15px] w-[15px] sm:h-[16px] sm:w-[16px]"/>
+        <Button
+          className="p-0"
+          variant="ghost"
+          onClick={() => handleDelete(image)}
+        >
+          <Trash2 className="h-[15px] w-[15px] sm:h-[16px] sm:w-[16px]" />
         </Button>
       </div>
     </div>
