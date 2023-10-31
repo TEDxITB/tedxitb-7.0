@@ -1,29 +1,14 @@
 import { Input } from "@/components/ui/input";
-
 import React from "react";
 
-const Temp = () => {
+const page = () => {
   return (
-    <div className="flex flex-col gap-8">
-      <Input
-        label="Label"
-        required
-        helpermessage="Helper Message"
-        successmessage="Success Message"
-        errormessage="Error Message"
-        placeholder="Placeholder"
-      />
-      <Input
-        label="Label"
-        required
-        helpermessage="Helper Message"
-        successmessage="Success Message"
-        errormessage="Error Message"
-        placeholder="Placeholder"
-        disabled
-      />
+    <div className="flex flex-row gap-8">
+      <Input placeholder="hello world!" disabled></Input>
+      <Input placeholder="hello world!"></Input>
+      <Input placeholder="hello world!" error></Input>
     </div>
   );
 };
 
-export default Temp;
+export default page;
