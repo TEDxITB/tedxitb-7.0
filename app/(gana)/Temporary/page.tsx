@@ -1,5 +1,5 @@
 import { Textarea } from "@/components/ui/textarea";
-import { Input } from "postcss";
+import { Input } from "@/components/ui/input";
 import React from "react";
 
 const page = () => {
@@ -19,6 +19,9 @@ const page = () => {
         placeholder="lorem ipsum aiuwgef luigf"
         disabled
       ></Textarea>
+      <Input placeholder="hello world!" disabled></Input>
+      <Input placeholder="hello world!"></Input>
+      <Input placeholder="hello world!" error></Input>
     </div>
   );
 };
