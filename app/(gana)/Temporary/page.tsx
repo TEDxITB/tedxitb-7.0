@@ -14,6 +14,11 @@ const page = () => {
         error
         placeholder="lorem ipsum aiuwgef luigf"
       ></Textarea>
+      <Textarea
+        className="h-[200px] w-[550px]"
+        placeholder="lorem ipsum aiuwgef luigf"
+        disabled
+      ></Textarea>
     </div>
   );
 };
