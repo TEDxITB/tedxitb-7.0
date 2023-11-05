@@ -242,7 +242,7 @@ const PaginationDropdown: React.FC<PaginationDropdownProps> = ({
     setPage(parseInt(value));
   };
   return (
-    <div className="flex flex-row gap-4 justify-center items-center">
+    <div className="flex flex-row items-center justify-center gap-4">
       <Select
         onValueChange={handleClick}
         defaultValue={currentPage.toString()}
