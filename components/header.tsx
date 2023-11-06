@@ -11,27 +11,27 @@ const headerLink: {
   name: string;
   path: string;
 }[] = [
-    {
-      name: "Main Event",
-      path: "/test/header",
-    },
-    {
-      name: "Magazine",
-      path: "/test/header/Magazine",
-    },
-    {
-      name: "TED Quiz",
-      path: "/test/header/TEDQuiz",
-    },
-    {
-      name: "Sponsorship",
-      path: "/test/header/Spnsorship",
-    },
-    {
-      name: "Documentation",
-      path: "/test/header/Documentation",
-    },
-  ];
+  {
+    name: "Main Event",
+    path: "/test/header",
+  },
+  {
+    name: "Magazine",
+    path: "/test/header/Magazine",
+  },
+  {
+    name: "TED Quiz",
+    path: "/test/header/TEDQuiz",
+  },
+  {
+    name: "Sponsorship",
+    path: "/test/header/Spnsorship",
+  },
+  {
+    name: "Documentation",
+    path: "/test/header/Documentation",
+  },
+];
 
 export default function Header() {
   const currentPath = usePathname();
@@ -56,20 +56,35 @@ export default function Header() {
             height={100}
           />
         </div>
-        <button className="lg:hidden ml-auto p-5"
-          onClick={() => setShowHeader(true)}>O</button>
-        <div className={`absolute w-screen h-screen bg-black select-none opacity-60 ${showHeader ? "" : "hidden"}`}
-          onClick={() => setShowHeader(false)}></div>
-        <div className={cn(
-          "absolute top-0 right-0 translate-x-full min-w-[40%]",
-          "flex flex-col gap-5 h-full",
-          showHeader ? "translate-x-0" : "",
-          "transition-transform",
-          "lg:relative lg:translate-x-0 ml-auto lg:min-w-0"
-        )}>
-          <div className="absolute lg:hidden w-full h-full bg-black border-l-2 border-white -z-50"></div>
-          <button className="ml-auto lg:hidden p-5" onClick={() => setShowHeader(false)}>X</button>
-          <section className="flex flex-col lg:flex-row lg:items-center gap-5 m-5">
+        <button
+          className="ml-auto p-5 lg:hidden"
+          onClick={() => setShowHeader(true)}
+        >
+          O
+        </button>
+        <div
+          className={`absolute h-screen w-screen select-none bg-black opacity-60 ${
+            showHeader ? "" : "hidden"
+          }`}
+          onClick={() => setShowHeader(false)}
+        ></div>
+        <div
+          className={cn(
+            "absolute right-0 top-0 min-w-[40%] translate-x-full",
+            "flex h-full flex-col gap-5",
+            showHeader ? "translate-x-0" : "",
+            "transition-transform",
+            "ml-auto lg:relative lg:min-w-0 lg:translate-x-0"
+          )}
+        >
+          <div className="absolute -z-50 h-full w-full border-l-2 border-white bg-black lg:hidden"></div>
+          <button
+            className="ml-auto p-5 lg:hidden"
+            onClick={() => setShowHeader(false)}
+          >
+            X
+          </button>
+          <section className="m-5 flex flex-col gap-5 lg:flex-row lg:items-center">
             {headerLink.map(({ name, path: url }) => {
               return (
                 <Link
@@ -86,6 +101,6 @@ export default function Header() {
         </div>
       </div>
       <span className="h-2 w-full bg-white bg-gradient-to-b from-ted-red to-black"></span>
-    </header >
+    </header>
   );
 }
