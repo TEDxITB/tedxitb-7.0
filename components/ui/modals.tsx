@@ -1,5 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
 
 interface ModalsProps {
   variant: "type-1" | "type-2" | "type-3" | "type-4";
@@ -15,60 +24,53 @@ const backgroundImages = {
   "type-4": "/modalBackgroundType4.png",
 };
 
-const titleColorType = {
-  "type-1": "ted-red",
-  "type-2": "ted-white",
-  "type-3": "ted-white",
-  "type-4": "ted-white",
-};
-
-const descriptionColorType = {
-  "type-1": "ted-black",
-  "type-2": "ted-white",
-  "type-3": "ted-white",
-  "type-4": "ted-white",
-};
-
 const Modals: React.FC<ModalsProps> = ({
   variant,
   modalTitle,
   modalDescription,
   modalSubDescription,
 }) => {
-  const titleColor = titleColorType[variant];
-  const descriptionColor = descriptionColorType[variant];
 
   return (
-    <div
-      className={`h-[375px] w-[600px] rounded-[15px] border border-ted-black border-opacity-25`}
-    >
-      <Image
-        src={`${backgroundImages[variant]}`}
-        alt={"backgroundImage"}
-        className={`min-w-full ${
-          variant == "type-1" ? "rounded-t-[15px]" : "rounded-[15px]"
-        }`}
-        width={400}
-        height={400}
-      ></Image>
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-y-4">
-        <h2
-          className={`text-${titleColor} font-anderson text-[48px] font-[700] leading-[59px]`}
-        >
-          {modalTitle}
-        </h2>
-        <p
-          className={`text-${descriptionColor} font-anderson text-[24px] font-[400] leading-[30px]`}
-        >
-          {modalDescription}
-        </p>
-        <p
-          className={`font-anderson text-[16px] font-[400] leading-[20px] text-[#CACACA]`}
-        >
-          {modalSubDescription}
-        </p>
-      </div>
-    </div>
+    <Dialog>
+      <DialogTrigger className="rounded-lg border border-black px-4 py-2">
+        Open
+      </DialogTrigger>
+      <DialogContent
+        className={`flex h-[320px] w-[600px] items-center justify-center rounded-[15px] border border-ted-black border-opacity-25`}
+      >
+        <Image
+          src={`${backgroundImages[variant]}`}
+          alt={"backgroundImage"}
+          className={`absolute min-w-full ${
+            variant == "type-1" ? "top-0 rounded-t-lg" : "rounded-lg z-[-1]"
+          }`}
+          width={400}
+          height={400}
+        ></Image>
+        <DialogHeader>
+          <DialogTitle
+            className={`${
+              variant === "type-1" ? "text-ted-red" : "text-ted-white"
+            } font-anderson text-[48px] font-[700] leading-[59px]`}
+          >
+            {modalTitle}
+          </DialogTitle>
+          <DialogDescription
+            className={`${
+              variant === "type-1" ? "text-ted-black" : "text-ted-white"
+            } font-anderson text-[24px] font-[400] leading-[30px]`}
+          >
+            {modalDescription}
+          </DialogDescription>
+          <label
+            className={`text-center font-anderson text-[16px] font-[400] leading-[20px] text-[#CACACA]`}
+          >
+            {modalSubDescription}
+          </label>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
   );
 };
 
