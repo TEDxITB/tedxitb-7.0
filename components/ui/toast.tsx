@@ -15,7 +15,7 @@ const ToastViewport = React.forwardRef<
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col w-[650px]",
+      "fixed top-0 z-[100] flex max-h-screen w-[650px] w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col",
       className
     )}
     {...props}
@@ -28,17 +28,17 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        'error': "",
-          'error-icon': "",
-          'success': "",
-          'success-icon': "",
-          'profile': "",
-          'profile-icon': "",
-          'warning': "",
-          'warning-icon': "",
-          'loading': "",
-          'loading-icon': "",
-          default: "border bg-background text-foreground",
+        error: "",
+        "error-icon": "",
+        success: "",
+        "success-icon": "",
+        profile: "",
+        "profile-icon": "",
+        warning: "",
+        "warning-icon": "",
+        loading: "",
+        "loading-icon": "",
+        default: "border bg-background text-foreground",
       },
     },
     defaultVariants: {
@@ -68,10 +68,7 @@ const ToastAction = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Action
     ref={ref}
-    className={cn(
-      "bg-black",
-      className
-    )}
+    className={cn("bg-black", className)}
     {...props}
   />
 ));
@@ -83,10 +80,7 @@ const ToastClose = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Close
     ref={ref}
-    className={cn(
-      "absolute right-6 top-6",
-      className
-    )}
+    className={cn("absolute right-6 top-6", className)}
     toast-close=""
     {...props}
   >
