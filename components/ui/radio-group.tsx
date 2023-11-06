@@ -33,7 +33,7 @@ const radioVariants = cva(
     defaultVariants: {
       color: "default",
     },
-  },
+  }
 );
 
 const RadioGroupItem = React.forwardRef<

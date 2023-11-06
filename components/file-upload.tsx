@@ -134,7 +134,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
               error: error,
             };
             const exist = images.find(
-              (val) => val.file.name === image.file.name,
+              (val) => val.file.name === image.file.name
             );
             if (!exist) setImages((val) => [...val, image]);
           }
@@ -175,7 +175,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
         inputRef.current.multiple = false;
         inputRef.current.click();
         const index = images.findIndex(
-          (val) => val.file.name === image.file.name,
+          (val) => val.file.name === image.file.name
         );
         setIndexRetry(index);
       }
@@ -230,7 +230,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
         </div>
       </section>
     );
-  },
+  }
 );
 
 FileUpload.displayName = "FileUpload";
@@ -290,7 +290,7 @@ const FileItem: React.FC<FileItemProps> = ({
           <p
             className={cn(
               "hyphens-auto font-montserrat text-[11px] leading-[14px] sm:text-xs",
-              image.error ? "text-ted-red" : "text-[#1CCA00]",
+              image.error ? "text-ted-red" : "text-[#1CCA00]"
             )}
           >
             {image.error ? `${image.error}` : "Completed"}
@@ -315,13 +315,13 @@ const FileItem: React.FC<FileItemProps> = ({
         <div
           className={cn(
             "flex items-center justify-center rounded-md border  px-2 py-1",
-            image.error ? "border-ted-red" : "border-[#CDD3D8]",
+            image.error ? "border-ted-red" : "border-[#CDD3D8]"
           )}
         >
           <p
             className={cn(
               "font-anderson text-[11px] font-bold leading-3",
-              image.error ? "text-ted-red" : "text-[#242634]",
+              image.error ? "text-ted-red" : "text-[#242634]"
             )}
           >
             {image.error ? "ERROR" : `${Math.round(image.file.size / 1000)}KB`}
