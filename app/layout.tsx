@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { Toaster } from "@/components/ui/toaster";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -34,13 +35,14 @@ export default function RootLayout({
         className={`${montserrat.className} ${anderson.variable} bg-ted-black`}
       >
         {children}
+        <Toaster />
       </body>
 
       {/* Hotjar */}
       <Script
         id="hotjar"
         dangerouslySetInnerHTML={{
-          __html: `function(h,o,t,j,a,r){
+          __html: `(function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
             h._hjSettings={hjid:3323572,hjsv:6};
             a=o.getElementsByTagName('head')[0];
