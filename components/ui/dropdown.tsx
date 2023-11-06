@@ -24,7 +24,7 @@ const SelectTrigger = React.forwardRef<
     className={cn(
       "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
       "outline-none ring-offset-2 ring-offset-background focus:ring-2 data-[state=open]:ring-2 data-[state=open]:ring-ted-red",
-      className
+      className,
     )}
     {...props}
   >
@@ -48,7 +48,7 @@ const SelectContent = React.forwardRef<
         position === "popper" &&
           "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
         "border-none",
-        className
+        className,
       )}
       position={position}
       {...props}
@@ -58,7 +58,7 @@ const SelectContent = React.forwardRef<
           "p-1",
           position === "popper" &&
             "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]",
-          "p-0"
+          "p-0",
         )}
       >
         {children}
@@ -89,7 +89,7 @@ const SelectItem = React.forwardRef<
     className={cn(
       "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       "rounded-none bg-white py-3 focus:bg-[#EEEEEE]",
-      className
+      className,
     )}
     {...props}
   >
