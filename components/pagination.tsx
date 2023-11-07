@@ -255,7 +255,7 @@ const PaginationDropdown: React.FC<PaginationDropdownProps> = ({
         >
           <SelectValue placeholder={currentPage} />
         </SelectTrigger>
-        <SelectContent className=" min-w-[60px]  sm:min-w-[70px] md:min-w-[80px] h-fit">
+        <SelectContent className=" h-fit  min-w-[60px] sm:min-w-[70px] md:min-w-[80px]">
           <ScrollArea className="h-52 w-full">
             {numArr.map((num) => (
               <SelectItem
