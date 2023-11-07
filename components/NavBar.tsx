@@ -12,27 +12,27 @@ const navLink: {
   name: string;
   path: string;
 }[] = [
-  {
-    name: "Main Event",
-    path: "/test/header",
-  },
-  {
-    name: "Magazine",
-    path: "/test/header/Magazine",
-  },
-  {
-    name: "TED Quiz",
-    path: "/test/header/TEDQuiz",
-  },
-  {
-    name: "Sponsorship",
-    path: "/test/header/Spnsorship",
-  },
-  {
-    name: "Documentation",
-    path: "/test/header/Documentation",
-  },
-];
+    {
+      name: "Main Event",
+      path: "/test/header",
+    },
+    {
+      name: "Magazine",
+      path: "/test/header/Magazine",
+    },
+    {
+      name: "TED Quiz",
+      path: "/test/header/TEDQuiz",
+    },
+    {
+      name: "Sponsorship",
+      path: "/test/header/Spnsorship",
+    },
+    {
+      name: "Documentation",
+      path: "/test/header/Documentation",
+    },
+  ];
 
 export default function NavBar() {
   const currentPath = usePathname();
@@ -65,7 +65,7 @@ export default function NavBar() {
           className="ml-auto p-5 text-4xl lg:hidden"
           onClick={() => setShowHeader(true)}
         >
-          <MenuIcon />
+          <MenuIcon className="h-8 w-8" />
         </button>
         <div
           className={cn(
@@ -80,7 +80,7 @@ export default function NavBar() {
               "pointer-events-auto absolute right-0 top-0 flex h-full min-w-[40%] translate-x-full flex-col gap-5 transition-transform",
               showHeader ? "translate-x-0" : "",
               "transition-transform",
-              "lg:relative lg:min-w-0 lg:translate-x-0"
+              "lg:relative lg:min-w-0 lg:translate-x-0 lg:gap-0"
             )}
             onClick={(e) => e.stopPropagation()}
           >
@@ -93,16 +93,16 @@ export default function NavBar() {
                 alt="Bubble"
               />
               <Image fill alt="bg" src={"/header-mobile-bg.png"} />
-              {/* <div className="absolute h-full w-full bg-[url(/header-mobile-bg.png)] bg-cover bg-left-bottom" /> */}
               <div className="absolute -z-10 h-full w-full bg-black"></div>
             </div>
             <button
-              className="text-bol ml-auto p-5 text-4xl lg:hidden"
+              aria-label="menu-close"
+              className="text-bol ml-auto p-5 text-4xl lg:hidden mt-4"
               onClick={() => setShowHeader(false)}
             >
-              <XIcon aria-label="menu-close" />
+              <XIcon className="h-8 w-8" />
             </button>
-            <ul className="m-5 flex flex-col gap-5 lg:flex-row lg:items-center">
+            <ul className="m-6 lg:m-5 flex flex-col gap-5 lg:flex-row lg:items-center">
               {navLink.map(({ name, path: url }) => {
                 return (
                   <li key={name}>
@@ -115,7 +115,7 @@ export default function NavBar() {
                   </li>
                 );
               })}
-              <Button size={"lg"}>Sign In</Button>
+              <Button size={"lg"} className="p-7">Sign In</Button>
             </ul>
             <Link className="mt-auto" href={"/"}>
               <Image
