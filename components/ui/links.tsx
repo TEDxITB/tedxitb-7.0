@@ -13,7 +13,7 @@ const Links: React.FC<linkProps> = ({ href, children, target, ...props }) => {
       href={href}
       target={target}
       {...props}
-      className="visited:text-[#3F1871] group"
+      className="group visited:text-[#3F1871]"
     >
       <div className="flex cursor-pointer flex-row items-center gap-x-4">
         <IconLink className="text-[#0079FF] group-hover:text-[#004797]" />
