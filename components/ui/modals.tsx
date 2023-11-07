@@ -7,8 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-
+} from "@/components/ui/dialog";
 
 interface ModalsProps {
   variant: "type-1" | "type-2" | "type-3" | "type-4";
@@ -30,7 +29,6 @@ const Modals: React.FC<ModalsProps> = ({
   modalDescription,
   modalSubDescription,
 }) => {
-
   return (
     <Dialog>
       <DialogTrigger className="rounded-lg border border-black px-4 py-2">
@@ -43,7 +41,7 @@ const Modals: React.FC<ModalsProps> = ({
           src={`${backgroundImages[variant]}`}
           alt={"backgroundImage"}
           className={`absolute min-w-full ${
-            variant == "type-1" ? "top-0 rounded-t-lg" : "rounded-lg z-[-1]"
+            variant == "type-1" ? "top-0 rounded-t-lg" : "z-[-1] rounded-lg"
           }`}
           width={400}
           height={400}
