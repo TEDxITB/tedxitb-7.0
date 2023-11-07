@@ -6,61 +6,66 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { MenuIcon, XIcon } from "lucide-react";
 
-const headerLink: {
+const navLink: {
   name: string;
   path: string;
 }[] = [
-  {
-    name: "Main Event",
-    path: "/test/header",
-  },
-  {
-    name: "Magazine",
-    path: "/test/header/Magazine",
-  },
-  {
-    name: "TED Quiz",
-    path: "/test/header/TEDQuiz",
-  },
-  {
-    name: "Sponsorship",
-    path: "/test/header/Spnsorship",
-  },
-  {
-    name: "Documentation",
-    path: "/test/header/Documentation",
-  },
-];
+    {
+      name: "Main Event",
+      path: "/test/header",
+    },
+    {
+      name: "Magazine",
+      path: "/test/header/Magazine",
+    },
+    {
+      name: "TED Quiz",
+      path: "/test/header/TEDQuiz",
+    },
+    {
+      name: "Sponsorship",
+      path: "/test/header/Spnsorship",
+    },
+    {
+      name: "Documentation",
+      path: "/test/header/Documentation",
+    },
+  ];
 
-export default function Header() {
+export default function NavBar() {
   const currentPath = usePathname();
   const [showHeader, setShowHeader] = useState(false);
 
   return (
-    <header className="flex flex-col text-white">
+    <nav className="flex flex-col text-white">
       <div className="flex flex-row items-center">
         <div className="relative flex pl-5 lg:align-middle">
           <Image
+            priority
             className="absolute left-20 top-0 -translate-x-1/2 -translate-y-1/2 opacity-25"
             src={"/effect1.png"}
             width={400}
             height={400}
             alt=""
           />
-          <Image
-            className="static object-contain"
-            src={"/tedxitb-logo-white.png"}
-            alt="Logo"
-            width={200}
-            height={100}
-          />
+          <Link href={"/"}>
+            <Image
+              className="static object-contain"
+              src={"/tedxitb-logo-white.png"}
+              alt="Logo"
+              width={200}
+              height={100}
+            />
+          </Link>
         </div>
         <button
+          aria-label="menu"
           className="ml-auto p-5 text-4xl lg:hidden"
           onClick={() => setShowHeader(true)}
         >
-          ≡
+          <MenuIcon />
         </button>
         <div
           className={cn(
@@ -87,40 +92,48 @@ export default function Header() {
                 height={100}
                 alt="Bubble"
               />
-              <div className="absolute h-full w-full bg-[url(/header-mobile-bg.png)] bg-cover bg-left-bottom" />
+              <Image
+                fill
+                alt="bg"
+                src={"/header-mobile-bg.png"}
+              />
+              {/* <div className="absolute h-full w-full bg-[url(/header-mobile-bg.png)] bg-cover bg-left-bottom" /> */}
               <div className="absolute -z-10 h-full w-full bg-black"></div>
             </div>
             <button
               className="text-bol ml-auto p-5 text-4xl lg:hidden"
               onClick={() => setShowHeader(false)}
             >
-              X
+              <XIcon aria-label="menu-close" />
             </button>
-            <section className="m-5 flex flex-col gap-5 lg:flex-row lg:items-center">
-              {headerLink.map(({ name, path: url }) => {
+            <ul className="m-5 flex flex-col gap-5 lg:flex-row lg:items-center">
+              {navLink.map(({ name, path: url }) => {
                 return (
-                  <Link
-                    href={url}
-                    className={`${currentPath == url ? "text-ted-red" : ""}`}
-                    key={name}
-                  >
-                    {name}
-                  </Link>
+                  <li key={name}>
+                    <Link
+                      href={url}
+                      className={`${currentPath == url ? "text-ted-red" : ""}`}
+                    >
+                      {name}
+                    </Link>
+                  </li>
                 );
               })}
-              <Button>Sign In</Button>
-            </section>
-            <Image
-              className="static mt-auto object-contain pb-5 lg:hidden"
-              src={"/tedxitb-logo-white.png"}
-              alt="Logo"
-              width={200}
-              height={100}
-            />
+              <Button size={"lg"}>Sign In</Button>
+            </ul>
+            <Link className="mt-auto" href={"/"}>
+              <Image
+                className="static object-contain pb-5 lg:hidden"
+                src={"/tedxitb-logo-white.png"}
+                alt="Logo"
+                width={200}
+                height={100}
+              />
+            </Link>
           </div>
         </div>
       </div>
       <span className="h-2 w-full bg-white bg-gradient-to-b from-ted-red to-black"></span>
-    </header>
+    </nav>
   );
 }

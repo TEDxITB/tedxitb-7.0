@@ -1,6 +1,6 @@
 "use client";
-import Header from "@/components/header";
+import NavBar from "@/components/NavBar";
 
 export default function Page() {
-  return <Header />;
+  return <NavBar />;
 }
