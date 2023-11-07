@@ -168,11 +168,12 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
     if (control === "icon") {
       return (
         <button
+          disabled={currentPage === 1}
           onClick={handleOnPrev}
           className={cn(
             paginationVariants({
               variant: variant,
-              className: "bg-white text-black hover:bg-gray-100",
+              className: "bg-white text-black hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400",
             })
           )}
         >
@@ -183,12 +184,13 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
     if (control === "text") {
       return (
         <button
+          disabled={currentPage === 1}
           onClick={handleOnPrev}
           className={cn(
             paginationVariants({
               variant: variant,
               className:
-                "mr-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 md:mr-2",
+                "mr-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 md:mr-2 disabled:cursor-not-allowed disabled:text-gray-400",
             })
           )}
         >
@@ -202,11 +204,12 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
     if (control === "icon") {
       return (
         <button
+          disabled={currentPage === totalPages}
           onClick={handleOnNext}
           className={cn(
             paginationVariants({
               variant: variant,
-              className: "bg-white text-black hover:bg-gray-100",
+              className: "bg-white text-black hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400",
             })
           )}
         >
@@ -217,12 +220,13 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
     if (control === "text") {
       return (
         <button
+          disabled={currentPage === totalPages}
           onClick={handleOnNext}
           className={cn(
             paginationVariants({
               variant: variant,
               className:
-                "ml-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 md:ml-2",
+                "ml-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 md:ml-2 disabled:cursor-not-allowed disabled:text-gray-400",
             })
           )}
         >
@@ -255,7 +259,7 @@ const PaginationDropdown: React.FC<PaginationDropdownProps> = ({
         >
           <SelectValue placeholder={currentPage} />
         </SelectTrigger>
-        <SelectContent className=" min-w-[60px]  sm:min-w-[70px] md:min-w-[80px] h-fit">
+        <SelectContent className=" h-fit  min-w-[60px] sm:min-w-[70px] md:min-w-[80px]">
           <ScrollArea className="h-52 w-full">
             {numArr.map((num) => (
               <SelectItem
