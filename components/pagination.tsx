@@ -173,7 +173,8 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
           className={cn(
             paginationVariants({
               variant: variant,
-              className: "bg-white text-black hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400",
+              className:
+                "bg-white text-black hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400",
             })
           )}
         >
@@ -190,7 +191,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
             paginationVariants({
               variant: variant,
               className:
-                "mr-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 md:mr-2 disabled:cursor-not-allowed disabled:text-gray-400",
+                "mr-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 disabled:cursor-not-allowed disabled:text-gray-400 md:mr-2",
             })
           )}
         >
@@ -209,7 +210,8 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
           className={cn(
             paginationVariants({
               variant: variant,
-              className: "bg-white text-black hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400",
+              className:
+                "bg-white text-black hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400",
             })
           )}
         >
@@ -226,7 +228,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
             paginationVariants({
               variant: variant,
               className:
-                "ml-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 md:ml-2 disabled:cursor-not-allowed disabled:text-gray-400",
+                "ml-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 disabled:cursor-not-allowed disabled:text-gray-400 md:ml-2",
             })
           )}
         >
