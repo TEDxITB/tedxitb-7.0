@@ -15,6 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/dropdown";
+import { ScrollArea } from "./ui/scroll-area";
 
 const paginationVariants = cva(
   "flex h-[30px] w-[30px] md:h-[40px] md:w-[40px] sm:h-[35px] sm:w-[35px] items-center justify-center border border-black/10 font-anderson text-xs sm:text-base md:text-[20px]",
@@ -242,7 +243,7 @@ const PaginationDropdown: React.FC<PaginationDropdownProps> = ({
     setPage(parseInt(value));
   };
   return (
-    <div className="flex flex-row gap-4 justify-center items-center">
+    <div className="flex flex-row items-center justify-center gap-4">
       <Select
         onValueChange={handleClick}
         defaultValue={currentPage.toString()}
@@ -254,16 +255,18 @@ const PaginationDropdown: React.FC<PaginationDropdownProps> = ({
         >
           <SelectValue placeholder={currentPage} />
         </SelectTrigger>
-        <SelectContent className="min-w-[60px] sm:min-w-[70px] md:min-w-[80px]">
-          {numArr.map((num) => (
-            <SelectItem
-              value={`${num}`}
-              key={num}
-              className="flex flex-row items-center justify-between pl-12"
-            >
-              {num}
-            </SelectItem>
-          ))}
+        <SelectContent className=" min-w-[60px]  sm:min-w-[70px] md:min-w-[80px] h-fit">
+          <ScrollArea className="h-52 w-full">
+            {numArr.map((num) => (
+              <SelectItem
+                value={`${num}`}
+                key={num}
+                className="flex flex-row items-center justify-between pl-12"
+              >
+                {num}
+              </SelectItem>
+            ))}
+          </ScrollArea>
         </SelectContent>
       </Select>
       <p className="font-anderson text-xs sm:text-base md:text-[20px]">
