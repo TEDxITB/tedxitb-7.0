@@ -12,27 +12,27 @@ const navLink: {
   name: string;
   path: string;
 }[] = [
-    {
-      name: "Main Event",
-      path: "/test/header",
-    },
-    {
-      name: "Magazine",
-      path: "/test/header/Magazine",
-    },
-    {
-      name: "TED Quiz",
-      path: "/test/header/TEDQuiz",
-    },
-    {
-      name: "Sponsorship",
-      path: "/test/header/Spnsorship",
-    },
-    {
-      name: "Documentation",
-      path: "/test/header/Documentation",
-    },
-  ];
+  {
+    name: "Main Event",
+    path: "/test/header",
+  },
+  {
+    name: "Magazine",
+    path: "/test/header/Magazine",
+  },
+  {
+    name: "TED Quiz",
+    path: "/test/header/TEDQuiz",
+  },
+  {
+    name: "Sponsorship",
+    path: "/test/header/Spnsorship",
+  },
+  {
+    name: "Documentation",
+    path: "/test/header/Documentation",
+  },
+];
 
 export default function NavBar() {
   const currentPath = usePathname();
@@ -92,11 +92,7 @@ export default function NavBar() {
                 height={100}
                 alt="Bubble"
               />
-              <Image
-                fill
-                alt="bg"
-                src={"/header-mobile-bg.png"}
-              />
+              <Image fill alt="bg" src={"/header-mobile-bg.png"} />
               {/* <div className="absolute h-full w-full bg-[url(/header-mobile-bg.png)] bg-cover bg-left-bottom" /> */}
               <div className="absolute -z-10 h-full w-full bg-black"></div>
             </div>
