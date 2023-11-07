@@ -12,27 +12,27 @@ const navLink: {
   name: string;
   path: string;
 }[] = [
-  {
-    name: "Main Event",
-    path: "/test/header",
-  },
-  {
-    name: "Magazine",
-    path: "/test/header/Magazine",
-  },
-  {
-    name: "TED Quiz",
-    path: "/test/header/TEDQuiz",
-  },
-  {
-    name: "Sponsorship",
-    path: "/test/header/Spnsorship",
-  },
-  {
-    name: "Documentation",
-    path: "/test/header/Documentation",
-  },
-];
+    {
+      name: "Main Event",
+      path: "/test/header",
+    },
+    {
+      name: "Magazine",
+      path: "/test/header/Magazine",
+    },
+    {
+      name: "TED Quiz",
+      path: "/test/header/TEDQuiz",
+    },
+    {
+      name: "Sponsorship",
+      path: "/test/header/Spnsorship",
+    },
+    {
+      name: "Documentation",
+      path: "/test/header/Documentation",
+    },
+  ];
 
 export default function NavBar() {
   const currentPath = usePathname();
@@ -102,7 +102,7 @@ export default function NavBar() {
             >
               <XIcon className="h-8 w-8" />
             </button>
-            <ul className="m-6 flex flex-col gap-5 lg:m-5 lg:flex-row lg:items-center">
+            <ul className="m-6 flex flex-col gap-5 lg:gap-8 lg:m-5 lg:flex-row lg:items-center">
               {navLink.map(({ name, path: url }) => {
                 return (
                   <li key={name}>
@@ -115,7 +115,7 @@ export default function NavBar() {
                   </li>
                 );
               })}
-              <Button size={"lg"} className="p-7">
+              <Button size={"lg"} className="px-7">
                 Sign In
               </Button>
             </ul>
