@@ -35,17 +35,11 @@ export default function RootLayout({
         className={`${montserrat.className} ${anderson.variable} bg-ted-black`}
       >
         <div className="m-10 grid gap-6">
-        <Breadcrumbs
-          homeElement={'Home'}
-          variant='default'
-        />
-        <Breadcrumbs
-          homeElement={'Home'}
-          variant='highlighted'
-        />
+          <Breadcrumbs homeElement={"Home"} variant="default" />
+          <Breadcrumbs homeElement={"Home"} variant="highlighted" />
         </div>
         {children}
-      </body> 
+      </body>
 
       {/* Hotjar */}
       <Script
