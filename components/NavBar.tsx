@@ -12,34 +12,34 @@ const navLink: {
   name: string;
   path: string;
 }[] = [
-  {
-    name: "Main Event",
-    path: "/test/header",
-  },
-  {
-    name: "Magazine",
-    path: "/test/header/Magazine",
-  },
-  {
-    name: "TED Quiz",
-    path: "/test/header/TEDQuiz",
-  },
-  {
-    name: "Sponsorship",
-    path: "/test/header/Spnsorship",
-  },
-  {
-    name: "Documentation",
-    path: "/test/header/Documentation",
-  },
-];
+    {
+      name: "Main Event",
+      path: "/test/header",
+    },
+    {
+      name: "Magazine",
+      path: "/test/header/Magazine",
+    },
+    {
+      name: "TED Quiz",
+      path: "/test/header/TEDQuiz",
+    },
+    {
+      name: "Sponsorship",
+      path: "/test/header/Spnsorship",
+    },
+    {
+      name: "Documentation",
+      path: "/test/header/Documentation",
+    },
+  ];
 
 export default function NavBar() {
   const currentPath = usePathname();
   const [showHeader, setShowHeader] = useState(false);
 
   return (
-    <nav className="flex flex-col text-white">
+    <nav className="flex flex-col text-white sticky w-screen top-0">
       <div className="flex flex-row items-center">
         <div className="relative flex pl-5 lg:align-middle">
           <Image
