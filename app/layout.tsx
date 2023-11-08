@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -33,14 +34,24 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} ${anderson.variable} bg-ted-black`}
       >
+        <div className="m-10 grid gap-6">
+        <Breadcrumbs
+          homeElement={'Home'}
+          variant='default'
+        />
+        <Breadcrumbs
+          homeElement={'Home'}
+          variant='highlighted'
+        />
+        </div>
         {children}
-      </body>
+      </body> 
 
       {/* Hotjar */}
       <Script
         id="hotjar"
         dangerouslySetInnerHTML={{
-          __html: `function(h,o,t,j,a,r){
+          __html: `(function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
             h._hjSettings={hjid:3323572,hjsv:6};
             a=o.getElementsByTagName('head')[0];
