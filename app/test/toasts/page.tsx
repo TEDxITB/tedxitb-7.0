@@ -23,7 +23,8 @@ export default function ToastsTest() {
       <Button
         onClick={() => {
           toast({
-            variant: "error-icon",
+            variant: "error",
+            icon: true,
             title: "Error",
             description: "Lorem ipsum dolor sit amet",
           });
@@ -45,7 +46,8 @@ export default function ToastsTest() {
       <Button
         onClick={() => {
           toast({
-            variant: "success-icon",
+            variant: "success",
+            icon: true,
             title: "Success",
             description: "Lorem ipsum dolor sit amet",
           });
@@ -67,7 +69,8 @@ export default function ToastsTest() {
       <Button
         onClick={() => {
           toast({
-            variant: "profile-icon",
+            variant: "profile",
+            icon: true,
             title: "Profile",
             description: "Lorem ipsum dolor sit amet",
           });
@@ -89,7 +92,8 @@ export default function ToastsTest() {
       <Button
         onClick={() => {
           toast({
-            variant: "warning-icon",
+            variant: "warning",
+            icon: true,
             title: "Warning",
             description: "Lorem ipsum dolor sit amet",
           });
@@ -111,7 +115,8 @@ export default function ToastsTest() {
       <Button
         onClick={() => {
           toast({
-            variant: "loading-icon",
+            variant: "loading",
+            icon: true,
             title: "Loading",
             description: "Please Wait a Moment...",
           });

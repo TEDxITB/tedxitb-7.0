@@ -1,5 +1,5 @@
-// Import necessary modules
 "use client";
+
 import {
   Toast,
   ToastClose,
@@ -15,11 +15,11 @@ export function Toaster() {
   const { toasts } = useToast();
 
   const variantIcons: Record<string, string> = {
-    "error-icon": "/ErrorIcon.svg",
-    "success-icon": "/SuccessIcon.svg",
-    "profile-icon": "/ProfileIcon.svg",
-    "warning-icon": "/WarningIcon.svg",
-    "loading-icon": "/LoadingIcon.svg",
+    error: "/ErrorIcon.svg",
+    success: "/SuccessIcon.svg",
+    profile: "/ProfileIcon.svg",
+    warning: "/WarningIcon.svg",
+    loading: "/LoadingIcon.svg",
   };
 
   return (
@@ -30,27 +30,21 @@ export function Toaster() {
         description,
         action,
         variant,
+        icon,
         ...props
       }) {
         const variantStyles: Record<string, string> = {
           error: "bg-[#FF335B] w-5 text-foreground",
-          "error-icon": "bg-[#FF335B] w-5 text-foreground",
           success: "bg-[#49D662] w-5 text-foreground",
-          "success-icon": "bg-[#49D662] w-5 text-foreground",
           profile: "bg-[#FCBF0E] w-5 text-foreground",
-          "profile-icon": "bg-[#FCBF0E] w-5 text-foreground",
           warning: "bg-[#2E86E8] w-5 text-foreground",
-          "warning-icon": "bg-[#2E86E8] w-5 text-foreground",
           loading: "bg-black w-5 text-foreground",
-          "loading-icon": "bg-black w-5 text-foreground",
         };
 
         const variantStyle = variant ? variantStyles[variant] || "" : "";
-
         const typeVariant = variant as string;
-
-        const shouldShowIcon =
-          variant && variantIcons[typeVariant] !== undefined;
+        const shouldShowIcon = icon == true;
+        const iconClass = shouldShowIcon ? (variant === 'loading' ? 'animate-spin ' : '') : '';
 
         return (
           <Toast key={id} {...props}>
@@ -60,9 +54,9 @@ export function Toaster() {
                 <Image
                   src={variantIcons[typeVariant] || variantIcons.default}
                   alt={typeVariant}
-                  className="mx-5 w-16"
-                  width={32}
-                  height={32}
+                  className={`ml-4 ${iconClass}`}
+                  width={50}
+                  height={50}
                 />
               )}
               <div className={`${shouldShowIcon ? "" : "ml-10"}`}>
