@@ -44,7 +44,11 @@ export function Toaster() {
         const variantStyle = variant ? variantStyles[variant] || "" : "";
         const typeVariant = variant as string;
         const shouldShowIcon = icon == true;
-        const iconClass = shouldShowIcon ? (variant === 'loading' ? 'animate-spin ' : '') : '';
+        const iconClass = shouldShowIcon
+          ? variant === "loading"
+            ? "animate-spin "
+            : ""
+          : "";
 
         return (
           <Toast key={id} {...props}>
