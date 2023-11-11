@@ -34,11 +34,11 @@ export function Toaster() {
         ...props
       }) {
         const variantStyles: Record<string, string> = {
-          error: "bg-[#FF335B] w-5 text-foreground",
-          success: "bg-[#49D662] w-5 text-foreground",
-          profile: "bg-[#FCBF0E] w-5 text-foreground",
-          warning: "bg-[#2E86E8] w-5 text-foreground",
-          loading: "bg-black w-5 text-foreground",
+          error: "bg-[#FF335B] w-3 text-foreground",
+          success: "bg-[#49D662] w-3 text-foreground",
+          profile: "bg-[#FCBF0E] w-3 text-foreground",
+          warning: "bg-[#2E86E8] w-3 text-foreground",
+          loading: "bg-black w-3 text-foreground",
         };
 
         const variantStyle = variant ? variantStyles[variant] || "" : "";
@@ -59,8 +59,8 @@ export function Toaster() {
                   src={variantIcons[typeVariant] || variantIcons.default}
                   alt={typeVariant}
                   className={`ml-4 ${iconClass}`}
-                  width={50}
-                  height={50}
+                  width={40}
+                  height={40}
                 />
               )}
               <div className={`${shouldShowIcon ? "" : "ml-10"}`}>
