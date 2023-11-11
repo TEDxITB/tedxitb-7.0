@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+const plugin = require("tailwindcss/plugin");
+
 const config: Config = {
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -16,6 +18,11 @@ const config: Config = {
       },
     },
     extend: {
+      textShadow: {
+        sm: "0 1px 2px var(--tw-shadow-color)",
+        DEFAULT: "0 2px 4px var(--tw-shadow-color)",
+        lg: "0 2px 6px var(--tw-shadow-color)",
+      },
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],
         anderson: ["var(--font-anderson)"],
@@ -24,6 +31,7 @@ const config: Config = {
         "ted-red": "#FF2B06",
         "ted-black": "#000000",
         "ted-white": "#FFFFFF",
+        "ted-opaque-red": "#FFE0DA",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -79,6 +87,18 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(function ({ matchUtilities, theme }: any) {
+      matchUtilities(
+        {
+          "text-shadow": (value: any) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme("textShadow") }
+      );
+    }),
+  ],
 };
 export default config;

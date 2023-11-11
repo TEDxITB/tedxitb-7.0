@@ -40,7 +40,7 @@ export default function RootLayout({
       <Script
         id="hotjar"
         dangerouslySetInnerHTML={{
-          __html: `function(h,o,t,j,a,r){
+          __html: `(function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
             h._hjSettings={hjid:3323572,hjsv:6};
             a=o.getElementsByTagName('head')[0];
