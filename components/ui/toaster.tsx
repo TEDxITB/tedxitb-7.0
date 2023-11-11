@@ -63,7 +63,7 @@ export function Toaster() {
                   height={40}
                 />
               )}
-              <div className={`${shouldShowIcon ? "" : "ml-10"}`}>
+              <div className={`${shouldShowIcon ? "" : "ml-4"}`}>
                 {title && <ToastTitle>{title}</ToastTitle>}
                 {description && (
                   <ToastDescription>{description}</ToastDescription>
