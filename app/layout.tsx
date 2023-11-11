@@ -4,7 +4,6 @@ import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
-import Breadcrumbs from "@/components/ui/breadcrumbs";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -35,16 +34,6 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} ${anderson.variable} bg-ted-black`}
       >
-        <div className="m-10 grid gap-6">
-        <Breadcrumbs
-          homeElement={'Home'}
-          variant='default'
-        />
-        <Breadcrumbs
-          homeElement={'Home'}
-          variant='highlighted'
-        />
-        </div>
         {children}
         <Toaster />
       </body>
