@@ -53,7 +53,7 @@ export function Toaster() {
         return (
           <Toast key={id} {...props}>
             <div className={variantStyle}></div>
-            <div className="my-5 flex flex-row gap-5">
+            <div className="my-5 flex flex-row items-center gap-5">
               {shouldShowIcon && (
                 <Image
                   src={variantIcons[typeVariant] || variantIcons.default}
