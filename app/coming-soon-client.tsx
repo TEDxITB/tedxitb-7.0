@@ -254,7 +254,7 @@ function ComingSoon() {
                 }}
               >
                 <input
-                  className="w-56 bg-transparent pl-2 text-ted-white outline-none sm:w-72 md:w-96 lg:w-[600px] xl:w-[768px]"
+                  className="w-44 bg-transparent pl-2 text-ted-white outline-none sm:w-72 md:w-96 lg:w-[600px] xl:w-[768px]"
                   type="text"
                   placeholder="Type a word.."
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>

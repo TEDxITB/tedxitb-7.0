@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 
@@ -34,12 +34,17 @@ const navLink: {
   },
 ];
 
-export default function NavBar() {
+export default function NavBar({
+  isNavBarActive,
+  setIsNavBarActive,
+}: {
+  isNavBarActive: boolean;
+  setIsNavBarActive: Dispatch<SetStateAction<boolean>>;
+}) {
   const currentPath = usePathname();
-  const [showHeader, setShowHeader] = useState(false);
 
   return (
-    <nav className="sticky top-0 flex w-screen flex-col text-white">
+    <nav className="sticky left-0 right-0 top-0 z-40 flex w-full flex-col bg-black text-white">
       <div className="flex h-24 flex-row items-center justify-between px-7 xl:h-[105px] xl:px-14">
         <div className="relative flex lg:align-middle">
           <Image
@@ -65,22 +70,22 @@ export default function NavBar() {
           variant="ghost"
           size="icon"
           className="bg-transparent hover:bg-transparent lg:hidden"
-          onClick={() => setShowHeader(true)}
+          onClick={() => setIsNavBarActive(true)}
         >
           <Menu className="h-full w-full" />
         </Button>
         <div
           className={cn(
             "absolute left-0 top-0 h-screen w-screen overflow-hidden",
-            showHeader ? "bg-black/50" : "pointer-events-none",
+            isNavBarActive ? "bg-black/50" : "pointer-events-none",
             "lg:static lg:ml-auto lg:h-auto lg:w-auto"
           )}
-          onClick={() => setShowHeader(false)}
+          onClick={() => setIsNavBarActive(false)}
         >
           <div
             className={cn(
               "pointer-events-auto absolute right-0 top-0 flex h-full min-w-[215px] translate-x-full flex-col gap-5 transition-transform",
-              showHeader ? "translate-x-0" : "",
+              isNavBarActive ? "translate-x-0" : "",
               "transition-transform",
               "lg:relative lg:min-w-0 lg:translate-x-0 lg:gap-0"
             )}
@@ -103,12 +108,12 @@ export default function NavBar() {
               variant="ghost"
               size="icon"
               className="ml-auto mr-4 mt-7 bg-transparent hover:bg-transparent lg:hidden"
-              onClick={() => setShowHeader(false)}
+              onClick={() => setIsNavBarActive(false)}
             >
               <X className="h-full w-full" />
             </Button>
 
-            <ul className="m-8 flex flex-col gap-6 lg:m-5 lg:flex-row lg:items-center lg:gap-8 xl:gap-12 xl:text-lg">
+            <ul className="m-8 flex flex-col gap-6 lg:m-0 lg:flex-row lg:items-center lg:gap-8 xl:gap-12 xl:text-lg">
               {navLink.map(({ name, path: url }) => {
                 return (
                   <li key={name}>
@@ -121,7 +126,7 @@ export default function NavBar() {
                   </li>
                 );
               })}
-              <Button size={"lg"} className="px-8">
+              <Button size={"lg"} className="px-9">
                 Sign In
               </Button>
             </ul>
