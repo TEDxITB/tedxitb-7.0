@@ -126,7 +126,7 @@ export default function NavBar({
                   </li>
                 );
               })}
-              <Button size={"lg"} className="px-8">
+              <Button size={"lg"} className="px-9">
                 Sign In
               </Button>
             </ul>
