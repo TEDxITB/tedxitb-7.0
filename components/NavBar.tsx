@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { MenuIcon, XIcon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLink: {
   name: string;
@@ -40,11 +40,11 @@ export default function NavBar() {
 
   return (
     <nav className="sticky top-0 flex w-screen flex-col text-white">
-      <div className="flex flex-row items-center">
-        <div className="relative flex pl-5 lg:align-middle">
+      <div className="flex h-24 flex-row items-center justify-between px-7 xl:h-[105px] xl:px-14">
+        <div className="relative flex lg:align-middle">
           <Image
             priority
-            className="absolute left-20 top-0 -translate-x-1/2 -translate-y-1/2 opacity-25"
+            className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 opacity-25"
             src={"/effect1.png"}
             width={400}
             height={400}
@@ -52,7 +52,7 @@ export default function NavBar() {
           />
           <Link href={"/"}>
             <Image
-              className="static object-contain"
+              className="static h-8 w-auto object-contain xl:h-9"
               src={"/tedxitb-logo-white.png"}
               alt="Logo"
               width={200}
@@ -60,13 +60,15 @@ export default function NavBar() {
             />
           </Link>
         </div>
-        <button
+        <Button
           aria-label="menu"
-          className="ml-auto p-5 text-4xl lg:hidden"
+          variant="ghost"
+          size="icon"
+          className="bg-transparent hover:bg-transparent lg:hidden"
           onClick={() => setShowHeader(true)}
         >
-          <MenuIcon className="h-8 w-8" />
-        </button>
+          <Menu className="h-full w-full" />
+        </Button>
         <div
           className={cn(
             "absolute left-0 top-0 h-screen w-screen overflow-hidden",
@@ -77,14 +79,14 @@ export default function NavBar() {
         >
           <div
             className={cn(
-              "pointer-events-auto absolute right-0 top-0 flex h-full min-w-[40%] translate-x-full flex-col gap-5 transition-transform",
+              "pointer-events-auto absolute right-0 top-0 flex h-full min-w-[215px] translate-x-full flex-col gap-5 transition-transform",
               showHeader ? "translate-x-0" : "",
               "transition-transform",
               "lg:relative lg:min-w-0 lg:translate-x-0 lg:gap-0"
             )}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="absolute -z-50 h-full w-full overflow-hidden rounded-l-lg border-l-2 border-white lg:hidden">
+            <div className="absolute -z-50 h-full w-full overflow-hidden border-l-2 border-border lg:hidden">
               <Image
                 className="absolute"
                 src="/header-mobile-bubble.png"
@@ -93,16 +95,20 @@ export default function NavBar() {
                 alt="Bubble"
               />
               <Image fill alt="bg" src={"/header-mobile-bg.png"} />
-              <div className="absolute -z-10 h-full w-full bg-black"></div>
+              <div className="absolute -z-10 h-full w-full bg-black" />
             </div>
-            <button
+
+            <Button
               aria-label="menu-close"
-              className="text-bol ml-auto mt-4 p-5 text-4xl lg:hidden"
+              variant="ghost"
+              size="icon"
+              className="ml-auto mr-4 mt-7 bg-transparent hover:bg-transparent lg:hidden"
               onClick={() => setShowHeader(false)}
             >
-              <XIcon className="h-8 w-8" />
-            </button>
-            <ul className="m-6 flex flex-col gap-5 lg:m-5 lg:flex-row lg:items-center lg:gap-8">
+              <X className="h-full w-full" />
+            </Button>
+
+            <ul className="m-8 flex flex-col gap-6 lg:m-5 lg:flex-row lg:items-center lg:gap-8 xl:gap-12 xl:text-lg">
               {navLink.map(({ name, path: url }) => {
                 return (
                   <li key={name}>
@@ -115,16 +121,16 @@ export default function NavBar() {
                   </li>
                 );
               })}
-              <Button size={"lg"} className="px-7">
+              <Button size={"lg"} className="px-8">
                 Sign In
               </Button>
             </ul>
-            <Link className="mt-auto" href={"/"}>
+            <Link className="mb-8 mt-auto self-center lg:hidden" href={"/"}>
               <Image
-                className="static object-contain pb-5 lg:hidden"
+                className="static object-contain"
                 src={"/tedxitb-logo-white.png"}
                 alt="Logo"
-                width={200}
+                width={150}
                 height={100}
               />
             </Link>
