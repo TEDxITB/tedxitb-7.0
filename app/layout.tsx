@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
+import BodyLayout from "./body-layout";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} ${anderson.variable} bg-ted-black`}
       >
-        {children}
+        <BodyLayout>{children}</BodyLayout>
       </body>
 
       {/* Hotjar */}
