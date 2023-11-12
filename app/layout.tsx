@@ -1,27 +1,6 @@
 import "./globals.css";
-import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
-import localFont from "next/font/local";
 import Script from "next/script";
 import BodyLayout from "./body-layout";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500", "600", "700"],
-  variable: "--font-monsterrat",
-});
-
-const anderson = localFont({
-  src: "./fonts/AndersonGrotesk.otf",
-  display: "swap",
-  variable: "--font-anderson",
-});
-
-export const metadata: Metadata = {
-  title: "TEDxITB",
-  description: "Coming soon",
-};
 
 export default function RootLayout({
   children,
@@ -31,11 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* Body */}
-      <body
-        className={`${montserrat.className} ${anderson.variable} bg-ted-black`}
-      >
-        <BodyLayout>{children}</BodyLayout>
-      </body>
+      <BodyLayout>{children}</BodyLayout>
 
       {/* Hotjar */}
       <Script
