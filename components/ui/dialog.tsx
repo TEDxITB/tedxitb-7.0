@@ -5,6 +5,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const Dialog = DialogPrimitive.Root;
 
@@ -29,10 +30,23 @@ const DialogOverlay = React.forwardRef<
 ));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
+
+type BackgroundImageVariant =
+  | ""
+  | "/modalBackgroundType1.png"
+  | "/modalBackgroundType2.png"
+  | "/modalBackgroundType3.png"
+  | "/modalBackgroundType4.png";
+
+interface DialogContentProps
+  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+  backgroundimage?: BackgroundImageVariant;
+}
+
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => (
+  DialogContentProps
+>(({ className, children, backgroundimage, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay />
     <DialogPrimitive.Content
@@ -43,6 +57,21 @@ const DialogContent = React.forwardRef<
       )}
       {...props}
     >
+      {backgroundimage && (
+        <Image
+          src={backgroundimage}
+          alt="Background"
+          layout="responsive"
+          width={100}
+          height={25}
+          objectFit="cover"
+          className={`absolute left-0 right-0 top-0 z-[-1] ${
+            backgroundimage === "/modalBackgroundType1.png"
+              ? "rounded-t-md"
+              : "rounded-md"
+          }`}
+        />
+      )}
       {children}
       <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
         <X className="h-4 w-4" />
@@ -51,6 +80,7 @@ const DialogContent = React.forwardRef<
     </DialogPrimitive.Content>
   </DialogPortal>
 ));
+
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 const DialogHeader = ({
