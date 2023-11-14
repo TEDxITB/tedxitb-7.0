@@ -12,17 +12,12 @@ export default function RootLayout({
     <html lang="en">
       {/* Body */}
       <BodyLayout>
-      <div className="m-10 grid gap-6">
-        <Breadcrumbs
-          homeElement={'Home'}
-          variant='default'
-        />
-        <Breadcrumbs
-          homeElement={'Home'}
-          variant='highlighted'
-        />
+        <div className="m-10 grid gap-6">
+          <Breadcrumbs homeElement={"Home"} variant="default" />
+          <Breadcrumbs homeElement={"Home"} variant="highlighted" />
         </div>
-        {children}</BodyLayout>
+        {children}
+      </BodyLayout>
 
       {/* Hotjar */}
       <Script
