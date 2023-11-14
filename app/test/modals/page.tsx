@@ -17,13 +17,19 @@ const page = () => {
           Open
         </DialogTrigger>
         <DialogContent
-          backgroundimage= ""
+          backgroundimage=""
           className={`flex h-[320px] w-[600px] items-center justify-center rounded-[15px] border border-ted-black border-opacity-25`}
         >
           <DialogHeader>
-            <DialogTitle className="text-ted-red font-anderson text-[48px]">Modal Title</DialogTitle>
-            <DialogDescription className="text-white font-anderson text-[24px]">Lorem ipsum dolot sit amet</DialogDescription>
-            <DialogDescription className="text-white font-anderson text-[20px]">Dummy sub description</DialogDescription>
+            <DialogTitle className="font-anderson text-[48px] text-ted-red">
+              Modal Title
+            </DialogTitle>
+            <DialogDescription className="font-anderson text-[24px] text-white">
+              Lorem ipsum dolot sit amet
+            </DialogDescription>
+            <DialogDescription className="font-anderson text-[20px] text-white">
+              Dummy sub description
+            </DialogDescription>
           </DialogHeader>
         </DialogContent>
       </Dialog>

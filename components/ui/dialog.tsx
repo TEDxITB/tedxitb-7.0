@@ -30,7 +30,6 @@ const DialogOverlay = React.forwardRef<
 ));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
-
 type BackgroundImageVariant =
   | ""
   | "/modalBackgroundType1.png"
