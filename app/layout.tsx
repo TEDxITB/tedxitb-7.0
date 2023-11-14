@@ -1,7 +1,6 @@
 import "./globals.css";
 import Script from "next/script";
 import BodyLayout from "./body-layout";
-import Breadcrumbs from "@/components/ui/breadcrumbs";
 
 export default function RootLayout({
   children,
@@ -11,13 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* Body */}
-      <BodyLayout>
-        <div className="m-10 grid gap-6">
-          <Breadcrumbs homeElement={"Home"} variant="default" />
-          <Breadcrumbs homeElement={"Home"} variant="highlighted" />
-        </div>
-        {children}
-      </BodyLayout>
+      <BodyLayout>{children}</BodyLayout>
 
       {/* Hotjar */}
       <Script
