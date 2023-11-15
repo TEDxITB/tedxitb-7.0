@@ -7,22 +7,20 @@ interface linkProps {
   children?: React.ReactNode;
 }
 
-const Links: React.FC<linkProps> = ({ href, children, target, ...props }) => {
+const CustomLink: React.FC<linkProps> = ({ href, children, target, ...props }) => {
   return (
     <Link
       href={href}
       target={target}
       {...props}
-      className="group visited:text-[#3F1871]"
+      className="group flex flex-row items-center gap-x-2 text-[#0079FF] visited:text-[#3F1871] hover:text-[#004797] hover:underline hover:underline-offset-2"
     >
-      <div className="flex cursor-pointer flex-row items-center gap-x-4">
-        <IconLink className="text-[#0079FF] group-hover:text-[#004797]" />
-        <label className="font-anderson text-[24px] text-[#0079FF] hover:cursor-pointer group-hover:text-[#004797] group-hover:underline group-hover:underline-offset-1">
-          {children}
-        </label>
-      </div>
+      <IconLink className="w-4"/>
+      <label className="cursor-pointer font-anderson text-lg">
+        {children}
+      </label>
     </Link>
   );
 };
 
-export default Links;
+export default CustomLink;
