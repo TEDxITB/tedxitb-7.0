@@ -11,7 +11,7 @@ export default function RootLayout({
     <html lang="en">
       {/* Body */}
       <BodyLayout>{children}</BodyLayout>
-      
+
       {/* Hotjar */}
       <Script
         id="hotjar"
