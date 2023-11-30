@@ -34,36 +34,33 @@ export function Toaster() {
         ...props
       }) {
         const variantStyles: Record<string, string> = {
-          error: "bg-[#FF335B] w-3 text-foreground",
-          success: "bg-[#49D662] w-3 text-foreground",
+          error: "bg-[#E63E32] w-3 text-foreground",
+          success: "bg-[#2BB673] w-3 text-foreground",
           profile: "bg-[#FCBF0E] w-3 text-foreground",
           warning: "bg-[#2E86E8] w-3 text-foreground",
-          loading: "bg-black w-3 text-foreground",
+          loading: "bg-[#4C4C4C] w-3 text-foreground",
         };
 
         const variantStyle = variant ? variantStyles[variant] || "" : "";
         const typeVariant = variant as string;
         const shouldShowIcon = icon == true;
-        const iconClass = shouldShowIcon
-          ? variant === "loading"
-            ? "animate-spin "
-            : ""
-          : "";
+        const iconClass =
+          shouldShowIcon && variant === "loading" && "animate-spin ";
 
         return (
           <Toast key={id} {...props}>
-            <div className={variantStyle}></div>
-            <div className="my-5 flex flex-row items-center gap-5">
+            <div className={variantStyle} />
+            <div className="mx-5 my-6 flex flex-row items-center gap-4">
               {shouldShowIcon && (
                 <Image
                   src={variantIcons[typeVariant] || variantIcons.default}
                   alt={typeVariant}
-                  className={`ml-4 ${iconClass}`}
-                  width={40}
-                  height={40}
+                  className={`${iconClass}`}
+                  width={36}
+                  height={36}
                 />
               )}
-              <div className={`${shouldShowIcon ? "" : "ml-4"}`}>
+              <div className="flex flex-col gap-1">
                 {title && <ToastTitle>{title}</ToastTitle>}
                 {description && (
                   <ToastDescription>{description}</ToastDescription>
