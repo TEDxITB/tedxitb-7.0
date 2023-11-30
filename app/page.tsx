@@ -45,16 +45,16 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center overflow-hidden p-2">
+    <main className="relative flex flex-auto flex-col items-center overflow-hidden px-6 py-20 sm:p-12 lg:p-24">
       <div className="mb-24 items-start text-center">
         <Image
-          className="lg:w-[620px]"
+          className="lg:w-[550px]"
           alt="Ted X Logo"
           src="/tedxitb-logo-white.png"
-          width={390}
+          width={320}
           height={195}
         />
-        <h1 className="mx-auto mt-[-30px] w-fit bg-gradient-to-r from-ted-red to-ted-white bg-clip-text font-bold text-transparent lg:mt-[-50px] lg:text-4xl">
+        <h1 className="mx-auto mt-10 w-fit bg-gradient-to-r from-ted-red to-ted-white bg-clip-text text-2xl font-bold text-transparent ease-in-out motion-safe:animate-bounce lg:mt-16 lg:text-4xl">
           7.0 Is Coming Soon!
         </h1>
       </div>
@@ -63,7 +63,7 @@ export default function Home() {
 
       <div className="mb-8 mt-auto flex flex-col gap-4 text-center text-ted-white lg:gap-10">
         <h3 className="font-bold lg:text-4xl">Our Contact</h3>
-        <ul className="flex items-center gap-5 sm:gap-12">
+        <ul className="flex flex-wrap items-center justify-center gap-5 sm:gap-12">
           <li>
             <Link
               href="https://www.instagram.com/tedxitb/"
