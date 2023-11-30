@@ -1,0 +1,148 @@
+"use client";
+
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import type { Dispatch, SetStateAction } from "react";
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
+
+const navLink: {
+  name: string;
+  path: string;
+}[] = [
+  {
+    name: "Main Event",
+    path: "/test/header",
+  },
+  {
+    name: "Magazine",
+    path: "/test/header/Magazine",
+  },
+  {
+    name: "TED Quiz",
+    path: "/test/header/TEDQuiz",
+  },
+  {
+    name: "Sponsorship",
+    path: "/test/header/Spnsorship",
+  },
+  {
+    name: "Documentation",
+    path: "/test/header/Documentation",
+  },
+];
+
+export default function NavBar({
+  isNavBarActive,
+  setIsNavBarActive,
+}: {
+  isNavBarActive: boolean;
+  setIsNavBarActive: Dispatch<SetStateAction<boolean>>;
+}) {
+  const currentPath = usePathname();
+
+  return (
+    <nav className="sticky left-0 right-0 top-0 z-40 flex w-full flex-col bg-black text-white">
+      <div className="flex h-24 flex-row items-center justify-between px-7 xl:h-[105px] xl:px-14">
+        <div className="relative flex lg:align-middle">
+          <Image
+            priority
+            className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 opacity-25"
+            src={"/effect1.png"}
+            width={400}
+            height={400}
+            alt=""
+          />
+          <Link href={"/"}>
+            <Image
+              className="static h-8 w-auto object-contain xl:h-9"
+              src={"/tedxitb-logo-white.png"}
+              alt="Logo"
+              width={200}
+              height={100}
+            />
+          </Link>
+        </div>
+        <Button
+          aria-label="menu"
+          variant="ghost"
+          size="icon"
+          className="bg-transparent hover:bg-transparent lg:hidden"
+          onClick={() => setIsNavBarActive(true)}
+        >
+          <Menu className="h-full w-full" />
+        </Button>
+        <div
+          className={cn(
+            "absolute left-0 top-0 h-screen w-screen overflow-hidden",
+            isNavBarActive ? "bg-black/50" : "pointer-events-none",
+            "lg:static lg:ml-auto lg:h-auto lg:w-auto"
+          )}
+          onClick={() => setIsNavBarActive(false)}
+        >
+          <div
+            className={cn(
+              "pointer-events-auto absolute right-0 top-0 flex h-full min-w-[215px] translate-x-full flex-col gap-5 transition-transform",
+              isNavBarActive ? "translate-x-0" : "",
+              "transition-transform",
+              "lg:relative lg:min-w-0 lg:translate-x-0 lg:gap-0"
+            )}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="absolute -z-50 h-full w-full overflow-hidden border-l-2 border-border lg:hidden">
+              <Image
+                className="absolute"
+                src="/header-mobile-bubble.png"
+                width={200}
+                height={100}
+                alt="Bubble"
+              />
+              <Image fill alt="bg" src={"/header-mobile-bg.png"} />
+              <div className="absolute -z-10 h-full w-full bg-black" />
+            </div>
+
+            <Button
+              aria-label="menu-close"
+              variant="ghost"
+              size="icon"
+              className="ml-auto mr-4 mt-7 bg-transparent hover:bg-transparent lg:hidden"
+              onClick={() => setIsNavBarActive(false)}
+            >
+              <X className="h-full w-full" />
+            </Button>
+
+            <ul className="m-8 flex flex-col gap-6 lg:m-0 lg:flex-row lg:items-center lg:gap-8 xl:gap-12 xl:text-lg">
+              {navLink.map(({ name, path: url }) => {
+                return (
+                  <li key={name}>
+                    <Link
+                      href={url}
+                      className={`${currentPath == url ? "text-ted-red" : ""}`}
+                    >
+                      {name}
+                    </Link>
+                  </li>
+                );
+              })}
+              <Button size={"lg"} className="px-9">
+                Sign In
+              </Button>
+            </ul>
+            <Link className="mb-8 mt-auto self-center lg:hidden" href={"/"}>
+              <Image
+                className="static object-contain"
+                src={"/tedxitb-logo-white.png"}
+                alt="Logo"
+                width={150}
+                height={100}
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <span className="h-2 w-full bg-white bg-gradient-to-b from-ted-red to-black"></span>
+    </nav>
+  );
+}
