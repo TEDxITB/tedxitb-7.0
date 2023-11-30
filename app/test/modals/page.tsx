@@ -66,6 +66,7 @@ const page = () => {
         </DialogTrigger>
         <DialogContent
           backgroundimage="/modalBackgroundType2.png"
+          isCloseIconWhite
           className={`flex h-[320px] items-center justify-center rounded-[15px] border border-ted-black border-opacity-25`}
         >
           <DialogHeader>
@@ -89,6 +90,7 @@ const page = () => {
         </DialogTrigger>
         <DialogContent
           backgroundimage="/modalBackgroundType3.png"
+          isCloseIconWhite
           className={`flex h-[320px] items-center justify-center rounded-[15px] border border-ted-black border-opacity-25`}
         >
           <DialogHeader>
@@ -112,6 +114,7 @@ const page = () => {
         </DialogTrigger>
         <DialogContent
           backgroundimage="/modalBackgroundType4.png"
+          isCloseIconWhite
           className={`flex h-[320px] items-center justify-center rounded-[15px] border border-ted-black border-opacity-25`}
         >
           <DialogHeader>

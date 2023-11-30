@@ -30,54 +30,54 @@ const DialogOverlay = React.forwardRef<
 ));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
-type BackgroundImageVariant =
-  | "/modalBackgroundType1.png"
-  | "/modalBackgroundType2.png"
-  | "/modalBackgroundType3.png"
-  | "/modalBackgroundType4.png";
-
 interface DialogContentProps
   extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
-  backgroundimage?: BackgroundImageVariant;
+  backgroundimage?: string; // Pass url string biar lebih fleksibel
+  isCloseIconWhite?: boolean; // Warna close icon menyesuaikan dengan warna background image
 }
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   DialogContentProps
->(({ className, children, backgroundimage, ...props }, ref) => (
-  <DialogPortal>
-    <DialogOverlay />
-    <DialogPrimitive.Content
-      ref={ref}
-      className={cn(
-        "fixed left-[50%] top-[50%] z-50 grid w-80 translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:w-full sm:max-w-lg sm:rounded-lg",
-        className
-      )}
-      {...props}
-    >
-      {backgroundimage && (
-        <Image
-          src={backgroundimage}
-          alt="Background"
-          layout="responsive"
-          width={100}
-          height={25}
-          objectFit="cover"
-          className={`absolute left-0 right-0 top-0 z-[-1] ${
-            backgroundimage === "/modalBackgroundType1.png"
-              ? "rounded-t-md"
-              : "rounded-md"
-          }`}
-        />
-      )}
-      {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-        <X className="h-4 w-4" />
-        <span className="sr-only">Close</span>
-      </DialogPrimitive.Close>
-    </DialogPrimitive.Content>
-  </DialogPortal>
-));
+>(
+  (
+    { className, children, backgroundimage, isCloseIconWhite, ...props },
+    ref
+  ) => (
+    <DialogPortal>
+      <DialogOverlay />
+      <DialogPrimitive.Content
+        ref={ref}
+        className={cn(
+          "fixed left-[50%] top-[50%] z-50 grid w-80 translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:w-full sm:max-w-lg sm:rounded-lg",
+          className
+        )}
+        {...props}
+      >
+        {backgroundimage && (
+          <Image
+            src={backgroundimage}
+            alt="Background"
+            layout="responsive"
+            width={100}
+            height={25}
+            objectFit="cover"
+            className={`absolute left-0 right-0 top-0 z-[-1] ${
+              backgroundimage === "/modalBackgroundType1.png"
+                ? "rounded-t-md"
+                : "rounded-md"
+            }`}
+          />
+        )}
+        {children}
+        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+          <X className={`h-4 w-4 ${isCloseIconWhite && "stroke-white"}`} />
+          <span className="sr-only">Close</span>
+        </DialogPrimitive.Close>
+      </DialogPrimitive.Content>
+    </DialogPortal>
+  )
+);
 
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
