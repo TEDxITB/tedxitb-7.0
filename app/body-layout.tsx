@@ -7,6 +7,7 @@ import localFont from "next/font/local";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/ui/footer";
 import { SessionProvider } from "next-auth/react";
+import { Toaster } from "@/components/ui/toaster";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ const BodyLayout = ({ children }: { children: React.ReactNode }) => {
         />
         {children}
         <Footer />
+        <Toaster />
       </SessionProvider>
     </body>
   );
