@@ -1,5 +1,5 @@
-import EmailTemplate from "./sign-in-template";
 import { Preview } from "@react-email/components";
+import EmailTemplate from "./sign-in-template";
 
 export default function Email() {
   return (

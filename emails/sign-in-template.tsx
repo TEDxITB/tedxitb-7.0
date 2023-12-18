@@ -6,6 +6,7 @@ import { Head } from "@react-email/head";
 import { Font } from "@react-email/font";
 import { Link } from "@react-email/link";
 import { Hr } from "@react-email/hr";
+import { Button, Section, Text } from "@react-email/components";
 
 export default function EmailTemplate() {
   return (
@@ -34,39 +35,59 @@ export default function EmailTemplate() {
         }}
       >
         <Container className="flex aspect-video w-full max-w-[800px] flex-col items-center justify-center bg-white p-12">
-          <main className="flex flex-col items-center justify-center">
-            <div className="relative h-[100px] w-[300px]" content="">
+          <Section className="flex flex-col items-center justify-center">
+            <Container className="relative h-[100px] w-[300px]" content="">
               <Img
                 src="https://drive.google.com/uc?id=1Hi3jlWlndytVIfXwl5Z-jSA-Vo70fZEa
 "
                 alt=""
                 width={300}
                 height={100}
-                className="absolute left-[25px]"
               />
-            </div>
-            <h4 className="text-bold self-start">Dear User</h4>
-            <p style={{ fontFamily: "Roboto" }}>
+            </Container>
+            <Text
+              className="block self-start text-lg font-bold"
+              style={{ fontFamily: "Roboto" }}
+            >
+              Dear User
+            </Text>
+            <Text
+              className="text-base leading-5"
+              style={{ fontFamily: "Roboto" }}
+            >
               Click this button below if you want to verify sign in / sign up
               request to{" "}
               <Link href="tedxitb.id" className="text-blue-400">
                 tedxitb.id!
               </Link>{" "}
-              After you clicked this, you will be signed in and redirected to
-              the app.
-            </p>
-            <button className="flex h-10 items-center justify-center rounded-md border-none bg-ted-red px-4 py-2 text-primary-foreground text-white hover:bg-ted-red/90">
-              <div>Click here</div>
-            </button>
-            <p style={{ fontFamily: "Roboto" }} className="text-ted-red">
-              *If you didn&apos;t request this, please ignore this email!*{" "}
-            </p>
-            <footer className="flex flex-col gap-0.5 self-start">
-              <p>Best,</p>
-              <h4 className="font-bold">Tedx ITB</h4>
-            </footer>
+              After you click this, you will be signed in and redirected to the
+              app.
+            </Text>
+            <Container
+              className="flex w-full flex-row items-center justify-center"
+              style={{ maxWidth: "fit-content" }}
+            >
+              <Button className="flex  flex-col items-center justify-center rounded-md border-none bg-ted-red px-4 py-2 text-primary-foreground text-white hover:bg-ted-red/90">
+                <Text className="m-0 text-sm">Click here</Text>
+              </Button>
+            </Container>
+            <Container
+              className="flex flex-row items-center justify-center"
+              style={{ maxWidth: "fit-content" }}
+            >
+              <Text
+                style={{ fontFamily: "Roboto" }}
+                className=" text-base text-ted-red"
+              >
+                *If you didn&apos;t request this, please ignore this email!*{" "}
+              </Text>
+            </Container>
+            <Section className="flex flex-col gap-0.5 self-start">
+              <Text className="text-base">Best,</Text>
+              <Text className="text-lg font-bold">Tedx ITB</Text>
+            </Section>
             <Hr className="border-slate-300 font-semibold" />
-          </main>
+          </Section>
         </Container>
       </Tailwind>
     </Html>
