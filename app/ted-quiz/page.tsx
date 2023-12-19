@@ -218,7 +218,7 @@ const tedQuizPage = () => {
     } else if (number === 1) {
       setNumber(1);
       setStart(false);
-      form.reset()
+      form.reset();
     }
   };
 
@@ -269,45 +269,58 @@ const tedQuizPage = () => {
         count: 0,
       },
     ];
-    
+
     datas.forEach((d) => {
-      const index = Number.parseInt(d) - 1
-      counts[index] = { label: counts[index].label, count: counts[index].count + 1 }
+      const index = Number.parseInt(d) - 1;
+      counts[index] = {
+        label: counts[index].label,
+        count: counts[index].count + 1,
+      };
     });
-    
+
     const result = counts.sort((a, b) => b.count - a.count);
     // console.log(result)
-    setResType(result[0].label as any)
+    setResType(result[0].label as any);
     setShowRes(true);
-
   };
 
   return (
     <div className="flex h-fit w-fit items-center justify-center">
       {!start ? (
-        <div className="relative flex h-screen w-screen items-center justify-center bg-[url('/ted-quiz-bg.jpeg')] bg-cover bg-center bg-no-repeat">
+        <div className="relative flex h-screen w-screen items-center justify-center bg-[url('/background1.png')] bg-cover bg-center bg-no-repeat sm:bg-[url('/ted-quiz-bg.jpeg')]">
           <div className="absolute bottom-0 left-0 right-0 top-0 z-[50] bg-black/50 backdrop-blur-sm" />
-          <div className="z-[100] flex h-full w-fit flex-col items-center justify-center gap-[40px]">
-            <h2 className="font-garamond text-[50px] italic text-white">
-              <span className="font-graziela text-[70px] font-[550]">W</span>
+          <div className="z-[100] flex h-full w-full flex-col items-center justify-center gap-[40px] px-5 text-center sm:w-fit">
+            <h2 className="text-center font-garamond text-[32px] italic text-white lg:text-[50px]">
+              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
+                W
+              </span>
               hich{" "}
-              <span className="font-graziela text-[70px] font-[550]">P</span>
+              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
+                P
+              </span>
               ersonality{" "}
-              <span className="font-graziela text-[70px] font-[550]">T</span>
+              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
+                T
+              </span>
               ype{" "}
-              <span className="font-graziela text-[70px] font-[550]">A</span>
-              re <span className="font-graziela text-[70px] font-[550]">Y</span>
+              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
+                A
+              </span>
+              re{" "}
+              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
+                Y
+              </span>
               ou?
             </h2>
             <Input
-              className="w-[80%] border-[2px] border-white bg-transparent px-4 py-6 text-[24px] text-white"
+              className="w-[80%] border-[2px] border-white bg-transparent px-2 py-3 text-[17px] text-white md:px-4 md:py-6 md:text-[24px]"
               placeholder="Enter your name here"
               type="text"
               onChange={(e) => setName(e.target.value)}
               value={name}
             />
             <Button
-              className="px-11 py-6 text-[24px]"
+              className="px-8 py-3 text-[17px] md:px-11 md:py-6 md:text-[24px]"
               onClick={handleStartQuiz}
             >
               Start Quiz
@@ -346,59 +359,61 @@ const ResultBlock = ({
   const Title = () => {
     if (resType === "creative") {
       return (
-        <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[75px] not-italic">T</label>he{" "}
-          <label className="font-graziela text-[75px] not-italic">C</label>
+        <h2 className="font-garamond text-[30px] md:text-[41px] italic">
+          <label className="font-graziela text-[48px] md:text-[75px] not-italic">T</label>he{" "}
+          <label className="font-graziela text-[48px] md:text-[75px] not-italic">C</label>
           reative
         </h2>
       );
     } else if (resType === "scientist") {
       return (
         <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[75px] not-italic">T</label>he{" "}
-          <label className="font-graziela text-[75px] not-italic">S</label>
+          <label className="font-graziela text-[48px] md:text-[75px] not-italic">T</label>he{" "}
+          <label className="font-graziela text-[48px] md:text-[75px] not-italic">S</label>
           cientist
         </h2>
       );
     } else if (resType === "director") {
       return (
         <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[75px] not-italic">T</label>he{" "}
-          <label className="font-graziela text-[75px] not-italic">D</label>
+          <label className="font-graziela text-[48px] md:text-[75px] not-italic">T</label>he{" "}
+          <label className="font-graziela text-[48px] md:text-[75px] not-italic">D</label>
           irector
         </h2>
       );
     } else if (resType === "social") {
       return (
         <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[75px] not-italic">T</label>he{" "}
-          <label className="font-graziela text-[75px] not-italic">S</label>ocial
+          <label className="font-graziela text-[48px] md:text-[75px] not-italic">T</label>he{" "}
+          <label className="font-graziela text-[48px] md:text-[75px] not-italic">S</label>ocial
         </h2>
       );
     }
   };
   return (
     <div
-      className="flex h-fit w-screen items-center justify-center bg-cover bg-center bg-no-repeat pb-20 pt-36"
+      className="relative flex h-fit w-screen items-center justify-center bg-cover bg-center bg-no-repeat pb-20 pt-36 px-4"
       style={{
         backgroundImage: `url(${res.bg})`,
       }}
     >
-      <div className="flex h-fit w-[65%] flex-col items-center justify-center gap-3 rounded-sm bg-black/70 p-7 text-white">
+      <div className="absolute z-[10] md:hidden top-0 bottom-0 left-0 right-0 bg-cover bg-center bg-no-repeat bg-[url('/ted-quiz-bg-2.png')]"/>
+      <div className="flex h-fit w-full md:w-[65%] z-[20] flex-col items-center justify-center gap-3 rounded-sm bg-none md:bg-black/70 p-7 text-white">
         <div className="flex w-full flex-col items-center justify-center gap-2 text-center">
-          <p className="font-anderson text-[22px]">your result: </p>
+          <p className="font-anderson text-[12px] md:text-[22px]">your result: </p>
           <Title />
-          <p className="font-anderson text-[16px]">{res.desc}</p>
+          <p className="font-anderson text-[12px] md:text-[16px]">{res.desc}</p>
         </div>
         <div className="flex w-full flex-col items-center justify-center gap-3 text-center">
-          <iframe
-            width="560"
-            height="315"
-            src={res.video}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
-          ></iframe>
-          <p className="font-anderson text-[16px]">
+          <div className="relative w-full h-0 pb-[56.25%] lg:h-[315px] lg:w-[560px] lg:pb-0">
+            <iframe
+              className="w-full h-full absolute top-0 left-0"
+              src={res.video}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+            ></iframe>
+          </div>
+          <p className="font-anderson text-[10px] md:text-[16px]">
             Find out more by watching this video!
           </p>
         </div>
@@ -422,14 +437,18 @@ const QuestionBlock = ({
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-[url('/ted-quiz-bg-2.png')] bg-cover bg-center bg-no-repeat">
-      <div className="flex h-fit w-[65%] flex-col items-center justify-center rounded-sm bg-black/70 p-7 text-white">
-        <h3 className="font-inter text-[24px]">
+      <div className="flex h-fit w-full flex-col items-center justify-center gap-7 rounded-sm p-5 text-white sm:w-[65%] sm:gap-4 sm:bg-black/70 sm:p-7">
+        <h3 className="font-inter text-[17px] md:text-[24px]">
           Question {question.number} of 5
         </h3>
         <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-4">
           <div className="flex w-full flex-col items-center justify-center text-center">
-            <h2 className="font-anderson text-[35px]">{question.question}</h2>
-            <p className="font-anderson text-[16px]">Answer, please choose 1</p>
+            <h2 className="font-anderson text-[20px] md:text-[35px]">
+              {question.question}
+            </h2>
+            <p className="font-anderson text-[14px] md:text-[16px]">
+              Answer, please choose 1
+            </p>
           </div>
           <div className="flex w-full flex-col items-start justify-center">
             <FormField
@@ -451,7 +470,7 @@ const QuestionBlock = ({
                               value={c.id.toString()}
                             />
                           </FormControl>
-                          <FormLabel className="font-inter text-[24px]">
+                          <FormLabel className="font-inter text-[17px] md:text-[24px]">
                             {c.label}
                           </FormLabel>
                         </FormItem>
@@ -463,28 +482,37 @@ const QuestionBlock = ({
             />
           </div>
         </div>
-        <div className="flex w-full flex-row items-center justify-end gap-3">
+        <div className="flex w-[80%] flex-row items-center justify-between gap-3 sm:w-full sm:justify-end">
           <Button
-            className="flex items-center justify-between gap-2 border-white"
+            className="flex items-center justify-between gap-2 border-white px-8 sm:px-4"
             variant="outline"
             onClick={handleBack}
             type="button"
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="hidden h-4 w-4 sm:flex" />
             Back
           </Button>
           {number !== 5 ? (
-            <Button
-              className="flex items-center justify-between gap-2"
-              onClick={handleNextQuestion}
-              type="button"
-            >
-              Next Question
-              <ChevronRight className="h-4 w-4" />
-            </Button>
+            <>
+              <Button
+                className="hidden items-center justify-between gap-2 sm:flex"
+                onClick={handleNextQuestion}
+                type="button"
+              >
+                Next Question
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+              <Button
+                className="flex items-center justify-between gap-2 px-8 sm:hidden"
+                onClick={handleNextQuestion}
+                type="button"
+              >
+                Next
+              </Button>
+            </>
           ) : (
             <Button
-              className="flex items-center justify-between gap-2"
+              className="flex items-center justify-between gap-2 px-8 sm:px-4"
               type="submit"
             >
               Submit

@@ -49,7 +49,7 @@ export function Toaster() {
 
         return (
           <Toast key={id} {...props}>
-            <div className={variantStyle} />
+            <div className={`${variantStyle}`} />
             <div className="mx-5 my-6 flex flex-row items-center gap-4">
               {shouldShowIcon && (
                 <Image
@@ -61,9 +61,13 @@ export function Toaster() {
                 />
               )}
               <div className="flex flex-col gap-1">
-                {title && <ToastTitle className="font-anderson">{title}</ToastTitle>}
+                {title && (
+                  <ToastTitle className="font-anderson">{title}</ToastTitle>
+                )}
                 {description && (
-                  <ToastDescription className="font-anderson">{description}</ToastDescription>
+                  <ToastDescription className="font-anderson">
+                    {description}
+                  </ToastDescription>
                 )}
               </div>
             </div>
