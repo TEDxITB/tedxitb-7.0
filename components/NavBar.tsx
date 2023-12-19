@@ -22,7 +22,7 @@ const navLink: {
   },
   {
     name: "TED Quiz",
-    path: "/test/header/TEDQuiz",
+    path: "/ted-quiz",
   },
   {
     name: "Sponsorship",
@@ -44,7 +44,7 @@ export default function NavBar({
   const currentPath = usePathname();
 
   return (
-    <nav className="sticky left-0 right-0 top-0 z-40 flex w-full flex-col bg-black text-white">
+    <nav className="fixed z-[1000] left-0 right-0 top-0 flex w-full flex-col bg-black text-white">
       <div className="flex h-24 flex-row items-center justify-between px-7 xl:h-[105px] xl:px-14">
         <div className="relative flex lg:align-middle">
           <Image
@@ -119,7 +119,7 @@ export default function NavBar({
                   <li key={name}>
                     <Link
                       href={url}
-                      className={`${currentPath == url ? "text-ted-red" : ""}`}
+                      className={`font-anderson ${currentPath == url ? "text-ted-red" : ""}`}
                     >
                       {name}
                     </Link>

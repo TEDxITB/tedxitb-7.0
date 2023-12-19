@@ -28,6 +28,7 @@ const radioVariants = cva(
         black: "border-ted-black text-ted-black",
         green: "border-[#03753D] text-[#03753D]",
         yellow: "border-[#E7FE4D] text-[#E7FE4D]",
+        white: "border-white text-white",
       },
     },
     defaultVariants: {

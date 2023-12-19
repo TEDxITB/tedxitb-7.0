@@ -61,9 +61,9 @@ export function Toaster() {
                 />
               )}
               <div className="flex flex-col gap-1">
-                {title && <ToastTitle>{title}</ToastTitle>}
+                {title && <ToastTitle className="font-anderson">{title}</ToastTitle>}
                 {description && (
-                  <ToastDescription>{description}</ToastDescription>
+                  <ToastDescription className="font-anderson">{description}</ToastDescription>
                 )}
               </div>
             </div>
