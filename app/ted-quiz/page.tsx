@@ -359,55 +359,78 @@ const ResultBlock = ({
   const Title = () => {
     if (resType === "creative") {
       return (
-        <h2 className="font-garamond text-[30px] md:text-[41px] italic">
-          <label className="font-graziela text-[48px] md:text-[75px] not-italic">T</label>he{" "}
-          <label className="font-graziela text-[48px] md:text-[75px] not-italic">C</label>
+        <h2 className="font-garamond text-[30px] italic md:text-[41px]">
+          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
+            T
+          </label>
+          he{" "}
+          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
+            C
+          </label>
           reative
         </h2>
       );
     } else if (resType === "scientist") {
       return (
         <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[48px] md:text-[75px] not-italic">T</label>he{" "}
-          <label className="font-graziela text-[48px] md:text-[75px] not-italic">S</label>
+          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
+            T
+          </label>
+          he{" "}
+          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
+            S
+          </label>
           cientist
         </h2>
       );
     } else if (resType === "director") {
       return (
         <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[48px] md:text-[75px] not-italic">T</label>he{" "}
-          <label className="font-graziela text-[48px] md:text-[75px] not-italic">D</label>
+          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
+            T
+          </label>
+          he{" "}
+          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
+            D
+          </label>
           irector
         </h2>
       );
     } else if (resType === "social") {
       return (
         <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[48px] md:text-[75px] not-italic">T</label>he{" "}
-          <label className="font-graziela text-[48px] md:text-[75px] not-italic">S</label>ocial
+          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
+            T
+          </label>
+          he{" "}
+          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
+            S
+          </label>
+          ocial
         </h2>
       );
     }
   };
   return (
     <div
-      className="relative flex h-fit w-screen items-center justify-center bg-cover bg-center bg-no-repeat pb-20 pt-36 px-4"
+      className="relative flex h-fit w-screen items-center justify-center bg-cover bg-center bg-no-repeat px-4 pb-20 pt-36"
       style={{
         backgroundImage: `url(${res.bg})`,
       }}
     >
-      <div className="absolute z-[10] md:hidden top-0 bottom-0 left-0 right-0 bg-cover bg-center bg-no-repeat bg-[url('/ted-quiz-bg-2.png')]"/>
-      <div className="flex h-fit w-full md:w-[65%] z-[20] flex-col items-center justify-center gap-3 rounded-sm bg-none md:bg-black/70 p-7 text-white">
+      <div className="absolute bottom-0 left-0 right-0 top-0 z-[10] bg-[url('/ted-quiz-bg-2.png')] bg-cover bg-center bg-no-repeat md:hidden" />
+      <div className="z-[20] flex h-fit w-full flex-col items-center justify-center gap-3 rounded-sm bg-none p-7 text-white md:w-[65%] md:bg-black/70">
         <div className="flex w-full flex-col items-center justify-center gap-2 text-center">
-          <p className="font-anderson text-[12px] md:text-[22px]">your result: </p>
+          <p className="font-anderson text-[12px] md:text-[22px]">
+            your result:{" "}
+          </p>
           <Title />
           <p className="font-anderson text-[12px] md:text-[16px]">{res.desc}</p>
         </div>
         <div className="flex w-full flex-col items-center justify-center gap-3 text-center">
-          <div className="relative w-full h-0 pb-[56.25%] lg:h-[315px] lg:w-[560px] lg:pb-0">
+          <div className="relative h-0 w-full pb-[56.25%] lg:h-[315px] lg:w-[560px] lg:pb-0">
             <iframe
-              className="w-full h-full absolute top-0 left-0"
+              className="absolute left-0 top-0 h-full w-full"
               src={res.video}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"

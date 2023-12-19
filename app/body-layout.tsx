@@ -35,14 +35,14 @@ const garamond = EB_Garamond({
   display: "swap",
   weight: ["500", "600", "700", "400", "800"],
   variable: "--font-garamond",
-})
+});
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   weight: ["500", "600", "700", "400", "800"],
   variable: "--font-inter",
-})
+});
 
 const BodyLayout = ({ children }: { children: React.ReactNode }) => {
   // Navbar State
@@ -56,9 +56,11 @@ const BodyLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <body
-      className={`flex min-h-screen flex-col bg-ted-black overflow-x-hidden ${
+      className={`flex min-h-screen flex-col overflow-x-hidden bg-ted-black ${
         montserrat.className
-      } ${anderson.variable} ${inter.className} ${laGraziela.variable} ${garamond.className} ${isNavBarActive && "overflow-hidden"} `}
+      } ${anderson.variable} ${inter.className} ${laGraziela.variable} ${
+        garamond.className
+      } ${isNavBarActive && "overflow-hidden"} `}
     >
       <SessionProvider>
         <NavBar
