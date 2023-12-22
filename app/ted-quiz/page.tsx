@@ -8,6 +8,4 @@ const TedQuizPage = () => {
   );
 };
 
-
-
 export default TedQuizPage;
