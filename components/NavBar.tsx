@@ -44,7 +44,7 @@ export default function NavBar({
   const currentPath = usePathname();
 
   return (
-    <nav className="fixed z-[800] left-0 right-0 top-0 flex w-full flex-col bg-black text-white">
+    <nav className="fixed left-0 right-0 top-0 z-[800] flex w-full flex-col bg-black text-white">
       <div className="flex h-24 flex-row items-center justify-between px-7 xl:h-[105px] xl:px-14">
         <div className="relative flex lg:align-middle">
           <Image
@@ -119,7 +119,9 @@ export default function NavBar({
                   <li key={name}>
                     <Link
                       href={url}
-                      className={`font-anderson ${currentPath == url ? "text-ted-red" : ""}`}
+                      className={`font-anderson ${
+                        currentPath == url ? "text-ted-red" : ""
+                      }`}
                     >
                       {name}
                     </Link>
