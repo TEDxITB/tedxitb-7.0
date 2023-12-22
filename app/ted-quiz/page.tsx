@@ -485,7 +485,10 @@ const QuestionBlock = ({
                       className="flex flex-col space-y-1"
                     >
                       {question.choice.map((c) => (
-                        <FormItem key={`${c.id}-${c.label}`} className="flex items-center space-x-3 space-y-0">
+                        <FormItem
+                          key={`${c.id}-${c.label}`}
+                          className="flex items-center space-x-3 space-y-0"
+                        >
                           <FormControl>
                             <RadioGroupItem
                               color="white"
