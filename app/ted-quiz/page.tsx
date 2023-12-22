@@ -2,9 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { ChevronLeft } from "lucide-react";
 import * as z from "zod";
@@ -32,25 +31,25 @@ const results = {
     title: "The Creative",
     desc: "The Creative personality type is likely characterized by a strong inclination towards imagination, originality, and artistic expression. Creatives often enjoy exploring new ideas, thinking outside the box, and engaging in various forms of artistic and creative endeavors.",
     bg: "/ted-quiz-creative.png",
-    video: "https://www.youtube.com/embed/gLiut8K9nUo?si=b_BMt68xr-lCzYnA",
+    video: "https://www.youtube.com/embed/D2FSRiJdqho?si=efxBbiAl_tlqOr4b",
   },
   social: {
     title: "The Social",
     desc: "The Social personality type may be associated with individuals who are sociable, outgoing, and enjoy social interactions. They might be skilled at building and maintaining relationships, and they may thrive in group settings and social activities.",
     bg: "/ted-quiz-social.png",
-    video: "https://www.youtube.com/embed/gLiut8K9nUo?si=b_BMt68xr-lCzYnA",
+    video: "https://www.youtube.com/embed/Kr7lP1z8UCw?si=bUpbBsaO_V2CW4Ec",
   },
   scientist: {
     title: "The Scientist",
     desc: "The Scientist personality type could be described as analytical, logical, and detail-oriented. People with this personality might have a strong interest in understanding and explaining the world through systematic observation and analysis.",
     bg: "/ted-quiz-scientist.png",
-    video: "https://www.youtube.com/embed/gLiut8K9nUo?si=b_BMt68xr-lCzYnA",
+    video: "https://www.youtube.com/embed/i-UAhK-vfQw?si=I8mbu68wzILel-Yi",
   },
   director: {
     title: "The Director",
     desc: "This personality type might be characterized as someone who is assertive, goal-oriented, and takes charge in various situations. Directors are often seen as leaders and decision-makers, and they tend to be driven and focused on achieving their objectives.",
     bg: "/ted-quiz-director.png",
-    video: "https://www.youtube.com/embed/gLiut8K9nUo?si=b_BMt68xr-lCzYnA",
+    video: "https://www.youtube.com/embed/2YM7rc29uW8?si=Xc9FFngg0vuAmFMI",
   },
 };
 
@@ -173,7 +172,7 @@ const questions = [
   },
 ];
 
-const tedQuizPage = () => {
+const TedQuizPage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -463,7 +462,7 @@ const QuestionBlock = ({
                       className="flex flex-col space-y-1"
                     >
                       {question.choice.map((c) => (
-                        <FormItem className="flex items-center space-x-3 space-y-0">
+                        <FormItem key={`${c.id}-${c.label}`} className="flex items-center space-x-3 space-y-0">
                           <FormControl>
                             <RadioGroupItem
                               color="white"
@@ -524,4 +523,4 @@ const QuestionBlock = ({
   );
 };
 
-export default tedQuizPage;
+export default TedQuizPage;
