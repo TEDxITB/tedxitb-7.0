@@ -47,7 +47,7 @@ const questions = [
       },
       {
         id: 2,
-        label: "I brainstorm creative solutions",
+        label: "I enjoy creative hobbies and imagination",
       },
       {
         id: 3,
