@@ -203,7 +203,7 @@ export default function Sponsorship() {
         <Image
           src={bottomright}
           alt="tedlogo"
-          className="absolute bottom-0 right-0 z-10 w-[75%] object-cover object-center max-w-[800px]"
+          className="absolute bottom-0 right-0 z-10 w-[75%] max-w-[800px] object-cover object-center"
           quality={100}
         ></Image>
         <Image
@@ -214,7 +214,7 @@ export default function Sponsorship() {
         <Image
           src={startop1}
           alt="bintang2"
-          className="absolute left-[-30px] bottom-[200px] w-1/2 max-w-[200px] lg:hidden"
+          className="absolute bottom-[200px] left-[-30px] w-1/2 max-w-[200px] lg:hidden"
         ></Image>
         <Image
           src={logonitromerah}
@@ -224,7 +224,7 @@ export default function Sponsorship() {
         <Image
           src={ketupatkiri}
           alt="ketupatkiri"
-          className="absolute left-0 w-[15%] top-[700px] max-w-[130px]"
+          className="absolute left-0 top-[700px] w-[15%] max-w-[130px]"
         ></Image>
         <Image
           src={logoxmerah}
