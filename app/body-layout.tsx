@@ -26,7 +26,7 @@ const garamondnova = localFont({
   src: "./fonts/garamondnovacondl-regular.ttf",
   display: "swap",
   variable: "--font-garamondnova",
-}); 
+});
 
 const BodyLayout = ({ children }: { children: React.ReactNode }) => {
   // Navbar State
