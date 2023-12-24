@@ -26,6 +26,7 @@ const config: Config = {
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],
         anderson: ["var(--font-anderson)"],
+        garamondnova: ["var(--font-garamondnova)"],
       },
       colors: {
         "ted-red": "#FF2B06",

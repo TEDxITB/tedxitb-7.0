@@ -22,6 +22,12 @@ const anderson = localFont({
   variable: "--font-anderson",
 });
 
+const garamondnova = localFont({
+  src: "./fonts/garamondnovacondl-regular.ttf",
+  display: "swap",
+  variable: "--font-garamondnova",
+}); 
+
 const BodyLayout = ({ children }: { children: React.ReactNode }) => {
   // Navbar State
   const [isNavBarActive, setIsNavBarActive] = useState(false);
@@ -36,7 +42,9 @@ const BodyLayout = ({ children }: { children: React.ReactNode }) => {
     <body
       className={`flex min-h-screen flex-col bg-ted-black ${
         montserrat.className
-      } ${anderson.variable} ${isNavBarActive && "overflow-hidden"} `}
+      } ${anderson.variable} ${garamondnova.variable} ${
+        isNavBarActive && "overflow-hidden"
+      } `}
     >
       <SessionProvider>
         <NavBar
