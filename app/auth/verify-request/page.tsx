@@ -27,7 +27,7 @@ const VerifyReqPage = async () => {
             <Button
               variant="outline"
               size="default"
-              className="mt-4 w-60 md:w-80 bg-transparent font-bold text-ted-red"
+              className="mt-4 w-60 bg-transparent font-bold text-ted-red md:w-80"
             >
               Change Email
             </Button>
@@ -61,14 +61,14 @@ const VerifyReqPage = async () => {
             height={60}
           />
           <Image
-            className="absolute -bottom-24 md:-bottom-32 -right-8 w-72"
+            className="absolute -bottom-24 -right-8 w-72 md:-bottom-32"
             src="/logo per part-05 2.png"
             alt="star icon"
             width={60}
             height={60}
           />
           <Image
-            className="absolute right-12 -top-28 w-12 md:w-16 xl:w-20"
+            className="absolute -top-28 right-12 w-12 md:w-16 xl:w-20"
             src="/Ellipse 3(1).svg"
             alt="star icon"
             width={60}
@@ -82,7 +82,7 @@ const VerifyReqPage = async () => {
             height={60}
           />
           <Image
-            className="absolute -bottom-32 md:-bottom-40 xl:-bottom-48 -left-8 w-20 rotate-180 md:-left-24 md:w-24 xl:-left-28 xl:w-28"
+            className="absolute -bottom-32 -left-8 w-20 rotate-180 md:-bottom-40 md:-left-24 md:w-24 xl:-bottom-48 xl:-left-28 xl:w-28"
             src="/Ellipse 3(1).svg"
             alt="star icon"
             width={60}

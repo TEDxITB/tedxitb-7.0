@@ -84,7 +84,7 @@ const SignInForm = () => {
                   <div>
                     <Input
                       type="email"
-                      className="text-black w-72 md:w-[480px]"
+                      className="w-72 text-black md:w-[480px]"
                       {...field}
                     />
                     <p className="font-inter mt-2 text-xs">
