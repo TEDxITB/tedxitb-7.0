@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -87,27 +88,26 @@ const SignInForm = () => {
                       className="w-72 text-black md:w-[480px]"
                       {...field}
                     />
-                    <p className="font-inter mt-2 text-xs">
+                    <FormDescription className="font-inter mt-2 text-white">
                       Enter an email address to which we will send you a
                       verification
-                    </p>
+                    </FormDescription>
                   </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
+          {/* Submit button */}
+          <Button
+            className="font-inter mt-14 w-72 md:w-[480px]"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            SIGN IN
+          </Button>
         </form>
-
-        {/* Submit button */}
-        <Button
-          className="font-inter mt-14 w-72 md:w-[480px]"
-          type="submit"
-          disabled={isSubmitting}
-        >
-          {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-          SIGN IN
-        </Button>
       </Form>
 
       {/* Separator */}

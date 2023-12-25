@@ -3,16 +3,16 @@ import Image from "next/image";
 
 const SignInPage = async () => {
   return (
-    <main className="relative flex h-screen justify-center overflow-hidden">
+    <main className="relative flex h-screen items-center justify-center overflow-hidden">
       <Image
         className="absolute h-full w-full object-cover object-center"
-        src="/bg-tedx.png"
+        src="/bg-tedx-sign-in.jpg"
         alt="Background Image"
-        width={360}
-        height={100}
+        fill
+        sizes="(max-width: 768px) 160vw, 100vw"
       />
 
-      <div className="relative mt-16 flex h-[540px] w-[320px] items-center justify-center rounded-lg bg-[#1C1C1C] text-white md:w-[560px] xl:ml-[600px] 2xl:ml-[900px] 2xl:mt-10">
+      <div className="relative flex h-[540px] w-[320px] items-center justify-center rounded-lg bg-[#1C1C1C] text-white md:w-[560px] xl:ml-[600px] 2xl:ml-[900px]">
         <div className="relative mx-4">
           <h1 className="mb-4 text-center font-anderson text-3xl font-bold">
             SIGN IN
