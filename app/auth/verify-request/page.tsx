@@ -17,7 +17,7 @@ const VerifyReqPage = async () => {
           <h1 className="mb-6 text-4xl">Verify Your Email</h1>
           <div className="mx-6 flex flex-col items-center justify-center">
             <p className="mb-12">
-              We've sent an email to abcdlimadasar@gmail.com to verify your
+              We&apos;ve sent an email to abcdlimadasar@gmail.com to verify your
               email address and activate your account
             </p>
             <p>
