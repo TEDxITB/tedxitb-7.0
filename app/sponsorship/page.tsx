@@ -2,13 +2,13 @@ import Image from "next/image";
 import SponsorshipBackground from "../../public/bg_3 2.png";
 import startop1 from "../../public/star icon 4.png";
 import starfull from "../../public/star icon 3.png";
-import tedlogobottom from "../../public/logo-03 2.png"
-import bottomright from "../../public/bottomright.svg"
-import qnb from "../../public/qnbdum.png"
-import logoxmerah from "../../public/logo per part-05 2.png"
-import logonitromerah from "../../public/logo per part-06 2.png"
-import ketupatkanan from "../../public/Frame 1000001971.png"
-import ketupatkiri from "../../public/Frame 1000001995.png"
+import tedlogobottom from "../../public/logo-03 2.png";
+import bottomright from "../../public/bottomright.svg";
+import qnb from "../../public/qnbdum.png";
+import logoxmerah from "../../public/logo per part-05 2.png";
+import logonitromerah from "../../public/logo per part-06 2.png";
+import ketupatkanan from "../../public/Frame 1000001971.png";
+import ketupatkiri from "../../public/Frame 1000001995.png";
 
 export default function Sponsorship() {
   return (
