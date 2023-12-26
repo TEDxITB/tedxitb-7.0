@@ -44,8 +44,8 @@ export default function NavBar({
   const currentPath = usePathname();
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-[800] flex w-full flex-col bg-black text-white">
-      <div className="flex h-24 flex-row items-center justify-between px-7 xl:h-[105px] xl:px-14">
+    <nav className="sticky left-0 right-0 top-0 z-[800] flex w-full flex-col bg-black font-anderson text-white">
+      <div className="flex h-24 flex-row items-center justify-between px-7 xl:px-14">
         <div className="relative flex lg:align-middle">
           <Image
             priority
@@ -119,16 +119,14 @@ export default function NavBar({
                   <li key={name}>
                     <Link
                       href={url}
-                      className={`font-anderson ${
-                        currentPath == url ? "text-ted-red" : ""
-                      }`}
+                      className={`${currentPath == url ? "text-ted-red" : ""}`}
                     >
                       {name}
                     </Link>
                   </li>
                 );
               })}
-              <Button size={"lg"} className="px-9">
+              <Button size={"lg"} className="px-9 text-base">
                 Sign In
               </Button>
             </ul>

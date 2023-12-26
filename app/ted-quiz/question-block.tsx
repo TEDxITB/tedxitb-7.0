@@ -145,14 +145,14 @@ const QuestionBlock = ({
   const question = questions[number - 1];
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-[url('/ted-quiz-bg-2.png')] bg-cover bg-center bg-no-repeat">
+    <div className="flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center bg-[url('/ted-quiz-bg-2.png')] bg-cover bg-center bg-no-repeat">
       <div className="flex h-fit w-full flex-col items-center justify-center gap-7 rounded-sm p-5 text-white sm:w-[65%] sm:gap-4 sm:bg-black/70 sm:p-7">
-        <h3 className="font-inter text-[17px] md:text-[24px]">
+        <h3 className="font-anderson text-[17px] md:text-[24px]">
           Question {question.number} of 5
         </h3>
-        <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-4">
+        <div className="flex h-full w-full flex-col items-center justify-center gap-4 px-4">
           <div className="flex w-full flex-col items-center justify-center text-center">
-            <h2 className="font-anderson text-[20px] md:text-[35px]">
+            <h2 className="font-anderson font-black text-[20px] md:text-[35px]">
               {question.question}
             </h2>
             <p className="font-anderson text-[14px] md:text-[16px]">
@@ -182,7 +182,7 @@ const QuestionBlock = ({
                               value={c.id.toString()}
                             />
                           </FormControl>
-                          <FormLabel className="font-inter text-[17px] md:text-[24px]">
+                          <FormLabel className="font-anderson text-[17px] md:text-[24px]">
                             {c.label}
                           </FormLabel>
                         </FormItem>
