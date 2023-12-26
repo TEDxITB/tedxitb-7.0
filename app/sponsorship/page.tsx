@@ -23,7 +23,7 @@ export default function Sponsorship() {
           className="absolute inset-0 h-full w-full object-cover object-center"
         ></Image>
         <section className="absolute flex h-full w-full flex-col items-center justify-center  space-y-10 px-10 text-center font-garamondnova text-white md:items-start md:px-24">
-          <div className="flex flex-col items-center justify-center w-[400px] md:items-start">
+          <div className="flex w-[400px] flex-col items-center justify-center md:items-start">
             <label className="text-[20px] md:text-[28px]">
               Special Thanks To
             </label>
@@ -35,8 +35,8 @@ export default function Sponsorship() {
           </p>
         </section>
       </div>
-      <div className="relative flex min-h-screen flex-col items-center space-y-8 lg:space-y-16 bg-[#1C1C1C] px-10 py-32 md:px-28">
-        <section className="flex flex-row flex-wrap items-center justify-center w-[400px] md:w-[520px] lg:w-[700px]">
+      <div className="relative flex min-h-screen flex-col items-center space-y-8 bg-[#1C1C1C] px-10 py-32 md:px-28 lg:space-y-16">
+        <section className="flex w-[400px] flex-row flex-wrap items-center justify-center md:w-[520px] lg:w-[700px]">
           <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
             <Image
               src={qnb}
@@ -66,7 +66,7 @@ export default function Sponsorship() {
             ></Image>
           </div>
         </section>
-        <section className="flex flex-row flex-wrap items-center justify-center w-[400px] md:w-[520px] lg:w-[700px]">
+        <section className="flex w-[400px] flex-row flex-wrap items-center justify-center md:w-[520px] lg:w-[700px]">
           <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
             <Image
               src={qnb}
@@ -96,51 +96,7 @@ export default function Sponsorship() {
             ></Image>
           </div>
         </section>
-        <section className="flex flex-row flex-wrap items-center justify-center w-[400px] md:w-[520px] lg:w-[700px]">
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-        </section>
-        <section className="flex flex-row flex-wrap items-center justify-center w-[400px] md:w-[520px] lg:w-[700px]">
+        <section className="flex w-[400px] flex-row flex-wrap items-center justify-center md:w-[520px] lg:w-[700px]">
           <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
             <Image
               src={qnb}
@@ -184,7 +140,51 @@ export default function Sponsorship() {
             ></Image>
           </div>
         </section>
-        <section className="flex flex-col items-center justify-center w-[400px] md:w-[520px] space-y-10 py-24 text-center font-anderson text-[16px] text-white">
+        <section className="flex w-[400px] flex-row flex-wrap items-center justify-center md:w-[520px] lg:w-[700px]">
+          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
+            <Image
+              src={qnb}
+              alt="logo"
+              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
+            ></Image>
+          </div>
+          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
+            <Image
+              src={qnb}
+              alt="logo"
+              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
+            ></Image>
+          </div>
+          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
+            <Image
+              src={qnb}
+              alt="logo"
+              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
+            ></Image>
+          </div>
+          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
+            <Image
+              src={qnb}
+              alt="logo"
+              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
+            ></Image>
+          </div>
+          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
+            <Image
+              src={qnb}
+              alt="logo"
+              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
+            ></Image>
+          </div>
+          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
+            <Image
+              src={qnb}
+              alt="logo"
+              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
+            ></Image>
+          </div>
+        </section>
+        <section className="flex w-[400px] flex-col items-center justify-center space-y-10 py-24 text-center font-anderson text-[16px] text-white md:w-[520px]">
           <p className="font-anderson md:text-[32px]">
             TedXITB is made possibble thanks to the grate companies and
             community support
