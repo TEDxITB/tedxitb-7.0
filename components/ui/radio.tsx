@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 interface radioProps {
-  color: "default" | "black" | "yellow" | "green";
+  color: "default" | "black" | "yellow" | "green" | "white";
   label: string;
   isDisabled: boolean;
 }
