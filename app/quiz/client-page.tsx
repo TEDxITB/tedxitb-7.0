@@ -8,8 +8,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
 import { useToast } from "@/components/ui/use-toast";
-import ResultBlock from "@/app/ted-quiz/result-block";
-import QuestionBlock from "@/app/ted-quiz/question-block";
+import ResultBlock from "@/app/quiz/result-block";
+import QuestionBlock from "@/app/quiz/question-block";
 
 export const formSchema = z.object({
   question1: z.string().min(1),

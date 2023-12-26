@@ -10,7 +10,7 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
-import { formSchema } from "@/app/ted-quiz/client-page";
+import { formSchema } from "@/app/quiz/client-page";
 
 const questions = [
   {
@@ -152,7 +152,7 @@ const QuestionBlock = ({
         </h3>
         <div className="flex h-full w-full flex-col items-center justify-center gap-4 px-4">
           <div className="flex w-full flex-col items-center justify-center text-center">
-            <h2 className="font-anderson font-black text-[20px] md:text-[35px]">
+            <h2 className="font-anderson text-[20px] font-black md:text-[35px]">
               {question.question}
             </h2>
             <p className="font-anderson text-[14px] md:text-[16px]">

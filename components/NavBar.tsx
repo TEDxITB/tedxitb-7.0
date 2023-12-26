@@ -21,8 +21,8 @@ const navLink: {
     path: "/test/header/Magazine",
   },
   {
-    name: "TED Quiz",
-    path: "/ted-quiz",
+    name: "Quiz",
+    path: "/quiz",
   },
   {
     name: "Sponsorship",
@@ -119,7 +119,11 @@ export default function NavBar({
                   <li key={name}>
                     <Link
                       href={url}
-                      className={`${currentPath == url ? "text-ted-red" : ""}`}
+                      className={`${
+                        currentPath == url
+                          ? "font-bold text-ted-red"
+                          : "font-medium text-ted-white"
+                      }`}
                     >
                       {name}
                     </Link>
