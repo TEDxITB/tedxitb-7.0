@@ -88,7 +88,7 @@ const SignInForm = () => {
                       className="w-72 text-black md:w-[480px]"
                       {...field}
                     />
-                    <FormDescription className="font-inter mt-2 text-white">
+                    <FormDescription className="mt-2 font-inter text-white">
                       Enter an email address to which we will send you a
                       verification
                     </FormDescription>
@@ -100,7 +100,7 @@ const SignInForm = () => {
           />
           {/* Submit button */}
           <Button
-            className="font-inter mt-14 w-72 md:w-[480px]"
+            className="mt-14 w-72 font-inter md:w-[480px]"
             type="submit"
             disabled={isSubmitting}
           >
