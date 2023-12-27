@@ -6,10 +6,10 @@ const VerifyReqPage = async () => {
     <main className="relative flex h-screen justify-center overflow-hidden">
       <Image
         className="absolute h-full w-full object-cover object-center"
-        src="/bg-tedx.png"
+        src="/bg-tedx-sign-in.jpg"
         alt="Background Image"
-        width={360}
-        height={100}
+        fill
+        sizes="(max-width: 768px) 160vw, 100vw"
       />
 
       <div className="relative mt-16 flex h-[540px] w-[320px] items-center justify-center rounded-lg bg-[#1C1C1C] text-center font-anderson font-bold text-white md:w-[560px] xl:ml-[600px] 2xl:ml-[900px] 2xl:mt-10">
@@ -33,36 +33,36 @@ const VerifyReqPage = async () => {
             </Button>
           </div>
           <Image
-            className="absolute -top-20 -ml-6 w-32 md:-ml-12 xl:-ml-4"
-            src="/star icon 5(3).png"
+            className="absolute -top-24 md:-top-36 -ml-6 w-32 md:-ml-12 xl:-ml-4"
+            src="/star icon 5.png"
             alt="star icon"
             width={60}
             height={60}
           />
           <Image
             className="absolute right-6 top-2 w-12"
-            src="/star icon 7(1).png"
+            src="/star icon 7.png"
             alt="star icon"
             width={60}
             height={60}
           />
           <Image
             className="absolute -right-4 top-32 w-16 xl:-ml-8"
-            src="/star icon 6(2).png"
+            src="/star icon 6.png"
             alt="star icon"
             width={60}
             height={60}
           />
           <Image
             className="absolute bottom-8 -ml-10 w-32"
-            src="/logo per part-06 2.png"
+            src="/logo per 1.png"
             alt="star icon"
             width={60}
             height={60}
           />
           <Image
             className="absolute -bottom-24 -right-8 w-72 md:-bottom-32"
-            src="/logo per part-05 2.png"
+            src="/logo per 2.png"
             alt="star icon"
             width={60}
             height={60}
