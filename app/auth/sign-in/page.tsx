@@ -3,7 +3,10 @@ import Image from "next/image";
 
 const SignInPage = async () => {
   return (
-    <main className="relative flex h-screen items-center justify-center overflow-hidden">
+    <main
+      className="relative flex items-center justify-center overflow-hidden"
+      style={{ minHeight: "calc(100vh - 96px)" }}
+    >
       <Image
         className="absolute h-full w-full object-cover object-center"
         src="/bg-tedx-sign-in.jpg"
