@@ -33,7 +33,7 @@ const VerifyReqPage = async () => {
             </Button>
           </div>
           <Image
-            className="absolute -top-24 md:-top-36 -ml-6 w-32 md:-ml-12 xl:-ml-4"
+            className="absolute -top-24 -ml-6 w-32 md:-top-36 md:-ml-12 xl:-ml-4"
             src="/star icon 5.png"
             alt="star icon"
             width={60}
