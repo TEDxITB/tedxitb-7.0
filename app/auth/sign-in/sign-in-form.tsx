@@ -73,7 +73,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="font-anderson">
+    <div className="font-anderson w-full">
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Email */}
@@ -87,7 +87,7 @@ const SignInForm = () => {
                   <div>
                     <Input
                       type="email"
-                      className="w-72 text-black ring-offset-[#1C1C1C] md:w-[480px]"
+                      className="w-full text-black ring-offset-[#1C1C1C]"
                       {...field}
                     />
                     <FormDescription className="mt-2">
@@ -103,7 +103,7 @@ const SignInForm = () => {
 
           {/* Submit button */}
           <Button
-            className="mt-14 w-72 md:w-[480px]"
+            className="mt-14 w-full"
             size="lg"
             type="submit"
             disabled={isSubmitting}
@@ -127,7 +127,7 @@ const SignInForm = () => {
         <Button
           variant="outline"
           size="lg"
-          className="bg-transparent"
+          className="w-full bg-transparent"
           type="button"
           disabled={isSubmitting}
           onClick={() =>
