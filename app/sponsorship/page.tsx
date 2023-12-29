@@ -22,7 +22,7 @@ export default function Sponsorship() {
           quality={100}
           className="absolute inset-0 h-full w-full object-cover object-center"
         ></Image>
-        <section className="absolute flex h-full w-full flex-col items-center justify-center  space-y-10 px-10 text-center font-garamondnova text-white md:items-start md:px-24">
+        <section className="font-garamondnova absolute flex h-full w-full flex-col items-center  justify-center space-y-10 px-10 text-center text-white md:items-start md:px-24">
           <div className="flex w-[400px] flex-col items-center justify-center md:items-start">
             <label className="text-[20px] md:text-[28px]">
               Special Thanks To
