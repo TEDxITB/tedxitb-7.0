@@ -1,0 +1,580 @@
+[33mcommit 43753d444c0a153f1e3e81f2ce5047137e58f114[m[33m ([m[1;36mHEAD -> [m[1;32mstaging[m[33m, [m[1;31morigin/staging[m[33m)[m
+Author: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+Date:   Thu Nov 30 17:01:06 2023 +0700
+
+    feat: Added toaster in body layout.
+
+[33mcommit 24c43fc8d4ff138b17990ac867af445ab73e1293[m
+Author: Randy Verdian <116436617+randyver@users.noreply.github.com>
+Date:   Thu Nov 30 16:57:36 2023 +0700
+
+    Toasts (#17)
+    
+    * feat(button): Add button
+    
+    * Fix code style issues with Prettier
+    
+    * fix(button): Change variant and size
+    
+    * Fix code style issues with Prettier
+    
+    * feat(button): Add test disabled button
+    
+    * fix(button): Add hover
+    
+    * fix(button): Change hover
+    
+    * Fix code style issues with Prettier
+    
+    * fix(toast): package toast
+    
+    * feat(breadcrumbs): Add breadcrumbs
+    
+    * feat(toasts): change style and add icon props
+    
+    * Fix code style issues with Prettier
+    
+    * fix: Delete conflict file
+    
+    * fix: change size icon and strip
+    
+    * fix: change margin
+    
+    * fix: change height and delete border
+    
+    * fix(toasts): change rounded
+    
+    * fix: Toasts svg and colors.
+    
+    * Fix code style issues with Prettier
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+    Co-authored-by: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+
+[33mcommit 88c830ae76b689e77f1cbe7c7cfe1518286ceb56[m
+Author: Randy Verdian <116436617+randyver@users.noreply.github.com>
+Date:   Thu Nov 30 14:59:23 2023 +0700
+
+    breadcrumbs (#22)
+    
+    * feat(button): Add button
+    
+    * Fix code style issues with Prettier
+    
+    * fix(button): Change variant and size
+    
+    * Fix code style issues with Prettier
+    
+    * feat(button): Add test disabled button
+    
+    * fix(button): Add hover
+    
+    * fix(button): Change hover
+    
+    * Fix code style issues with Prettier
+    
+    * fix(toast): package toast
+    
+    * feat(breadcrumbs): Add breadcrumbs
+    
+    * feat(toasts): change style and add icon props
+    
+    * Fix code style issues with Prettier
+    
+    * fix: Delete conflict file
+    
+    * fix: change size icon and strip
+    
+    * fix: change margin
+    
+    * fix: change height and delete border
+    
+    * fix(toasts): change rounded
+    
+    * Fix code style issues with Prettier
+    
+    * feat: add breadcrumbs in layout
+    
+    * Fix code style issues with Prettier
+    
+    * fix(breadcrumbs): delete unused file
+    
+    * Fix code style issues with Prettier
+    
+    * fix(breadcrumps): Changed from right arrow image to lucide icon and deleted unused image.
+    
+    * fix: Build error.
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+    Co-authored-by: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+
+[33mcommit e300a5dad2468aa0b09bfe17297863afa3f9b933[m
+Author: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+Date:   Thu Nov 30 14:31:32 2023 +0700
+
+    fix: Build error (missing dependency).
+
+[33mcommit b084d4d1904a2f7e2843aa8b595fe22917ffbe04[m
+Author: ChaiGans <113753352+ChaiGans@users.noreply.github.com>
+Date:   Thu Nov 30 13:31:01 2023 +0700
+
+    feat/modals (#13)
+    
+    * add: modals 4 variants feature
+    
+    * Fix code style issues with Prettier
+    
+    * add: feature modals
+    
+    * Fix code style issues with Prettier
+    
+    * add: package json
+    
+    * feat: edit dialogcontent
+    
+    * Fix code style issues with Prettier
+    
+    * feat: Add dialog variants to test page.
+    
+    * fix(modals): Buat modals pass url image agar lebih fleksibel.
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+    Co-authored-by: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+
+[33mcommit 75bc1184c887c5287c538dcbb64afd8e256cd763[m
+Author: ChaiGans <113753352+ChaiGans@users.noreply.github.com>
+Date:   Thu Nov 30 12:44:10 2023 +0700
+
+    feat/links (#16)
+    
+    * add: feature links
+    
+    * Fix code style issues with Prettier
+    
+    * add: label as children, ..props, a to Link
+    
+    * Fix code style issues with Prettier
+    
+    * fix: visited link
+    
+    * Fix code style issues with Prettier
+    
+    * fix(links): custom link interface.
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+
+[33mcommit 51b9eee44804c1c7dadf29c5f555bfadb565b8b4[m
+Author: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+Date:   Sun Nov 12 22:27:14 2023 +0700
+
+    Layout Navbar Footer (#20)
+    
+    * feat: Created body layout (connect navbar & footer)
+    
+    * fix: Navbar scrollable in mobile when expanded.
+    
+    * fix: Fixed bug in coming soon after creating layout.
+    
+    * fix: Build error.
+
+[33mcommit a0e6680421cd13576597cd6116e647e5d90a6144[m
+Author: Muhammad Atpur Rafif <66266045+atpur-rafif@users.noreply.github.com>
+Date:   Sun Nov 12 21:19:27 2023 +0700
+
+    feat/navbar (#15)
+    
+    * feat(header): Desktop version
+    
+    * fix(prettier): Format document
+    
+    * Fix code style issues with Prettier
+    
+    * feat(navbar): Responsive between desktop and mobile
+    
+    * Fix code style issues with Prettier
+    
+    * feat(navbar): Recommit losed changed after fixed conflict
+    
+    * Fix code style issues with Prettier
+    
+    * feat(navbar): Update based on comment
+    
+    * Fix code style issues with Prettier
+    
+    * feat(navbar): Update test name from header to navbar
+    
+    * feat(navbar): Comment update (2)
+    
+    * Fix code style issues with Prettier
+    
+    * feat(navbar): Add gap and change padding to x axis only
+    
+    * Fix code style issues with Prettier
+    
+    * feat(navbar): Sticky styling
+    
+    * Fix code style issues with Prettier
+    
+    * feat: Added small changes for finishing.
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+
+[33mcommit 6dc0bef55ad6af0531d4b455d1352f8e9e38486d[m
+Author: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+Date:   Sun Nov 12 19:38:43 2023 +0700
+
+    fix: Build error.
+
+[33mcommit dcc07abbf21fb37d70761998596df36c3fcf6807[m
+Author: Ahmad Naufal Ramadan <83053460+SandWithCheese@users.noreply.github.com>
+Date:   Sat Nov 11 04:05:12 2023 -0500
+
+    feat: footer (#19)
+    
+    * feat: footer
+    
+    * Fix code style issues with Prettier
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+
+[33mcommit ec28e5e003a99b0481d7f4900e50a100e3c0a5d8[m
+Author: Mesach Harmasendro <68049342+Otzzu@users.noreply.github.com>
+Date:   Sat Nov 11 13:56:46 2023 +0700
+
+    Pagination (#14)
+    
+    * feat: add pagination component
+    
+    * Fix code style issues with Prettier
+    
+    * feat: add max height for compact pagination
+    
+    * Fix code style issues with Prettier
+    
+    * feat: add disabled button
+    
+    * Fix code style issues with Prettier
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+
+[33mcommit a53ee8cc3dcffcf6b74a8a54c1db57846b302b40[m
+Author: Nyoman Ganadipa Narayana <13522066@std.stei.itb.ac.id>
+Date:   Wed Nov 1 14:28:39 2023 +0700
+
+    Feat: textarea component (#12)
+    
+    * Feat: textarea component
+    
+    * Add: Disabled textarea component
+    
+    ---------
+    
+    Co-authored-by: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+
+[33mcommit f9095778685a14f60c9256d934d2d78f424b2c00[m
+Author: Nyoman Ganadipa Narayana <13522066@std.stei.itb.ac.id>
+Date:   Tue Oct 31 19:26:32 2023 +0700
+
+    Feat/input (#7)
+    
+    * Add: input
+    
+    * feat: Input Component
+    
+    * fix: input component
+
+[33mcommit f08da10c71d5e779a33ae0e040ae771445f006c4[m
+Author: Mesach Harmasendro <68049342+Otzzu@users.noreply.github.com>
+Date:   Tue Oct 31 19:18:34 2023 +0700
+
+    File upload (#11)
+    
+    * feat: Add file upload component
+    
+    * Fix code style issues with Prettier
+    
+    * style: add comment
+    
+    * style: add comment
+    
+    * Fix code style issues with Prettier
+    
+    * Fix code style issues with Prettier
+    
+    * refactor: change code for button retry and button trash
+    
+    * refactor: change code for button retry and button trash
+    
+    * Fix code style issues with Prettier
+    
+    * Delete .vscode/settings.json
+    
+    * Remove file upload import
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+
+[33mcommit e7fc78f7c3a3377ade8bb06cf7b54606a93ab61b[m
+Author: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+Date:   Tue Oct 31 10:02:00 2023 +0700
+
+    fix: Try to fix failed build
+
+[33mcommit 61b7c1767b05934d8a63f4d0005f05ed0d2f7686[m
+Author: ChaiGans <113753352+ChaiGans@users.noreply.github.com>
+Date:   Tue Oct 31 09:54:27 2023 +0700
+
+    feat/radio (#5)
+    
+    * add: radio component feature
+    
+    * Fix code style issues with Prettier
+    
+    * add: install npx
+    
+    * add: test radio page
+    
+    * Fix code style issues with Prettier
+    
+    * fix: radio components more responsive and safe
+    
+    * Fix code style issues with Prettier
+    
+    * fix: radio could not be unclick
+    
+    * Fix code style issues with Prettier
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+
+[33mcommit 38f1c4920fb518c266c396c9e8270ee470eeb363[m
+Author: Randy Verdian <116436617+randyver@users.noreply.github.com>
+Date:   Tue Oct 31 09:33:35 2023 +0700
+
+    Button (#8)
+    
+    * feat(button): Add button
+    
+    * Fix code style issues with Prettier
+    
+    * fix(button): Change variant and size
+    
+    * Fix code style issues with Prettier
+    
+    * feat(button): Add test disabled button
+    
+    * fix(button): Add hover
+    
+    * fix(button): Change hover
+    
+    * Fix code style issues with Prettier
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+
+[33mcommit d4ff0062586a7db0bf76c9c5282d80709481a15f[m
+Author: Randy Verdian <116436617+randyver@users.noreply.github.com>
+Date:   Tue Oct 31 08:02:59 2023 +0700
+
+    Cards (#9)
+    
+    * feat(cards): Add cards
+    
+    * Fix code style issues with Prettier
+    
+    * fix(cards): change style and card image
+    
+    * Fix code style issues with Prettier
+    
+    * fix(cards): Change font size title and description
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+
+[33mcommit f38bd374e99d5eb1325cde255c819535eaa4d75b[m
+Author: ChaiGans <113753352+ChaiGans@users.noreply.github.com>
+Date:   Tue Oct 31 07:48:17 2023 +0700
+
+    feat/checkbox (#6)
+    
+    * add: feature checkbox
+    
+    * Fix code style issues with Prettier
+    
+    * add: npx install from shadcn checkbox
+    
+    * add: checkbox page test
+    
+    * Fix code style issues with Prettier
+    
+    * fix: checkbox component be more responsive
+    
+    * Fix code style issues with Prettier
+    
+    * fix: disable could not click
+    
+    * Fix code style issues with Prettier
+    
+    * fix: html semantics p to label
+    
+    * Fix code style issues with Prettier
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+
+[33mcommit 2db39f03bdeff699fd99cabb3c849509a7523b5a[m
+Author: Muhammad Atpur Rafif <66266045+atpur-rafif@users.noreply.github.com>
+Date:   Tue Oct 31 07:23:17 2023 +0700
+
+    Feature dropdown (#4)
+    
+    * feat(dropdown): Installed shadcnui
+    
+    * feat(dropdown): Added preview page for component
+    
+    * feat(dropdown): Added label to dropdown ui
+    
+    * feat(dropdown): Restyling
+    
+    * feat(dropdown): Added ring when dropdown active
+    
+    * Fix code style issues with Prettier
+    
+    * feat(dropdown): Update placeholder
+    
+    * fix(hotjar): Put back hotjar and fix typo
+    
+    * feat(dropdown): Removed ui-preview page
+    
+    * Fix code style issues with Prettier
+    
+    * feat(dropdown):ui preview
+    
+    * feat(dropdown): Rename file to dropdown
+    
+    * feat(dropdown): Removed label and added ring offset
+    
+    * feat(gitignore): Ignore vscode local option
+    
+    * feat(dropdown): Change ringg offset background
+    
+    * feat(dropdown): Changed ring width from 1 to 2
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+
+[33mcommit 7344633cc6bdd513ebb6e8eb0077af48f2ebb771[m
+Author: Ahmad Naufal Ramadan <83053460+SandWithCheese@users.noreply.github.com>
+Date:   Mon Oct 30 20:19:07 2023 -0400
+
+    feat: Added countdown component (#10)
+    
+    * feat: Added countdown component
+    
+    * fix: Changing tracking size
+
+[33mcommit e448f298b62599031c4c8e2646379a0ada21af18[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+Date:   Tue Oct 24 02:09:35 2023 +0700
+
+    feat: Added hotjar analytics and  install shadcnui.
+
+[33mcommit d04cc137dd6cab4bff2a5686aecb98a1e8a965be[m
+Author: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+Date:   Mon Oct 16 23:39:16 2023 +0700
+
+    fix: Changed word cloud margin word and added new words. (#3)
+
+[33mcommit 67f4e70ffef2a27b6f6fe7c22ca5205ad974e351[m
+Author: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+Date:   Sun Oct 15 23:16:15 2023 +0700
+
+    feat: Added background and some effect in coming soon page. (#2)
+
+[33mcommit 8049a148acc7e4e331fd29b518ae54deaa6820ec[m
+Author: Ahmad Naufal Ramadan <83053460+SandWithCheese@users.noreply.github.com>
+Date:   Sun Sep 24 10:09:29 2023 -0400
+
+    Coming Soon Page (#1)
+    
+    * feat: added coming soon page
+    
+    * Revert "feat: added coming soon page"
+    
+    This reverts commit 9909f2a1db845e8a0f5861ee0154a69de9ae08a0.
+    
+    * Revert "Revert "feat: added coming soon page""
+    
+    This reverts commit cffa8d1b63b95f18fe4d075747fbee22705e91af.
+    
+    * Fix code style issues with Prettier
+    
+    * fix(ci/cd): Fixed CI/CD git author must have access.
+    
+    * feat: fixed issues and added SEO
+    
+    * fix: fixed font size, margin, and theme issues
+    
+    ---------
+    
+    Co-authored-by: Lint Action <lint-action@samuelmeuli.com>
+    Co-authored-by: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+
+[33mcommit 2f913d555d6da86df8047312891e0ea3aa64872d[m
+Author: Lint Action <lint-action@samuelmeuli.com>
+Date:   Wed Sep 13 16:39:26 2023 +0000
+
+    Fix code style issues with Prettier
+
+[33mcommit bb546bf3c46e3dd7a63c454b7da7fdbaa4d5a6a8[m
+Author: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+Date:   Wed Sep 13 23:38:40 2023 +0700
+
+    feat(config):Added simple prisma schema and add custom color in tailwind config.
+
+[33mcommit 858d9dbaf6ae9e91d6a994c081683e9c14cdc9f5[m
+Author: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+Date:   Fri Sep 8 19:35:53 2023 +0700
+
+    Add prettier lint CI.
+
+[33mcommit e721d240499822bb2b51d3739e2142d707fbb785[m
+Author: Dewantoro Triatmojo <dewantorotriatmojo@gmail.com>
+Date:   Fri Sep 8 19:29:52 2023 +0700
+
+    Install nextjs, nextauth, prisma, prisma adapter, resend, react email, and prettier.
+
+[33mcommit eaf563369480b0e2122d289329f13eec61d6ec78[m
+Author: Dewantoro Triatmojo <99950492+dewodt@users.noreply.github.com>
+Date:   Fri Sep 8 19:00:35 2023 +0700
+
+    Initial commit
