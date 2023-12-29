@@ -1,15 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
-import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
-import * as z from "zod";
-import { signInSchema } from "@/lib/zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
@@ -19,7 +10,16 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
+import { signInSchema } from "@/lib/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -57,6 +57,7 @@ const SignInForm = () => {
         description: "Error sign in with email",
         duration: 5000,
       });
+
       return;
     }
 
@@ -66,12 +67,13 @@ const SignInForm = () => {
       description: "Email sent. Check your inbox!",
       duration: 5000,
     });
+
     router.push("/auth/verify-request");
     router.refresh();
   };
 
   return (
-    <div>
+    <div className="font-anderson">
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Email */}
@@ -80,15 +82,15 @@ const SignInForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mb-2 font-anderson">Email</FormLabel>
+                <FormLabel className="mb-2">Email</FormLabel>
                 <FormControl>
                   <div>
                     <Input
                       type="email"
-                      className="w-72 text-black md:w-[480px]"
+                      className="w-72 text-black ring-offset-[#1C1C1C] md:w-[480px]"
                       {...field}
                     />
-                    <FormDescription className="mt-2 font-inter text-white">
+                    <FormDescription className="mt-2">
                       Enter an email address to which we will send you a
                       verification
                     </FormDescription>
@@ -98,14 +100,16 @@ const SignInForm = () => {
               </FormItem>
             )}
           />
+
           {/* Submit button */}
           <Button
-            className="mt-14 w-72 font-inter md:w-[480px]"
+            className="mt-14 w-72 md:w-[480px]"
+            size="lg"
             type="submit"
             disabled={isSubmitting}
           >
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            SIGN IN
+            Continue with Email
           </Button>
         </form>
       </Form>
@@ -122,8 +126,8 @@ const SignInForm = () => {
       <div className="mt-5 flex flex-col">
         <Button
           variant="outline"
-          size="sm"
-          className="mb-2 bg-transparent hover:bg-ted-red/90"
+          size="lg"
+          className="bg-transparent"
           type="button"
           disabled={isSubmitting}
           onClick={() =>
@@ -133,16 +137,8 @@ const SignInForm = () => {
             })
           }
         >
-          <div className="flex flex-row items-center justify-center gap-2">
-            <Image
-              className="p-2 md:p-1"
-              alt="google"
-              src="/devicon_google.svg"
-              width={32}
-              height={32}
-            />
-            <p className="font-inter">Sign In with Google</p>
-          </div>
+          <Image alt="Google Logo" src="/google.svg" width={20} height={20} />
+          <span className="ml-2">Continue with Google</span>
         </Button>
       </div>
     </div>
