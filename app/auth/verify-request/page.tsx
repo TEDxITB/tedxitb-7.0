@@ -13,7 +13,7 @@ const VerifyRequestPage = async () => {
       {/* Background Image */}
       <Image
         className="absolute inset-0 h-full w-full object-cover object-center"
-        src="/bg-tedx-sign-in.jpg"
+        src="/bg-tedx-sign-in-2.jpg"
         alt="Background Image"
         fill={true}
         sizes="100vw"
