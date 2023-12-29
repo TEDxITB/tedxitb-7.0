@@ -73,7 +73,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="font-anderson w-full">
+    <div className="w-full font-anderson">
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Email */}

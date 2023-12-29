@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const SignInPage = async () => {
   return (
-    <main className="relative flex h-full min-h-[calc(100vh-96px)] items-center justify-center overflow-hidden p-5 py-12 sm:p-12 lg:p-24">
+    <main className="relative flex h-full min-h-[calc(100vh-96px)] items-center justify-center overflow-hidden p-5 py-16 sm:p-16 lg:p-24">
       {/* Background Image */}
       <Image
         className="absolute inset-0 h-full w-full object-cover object-center"
