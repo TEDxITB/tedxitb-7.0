@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import BecomeSponsorButtonModal from "./become-sponsor";
 import { type Metadata } from "next";
 import Image from "next/image";
 
@@ -9,6 +9,12 @@ export const metadata: Metadata = {
 export default function Sponsorship() {
   // Fetch data from CMS
   const testData = [
+    {
+      url: "/qnbdum.png",
+      alt: "logo",
+      width: 100,
+      height: 75,
+    },
     {
       url: "/qnbdum.png",
       alt: "logo",
@@ -169,9 +175,7 @@ export default function Sponsorship() {
             TEDxITB is made possibble thanks to the grate companies and
             community support
           </p>
-          <Button size="lg" className="lg:py-3 lg:text-lg">
-            Become a Sponsor
-          </Button>
+          <BecomeSponsorButtonModal />
         </section>
 
         {/* Background Decorations */}

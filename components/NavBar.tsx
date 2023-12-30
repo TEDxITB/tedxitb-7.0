@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { Button } from "./ui/button";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
-import type { Dispatch, SetStateAction } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { Dispatch, SetStateAction } from "react";
 
 const navLink: {
   name: string;
@@ -44,7 +44,7 @@ export default function NavBar({
   const currentPath = usePathname();
 
   return (
-    <nav className="sticky left-0 right-0 top-0 z-[800] flex w-full flex-col bg-black font-anderson text-white">
+    <nav className="sticky left-0 right-0 top-0 z-[50] flex w-full flex-col bg-black font-anderson text-white">
       <div className="flex h-24 flex-row items-center justify-between px-7 xl:px-14">
         <div className="relative flex lg:align-middle">
           <Image

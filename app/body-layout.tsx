@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/ui/footer";
+import { Toaster } from "@/components/ui/toaster";
+import { SessionProvider } from "next-auth/react";
 import { Montserrat } from "next/font/google";
 import { EB_Garamond } from "next/font/google";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/ui/footer";
-import { SessionProvider } from "next-auth/react";
-import { Toaster } from "@/components/ui/toaster";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
