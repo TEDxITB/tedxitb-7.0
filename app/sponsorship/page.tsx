@@ -1,57 +1,22 @@
+import { getCMSData, sponsorshipQuery, sponsorshipTags } from "@/lib/cms";
 import BecomeSponsorButtonModal from "./become-sponsor";
 import { type Metadata } from "next";
 import Image from "next/image";
+import { type SponsorshipQueryResult } from "@/types/cms";
 
 export const metadata: Metadata = {
   title: "Sponsorship | TEDxITB 7.0",
 };
 
-export default function Sponsorship() {
-  // Fetch data from CMS
-  const testData = [
-    {
-      url: "/qnbdum.png",
-      alt: "logo",
-      width: 100,
-      height: 75,
-    },
-    {
-      url: "/qnbdum.png",
-      alt: "logo",
-      width: 100,
-      height: 75,
-    },
-    {
-      url: "/qnbdum.png",
-      alt: "logo",
-      width: 100,
-      height: 75,
-    },
-    {
-      url: "/qnbdum.png",
-      alt: "logo",
-      width: 100,
-      height: 75,
-    },
-    {
-      url: "/qnbdum.png",
-      alt: "logo",
-      width: 100,
-      height: 75,
-    },
-    {
-      url: "/qnbdum.png",
-      alt: "logo",
-      width: 100,
-      height: 75,
-    },
-    {
-      url: "/qnbdum.png",
-      alt: "logo",
-      width: 100,
-      height: 75,
-    },
-  ];
+export default async function Sponsorship() {
+  // Fetch data from DatoCMS
+  const sponsorshipQueryResult = (await getCMSData(
+    sponsorshipQuery,
+    sponsorshipTags
+  )) as SponsorshipQueryResult;
+  const {
+    sponsorship: { xlSponsor, lSponsor, mSponsor, sSponsor },
+  } = sponsorshipQueryResult;
 
   return (
     <main className="flex-auto">
@@ -90,11 +55,11 @@ export default function Sponsorship() {
         <div className="z-20 flex w-full max-w-[287px] flex-col gap-12 sm:max-w-[620px] lg:max-w-[990px] lg:gap-16">
           {/* First Class */}
           <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8">
-            {testData.map((data, index) => {
+            {xlSponsor.map((data, index) => {
               return (
                 <div
                   key={index}
-                  className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[155px] sm:w-[190px] lg:h-[250px] lg:w-[300px]"
+                  className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[155px] sm:w-[190px] sm:p-4 lg:h-[250px] lg:w-[300px] lg:p-6"
                 >
                   <Image
                     src={data.url}
@@ -110,11 +75,11 @@ export default function Sponsorship() {
 
           {/* Second Class */}
           <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 sm:gap-5 lg:gap-6">
-            {testData.map((data, index) => {
+            {lSponsor.map((data, index) => {
               return (
                 <div
                   key={index}
-                  className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[125px] sm:w-[140px] lg:h-[200px] lg:w-[225px]"
+                  className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[125px] sm:w-[140px] sm:p-4 lg:h-[200px] lg:w-[225px]"
                 >
                   <Image
                     src={data.url}
@@ -130,11 +95,11 @@ export default function Sponsorship() {
 
           {/* Third Class */}
           <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 lg:gap-6">
-            {testData.map((data, index) => {
+            {mSponsor.map((data, index) => {
               return (
                 <div
                   key={index}
-                  className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[95px] sm:w-[110px] lg:h-[150px] lg:w-[175px]"
+                  className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[95px] sm:w-[110px] sm:p-4 lg:h-[150px] lg:w-[175px]"
                 >
                   <Image
                     src={data.url}
@@ -150,11 +115,11 @@ export default function Sponsorship() {
 
           {/* Fourth Class */}
           <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 lg:gap-6">
-            {testData.map((data, index) => {
+            {sSponsor.map((data, index) => {
               return (
                 <div
                   key={index}
-                  className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] lg:h-[115px] lg:w-[140px]"
+                  className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] lg:h-[115px] lg:w-[140px] lg:p-4"
                 >
                   <Image
                     src={data.url}

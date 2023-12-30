@@ -23,3 +23,34 @@ export const getCMSData = async <T>(
 
   return res.data;
 };
+
+// Sponsorship tags & query
+export const sponsorshipTags = ["sponsorship"];
+export const sponsorshipQuery = `{
+  sponsorship {
+    lSponsor {
+      url
+      alt
+      width
+      height
+    }
+    mSponsor {
+      url
+      alt
+      width
+      height
+    }
+    sSponsor {
+      url
+      alt
+      width
+      height
+    }
+    xlSponsor {
+      url
+      alt
+      width
+      height
+    }
+  }
+}`;
