@@ -1,243 +1,258 @@
+import { Button } from "@/components/ui/button";
+import { type Metadata } from "next";
 import Image from "next/image";
-import SponsorshipBackground from "../../public/bg_3 2.png";
-import startop1 from "../../public/star icon 4.png";
-import starfull from "../../public/star icon 3.png";
-import tedlogobottom from "../../public/logo-03 2.png";
-import bottomright from "../../public/bottomright.svg";
-import qnb from "../../public/qnbdum.png";
-import logoxmerah from "../../public/logo per part-05 2.png";
-import logonitromerah from "../../public/logo per part-06 2.png";
-import ketupatkanan from "../../public/Frame 1000001971.png";
-import ketupatkiri from "../../public/Frame 1000001995.png";
+
+export const metadata: Metadata = {
+  title: "Sponsorship | TEDxITB 7.0",
+};
 
 export default function Sponsorship() {
+  // Fetch data from CMS
+  const testData = [
+    {
+      url: "/qnbdum.png",
+      alt: "logo",
+      width: 100,
+      height: 75,
+    },
+    {
+      url: "/qnbdum.png",
+      alt: "logo",
+      width: 100,
+      height: 75,
+    },
+    {
+      url: "/qnbdum.png",
+      alt: "logo",
+      width: 100,
+      height: 75,
+    },
+    {
+      url: "/qnbdum.png",
+      alt: "logo",
+      width: 100,
+      height: 75,
+    },
+    {
+      url: "/qnbdum.png",
+      alt: "logo",
+      width: 100,
+      height: 75,
+    },
+    {
+      url: "/qnbdum.png",
+      alt: "logo",
+      width: 100,
+      height: 75,
+    },
+  ];
+
   return (
-    <main>
-      <div className="relative z-10 min-h-[50vh] lg:min-h-[70vh]">
+    <main className="flex-auto">
+      {/* Hero Section */}
+      <section className="relative h-full min-h-[calc(100vh-6rem)] w-full">
+        {/* Background Image */}
         <Image
-          src={SponsorshipBackground}
+          src="/bg-tedx-sponsorship.jpg"
           alt="background"
-          width={1080}
-          height={720}
-          quality={100}
+          width={1920}
+          height={1080}
           className="absolute inset-0 h-full w-full object-cover object-center"
-        ></Image>
-        <section className="font-garamondnova absolute flex h-full w-full flex-col items-center  justify-center space-y-10 px-10 text-center text-white md:items-start md:px-24">
-          <div className="flex w-[400px] flex-col items-center justify-center md:items-start">
-            <label className="text-[20px] md:text-[28px]">
+        />
+
+        {/* Content */}
+        <div className="absolute flex h-full w-full flex-col items-start justify-center gap-6 p-6 font-garamond text-white sm:p-16 lg:gap-12 lg:p-28 2xl:p-36">
+          <h1>
+            <span className="text-xl font-medium tracking-wide lg:text-4xl">
               Special Thanks To
-            </label>
-            <label className="text-[40px] md:text-[50px]">OUR SPONSORS</label>
-          </div>
-          <p className="text-[16px] md:pr-48 md:text-start md:text-[20px]">
+            </span>
+            <br />
+            <span className="text-4xl font-bold tracking-wider lg:text-7xl">
+              OUR SPONSORS
+            </span>
+          </h1>
+          <p className="text-lg tracking-wide lg:text-2xl">
             Our success would not be possible without the continued support of
             these incredible partners.
           </p>
-        </section>
-      </div>
-      <div className="relative flex min-h-screen flex-col items-center space-y-8 bg-[#1C1C1C] px-10 py-32 md:px-28 lg:space-y-16">
-        <section className="flex w-[400px] flex-row flex-wrap items-center justify-center md:w-[520px] lg:w-[700px]">
-          <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 object-scale-down"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 object-scale-down"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 object-scale-down"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 object-scale-down"
-            ></Image>
-          </div>
-        </section>
-        <section className="flex w-[400px] flex-row flex-wrap items-center justify-center md:w-[520px] lg:w-[700px]">
-          <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 object-scale-down"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 object-scale-down"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 object-scale-down"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[125px] w-[135px] rounded-xl bg-white">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 object-scale-down"
-            ></Image>
-          </div>
-        </section>
-        <section className="flex w-[400px] flex-row flex-wrap items-center justify-center md:w-[520px] lg:w-[700px]">
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-        </section>
-        <section className="flex w-[400px] flex-row flex-wrap items-center justify-center md:w-[520px] lg:w-[700px]">
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-          <div className="relative z-10 mx-2 my-2 h-[75px] w-[85px] rounded-xl bg-white shadow-[15px_10px_50px_-25px_rgba(0,0,0,0.3)] shadow-border md:h-[100px] md:w-[110px]">
-            <Image
-              src={qnb}
-              alt="logo"
-              className="absolute left-1/2 top-1/2 w-[60px] -translate-x-1/2 -translate-y-1/2 object-scale-down object-center"
-            ></Image>
-          </div>
-        </section>
-        <section className="flex w-[400px] flex-col items-center justify-center space-y-10 py-24 text-center font-anderson text-[16px] text-white md:w-[520px]">
-          <p className="font-anderson md:text-[32px]">
-            TedXITB is made possibble thanks to the grate companies and
+        </div>
+      </section>
+
+      {/* Below Hero Section */}
+      <div className="relative flex w-full flex-col items-center gap-24 overflow-hidden bg-[#1C1C1C] px-4 py-28 sm:py-32 lg:gap-32 lg:py-52">
+        {/* Sponsors Div Group */}
+        <div className="z-20 flex w-full max-w-[287px] flex-col gap-12 sm:max-w-[620px] lg:max-w-[990px] lg:gap-16">
+          {/* First Class */}
+          <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8">
+            {testData.map((data, index) => {
+              return (
+                <div
+                  key={index}
+                  className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[155px] sm:w-[190px] lg:h-[250px] lg:w-[300px]"
+                >
+                  <Image
+                    src={data.url}
+                    width={data.width}
+                    height={data.height}
+                    alt={data.alt}
+                    className="h-full w-full object-contain object-center transition duration-300 ease-in-out hover:scale-110"
+                  />
+                </div>
+              );
+            })}
+          </section>
+
+          {/* Second Class */}
+          <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 sm:gap-5 lg:gap-6">
+            {testData.map((data, index) => {
+              return (
+                <div
+                  key={index}
+                  className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[125px] sm:w-[140px] lg:h-[200px] lg:w-[225px]"
+                >
+                  <Image
+                    src={data.url}
+                    width={data.width}
+                    height={data.height}
+                    alt={data.alt}
+                    className="h-full w-full object-contain object-center transition duration-300 ease-in-out hover:scale-110"
+                  />
+                </div>
+              );
+            })}
+          </section>
+
+          {/* Third Class */}
+          <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 lg:gap-6">
+            {testData.map((data, index) => {
+              return (
+                <div
+                  key={index}
+                  className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[95px] sm:w-[110px] lg:h-[150px] lg:w-[175px]"
+                >
+                  <Image
+                    src={data.url}
+                    width={data.width}
+                    height={data.height}
+                    alt={data.alt}
+                    className="h-full w-full object-contain object-center transition duration-300 ease-in-out hover:scale-110"
+                  />
+                </div>
+              );
+            })}
+          </section>
+
+          {/* Fourth Class */}
+          <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 lg:gap-6">
+            {testData.map((data, index) => {
+              return (
+                <div
+                  key={index}
+                  className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] lg:h-[115px] lg:w-[140px]"
+                >
+                  <Image
+                    src={data.url}
+                    width={data.width}
+                    height={data.height}
+                    alt={data.alt}
+                    className="h-full w-full object-contain object-center transition duration-300 ease-in-out hover:scale-110"
+                  />
+                </div>
+              );
+            })}
+          </section>
+        </div>
+
+        {/* Become Sponsor Section */}
+        <section className="z-20 flex w-full max-w-[650px] flex-col items-center justify-center gap-6 text-center font-anderson">
+          <p className="font-anderson text-lg text-white lg:text-3xl">
+            TEDxITB is made possibble thanks to the grate companies and
             community support
           </p>
-          <button className="z-20 rounded-[5px] bg-[#FF2B06] px-8 py-3 text-[12px] transition-all hover:scale-110 hover:cursor-pointer md:px-14 md:py-5 md:text-[24px]">
-            Become a sponsor
-          </button>
+          <Button size="lg" className="lg:py-3 lg:text-lg">
+            Become a Sponsor
+          </Button>
         </section>
-        {/* <div className="absolute bottom-0 right-0 h-0 w-0 border-r-[165px] border-t-[90px] border-l-transparent border-r-[#6B1F20] border-t-transparent z-50"></div>
-        <div className="absolute bottom-0 right-0 h-0 w-0 border-r-[220px] border-t-[120px] border-l-transparent border-r-[#8F1D1E] border-t-transparent z-40"></div> */}
+
+        {/* Background Decorations */}
+        {/* Top Left Star */}
         <Image
-          src={startop1}
-          alt="bintang1"
-          className="absolute left-0 top-[-190px] w-1/4 max-w-[300px]"
-        ></Image>
+          src="/star.png"
+          width={262}
+          height={255}
+          alt="Background Star"
+          className="absolute -left-32 -top-32 w-64 opacity-5 lg:left-[-275px] lg:top-[-275px] lg:w-[700px]"
+        />
+
+        {/* Bottom Right Star */}
         <Image
-          src={bottomright}
-          alt="tedlogo"
-          className="absolute bottom-0 right-0 z-10 w-[75%] max-w-[800px] object-cover object-center"
-          quality={100}
-        ></Image>
+          src="/star.png"
+          width={262}
+          height={255}
+          alt="Background Star"
+          className="absolute -bottom-8 -right-16 w-64 opacity-5 lg:bottom-[-88px] lg:right-[-175px] lg:w-[700px]"
+        />
+
+        {/* Bottom Left Star */}
         <Image
-          src={starfull}
-          alt="bintangfull"
-          className="absolute bottom-8 right-0 w-1/2 max-w-[400px]"
-        ></Image>
+          src="/star.png"
+          width={262}
+          height={255}
+          alt="Background Star"
+          className="absolute -left-32 bottom-52 w-64 opacity-5 lg:bottom-64 lg:left-[-350px] lg:w-[700px]"
+        />
+
+        {/* Right Logo */}
+        <div className="absolute right-[-65px] top-[400px] flex flex-row items-center lg:right-[-248px] lg:top-[350px]">
+          {/* Right Full Logo */}
+          <Image
+            src="/tedxitb-7-logo-red-full.png"
+            width={1200}
+            height={765}
+            alt="TEDxITB 7.0 Full Logo"
+            className="h-[95px] w-auto opacity-25 lg:h-[400px]"
+          />
+
+          {/* Right Rhombus */}
+          <Image
+            src="/rhombus-gradient.svg"
+            width={100}
+            height={100}
+            alt="Rhombus Gradient Decoration"
+            className="w-[130px] lg:w-[495px]"
+          />
+        </div>
+
+        {/* Left Logo */}
+        <div className="absolute bottom-[650px] left-[-65px] flex flex-row items-center lg:bottom-[700px] lg:left-[-248px]">
+          {/* Left Rhombus Logo */}
+          <Image
+            src="/rhombus-gradient.svg"
+            width={100}
+            height={100}
+            alt="Rhombus Gradient Decoration"
+            className="w-[130px] lg:w-[495px]"
+          />
+
+          {/* Left Half Logo */}
+          <Image
+            src="/tedxitb-7-logo-red-half-left.png"
+            width={510}
+            height={427}
+            alt="TEDxITB 7.0 Half Logo"
+            className="h-[95px] w-auto opacity-25 lg:h-[400px]"
+          />
+        </div>
+
+        {/* Bottom Right TEDxITB 7.0 Logo Triangle */}
         <Image
-          src={startop1}
-          alt="bintang2"
-          className="absolute bottom-[200px] left-[-30px] w-1/2 max-w-[200px] lg:hidden"
-        ></Image>
-        <Image
-          src={logonitromerah}
-          alt="logoxmerah"
-          className="absolute left-[-30px] top-[530px] w-3/4 max-w-[500px]"
-        ></Image>
-        <Image
-          src={ketupatkiri}
-          alt="ketupatkiri"
-          className="absolute left-0 top-[700px] w-[15%] max-w-[130px]"
-        ></Image>
-        <Image
-          src={logoxmerah}
-          alt="logoxmerah"
-          className="absolute right-0 top-[200px] w-3/4 max-w-[500px]"
-        ></Image>
-        <Image
-          src={ketupatkanan}
-          alt="ketupatkanan"
-          className="absolute right-0 top-[350px] w-[15%] max-w-[100px]"
-        ></Image>
+          src="/triangles-tedx-logo.svg"
+          width={200}
+          height={200}
+          alt="Triangles Decoration"
+          className="absolute bottom-0 right-0 z-10 w-[300px] sm:w-[500px] lg:w-[700px]"
+        />
       </div>
-      <div></div>
     </main>
   );
 }
