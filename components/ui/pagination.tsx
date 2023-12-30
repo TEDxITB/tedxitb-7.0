@@ -1,4 +1,14 @@
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./dropdown";
+import { ScrollArea } from "./scroll-area";
 import { cn } from "@/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
+import _ from "lodash";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -6,16 +16,6 @@ import {
   ChevronsLeft,
 } from "lucide-react";
 import React, { Dispatch, SetStateAction } from "react";
-import _ from "lodash";
-import { cva, type VariantProps } from "class-variance-authority";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/dropdown";
-import { ScrollArea } from "./ui/scroll-area";
 
 const paginationVariants = cva(
   "flex h-[30px] w-[30px] md:h-[40px] md:w-[40px] sm:h-[35px] sm:w-[35px] items-center justify-center border border-black/10 font-anderson text-xs sm:text-base md:text-[20px]",

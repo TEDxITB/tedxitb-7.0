@@ -1,7 +1,7 @@
 "use client";
 
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/ui/footer";
+import NavBar from "@/components/ui/navbar";
 import { Toaster } from "@/components/ui/toaster";
 import { SessionProvider } from "next-auth/react";
 import { Montserrat } from "next/font/google";
