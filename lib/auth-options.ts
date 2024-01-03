@@ -1,11 +1,12 @@
 import "server-only";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import SignInEmail from "@/emails/sign-in-template";
 import { resend } from "@/lib/resend";
 import { type AuthOptions } from "next-auth";
 import EmailProvider from "next-auth/providers/email";
 import GoogleProvider from "next-auth/providers/google";
 import { prisma } from "./prisma";
+import SignInEmail from "@/emails/sign-in-template";
+import WelcomeEMail from "@/emails/welcome-template";
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -63,6 +64,24 @@ export const authOptions: AuthOptions = {
       session.name = token.name;
 
       return session;
+    },
+  },
+  events: {
+    async signIn({ isNewUser, user, account }) {
+      // If user is new
+      if (isNewUser && user.email) {
+        // Send welcome email
+        try {
+          await resend.emails.send({
+            from: process.env.EMAIL_FROM as string,
+            to: user.email,
+            subject: "Welcome to Guess Astro",
+            react: WelcomeEMail(),
+          });
+        } catch (error) {
+          console.log({ error });
+        }
+      }
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
