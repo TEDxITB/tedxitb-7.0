@@ -14,7 +14,7 @@ import {
   Body,
 } from "@react-email/components";
 
-export default function EmailTemplate({ url }: { url: string }) {
+export default function SignInEmail({ url }: { url: string }) {
   return (
     <Html>
       <Head>
