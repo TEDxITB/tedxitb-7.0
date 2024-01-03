@@ -75,7 +75,7 @@ export const authOptions: AuthOptions = {
           await resend.emails.send({
             from: process.env.EMAIL_FROM as string,
             to: user.email,
-            subject: "Welcome to Guess Astro",
+            subject: "Welcome to TEDxITB 7.0 Website!",
             react: WelcomeEMail(),
           });
         } catch (error) {
