@@ -3,6 +3,7 @@
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,11 +15,11 @@ const navLink: {
 }[] = [
   {
     name: "Main Event",
-    path: "/test/header",
+    path: "/main-event",
   },
   {
     name: "Magazine",
-    path: "/test/header/Magazine",
+    path: "/magazine",
   },
   {
     name: "Quiz",
@@ -26,11 +27,11 @@ const navLink: {
   },
   {
     name: "Sponsorship",
-    path: "/test/header/Spnsorship",
+    path: "/sponsorship",
   },
   {
     name: "Documentation",
-    path: "/test/header/Documentation",
+    path: "/documentation",
   },
 ];
 
@@ -42,6 +43,7 @@ export default function NavBar({
   setIsNavBarActive: Dispatch<SetStateAction<boolean>>;
 }) {
   const currentPath = usePathname();
+  const { data: session } = useSession();
 
   return (
     <nav className="sticky left-0 right-0 top-0 z-[50] flex w-full flex-col bg-black font-anderson text-white">
@@ -130,9 +132,21 @@ export default function NavBar({
                   </li>
                 );
               })}
-              <Button size={"lg"} className="px-9 text-base">
-                Sign In
-              </Button>
+              {session ? (
+                <Button
+                  size={"lg"}
+                  className="px-7 text-base"
+                  onClick={() => signOut()}
+                >
+                  Sign Out
+                </Button>
+              ) : (
+                <Link className="w-fit self-center" href="/auth/sign-in">
+                  <Button size={"lg"} className="px-8 text-base">
+                    Sign In
+                  </Button>
+                </Link>
+              )}
             </ul>
             <Link className="mb-8 mt-auto self-center lg:hidden" href={"/"}>
               <Image

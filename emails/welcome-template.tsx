@@ -1,5 +1,4 @@
 import {
-  Button,
   Section,
   Text,
   Html,
@@ -8,13 +7,12 @@ import {
   Container,
   Head,
   Font,
-  Link,
   Hr,
   Preview,
   Body,
 } from "@react-email/components";
 
-export default function SignInEmail({ url }: { url: string }) {
+export default function WelcomeEMail() {
   return (
     <Html>
       <Head>
@@ -30,10 +28,13 @@ export default function SignInEmail({ url }: { url: string }) {
         />
       </Head>
       <Preview>
-        Dear User, click this button below if you want to verify sign in / sign
-        up request to tedxitb.id! After you click this, you will be signed in
-        and redirected to the app. *If you didn&apos;t request this, please
-        ignore this email!* Best, TEDxITB
+        Welcome to TEDxITB – where Ideas Worth Spreading come to life! We are
+        thrilled to have you on board, and we can&apos;t wait to embark on a
+        journey of inspiration, knowledge, and innovation together. Here at
+        TEDxITB, we believe in the power of ideas to change the world. By
+        joining our community, you&apos;ve taken the first step toward being
+        part of a global movement that celebrates creativity, curiosity, and the
+        boundless potential of human thought.
       </Preview>
       <Tailwind
         config={{
@@ -61,42 +62,21 @@ export default function SignInEmail({ url }: { url: string }) {
                 className="block self-start text-lg font-bold"
                 style={{ fontFamily: "Roboto" }}
               >
-                Dear User
+                Welcome!
               </Text>
               <Text
                 className="text-base leading-5"
                 style={{ fontFamily: "Roboto" }}
               >
-                Click this button below if you want to verify sign in / sign up
-                request to{" "}
-                <Link href="https://tedxitb.id" className="text-blue-400">
-                  tedxitb.id!
-                </Link>{" "}
-                After you click this, you will be signed in and redirected to
-                the app.
+                Welcome to TEDxITB – where Ideas Worth Spreading come to life!
+                We are thrilled to have you on board, and we can&apos;t wait to
+                embark on a journey of inspiration, knowledge, and innovation
+                together. Here at TEDxITB, we believe in the power of ideas to
+                change the world. By joining our community, you&apos;ve taken
+                the first step toward being part of a global movement that
+                celebrates creativity, curiosity, and the boundless potential of
+                human thought.
               </Text>
-              <Container
-                className="flex w-full flex-row items-center justify-center"
-                style={{ maxWidth: "fit-content" }}
-              >
-                <Button
-                  href={url}
-                  className="flex flex-col items-center justify-center rounded-md border-none bg-ted-red px-5 py-3 text-primary-foreground text-white hover:bg-ted-red/90"
-                >
-                  <Text className="m-0 text-sm">Verify Request</Text>
-                </Button>
-              </Container>
-              <Container
-                className="flex flex-row items-center justify-center"
-                style={{ maxWidth: "fit-content" }}
-              >
-                <Text
-                  style={{ fontFamily: "Roboto" }}
-                  className=" text-base text-ted-red"
-                >
-                  *If you didn&apos;t request this, please ignore this email!*{" "}
-                </Text>
-              </Container>
               <Section className="flex flex-col gap-0.5 self-start">
                 <Text className="text-base">Best,</Text>
                 <Text className="text-lg font-bold">TEDxITB</Text>
