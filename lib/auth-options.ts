@@ -1,11 +1,11 @@
+import "server-only";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import SignInEmail from "@/emails/sign-in-template";
-import { prisma } from "./prisma";
 import { resend } from "@/lib/resend";
 import { type AuthOptions } from "next-auth";
 import EmailProvider from "next-auth/providers/email";
 import GoogleProvider from "next-auth/providers/google";
-import "server-only";
+import { prisma } from "./prisma";
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -18,7 +18,7 @@ export const authOptions: AuthOptions = {
           await resend.emails.send({
             from: provider.from,
             to: identifier,
-            subject: "Verify Request to Guess Astro",
+            subject: "Verify Request to TEDxITB 7.0 Website",
             react: SignInEmail({ url: url }),
           });
         } catch (error) {
