@@ -7,6 +7,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { prisma } from "./prisma";
 import SignInEmail from "@/emails/sign-in-template";
 import WelcomeEMail from "@/emails/welcome-template";
+import PostHogClient from "./posthog-server";
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -68,6 +69,9 @@ export const authOptions: AuthOptions = {
   },
   events: {
     async signIn({ isNewUser, user, account }) {
+      // Initialize posthog client
+      const posthogClient = PostHogClient();
+
       // If user is new
       if (isNewUser && user.email) {
         // Send welcome email
@@ -81,7 +85,25 @@ export const authOptions: AuthOptions = {
         } catch (error) {
           console.log({ error });
         }
+
+        // Sign up event
+        posthogClient.capture({
+          distinctId: user.id,
+          event: "user signed up",
+          properties: {
+            provider: account?.provider,
+          },
+        });
       }
+
+      // Send sign in event to posthog
+      posthogClient.capture({
+        distinctId: user.id,
+        event: "user signed in",
+        properties: {
+          provider: account?.provider,
+        },
+      });
     },
   },
   secret: process.env.NEXTAUTH_SECRET,

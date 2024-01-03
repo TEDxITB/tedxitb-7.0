@@ -128,7 +128,7 @@ export default function NavBar({
                 <Button
                   size={"lg"}
                   className="px-7 text-base"
-                  onClick={() => signOut()}
+                  onClick={() => signOut({ callbackUrl: "/?phState=reset" })}
                 >
                   Sign Out
                 </Button>
