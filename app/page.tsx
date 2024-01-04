@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="relative flex flex-auto flex-col items-center overflow-hidden px-6 py-20 sm:p-12 lg:p-24">
+    <main className="relative flex flex-auto flex-col items-center overflow-hidden px-6 py-20 font-anderson sm:p-12 lg:p-24">
       <div className="mb-24 items-start text-center">
         <Image
           className="lg:w-[550px]"
