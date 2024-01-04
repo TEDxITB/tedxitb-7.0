@@ -5,10 +5,10 @@ import ResultBlock from "@/app/quiz/result-block";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
 export const formSchema = z.object({
@@ -37,16 +37,12 @@ const ClientPageTedQuiz = () => {
   const [resType, setResType] = useState<
     "creative" | "scientist" | "director" | "social"
   >("creative");
-  const { toast } = useToast();
 
   const handleStartQuiz = () => {
     if (name) {
       setStart(true);
     } else {
-      toast({
-        variant: "error",
-        icon: true,
-        title: "Error",
+      toast.error("Error", {
         description: "Input your name first",
       });
     }
@@ -80,10 +76,7 @@ const ClientPageTedQuiz = () => {
     ) {
       await form.handleSubmit(handleSubmit)(e);
     } else {
-      toast({
-        variant: "error",
-        icon: true,
-        title: "Error",
+      toast.error("Error", {
         description: "Please answer all question before submitting",
       });
     }

@@ -1,7 +1,7 @@
 "use client";
 
 import NavBar from "@/components/ui/navbar";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/sonner";
 import {
   PHProvider,
   PostHogIdentifyOrReset,
@@ -38,7 +38,12 @@ const BodyLayout = ({ children }: { children: React.ReactNode }) => {
             setIsNavBarActive={setIsNavBarActive}
           />
           {children}
-          <Toaster />
+          <Toaster
+            theme="light"
+            position="top-center"
+            richColors={true}
+            closeButton={true}
+          />
         </body>
       </PHProvider>
     </SessionProvider>
