@@ -2,44 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import WordCloud from "./coming-soon-client";
 import { Metadata } from "next";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: "TEDxITB 7.0",
-  description:
-    "TEDx is an international community that organizes TED-style events anywhere and everywhere, celebrating locally-driven ideasand elevating them to a global stage. TEDx events are producedindependently of TED conferences, each event curates speakers ontheir own, but based on TED's format and rules.",
-  generator: "Next.js",
-  applicationName: "TEDxITB 7.0",
-  keywords: [
-    "TEDxITB 7.0",
-    "ITB Bandung",
-    "Ideas worth spreading",
-    "Innovation and technology",
-    "TEDx",
-    "Institut Teknologi Bandung",
-    "Empowering ideas",
-    "TEDx event",
-  ],
-  colorScheme: "dark",
-  themeColor: "#FF2B06",
-  verification: {
-    google: "google",
-    yandex: "yandex",
-    yahoo: "yahoo",
-  },
   openGraph: {
+    ...openGraphTemplate,
     title: "TEDxITB 7.0",
-    description:
-      "TEDx is an international community that organizes TED-style events anywhere and everywhere, celebrating locally-driven ideasand elevating them to a global stage. TEDx events are producedindependently of TED conferences, each event curates speakers ontheir own, but based on TED's format and rules.",
-    url: "https://tedxitb.id",
-    siteName: "TEDxITB 7.0",
-    locale: "en_US",
-    type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    ...twitterTemplate,
     title: "TEDxITB 7.0",
-    description:
-      "TEDx is an international community that organizes TED-style events anywhere and everywhere, celebrating locally-driven ideasand elevating them to a global stage. TEDx events are producedindependently of TED conferences, each event curates speakers ontheir own, but based on TED's format and rules.",
   },
 };
 

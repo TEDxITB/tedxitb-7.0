@@ -3,9 +3,18 @@ import BecomeSponsorButtonModal from "./become-sponsor";
 import { type Metadata } from "next";
 import Image from "next/image";
 import { type SponsorshipQueryResult } from "@/types/cms";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: "Sponsorship | TEDxITB 7.0",
+  openGraph: {
+    ...openGraphTemplate,
+    title: "Sponsorship | TEDxITB 7.0",
+  },
+  twitter: {
+    ...twitterTemplate,
+    title: "Sponsorship | TEDxITB 7.0",
+  },
 };
 
 export default async function Sponsorship() {
