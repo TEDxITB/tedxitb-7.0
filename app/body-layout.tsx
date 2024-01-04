@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/ui/footer";
 import NavBar from "@/components/ui/navbar";
 import { Toaster } from "@/components/ui/toaster";
 import { SessionProvider } from "next-auth/react";
@@ -39,7 +38,6 @@ const BodyLayout = ({ children }: { children: React.ReactNode }) => {
             setIsNavBarActive={setIsNavBarActive}
           />
           {children}
-          <Footer />
           <Toaster />
         </body>
       </PHProvider>

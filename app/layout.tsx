@@ -3,6 +3,7 @@ import { Montserrat, EB_Garamond } from "next/font/google";
 import localFont from "next/font/local";
 import BodyLayout from "./body-layout";
 import type { Viewport, Metadata } from "next";
+import Footer from "@/components/ui/footer";
 
 // Fonts
 const montserrat = Montserrat({
@@ -68,7 +69,10 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.className} ${anderson.variable} ${laGraziela.variable} ${garamond.className}`}
     >
-      <BodyLayout>{children}</BodyLayout>
+      <BodyLayout>
+        {children}
+        <Footer />
+      </BodyLayout>
     </html>
   );
 }

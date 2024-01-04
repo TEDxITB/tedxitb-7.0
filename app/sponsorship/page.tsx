@@ -19,10 +19,10 @@ export const metadata: Metadata = {
 
 export default async function Sponsorship() {
   // Fetch data from DatoCMS
-  const sponsorshipQueryResult = (await getCMSData(
+  const sponsorshipQueryResult = await getCMSData<SponsorshipQueryResult>(
     sponsorshipQuery,
     sponsorshipTags
-  )) as SponsorshipQueryResult;
+  );
   const {
     sponsorship: { xlSponsor, lSponsor, mSponsor, sSponsor },
   } = sponsorshipQueryResult;
@@ -67,7 +67,7 @@ export default async function Sponsorship() {
             {xlSponsor.map((data, index) => {
               return (
                 <div
-                  key={index}
+                  key={data.id}
                   className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[155px] sm:w-[190px] sm:p-4 lg:h-[250px] lg:w-[300px] lg:p-6"
                 >
                   <Image
@@ -87,7 +87,7 @@ export default async function Sponsorship() {
             {lSponsor.map((data, index) => {
               return (
                 <div
-                  key={index}
+                  key={data.id}
                   className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[125px] sm:w-[140px] sm:p-4 lg:h-[200px] lg:w-[225px]"
                 >
                   <Image
@@ -107,7 +107,7 @@ export default async function Sponsorship() {
             {mSponsor.map((data, index) => {
               return (
                 <div
-                  key={index}
+                  key={data.id}
                   className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[95px] sm:w-[110px] sm:p-4 lg:h-[150px] lg:w-[175px]"
                 >
                   <Image
@@ -127,7 +127,7 @@ export default async function Sponsorship() {
             {sSponsor.map((data, index) => {
               return (
                 <div
-                  key={index}
+                  key={data.id}
                   className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] lg:h-[115px] lg:w-[140px] lg:p-4"
                 >
                   <Image
