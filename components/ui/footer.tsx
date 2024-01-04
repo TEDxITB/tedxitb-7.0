@@ -51,6 +51,11 @@ async function Footer() {
             </Link>
           </li>
           <li>
+            <Link href="/magazine" className="underline">
+              QUIZ
+            </Link>
+          </li>
+          <li>
             <Link href="/sponsorship" className="underline">
               SPONSORSHIP
             </Link>
@@ -173,6 +178,9 @@ async function Footer() {
             </li>
             <li className="underline-offset-2 hover:underline">
               <Link href="/magazine">MAGAZINE</Link>
+            </li>
+            <li className="underline-offset-2 hover:underline">
+              <Link href="/main-event">QUIZ</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
               <Link href="/sponsorship">SPONSORSHIP</Link>
