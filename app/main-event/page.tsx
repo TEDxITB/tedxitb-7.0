@@ -1,8 +1,8 @@
+import TopicCard from "./topic-card";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import TopicCard from "./topic-card";
 
 const dummies = [
   {
@@ -189,6 +189,16 @@ function page() {
               </Button>
             </Link>
           </div>
+
+          <Image
+            src="/mesh.png"
+            width={500}
+            height={500}
+            alt="Background Star"
+            className="absolute -right-4 w-[250px] lg:w-[500px] lg:right-4"
+          />
+
+          <div className="absolute top-0 h-8 w-full bg-gradient-to-b from-ted-black to-transparent"></div>
         </div>
       </section>
     </>
