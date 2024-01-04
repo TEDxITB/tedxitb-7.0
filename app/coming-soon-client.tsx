@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, FormEvent, ChangeEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useState, FormEvent, ChangeEvent } from "react";
 import { TagCloud } from "react-tagcloud";
 
 const data = [

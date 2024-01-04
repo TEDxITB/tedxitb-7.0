@@ -1,5 +1,17 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import BgFileUpload2 from "@/public/bg-file-upload2.svg";
+import BgFileUpload from "@/public/bg-file-upload.svg";
+import FileImage from "@/public/file-image.svg";
+import FileJPG from "@/public/file-jpg.svg";
+import FilePNG from "@/public/file-png.svg";
+import FileX from "@/public/file-x.svg";
+import { RotateCw, Trash2 } from "lucide-react";
+import Image from "next/image";
 import {
   ChangeEvent,
   Dispatch,
@@ -11,20 +23,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { Separator } from "@/components/ui/separator";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import * as z from "zod";
-import FileX from "@/public/file-x.svg";
-import FileJPG from "@/public/file-jpg.svg";
-import FilePNG from "@/public/file-png.svg";
-import FileImage from "@/public/file-image.svg";
-import { RotateCw, Trash2 } from "lucide-react";
-import BgFileUpload from "@/public/bg-file-upload.svg";
-import BgFileUpload2 from "@/public/bg-file-upload2.svg";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { UseFormSetValue } from "react-hook-form";
-import { Button } from "@/components/ui/button";
+import * as z from "zod";
 
 interface FileUploadProps extends React.InputHTMLAttributes<HTMLInputElement> {
   setState?: Dispatch<SetStateAction<Image[]>>;

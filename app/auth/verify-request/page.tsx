@@ -1,10 +1,19 @@
 import { Button } from "@/components/ui/button";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Verify Request | TEDxITB 7.0",
+  openGraph: {
+    ...openGraphTemplate,
+    title: "Verify Request | TEDxITB 7.0",
+  },
+  twitter: {
+    ...twitterTemplate,
+    title: "Verify Request | TEDxITB 7.0",
+  },
 };
 
 const VerifyRequestPage = async () => {

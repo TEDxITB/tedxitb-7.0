@@ -1,28 +1,22 @@
+export interface ImageCMS {
+  id: string;
+  url: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
 export interface SponsorshipQueryResult {
   sponsorship: {
-    xlSponsor: {
-      url: string;
-      alt: string;
-      width: number;
-      height: number;
-    }[];
-    lSponsor: {
-      url: string;
-      alt: string;
-      width: number;
-      height: number;
-    }[];
-    mSponsor: {
-      url: string;
-      alt: string;
-      width: number;
-      height: number;
-    }[];
-    sSponsor: {
-      url: string;
-      alt: string;
-      width: number;
-      height: number;
-    }[];
+    xlSponsor: ImageCMS[];
+    lSponsor: ImageCMS[];
+    mSponsor: ImageCMS[];
+    sSponsor: ImageCMS[];
+  };
+}
+
+export interface DocumentationQueryResult {
+  documentation: {
+    carousel: ImageCMS[];
   };
 }

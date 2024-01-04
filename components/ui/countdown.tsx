@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 function Countdown({ date }: { date: Date }) {
   const [deltaTime, setDeltaTime] = useState(date.getTime() - Date.now());

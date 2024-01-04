@@ -28,7 +28,6 @@ const config: Config = {
         anderson: ["var(--font-anderson)"],
         graziela: ["var(--font-graziela)"],
         garamond: ["var(--font-garamond)"],
-        inter: ["var(--font-inter)"],
       },
       colors: {
         "ted-red": "#FF2B06",

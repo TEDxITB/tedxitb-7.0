@@ -1,9 +1,9 @@
 "use client";
 
-import * as React from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import * as React from "react";
 
 type BreadcrumbsProps = {
   variant?: "default" | "highlighted";
