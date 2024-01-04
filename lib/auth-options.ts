@@ -1,13 +1,13 @@
-import "server-only";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { resend } from "@/lib/resend";
-import { type AuthOptions } from "next-auth";
-import EmailProvider from "next-auth/providers/email";
-import GoogleProvider from "next-auth/providers/google";
+import PostHogClient from "./posthog-server";
 import { prisma } from "./prisma";
 import SignInEmail from "@/emails/sign-in-template";
 import WelcomeEMail from "@/emails/welcome-template";
-import PostHogClient from "./posthog-server";
+import { resend } from "@/lib/resend";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { type AuthOptions } from "next-auth";
+import EmailProvider from "next-auth/providers/email";
+import GoogleProvider from "next-auth/providers/google";
+import "server-only";
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),

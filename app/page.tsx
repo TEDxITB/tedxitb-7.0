@@ -1,8 +1,8 @@
+import WordCloud from "./coming-soon-client";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import WordCloud from "./coming-soon-client";
-import { Metadata } from "next";
-import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: "TEDxITB 7.0",

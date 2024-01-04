@@ -1,15 +1,15 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Form } from "@/components/ui/form";
-import { useToast } from "@/components/ui/use-toast";
-import ResultBlock from "@/app/quiz/result-block";
 import QuestionBlock from "@/app/quiz/question-block";
+import ResultBlock from "@/app/quiz/result-block";
+import { Button } from "@/components/ui/button";
+import { Form } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 export const formSchema = z.object({
   question1: z.string().min(1),

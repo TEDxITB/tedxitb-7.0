@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: "Verify Request | TEDxITB 7.0",

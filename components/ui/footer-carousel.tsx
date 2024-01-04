@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ImageCMS } from "@/types/cms";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export const ScrollImage = ({ images }: { images: ImageCMS[] }) => {
   const [page, setPage] = useState(0);

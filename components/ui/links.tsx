@@ -1,7 +1,7 @@
-import * as React from "react";
-import Link from "next/link";
 import { Link as IconLink } from "lucide-react";
+import Link from "next/link";
 import { LinkProps } from "next/link";
+import * as React from "react";
 
 type CustomLink = LinkProps & {
   children: string;

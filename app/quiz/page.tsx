@@ -1,6 +1,6 @@
-import { type Metadata } from "next";
 import ClientPageTedQuiz from "./client-page";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
+import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Quiz | TEDxITB 7.0",

@@ -2,14 +2,14 @@
 
 import NavBar from "@/components/ui/navbar";
 import { Toaster } from "@/components/ui/toaster";
-import { SessionProvider } from "next-auth/react";
-import { usePathname } from "next/navigation";
-import { useState, useEffect, Suspense } from "react";
 import {
   PHProvider,
   PostHogIdentifyOrReset,
   PostHogPageview,
 } from "@/lib/posthog-client";
+import { SessionProvider } from "next-auth/react";
+import { usePathname } from "next/navigation";
+import { useState, useEffect, Suspense } from "react";
 
 const BodyLayout = ({ children }: { children: React.ReactNode }) => {
   // Navbar State

@@ -1,10 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
-import { Mail } from "lucide-react";
 import { ScrollImage } from "./footer-carousel";
+import { Separator } from "@/components/ui/separator";
 import { documentationQuery, documentationTags, getCMSData } from "@/lib/cms";
 import { type DocumentationQueryResult } from "@/types/cms";
+import { Mail } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 async function Footer() {
   // Fetch data

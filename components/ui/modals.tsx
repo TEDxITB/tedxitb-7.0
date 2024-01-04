@@ -1,5 +1,3 @@
-import React from "react";
-import Image from "next/image";
 import {
   Dialog,
   DialogContent,
@@ -8,6 +6,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import Image from "next/image";
+import React from "react";
 
 interface ModalsProps {
   variant: "type-1" | "type-2" | "type-3" | "type-4";

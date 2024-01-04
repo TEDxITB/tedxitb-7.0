@@ -1,9 +1,9 @@
-import { getCMSData, sponsorshipQuery, sponsorshipTags } from "@/lib/cms";
 import BecomeSponsorButtonModal from "./become-sponsor";
+import { getCMSData, sponsorshipQuery, sponsorshipTags } from "@/lib/cms";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
+import { type SponsorshipQueryResult } from "@/types/cms";
 import { type Metadata } from "next";
 import Image from "next/image";
-import { type SponsorshipQueryResult } from "@/types/cms";
-import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: "Sponsorship | TEDxITB 7.0",

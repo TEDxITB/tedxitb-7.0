@@ -1,6 +1,6 @@
+import SignInForm from "./sign-in-form";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { type Metadata } from "next";
-import SignInForm from "./sign-in-form";
 import Image from "next/image";
 
 export const metadata: Metadata = {

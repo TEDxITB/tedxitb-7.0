@@ -1,9 +1,9 @@
+import BodyLayout from "./body-layout";
 import "./globals.css";
+import Footer from "@/components/ui/footer";
+import type { Viewport, Metadata } from "next";
 import { Montserrat, EB_Garamond } from "next/font/google";
 import localFont from "next/font/local";
-import BodyLayout from "./body-layout";
-import type { Viewport, Metadata } from "next";
-import Footer from "@/components/ui/footer";
 
 // Fonts
 const montserrat = Montserrat({
