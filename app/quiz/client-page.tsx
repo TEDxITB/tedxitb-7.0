@@ -1,15 +1,15 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Form } from "@/components/ui/form";
-import { useToast } from "@/components/ui/use-toast";
-import ResultBlock from "@/app/quiz/result-block";
 import QuestionBlock from "@/app/quiz/question-block";
+import ResultBlock from "@/app/quiz/result-block";
+import { Button } from "@/components/ui/button";
+import { Form } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import * as z from "zod";
 
 export const formSchema = z.object({
   question1: z.string().min(1),
@@ -37,16 +37,12 @@ const ClientPageTedQuiz = () => {
   const [resType, setResType] = useState<
     "creative" | "scientist" | "director" | "social"
   >("creative");
-  const { toast } = useToast();
 
   const handleStartQuiz = () => {
     if (name) {
       setStart(true);
     } else {
-      toast({
-        variant: "error",
-        icon: true,
-        title: "Error",
+      toast.error("Error", {
         description: "Input your name first",
       });
     }
@@ -80,10 +76,7 @@ const ClientPageTedQuiz = () => {
     ) {
       await form.handleSubmit(handleSubmit)(e);
     } else {
-      toast({
-        variant: "error",
-        icon: true,
-        title: "Error",
+      toast.error("Error", {
         description: "Please answer all question before submitting",
       });
     }
@@ -133,8 +126,8 @@ const ClientPageTedQuiz = () => {
     <>
       {!start ? (
         <div className="relative flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center bg-[url('/ted-quiz-bg.jpeg')] bg-cover bg-left bg-no-repeat sm:bg-center">
-          <div className="absolute bottom-0 left-0 right-0 top-0 z-[50] bg-black/50 backdrop-blur-sm" />
-          <div className="z-[100] flex h-full w-full flex-col items-center justify-center gap-[40px] px-5 text-center sm:w-fit">
+          <div className="absolute bottom-0 left-0 right-0 top-0 z-[30] bg-black/50 backdrop-blur-sm" />
+          <div className="z-[40] flex h-full w-full flex-col items-center justify-center gap-[40px] px-5 text-center sm:w-fit">
             <h2 className="text-center font-garamond text-[32px] italic text-white lg:text-[50px]">
               <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
                 W
@@ -158,7 +151,7 @@ const ClientPageTedQuiz = () => {
               ou?
             </h2>
             <Input
-              className="w-[80%] border-2 border-white bg-transparent px-2 pb-2 pt-3 font-anderson text-base text-white md:px-4 md:pb-5 md:pt-6 md:text-xl md:leading-none"
+              className="w-[80%] border-2 border-white bg-transparent px-2 pb-2 pt-3 font-anderson text-base text-white ring-offset-ted-black md:px-4 md:pb-5 md:pt-6 md:text-xl md:leading-none"
               placeholder="Enter your name here"
               type="text"
               onChange={(e) => setName(e.target.value)}

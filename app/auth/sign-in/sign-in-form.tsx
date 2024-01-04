@@ -11,7 +11,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
 import { signInSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -19,12 +18,11 @@ import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
 const SignInForm = () => {
   const router = useRouter();
-
-  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
@@ -37,10 +35,9 @@ const SignInForm = () => {
   } = form;
 
   const onSubmit = async (values: z.infer<typeof signInSchema>) => {
-    toast({
-      variant: "loading",
-      title: "Loading",
-      description: "Please wait...",
+    // Initiate loading toast
+    const loadingToast = toast.loading("Loading...", {
+      description: "Please wait",
       duration: Infinity,
     });
 
@@ -50,22 +47,19 @@ const SignInForm = () => {
       redirect: false,
     });
 
+    // Close loading toast
+    toast.dismiss(loadingToast);
+
     if (!res?.ok) {
-      toast({
-        variant: "error",
-        title: "Error",
+      toast.error("Error", {
         description: "Error sign in with email",
-        duration: 5000,
       });
 
       return;
     }
 
-    toast({
-      variant: "success",
-      title: "Success",
+    toast.success("Success", {
       description: "Email sent. Check your inbox!",
-      duration: 5000,
     });
 
     router.push("/auth/verify-request");

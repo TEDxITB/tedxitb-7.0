@@ -29,24 +29,42 @@ export const sponsorshipTags = ["sponsorship"];
 export const sponsorshipQuery = `{
   sponsorship {
     lSponsor {
+      id
       url
       alt
       width
       height
     }
     mSponsor {
+      id
       url
       alt
       width
       height
     }
     sSponsor {
+      id
       url
       alt
       width
       height
     }
     xlSponsor {
+      id
+      url
+      alt
+      width
+      height
+    }
+  }
+}`;
+
+// Documentation tags & query
+export const documentationTags = ["documentation"];
+export const documentationQuery = `{
+  documentation {
+    carousel {
+      id
       url
       alt
       width
