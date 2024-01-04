@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 
 function TopicModal(props: {
