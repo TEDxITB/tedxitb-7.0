@@ -51,6 +51,18 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
     axis: "x",
   });
 
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setPage(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setPage(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   const scrollPrev = useCallback(() => {
     api?.scrollPrev();
     setPage((page) => (page + totalPage - 1) % totalPage);
@@ -69,7 +81,7 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
   useEffect(() => {
     const interval = setInterval(() => {
       scrollNext();
-    }, 5000);
+    }, 1000000);
     return () => clearInterval(interval);
   }, [page, totalPage, scrollNext]);
 
@@ -161,15 +173,15 @@ function ClickablePhoto({ image }: { image: ImageCMS }) {
   return (
     <Dialog>
       <DialogTrigger>
-        <div className="p-1 w-full aspect-video shadow-md">
+        <div className="p-1 w-full aspect-video shadow-md flex items-center justify-center">
           <Card className="w-full h-full relative">
-            <CardContent className="flex items-center justify-center p-6">
+            <CardContent className="flex items-center justify-center p-0 w-full h-full">
               <Image
-                className="rounded"
+                className="rounded object-cover object-center h-full w-full"
                 src={image.url}
                 alt={image.alt}
-                objectFit="cover"
-                fill
+                width={image.width}
+                height={image.height}
               />
             </CardContent>
           </Card>
@@ -182,7 +194,7 @@ function ClickablePhoto({ image }: { image: ImageCMS }) {
           <Card className="w-full h-full relative">
             <CardContent className="flex items-center justify-center">
               <Image
-                className="rounded "
+                className="rounded"
                 src={image.url}
                 alt={image.alt}
                 height={image.height}

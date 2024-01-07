@@ -28,7 +28,7 @@ const DocumentationPage = async () => {
         {/* Right bottom triangle decoration */}
         <Image
           src="/side-triangle.png"
-          className="z-0 absolute right-0 -bottom-1/2 max-sm:bottom-[10%] max-sm:w-24"
+          className="z-0 absolute sm:right-0 sm:-bottom-[40%] sm:w-36 max-sm:bottom-[20%] right-0 max-sm:w-24"
           width={200}
           height={200}
           alt=""
@@ -40,7 +40,7 @@ const DocumentationPage = async () => {
           alt=""
           width={1000}
           height={1000}
-          className="absolute left-[10%] -bottom-[115%] max-sm:bottom-0 max-sm:w-72"
+          className="absolute lg:left-[10%] lg:-bottom-[135%] max-sm:bottom-[10%] max-sm:w-72 sm:w-96 lg:w-[128rem] sm:right-[10%] sm:-bottom-1/2"
         />
 
         {/* Star top left decoration */}
@@ -49,7 +49,7 @@ const DocumentationPage = async () => {
           alt=""
           width={500}
           height={500}
-          className="absolute opacity-50 left-0 -top-[70%] "
+          className="absolute opacity-50 left-0 -top-[70%] max-lg:w-72"
         />
 
         {/* Main part */}
