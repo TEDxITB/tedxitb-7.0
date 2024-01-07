@@ -5,8 +5,8 @@ import { redirect } from "next/navigation";
 
 function Page() {
   const dateNow = new Date().getTime();
-  // const regisDate = new Date("February 2, 2024 17:00:00").getTime();
-  const regisDate = new Date("January 1, 2024 17:00:00").getTime();
+  const regisDate = new Date("February 2, 2024 17:00:00").getTime();
+  // const regisDate = new Date("January 1, 2024 17:00:00").getTime();
   const announcementDate = new Date("February 19, 2024 17:00:00").getTime();
 
   if (dateNow > announcementDate) {
