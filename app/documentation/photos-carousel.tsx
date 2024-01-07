@@ -22,6 +22,7 @@ import { ImageCMS } from "@/types/cms";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import useEmblaCarousel from "embla-carousel-react";
 import { X } from "lucide-react";
+import next from "next";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
@@ -65,13 +66,11 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
 
   const scrollPrev = useCallback(() => {
     api?.scrollPrev();
-    setPage((page) => (page + totalPage - 1) % totalPage);
-  }, [api, totalPage]);
+  }, [api]);
 
   const scrollNext = useCallback(() => {
     api?.scrollNext();
-    setPage((page) => (page + 1) % totalPage);
-  }, [api, totalPage]);
+  }, [api]);
 
   function changePage(dest: number): void {
     api?.scrollTo(dest);
@@ -81,7 +80,7 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
   useEffect(() => {
     const interval = setInterval(() => {
       scrollNext();
-    }, 1000000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [page, totalPage, scrollNext]);
 
