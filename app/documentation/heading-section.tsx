@@ -26,7 +26,7 @@ const HeadingSection = () => {
   }, []);
 
   return (
-    <div className="w-full h-full relative max-sm:aspect-square aspect-video">
+    <div className="w-full h-full relative max-md:aspect-square aspect-video">
       <Image
         src={`/heading-image-${size}.png`}
         className="z-10 w-full relative "

@@ -189,12 +189,15 @@ function ClickablePhoto({ image }: { image: ImageCMS }) {
       </DialogTrigger>
 
       {/* Added customCLoseButton so that the dialog component doesn't affect any other page that also using the dialog component */}
-      <DialogContent className="p-0 max-w-screen" customCloseButton>
+      <DialogContent
+        className="p-0 max-w-screen max-lg:min-w-full min-w-[40%] aspect-auto"
+        customCloseButton
+      >
         <div className=" w-full shadow-md">
           <Card className="w-full h-full relative">
             <CardContent className="flex items-center justify-center">
               <Image
-                className="rounded"
+                className="rounded object-cover object-center w-full"
                 src={image.url}
                 alt={image.alt}
                 height={image.height}
