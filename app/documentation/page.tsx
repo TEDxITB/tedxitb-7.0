@@ -39,8 +39,8 @@ const DocumentationPage = async () => {
           src="/logo-per-part-05-1.png"
           alt=""
           width={1000}
-          height={1000}
-          className="absolute lg:left-[10%] lg:-bottom-[135%] max-sm:bottom-[10%] max-sm:w-72 sm:w-96 lg:w-[128rem] sm:right-[10%] sm:-bottom-1/2"
+          height={100}
+          className="absolute xl:left-0 xl:-bottom-[135%] max-sm:bottom-[10%] max-md:w-72 md:w-96 xl:w-[96rem] sm:right-[10%] sm:-bottom-1/2"
         />
 
         {/* Star top left decoration */}

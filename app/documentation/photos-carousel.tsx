@@ -94,12 +94,12 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
         scrollPrev={scrollPrev}
         scrollNext={scrollNext}
       >
-        <CarouselContent className="w-full sm:aspect-[5/2]">
+        <CarouselContent className="w-full md:aspect-[5/2]">
           {Array.from({ length: totalPage }).map((_, index) => (
             <CarouselItem className="w-full" key={index}>
               <div
                 key={index}
-                className="grid sm:grid-cols-3 sm:grid-rows-2 max-sm:grid-rows-3 max-sm:grid-cols-1 gap-x-6 gap-y-10 px-10"
+                className="grid md:grid-cols-3 md:grid-rows-2 max-md:grid-rows-3 max-md:grid-cols-1 gap-x-6 gap-y-10 px-10"
               >
                 {images
                   .slice(
@@ -115,7 +115,7 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
         </CarouselContent>
 
         {/* Pagination */}
-        <div className="flex relative items-center justify-center h-8 gap-1 max-sm:mt-8 mr-4">
+        <div className="flex relative items-center justify-center h-8 gap-1 max-md:mt-8 mr-4">
           <CarouselPrevious
             className={`border-0 hover:border relative hover:bg-black hover:text-ted-red translate-x-0 -left-0 bg-white text-black rounded-sm h-full ${
               page == 0 ? "invisible" : ""
