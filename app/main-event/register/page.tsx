@@ -1,10 +1,12 @@
+import RegisterPage from "./register-page";
 import Countdown from "@/components/ui/countdown";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-function page() {
+function Page() {
   const dateNow = new Date().getTime();
-  const regisDate = new Date("February 2, 2024 17:00:00").getTime();
+  // const regisDate = new Date("February 2, 2024 17:00:00").getTime();
+  const regisDate = new Date("January 1, 2024 17:00:00").getTime();
   const announcementDate = new Date("February 19, 2024 17:00:00").getTime();
 
   if (dateNow > announcementDate) {
@@ -78,7 +80,7 @@ function page() {
     );
   }
 
-  return <div className="text-ted-white">page</div>;
+  return <RegisterPage />;
 }
 
-export default page;
+export default Page;

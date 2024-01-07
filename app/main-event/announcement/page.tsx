@@ -4,8 +4,8 @@ import Image from "next/image";
 
 function page() {
   const dateNow = new Date().getTime();
-  // const announcementDate = new Date("February 19, 2024 17:00:00").getTime();
-  const announcementDate = new Date("January 1, 2024 17:00:00").getTime();
+  const announcementDate = new Date("February 19, 2024 17:00:00").getTime();
+  // const announcementDate = new Date("January 1, 2024 17:00:00").getTime();
 
   const status = false;
 
