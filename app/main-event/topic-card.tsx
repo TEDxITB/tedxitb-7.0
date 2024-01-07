@@ -1,5 +1,5 @@
-import Image from "next/image";
 import TopicModal from "./topic-modal";
+import Image from "next/image";
 
 function TopicCard(props: {
   title: string;
