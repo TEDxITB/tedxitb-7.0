@@ -37,7 +37,7 @@ const HeadingSection = () => {
 
       {/* Text and button in the middle of the picture */}
       <div className="absolute flex left-0 top-0 text-white w-full h-full items-center justify-center flex-col z-10">
-        <em className="font-anderson text-md">Documentation</em>
+        <em className="font-anderson max-sm:text-md text:2xl">Documentation</em>
         <p className="max-sm:text-3xl text-8xl font-normal">
           <span className="font-graziela bold">E</span>
           <span className="font-garamond italic">xplore our shared </span>
