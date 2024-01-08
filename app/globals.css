@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   /* Change these value below to change the primitive colors of each component. (Don't forget to convert to HSL).*/
   :root {
