@@ -46,7 +46,10 @@ export default function NavBar({
   const { data: session } = useSession();
 
   return (
-    <nav className="sticky left-0 right-0 top-0 z-[50] flex w-full flex-col border-b-2 border-slate-800 bg-black font-anderson text-white">
+    <nav
+      className="sticky left-0 right-0 top-0 z-[50] flex w-full flex-col border-b-2 border-slate-800 bg-black font-anderson text-white"
+      id="navbar"
+    >
       <div className="flex h-24 flex-row items-center justify-between px-7 xl:px-14">
         <div className="relative flex lg:align-middle">
           <Link href={"/"}>

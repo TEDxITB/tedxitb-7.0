@@ -38,7 +38,10 @@ const DocumentationPage = async () => {
       </section>
 
       {/* Photos documentation using carousel */}
-      <section className="flex items-center justify-center my-16 relative">
+      <section
+        className="flex items-center justify-center my-16 relative"
+        id="carousel"
+      >
         {/* Right bottom triangle decoration */}
         <Image
           src="/side-triangle.png"

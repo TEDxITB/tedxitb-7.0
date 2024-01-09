@@ -25,6 +25,17 @@ const HeadingSection = () => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
+  const scrollToTarget = () => {
+    const navbar = document.getElementById("navbar") as HTMLElement;
+    const target = document.getElementById("carousel") as HTMLElement;
+
+    console.log(navbar.offsetHeight);
+    window.scrollTo({
+      top: target.offsetTop - navbar.offsetHeight - 32,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="w-full h-full relative max-md:aspect-square aspect-video">
       <Image
@@ -44,7 +55,7 @@ const HeadingSection = () => {
           <span className="font-graziela">H</span>
           <span className="font-garamond italic">istory </span>
         </p>
-        <Button>See More &gt;</Button>
+        <Button onClick={scrollToTarget}>See More &gt;</Button>
       </div>
     </div>
   );
