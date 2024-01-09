@@ -29,9 +29,10 @@ const HeadingSection = () => {
     const navbar = document.getElementById("navbar") as HTMLElement;
     const target = document.getElementById("carousel") as HTMLElement;
 
-    console.log(navbar.offsetHeight);
+    if (!navbar || !target) return;
+
     window.scrollTo({
-      top: target.offsetTop - navbar.offsetHeight - 32,
+      top: target.offsetTop - navbar.offsetHeight - 32, // setengah margin
       behavior: "smooth",
     });
   };
