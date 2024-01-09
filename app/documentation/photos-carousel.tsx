@@ -24,11 +24,18 @@ import useEmblaCarousel from "embla-carousel-react";
 import { X } from "lucide-react";
 import next from "next";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 
 export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
   const [page, setPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(6);
+  const [isPhotoOpen, setIsPhotoOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -79,10 +86,10 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      scrollNext();
+      if (!isPhotoOpen) scrollNext();
     }, 10000);
     return () => clearInterval(interval);
-  }, [page, totalPage, scrollNext]);
+  }, [page, totalPage, scrollNext, isPhotoOpen]);
 
   return (
     <>
@@ -106,7 +113,13 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
                     index * itemsPerPage + itemsPerPage
                   )
                   .map((img, _index) => {
-                    return <ClickablePhoto key={_index} image={img} />;
+                    return (
+                      <ClickablePhoto
+                        key={_index}
+                        image={img}
+                        setIsPhotoOpen={setIsPhotoOpen}
+                      />
+                    );
                   })}
               </div>
             </CarouselItem>
@@ -168,9 +181,15 @@ function CarouselPagination({
   );
 }
 
-function ClickablePhoto({ image }: { image: ImageCMS }) {
+function ClickablePhoto({
+  image,
+  setIsPhotoOpen,
+}: {
+  image: ImageCMS;
+  setIsPhotoOpen: Dispatch<SetStateAction<boolean>>;
+}) {
   return (
-    <Dialog>
+    <Dialog onOpenChange={() => setIsPhotoOpen((state) => !state)}>
       <DialogTrigger>
         <div className="p-1 w-full aspect-video shadow-md flex items-center justify-center">
           <Card className="w-full h-full relative">

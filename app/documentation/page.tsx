@@ -2,9 +2,23 @@ import HeadingSection from "./heading-section";
 import PhotosCarousel from "./photos-carousel";
 import { Button } from "@/components/ui/button";
 import { getCMSData, documentationQuery, documentationTags } from "@/lib/cms";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { DocumentationQueryResult } from "@/types/cms";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Documentation | TEDxITB 7.0",
+  openGraph: {
+    ...openGraphTemplate,
+    title: "Documentation | TEDxITB 7.0",
+  },
+  twitter: {
+    ...twitterTemplate,
+    title: "Documentation | TEDxITB 7.0",
+  },
+};
 
 const DocumentationPage = async () => {
   // Fetch data

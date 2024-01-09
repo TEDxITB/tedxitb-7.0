@@ -29,7 +29,7 @@ const BodyLayout = ({ children }: { children: React.ReactNode }) => {
           <PostHogIdentifyOrReset />
         </Suspense>
         <body
-          className={`flex min-h-screen flex-col overflow-x-hidden bg-ted-black max-h-screen ${
+          className={`flex min-h-screen flex-col overflow-x-hidden bg-ted-black ${
             isNavBarActive && "overflow-hidden"
           } `}
         >
