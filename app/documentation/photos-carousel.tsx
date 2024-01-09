@@ -195,7 +195,7 @@ function ClickablePhoto({
           <Card className="w-full h-full relative">
             <CardContent className="flex items-center justify-center p-0 w-full h-full">
               <Image
-                className="rounded object-cover object-center h-full w-full"
+                className="rounded-lg object-cover object-center h-full w-full"
                 src={image.url}
                 alt={image.alt}
                 width={image.width}
