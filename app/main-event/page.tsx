@@ -53,13 +53,13 @@ function page() {
   }
 
   return (
-    <>
-      <section className="hidden px-7 font-anderson text-ted-white lg:block xl:px-14">
+    <main className="overflow-hidden">
+      <section className="hidden py-3 px-7 font-anderson text-ted-white lg:block xl:px-14">
         <Breadcrumbs variant="default" />
       </section>
 
       <section className="text-ted-white">
-        <div className="relative h-[calc(100vh-104px)] w-screen lg:h-[calc(100vh-144px)]">
+        <div className="relative h-[calc(100vh-98px)] w-screen lg:h-[calc(100vh-168px)]">
           <Image
             src="/hero-main-event.png"
             fill
@@ -67,26 +67,38 @@ function page() {
             className="z-10 object-cover"
           />
           <div className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 text-center lg:gap-12">
-            <h1 className="text-5xl shadow-ted-white text-shadow-xl lg:text-8xl lg:text-shadow-2xl">
+            <h1 className="text-5xl lg:text-8xl drop-shadow-[2px_4px_25px_rgba(255,255,255,0.5)] font-bold">
               TEDxITB 7.0
             </h1>
-            <h2 className="text-3xl shadow-ted-white text-shadow-xl lg:text-6xl lg:text-shadow-2xl">
+            <h2 className="text-3xl lg:text-6xl drop-shadow-[2px_4px_25px_rgba(255,255,255,0.5)] font-bold">
               The Impact Originator Hub
             </h2>
             <Link href={redirect}>
-              <Button className="my-2 font-garamond lg:my-6 lg:px-20 lg:py-6 lg:text-lg">
-                Register Now
-              </Button>
+              {dateNow > announcementDate ? (
+                <Button
+                  size={"lg"}
+                  className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"
+                >
+                  Announcement
+                </Button>
+              ) : (
+                <Button
+                  size={"lg"}
+                  className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"
+                >
+                  Register Now
+                </Button>
+              )}
             </Link>
           </div>
         </div>
       </section>
 
       <section className="relative bg-[#1C1C1C] text-ted-white">
-        <h2 className="my-16 stroke-ted-white text-center font-anderson text-4xl font-bold shadow-ted-white text-shadow-xl lg:text-6xl lg:text-shadow-2xl">
+        <h2 className="pt-16 stroke-ted-white text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.5)] lg:text-6xl">
           OUR TOPIC
         </h2>
-        <div className="my-16 flex flex-col items-center gap-8">
+        <div className="p-16 flex flex-col items-center gap-8">
           {dummies.map((dummy) => (
             <TopicCard
               title={dummy.title}
@@ -99,19 +111,19 @@ function page() {
         </div>
 
         <Image
-          src="/star.png"
+          src="/Blur1.png"
           width={262}
           height={255}
-          alt="Background Star"
-          className="absolute -left-32 -top-44 w-96 opacity-5 lg:left-[-225px] lg:top-[-340px] lg:w-[700px]"
+          alt="Background Blur"
+          className="absolute -left-1/2 -top-32  sm:-left-64 sm:-top-64 w-[1000px]"
         />
 
         <Image
-          src="/star.png"
+          src="/Blur2.png"
           width={262}
           height={255}
-          alt="Background Star"
-          className="absolute -bottom-36 -right-32 w-96 opacity-5 lg:bottom-[-350px] lg:right-[-225px] lg:w-[700px]"
+          alt="Background Blur"
+          className="absolute -right-1/2 -bottom-40  sm:-right-96 sm:-bottom-56 w-[1000px]"
         />
       </section>
 
@@ -127,7 +139,7 @@ function page() {
             <h2 className="text-3xl font-bold lg:text-6xl">
               Networking Originator Lounge
             </h2>
-            <p className="leading-7 tracking-wide">
+            <p className="leading-7 tracking-wide lg:text-lg font-thin">
               The Originators Lounge is your dedicated space to relax, mingle,
               and engage in meaningful conversations with fellow attendees.
               Here, you can be a part of the transformative energy that TEDxITB
@@ -169,24 +181,38 @@ function page() {
                 height={16}
                 className="h-4 w-4 lg:h-8 lg:w-8"
               />
-              <p className="lg:text-2xl">Institut Teknologi Bandung</p>
+              <p className="lg:text-2xl">
+                The House Convention Hall, Paskal 23
+              </p>
             </div>
             <div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3632.2518531125716!2d107.60755364362834!3d-6.89082209577557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65767c9b183%3A0x2478e3dcdce37961!2sBandung%20Institute%20of%20Technology!5e0!3m2!1sen!2sid!4v1704359771229!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7985193189184!2d107.59057777499645!3d-6.914676593084865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e78e0372cfc7%3A0x54f02d7a7d90f635!2sThe%20House%20Convention%20Hall!5e0!3m2!1sen!2sid!4v1704370854993!5m2!1sen!2sid"
                 width="250"
                 height="200"
                 style={{ border: 0 }}
-                allowFullScreen
+                allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="rounded-lg lg:h-[250px] lg:w-[450px]"
               ></iframe>
             </div>
             <Link href={redirect}>
-              <Button className="self-start lg:px-16 lg:py-6 lg:text-lg">
-                Register Now
-              </Button>
+              {dateNow > announcementDate ? (
+                <Button
+                  size={"lg"}
+                  className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"
+                >
+                  Announcement
+                </Button>
+              ) : (
+                <Button
+                  size={"lg"}
+                  className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"
+                >
+                  Register Now
+                </Button>
+              )}
             </Link>
           </div>
 
@@ -201,7 +227,7 @@ function page() {
           <div className="absolute top-0 h-8 w-full bg-gradient-to-b from-ted-black to-transparent"></div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
 

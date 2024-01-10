@@ -16,34 +16,40 @@ export const imageSchema = z
   }, "Only these types are allowed .jpg, .jpeg, and .png");
 
 export const regisSchema = z.object({
-  name: z.string().min(1, { message: "Masukkan Nama" }),
-  email: z.string().email({ message: "Email tidak valid" }),
+  name: z.string({ required_error: "Masukkan Nama" }).min(1),
   phone: z
-    .string()
+    .string({ required_error: "Masukkan Nomor HP" })
     .min(10, { message: "Masukkan Nomor HP" })
     .regex(
       new RegExp(/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/),
       { message: "Nomor HP tidak valid" }
     ),
   age: z.coerce
-    .number()
+    .number({
+      required_error: "Masukkan Umur",
+      invalid_type_error: "Umur tidak valid",
+    })
     .int({ message: "Umur tidak valid" })
     .min(1, { message: "Umur tidak valid" }),
-  address: z.string().min(1, { message: "Masukkan Alamat" }),
-  job: z.string().min(1, { message: "Masukkan Pekerjaan" }),
-  instance: z.string().min(1, { message: "Masukkan Instansi" }),
+  address: z.string({ required_error: "Masukkan Alamat" }).min(1),
+  job: z.string({ required_error: "Masukkan Pekerjaan" }).min(1),
+  instance: z.string({ required_error: "Masukkan Instansi" }).min(1),
   faculty: z
     .string()
     .refine((value) => value === "" || /^[^/]*\/\d{2}$/.test(value), {
       message: "Masukan tidak sesuai format",
-    }),
-  social: z.string().min(1, { message: "Masukkan Media Sosial" }),
+    })
+    .optional(),
+  social: z.string({ required_error: "Masukkan Media Sosial" }).min(1),
   allergy: z.string().optional(),
   q1: z.string().optional(),
-  q2: z.string().min(1, { message: "Masukkan Jawaban" }),
-  profile: z.string().url(),
-  q3: z.string().min(1, { message: "Masukkan Jawaban" }),
-  q4: z.string().min(1, { message: "Masukkan Jawaban" }),
+  q2: z.string({ required_error: "Masukkan Jawaban" }).min(1),
+  profile: z
+    .string()
+    .url()
+    .refine((url) => url.startsWith("https://res.cloudinary.com/")),
+  q3: z.string({ required_error: "Masukkan Jawaban" }).min(1),
+  q4: z.string({ required_error: "Masukkan Jawaban" }).min(1),
   scale: z.number().int().min(1).max(5),
   q5: z.string().optional(),
   q6: z.string().optional(),
