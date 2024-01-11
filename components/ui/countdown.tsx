@@ -66,9 +66,7 @@ function Countdown({ date }: { date: Date }) {
           </p>
         </div>
       </div>
-      <div className="col-span-1 flex items-center justify-center font-mono text-5xl font-extrabold text-ted-black">
-        
-      </div>
+      <div className="col-span-1 flex items-center justify-center font-mono text-5xl font-extrabold text-ted-black"></div>
       <div className="col-span-1 flex h-[137px] w-[137px] items-center justify-center bg-ted-black rounded-xl drop-shadow-[2px_4px_18px_rgba(255,255,255,0.5)]">
         <div className="flex flex-col items-center gap-2 text-center">
           <div className="flex">
@@ -114,9 +112,7 @@ function Countdown({ date }: { date: Date }) {
           </p>
         </div>
       </div>
-      <div className="col-span-1 hidden items-center justify-center font-mono text-5xl font-extrabold text-ted-black md:flex">
-        
-      </div>
+      <div className="col-span-1 hidden items-center justify-center font-mono text-5xl font-extrabold text-ted-black md:flex"></div>
       <div className="col-span-1 flex h-[137px] w-[137px] items-center justify-center bg-ted-black rounded-xl drop-shadow-[2px_4px_18px_rgba(255,255,255,0.5)]">
         <div className="flex flex-col items-center gap-2 text-center">
           <div className="flex">
@@ -162,9 +158,7 @@ function Countdown({ date }: { date: Date }) {
           </p>
         </div>
       </div>
-      <div className="col-span-1 flex items-center justify-center font-mono text-5xl font-extrabold text-ted-black">
-        
-      </div>
+      <div className="col-span-1 flex items-center justify-center font-mono text-5xl font-extrabold text-ted-black"></div>
       <div className="col-span-1 flex h-[137px] w-[137px] items-center justify-center bg-ted-black rounded-xl drop-shadow-[2px_4px_18px_rgba(255,255,255,0.5)]">
         <div className="flex flex-col items-center gap-2 text-center">
           <div className="flex">
