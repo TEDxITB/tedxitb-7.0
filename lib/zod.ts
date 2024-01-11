@@ -54,3 +54,7 @@ export const regisSchema = z.object({
   q5: z.string().optional(),
   q6: z.string().optional(),
 });
+
+export const confirmationSchema = z.object({
+  attendance: z.boolean(),
+});

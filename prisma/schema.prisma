@@ -48,6 +48,7 @@ model User {
   sessions      Session[]
   confirmation  Confirmation?
   registration  Registration?
+  ticket        Ticket?
 }
 
 model VerificationToken {
@@ -59,31 +60,37 @@ model VerificationToken {
 }
 
 model Registration {
-  id                     String  @id @default(cuid())
-  name                   String
-  email                  String
-  phonenumber            String
-  age                    Int
-  job                    String
-  affiliation            String
-  major                  String?
-  socialmedia            String
-  allergy                String?
-  specialneeds           String
-  selfdescription        String
-  photo_url              String
-  motivation             String
-  hopes                  String
-  participationscale     Int
-  communityparticipation String?
-  potentialstory         String?
-  userId                 String  @unique
-  user                   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                 String  @id @default(cuid())
+  name               String
+  phone              String
+  age                Int
+  address            String
+  job                String
+  instance           String
+  faculty            String?
+  social             String
+  allergy            String?
+  q1                 String?
+  q2                 String
+  profile            String
+  q3                 String
+  q4                 String
+  participationscale Int
+  q5                 String?
+  q6                 String?
+  userId             String  @unique
+  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Confirmation {
-  id         String  @id @default(cuid())
-  attendance Boolean @default(false)
-  userId     String  @unique
-  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id         String   @id @default(cuid())
+  attendance Boolean?
+  userId     String   @unique
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Ticket {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
