@@ -37,7 +37,6 @@ function FirstPage({
       "job",
       "instance",
       "faculty",
-      "social",
       "allergy",
       "q1",
       "q2",
@@ -260,24 +259,52 @@ function FirstPage({
 
         <FormField
           control={form.control}
-          name="social"
+          name="linkedin"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-1 grow">
               <FormLabel
-                htmlFor="social"
+                htmlFor="linkedin"
                 className="lg:text-lg leading-6 tracking-wide text-ted-white"
               >
-                Media Sosial (Instagram/LinkedIn)
+                LinkedIn <span className="text-[#FDB10E]">(Opsional)</span>
               </FormLabel>
               <FormControl>
                 <Input
-                  id="social"
+                  id="linkedin"
+                  {...field}
+                  placeholder="Nama lengkap"
+                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                />
+              </FormControl>
+              <FormMessage>
+                {form.formState.errors.linkedin?.message}
+              </FormMessage>
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="instagram"
+          render={({ field }) => (
+            <FormItem className="flex flex-col gap-1 grow">
+              <FormLabel
+                htmlFor="instagram"
+                className="lg:text-lg leading-6 tracking-wide text-ted-white"
+              >
+                Instagram <span className="text-[#FDB10E]">(Opsional)</span>
+              </FormLabel>
+              <FormControl>
+                <Input
+                  id="instagram"
                   {...field}
                   placeholder="@username"
                   className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
                 />
               </FormControl>
-              <FormMessage>{form.formState.errors.social?.message}</FormMessage>
+              <FormMessage>
+                {form.formState.errors.instagram?.message}
+              </FormMessage>
             </FormItem>
           )}
         />

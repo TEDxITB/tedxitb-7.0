@@ -1,3 +1,14 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -34,19 +45,60 @@ function Accepted(props: { name?: string }) {
                 </p>
                 <p className="text-sm lg:text-xl grow">Time: TBA</p>
                 <div className="sm:self-start grid grid-rows-2 sm:grid-cols-2 sm:gap-8">
-                  <Button
-                    variant={"outline"}
-                    size={"lg"}
-                    className="self-start mt-4 lg:px-10 lg:py-6 lg:text-lg text-ted-red"
-                  >
-                    Confirm Absence
-                  </Button>
-                  <Button
-                    size={"lg"}
-                    className="self-start mt-4 lg:px-10 lg:py-6 lg:text-lg"
-                  >
-                    Confirm Attendance
-                  </Button>
+                  <AlertDialog>
+                    <AlertDialogTrigger>
+                      <Button
+                        variant={"outline"}
+                        size={"lg"}
+                        className="self-start mt-4 lg:px-10 lg:py-6 lg:text-lg text-ted-red"
+                      >
+                        Confirm Absence
+                      </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>
+                          Are you absolutely sure?
+                        </AlertDialogTitle>
+                        <AlertDialogDescription>
+                          This action cannot be undone. This will permanently
+                          delete your account and remove your data from our
+                          servers.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction>Continue</AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+
+                  <AlertDialog>
+                    <AlertDialogTrigger>
+                      <Button
+                        size={"lg"}
+                        className="self-start mt-4 lg:px-10 lg:py-6 lg:text-lg"
+                      >
+                        Confirm Attendance
+                      </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>
+                          Are you absolutely sure?
+                        </AlertDialogTitle>
+                        <AlertDialogDescription>
+                          This action cannot be undone. This will permanently
+                          delete your account and remove your data from our
+                          servers.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction>Continue</AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
                 </div>
               </div>
               <iframe
