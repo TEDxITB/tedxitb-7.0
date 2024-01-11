@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import Pagination from "@/components/ui/pagination";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { promise } from "zod";
 
 const HeroSection = () => {
   return (
@@ -54,88 +54,231 @@ const HeroSection = () => {
   );
 };
 
-const TedMagazinePage = () => {
-  const [page, setPage] = useState(2);
-  const [title, setTitle] = useState<string | null>("magazine1")
+interface Magazine {
+  title: string,
+  cover: string
+}
+
+type MagazineSetter = (magazine: Magazine, origin: HTMLImageElement) => void
+
+const styleElement = (el: HTMLElement, style: Partial<HTMLElement["style"]>) => {
+  Object.entries(style).forEach(([k, v]) => el.style[k as any] = v as any)
+}
+
+const createWaiter = () => {
+  let resolver: (value: void) => void;
+  const promise = new Promise<void>((resolve) => {
+    resolver = resolve
+  })
+  return [
+    promise,
+    //@ts-ignore
+    resolver
+  ] as const
+}
+
+const waitListener = function <T extends EventTarget>(listener: T, type: string) {
+  const [promise, resolver] = createWaiter()
+
+  listener.addEventListener(type, () => {
+    resolver()
+  })
+  return promise
+}
+
+const waitFrame = () => {
+  const [promise, resolver] = createWaiter()
+
+  requestAnimationFrame(() => {
+    resolver()
+  })
+  return promise
+}
+
+const MagazineSection = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  const [forceLandscape, setForceLandscape] = useState(false)
+  const showing = useRef(false)
+
+  const closeMagazine = () => {
+    (async function () {
+      const iframe = iframeRef.current
+      if (!iframe) return
+      styleElement(iframe, {
+        opacity: "1",
+        transitionProperty: "opacity",
+        transitionDuration: "1s"
+      })
+
+      await waitFrame()
+      styleElement(iframe, { opacity: "0" })
+
+      await waitListener(iframe, "transitionend")
+      styleElement(iframe, {
+        opacity: "",
+        transitionProperty: "",
+        transitionDuration: ""
+      })
+      iframe.style.visibility = "hidden"
+      iframe.style.pointerEvents = "none"
+      document.body.style.overflow = ""
+      showing.current = false
+    })();
+  }
+
+  const magazineSetter: MagazineSetter = (newMagazine, origin) => {
+    (async function () {
+      const iframe = iframeRef.current
+      if (!iframe) return
+      const closeListener = ({ data }: MessageEvent) => {
+        if (data == "close") {
+          closeMagazine()
+          window.removeEventListener("message", closeListener)
+        }
+      }
+      window.addEventListener("message", closeListener)
+
+      const { top, left, width, height } = origin.getBoundingClientRect()
+      const vWidth = window.innerWidth
+      const vHeight = window.innerHeight
+
+      const div = document.createElement("div")
+      styleElement(div, {
+        top: top + "px",
+        left: left + "px",
+        width: ((width * 100) / vWidth) + "vw",
+        height: ((height * 100) / vHeight) + "vh",
+        zIndex: "100",
+        position: "fixed",
+        backgroundColor: "black",
+        padding: "30px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        transitionProperty: "width, height, top, left",
+        transitionDuration: "1s"
+      })
+      iframe.insertAdjacentElement("afterend", div)
+
+      const img = document.createElement("img")
+      img.src = origin.src
+      div.appendChild(img)
+      styleElement(img, {
+        width: "100%",
+        height: "100%",
+        objectFit: "contain",
+        opacity: "1",
+        transitionProperty: "opacity",
+        transitionDuration: "0.9s"
+      })
+
+      await waitFrame()
+      styleElement(div, {
+        top: "0px",
+        left: "0px",
+        width: "100vw",
+        height: "100vh"
+      })
+      styleElement(img, {
+        opacity: "0"
+      })
+
+      await waitListener(div, "transitionend")
+
+      iframe.contentWindow?.postMessage(newMagazine.title)
+
+      iframe.style.visibility = "visible"
+      iframe.style.pointerEvents = "auto"
+      document.body.style.overflow = "hidden"
+
+      await waitFrame()
+      styleElement(div, {
+        opacity: "0",
+        transitionProperty: "opacity",
+        transitionDuration: "0.1"
+      })
+
+      await waitListener(div, "transitionend")
+      div.remove()
+    })();
+  }
+
+  useEffect(() => {
+    const reorient = () => {
+      const width = (window.innerWidth - 100)
+      const height = (window.innerHeight - 50)
+
+      if (width < height * 1.41) setForceLandscape(true)
+      else setForceLandscape(false)
+    }
+    reorient()
+
+    window.addEventListener("resize", reorient)
+    return () => {
+      window.removeEventListener("resize", reorient)
+    }
+  }, [])
 
   useEffect(() => {
     const iframe = iframeRef.current
     if (!iframe) return
 
-    const listener = ({ data }: MessageEvent) => {
-      console.log(data)
-      if (data == "close") {
-        setTitle(null)
-      }
-    }
+    iframe.style.width = forceLandscape ? "100vh" : "100vw"
+    iframe.style.height = forceLandscape ? "100vw" : "100vh"
+    iframe.style.transform = "translate(-50%, -50%)" + (forceLandscape ? "rotate(90deg)" : "")
+  }, [forceLandscape, iframeRef])
 
-    window.addEventListener("message", listener)
+  return [
+    <iframe key={0} ref={iframeRef} src="/magazine/viewer" className={"fixed pointer-events-none invisible top-1/2 left-1/2 z-[100]"} />,
+    magazineSetter
+  ] as const
+}
 
-    return () => {
-      window.removeEventListener("message", listener)
-    }
-  }, [])
+const CoverSection = (magazine: Magazine, setMagazine: MagazineSetter) => {
+  const coverRef = useRef<HTMLImageElement>(null)
 
-  useEffect(() => {
-    if (title) document.body.style.overflow = "hidden"
-    else document.body.style.overflow = ""
-  }, [title])
+  return <li className="flex flex-col gap-2 cursor-pointer" key={magazine.title} onClick={() => setMagazine(magazine, coverRef.current as any)}>
+    <Image ref={coverRef} src={magazine.cover} alt="cover" width={300} height={300} />
+    <p className="text-center">Lorem ipsum dolor sit amet</p>
+  </li>
+}
 
-  const [orientation, setOrientation] = useState<"landscape" | "portrait">()
+const CatalogueSection = (setMagazine: MagazineSetter) => {
+  const [page, setPage] = useState(2);
 
-  useEffect(() => {
-    const resize = () => {
-      const width = (window.innerWidth - 100)
-      const height = (window.innerHeight - 50)
+  return <section id="cover" className="bg-black w-screen p-20 [&>*]:bg-transparent flex flex-col gap-5 items-center z-10">
+    <ul className="grid gap-5 grid-cols-4 grid-rows-3 max-w-7xl">
+      {(new Array(12)).fill(0).map((_, i) => CoverSection({
+        title: i.toString(),
+        cover: "/magazine-a4-cover.png"
+      }, setMagazine))}
+    </ul>
+    <Pagination
+      currentPage={page}
+      setPage={setPage}
+      totalPages={9}
+      variant="primary"
+      control="icon"
+    />
+  </section>
+}
 
-      if (width < height * 1.41) {
-        setOrientation("portrait")
-      } else {
-        setOrientation("landscape")
-      }
-    }
-    resize()
+const MagazineDisplay = () => {
+  const [magazineSection, setMagazine] = MagazineSection()
+  const catalogueSection = CatalogueSection(setMagazine)
+  return [catalogueSection, magazineSection]
+}
 
-    window.addEventListener("resize", resize)
-    return () => {
-      window.removeEventListener("resize", resize)
-    }
-  }, [])
+const TedMagazinePage = () => {
+  const setTitle = (a: string) => { console.log(a) }
 
+  const [catalogueSection, magazineSection] = MagazineDisplay()
   return (
     <>
-      <section onClick={() => setTitle(null)} className={cn(
-        "fixed w-screen h-screen bg-black z-[100] duration-500 transition-opacity",
-        title ? "opacity-100" : "opacity-0 pointer-events-none"
-      )}>
-        {
-          title ?
-            <iframe ref={iframeRef} src={`/magazine/${title}`} className={cn(
-              orientation == "portrait" ? "w-[100vh] h-[100vw] rotate-90" : "w-[100vw] h-[100vh]",
-              "fixed z-[100] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            )} /> : null
-        }
-      </section>
-      <main className={cn(title ? "" : "", "flex flex-auto flex-col items-center justify-center text-white font-anderson relative")}>
+      {magazineSection}
+      <main className={"flex flex-auto flex-col items-center justify-center text-white font-anderson relative"}>
         <HeroSection />
-        <section id="cover" className="bg-black w-screen p-20 [&>*]:bg-transparent flex flex-col gap-5 items-center z-10">
-          <ul className="grid gap-5 grid-cols-4 grid-rows-3 max-w-7xl">
-            {(new Array(12)).fill(0).map((_, i) => {
-              return <li className="flex flex-col gap-2 cursor-pointer" key={i} onClick={() => setTitle(i.toString())}>
-                <Image src={"/magazine-cover-placeholder.png"} alt="cover" width={300} height={300} />
-                <p className="text-center">Lorem ipsum dolor sit amet</p>
-              </li>
-            })}
-          </ul>
-          <Pagination
-            currentPage={page}
-            setPage={setPage}
-            totalPages={9}
-            variant="primary"
-            control="icon"
-          />
-        </section>
+        {catalogueSection}
       </main>
     </>
   );
