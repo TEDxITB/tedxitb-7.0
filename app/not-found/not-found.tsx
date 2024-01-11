@@ -43,10 +43,10 @@ export default function NotFoundPage() {
               Not Found
             </p>
             <p className="font-anderson text-base xl:text-xl lg:mr-24 xl:mr-36">
-              Oops! You&apos;ve stumbled upon a digital dead-end. Our digital guides
-              are on the case to reunite you with the missing content. While we
-              work our magic, feel free to explore elsewhere in our virtual
-              universe or hit the back button to return.
+              Oops! You&apos;ve stumbled upon a digital dead-end. Our digital
+              guides are on the case to reunite you with the missing content.
+              While we work our magic, feel free to explore elsewhere in our
+              virtual universe or hit the back button to return.
             </p>
           </div>
           <Button className="mt-20 lg:w-60">Go Back Home</Button>
