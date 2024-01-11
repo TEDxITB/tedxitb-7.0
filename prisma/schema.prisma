@@ -68,7 +68,8 @@ model Registration {
   job                String
   instance           String
   faculty            String?
-  social             String
+  linkedin           String?
+  instagram          String?
   allergy            String?
   q1                 String?
   q2                 String

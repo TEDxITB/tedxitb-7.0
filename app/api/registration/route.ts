@@ -86,7 +86,8 @@ export const POST = async (req: NextRequest) => {
       job,
       instance,
       faculty,
-      social,
+      linkedin,
+      instagram,
       allergy,
       q1,
       q2,
@@ -107,7 +108,8 @@ export const POST = async (req: NextRequest) => {
         job: job as string,
         instance: instance as string,
         faculty: faculty as string,
-        social: social as string,
+        linkedin: linkedin as string,
+        instagram: instagram as string,
         allergy: allergy as string,
         q1: q1 as string,
         q2: q2 as string,
@@ -128,7 +130,7 @@ export const POST = async (req: NextRequest) => {
     });
     const sheets = google.sheets({ version: "v4", auth });
     const spreadsheetId = process.env.REGISTRATION_SHEET_ID as string;
-    const range = "A1:Q1";
+    const range = "A1:R1";
 
     // Prepare the data to be written to the spreadsheet
     const values = [
@@ -140,7 +142,8 @@ export const POST = async (req: NextRequest) => {
         job,
         instance,
         faculty,
-        social,
+        linkedin,
+        instagram,
         allergy,
         q1,
         q2,
