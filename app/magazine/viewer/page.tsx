@@ -5,11 +5,13 @@ import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Orientation, PageFlip } from "page-flip";
 import { useEffect, useRef, useState } from "react";
 import Book from "react-pageflip";
+import { Communication } from '../shared';
 
 const Page = () => {
   const parentRef = useRef<Window>(null)
   const pageRef = useRef<number>(0)
   const pageFlipRef = useRef<{ pageFlip: () => PageFlip }>()
+  const pageContainerRef = useRef<HTMLImageElement>(null)
 
   const [ready, setReady] = useState(false)
   const [slug, setSlug] = useState("Hello, world!")
@@ -37,6 +39,15 @@ const Page = () => {
       pageFlip.updateOrientation("landscape" as Orientation);
       setReady(true)
     })
+
+    const parent = parentRef.current
+    const cover = pageContainerRef.current
+    if (!parent || !cover || parent == window) return
+
+    parent.postMessage(JSON.stringify({
+      info: "boundUpdate",
+      bounding: cover.getBoundingClientRect()
+    } satisfies Communication))
   }
 
   useEffect(() => resize(), [pageHeight, pageWidth])
@@ -45,12 +56,16 @@ const Page = () => {
     // @ts-ignore
     parentRef.current = parent
 
-    window.addEventListener("message", ({ data: slug }) => {
-      const pageFlip = pageFlipRef.current?.pageFlip();
-      pageFlip?.turnToPage(0)
-      setSlug(slug)
+    window.addEventListener("message", ({ data }) => {
+      const msg = JSON.parse(data) as Communication
+      if (msg.info == "slugUpdate") {
+        const pageFlip = pageFlipRef.current?.pageFlip();
+        pageFlip?.turnToPage(0)
+        setSlug(msg.title)
+      }
     })
 
+    console.log(pageContainerRef)
     resize()
     window.addEventListener("resize", resize)
     updateInputDisplay()
@@ -69,7 +84,9 @@ const Page = () => {
     if (parent == window) {
       window.location.href = "/magazine"
     } else {
-      parent.postMessage("close")
+      parent.postMessage(JSON.stringify({
+        info: "close"
+      } satisfies Communication))
     }
   }
 
@@ -119,7 +136,7 @@ const Page = () => {
         }} className='text-white h-full w-10 flex justify-center items-center'>
           <ChevronLeft />
         </button>
-        <div className="flex flex-row justify-center items-center" style={{ width: 2 * pageWidth + "px", height: pageHeight + "px" }}>
+        <div ref={pageContainerRef} className="flex flex-row justify-center items-center" style={{ width: 2 * pageWidth + "px", height: pageHeight + "px" }}>
           {/*
                     // @ts-ignore */}
           <Book
@@ -133,7 +150,7 @@ const Page = () => {
             }}
           >
             <div className='bg-black'></div>
-            <img className='w-full h-full border-2 border-black' src="/magazine-a4-cover.png" />
+            <img ref={() => { console.log("mounted") }} className='w-full h-full border-2 border-black' src="/magazine-a4-cover.png" />
             {
               (new Array(10)).fill(null).map((_, i) => {
                 return <div key={i} className="text-white border-2 border-black bg-blue-950 p-5" style={{ width: pageWidth + 'px', height: pageHeight + 'px' }}>
