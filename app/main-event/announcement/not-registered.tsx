@@ -17,7 +17,8 @@ function NotRegistered() {
             <p className="lg:text-xl tracking-wide leading-7">
               We appreciate your interest in participating in TEDxITB 7.0.
               Unfortunately, we regret to inform you that the registration
-              period for this year has come to a close. We understand that
+              period for this year has come to a close and and regrettably, we
+              did not receive your registration. We understand that
               circumstances vary, and sometimes it&apos;s challenging to meet
               deadlines. However, we want to express our gratitude for
               considering TEDxITB, and we sincerely hope that you will be able

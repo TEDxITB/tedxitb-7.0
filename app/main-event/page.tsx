@@ -171,7 +171,7 @@ function page() {
             </div>
             <p className="text-xl lg:text-3xl">Saturday, March 2nd 2024</p>
             <p className="text-3xl italic text-[#FDB10E] lg:text-5xl">
-              09.00 - 21.00
+              15.00 - 20.30
             </p>
             <div className="flex gap-2 align-middle">
               <Image

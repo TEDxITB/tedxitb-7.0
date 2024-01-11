@@ -40,7 +40,8 @@ export const regisSchema = z.object({
       message: "Masukan tidak sesuai format",
     })
     .optional(),
-  social: z.string({ required_error: "Masukkan Media Sosial" }).min(1),
+  linkedin: z.string().optional(),
+  instagram: z.string().optional(),
   allergy: z.string().optional(),
   q1: z.string().optional(),
   q2: z.string({ required_error: "Masukkan Jawaban" }).min(1),

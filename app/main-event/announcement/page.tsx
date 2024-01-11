@@ -10,11 +10,12 @@ async function page() {
   const session = await getServerSession(authOptions);
 
   const dateNow = new Date().getTime();
-  const announcementDate = new Date("February 19, 2024 17:00:00").getTime();
-  // const announcementDate = new Date("January 1, 2024 17:00:00").getTime();
+  // const announcementDate = new Date("February 19, 2024 17:00:00").getTime();
+  const announcementDate = new Date("January 1, 2024 17:00:00").getTime();
+  const confirmationDate = new Date("February 23, 2024 17:00:00").getTime();
 
   // Status lolos atau ga
-  const status = false;
+  const status = true;
 
   // Kalo belum login, redirect ke halaman login
   if (!session) {
