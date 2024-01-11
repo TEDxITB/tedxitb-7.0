@@ -1,8 +1,7 @@
-import 'server-only'
-
 import { authOptions } from "@/lib/auth-options";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
+import "server-only";
 
 export async function isUserRegistered() {
   try {
