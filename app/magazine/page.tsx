@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { Communication, getMagazines } from "./shared";
 import { Magazine } from "./shared";
 import "./style.css"
+import { createWaiter, styleElement, waitFrame, waitListener } from "./shared";
 
 const HeroSection = () => {
   return (
@@ -58,40 +59,6 @@ const HeroSection = () => {
 
 type MagazineSetter = (magazine: Magazine, origin: HTMLImageElement) => void
 
-const styleElement = (el: HTMLElement, style: Partial<HTMLElement["style"]>) => {
-  Object.entries(style).forEach(([k, v]) => el.style[k as any] = v as any)
-}
-
-const createWaiter = () => {
-  let resolver: (value: void) => void;
-  const promise = new Promise<void>((resolve) => {
-    resolver = resolve
-  })
-  return [
-    promise,
-    //@ts-ignore
-    resolver
-  ] as const
-}
-
-const waitListener = function <T extends EventTarget>(listener: T, type: string) {
-  const [promise, resolver] = createWaiter()
-
-  listener.addEventListener(type, () => {
-    resolver()
-  })
-  return promise
-}
-
-const waitFrame = () => {
-  const [promise, resolver] = createWaiter()
-
-  requestAnimationFrame(() => {
-    resolver()
-  })
-  return promise
-}
-
 const MagazineViewerSection = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const iframeSync = useRef(createWaiter())
@@ -130,7 +97,7 @@ const MagazineViewerSection = () => {
       const iframe = iframeRef.current
       if (!iframe) return
 
-      await iframeSync.current[0]
+      await iframeSync.current.waiter
 
       const { top, left, width, height } = origin.getBoundingClientRect()
       const vWidth = window.innerWidth
@@ -242,7 +209,7 @@ const MagazineViewerSection = () => {
       } else if (msg.info == "close") {
         closeMagazine()
       } else if (msg.info == "ready") {
-        iframeSync.current[1]()
+        iframeSync.current.resolve()
       }
     }
     window.addEventListener("message", messageListener)

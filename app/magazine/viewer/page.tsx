@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, Loader, X } from 'lucide-react';
 import { Orientation, PageFlip } from "page-flip";
 import { useEffect, useRef, useState } from "react";
 import Book from "react-pageflip";
-import { Communication, Magazine, getMagazine, getMagazines } from '../shared';
+import { Communication, Magazine, createWaiter, getMagazine, getMagazines } from '../shared';
 import Image from 'next/image';
 import "../style.css"
 
@@ -23,41 +23,44 @@ const recalculatePageDimension = function (): { width: number, height: number } 
 }
 
 const Page = () => {
-  const parentRef = useRef<Window>(null)
-  const pageRef = useRef<number>(0)
-  const pageFlipRef = useRef<PageFlip>()
+  const parentRef = useRef<Window>(null as any)
+
+  const slugRef = useRef("")
+  const pageFlipRef = useRef<PageFlip>(null as any)
   const bookContainerRef = useRef<HTMLDivElement>(null)
   const pageRendererRef = useRef<HTMLDivElement>(null)
   const pageRenderedRef = useRef<HTMLElement[]>([])
+  const renderSync = useRef(createWaiter())
 
-  const [inputPage, setInputPage] = useState("0")
+  const [inputPage, setInputPageValue] = useState("0")
   const [magazine, setMagazineState] = useState<Magazine>()
 
   const [pageWidth, setPageWidth] = useState(0)
   const [pageHeight, setPageHeight] = useState(0)
 
-  const rebuildPageFlip = () => {
+  const refreshPageFlip = () => {
     const bookContainer = bookContainerRef.current
     const pageRenderer = pageRendererRef.current
-    if (!magazine || !bookContainer || !pageRenderer) return
-    bookContainer.innerHTML = ""
+    if (!bookContainer || !pageRenderer) return
+
     const pageFlip = new PageFlip(bookContainer, {
-      width: pageWidth,
-      height: pageHeight,
+      width: 1000 / 2 * 1.41,
+      height: 1000,
       size: "stretch" as any,
       startPage: 0
     })
+
+    pageFlip.on("flip", () => {
+      updateInputDisplay()
+    })
+    pageFlipRef.current = pageFlip
+
 
     const childs = Array.from(pageRenderer.children) as HTMLElement[]
     pageRenderedRef.current = childs
 
     pageFlip.loadFromHTML(childs)
-    pageFlip.on("flip", ({ data }) => {
-      pageRef.current = data as number
-      updateInputDisplay()
-    })
     pageFlip.turnToPage(0)
-    pageFlipRef.current = pageFlip
   }
 
   const resize = () => {
@@ -75,19 +78,30 @@ const Page = () => {
     } satisfies Communication))
   }
 
-  useEffect(() => rebuildPageFlip(), [magazine])
   useEffect(() => resize(), [pageHeight, pageWidth])
+  useEffect(() => renderSync.current.resolve(), [magazine])
 
-  const setMagazine = (data: Magazine) => {
+  const setMagazine = async (data: Magazine) => {
+    if (slugRef.current == data.slug) {
+      pageFlipRef.current.turnToPage(0)
+      return
+    }
+
     pageRenderedRef.current.forEach(el => {
       pageRendererRef.current?.appendChild(el)
     })
+
+    // Create new render
     setMagazineState(data)
+    renderSync.current = createWaiter()
+    await renderSync.current.waiter
+    slugRef.current = data.slug
+
+    refreshPageFlip()
   }
 
-  useEffect(() => {
+  const setupListener = () => {
     const parent = window.parent
-    // @ts-ignore
     parentRef.current = parent
 
     window.addEventListener("message", ({ data }) => {
@@ -108,24 +122,27 @@ const Page = () => {
     }
 
     resize()
-    updateInputDisplay()
     window.addEventListener("resize", resize)
-    requestAnimationFrame(() => {
-      if (window != parent) parent.postMessage(JSON.stringify({
-        info: "ready"
-      } satisfies Communication))
-    })
+  }
+
+  const sendData = (msg: Communication) => {
+    const parent = parentRef.current
+    if (window != parent) parent.postMessage(JSON.stringify(msg))
+  }
+
+  useEffect(() => {
+    setupListener()
+    requestAnimationFrame(sendData.bind(null, { info: "ready" }))
   }, [])
 
   const updateInputDisplay = () => {
-    const page = pageRef.current
-    setInputPage(`${page}-${page + 1}`)
+    const page = pageFlipRef.current.getCurrentPageIndex()
+    setInputPageValue(`${page}-${page + 1}`)
   }
 
   const closeWindow = () => {
     const parent = parentRef.current
     if (!parent) return
-
     if (parent == window) {
       window.location.href = "/magazine"
     } else {
@@ -149,17 +166,17 @@ const Page = () => {
             value={inputPage}
             pattern="[0-9]"
             type='text'
-            onFocus={() => setInputPage("")}
+            onFocus={() => setInputPageValue("")}
             onBlur={() => updateInputDisplay()}
             onChange={(e) => {
               const raw = Array.from(e.target.value).filter(c => '0' <= c && c <= '9').join("")
-              setInputPage(raw)
+              setInputPageValue(raw)
 
               let page = parseInt(raw)
               if (page < 0 || 10 < page) {
                 if (page < 0) page = 0
                 if (10 < page) page = 10
-                setInputPage(page.toString())
+                setInputPageValue(page.toString())
               }
 
               if (page % 2 == 1) page--;
@@ -185,9 +202,9 @@ const Page = () => {
         <div ref={pageRendererRef} className='hidden'>
           <div className='bg-black'></div>
           {
-            (magazine?.content || []).map((src, i) => <div key={i} className='bg-black border-2 border-black overflow-hidden relative'>
-              <Image onLoad={(e) => { e.currentTarget.nextElementSibling?.remove() }} src={src} width={1000} height={1000} className='peer relative w-full h-full z-20' alt='' />
-              <div className='z-10 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 peer-[data-loaded]:hidden'>
+            (magazine?.content || []).map((src, i) => <div key={i} className='bg-white border-2 w-full h-full border-black overflow-hidden relative'>
+              <Image src={src} width={1000} height={1000} className='peer relative w-full h-full z-20' alt='' />
+              <div className='z-10 text-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 peer-[data-loaded]:hidden'>
                 <Loader size={50} className='animate-spin' />
               </div>
             </div>)
