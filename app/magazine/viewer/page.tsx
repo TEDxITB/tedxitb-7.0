@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import Book from "react-pageflip";
 import { Communication, Magazine, createWaiter, getMagazine, getMagazines } from '../shared';
 import Image from 'next/image';
-import "../style.css"
+import "./style.css"
 
 const recalculatePageDimension = function (): { width: number, height: number } {
   const width = (window.innerWidth - 200)

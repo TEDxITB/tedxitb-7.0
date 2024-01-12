@@ -17,12 +17,12 @@ export interface Magazine {
     content: string[]
 }
 
-const randomImage = () => `https://picsum.photos/id/${Math.floor(Math.random() * 200)}/200`
+const randomImage = () => `https://picsum.photos/id/${Math.floor(Math.random() * 200)}/500/705`
 const createContent = (len: number) => {
     return new Array(len).fill(null).map(() => randomImage())
 }
 // Dummy data
-export const magazines: Magazine[] = (new Array(100).fill(null)).map((_, i) => {
+export const magazines: Magazine[] = (new Array(30).fill(null)).map((_, i) => {
     return {
         title: `Test ${i}`,
         slug: `test-${i}`,

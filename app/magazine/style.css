@@ -1,11 +1,24 @@
 html {
   scroll-behavior: smooth;
+  height: 100vh !important;
+  display: block !important;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  padding-top: 6rem;
 }
 
-.stf__block .--left {
-    border-right: 0px;
+nav {
+  position: fixed !important;
 }
 
-.stf__block .--right {
-    border-left: 0px;
+body {
+  display: contents !important;
+}
+
+body > section {
+  height: calc(100svh - 6rem);
+}
+
+body > * {
+  scroll-snap-align: end;
 }

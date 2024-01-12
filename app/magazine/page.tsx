@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 const HeroSection = () => {
   return (
-    <section className="w-screen h-[calc(100vh-6rem)] flex justify-center items-center relative">
+    <section className="w-screen text-white flex justify-center items-center relative">
       <Image
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-30"
         src={"/magazine-hero-background.png"}
@@ -88,7 +88,7 @@ const MagazineViewerSection = () => {
       })
       iframe.style.visibility = "hidden"
       iframe.style.pointerEvents = "none"
-      document.body.style.overflow = ""
+      document.documentElement.style.overflow = ""
       showing.current = false
     })();
   }
@@ -188,7 +188,7 @@ const MagazineViewerSection = () => {
 
       iframe.style.visibility = "visible"
       iframe.style.pointerEvents = "auto"
-      document.body.style.overflow = "hidden"
+      document.documentElement.style.overflow = "hidden"
 
       await waitFrame()
       styleElement(div, {
@@ -290,6 +290,7 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
 
   useEffect(() => {
     getMagazines().then((m) => setData(m))
+
   }, [])
 
   if (showingPage != page && ref.current) {
@@ -301,7 +302,7 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
     })
   }
 
-  return <section id="cover" className="bg-black w-screen p-20 [&>*]:bg-transparent flex flex-col gap-5 items-center z-10">
+  return <section id="cover" className="bg-black text-white font-anderson overflow-hidden w-screen p-7 flex flex-col gap-5 items-center z-10">
     <div
       ref={ref}
       className={cn(
@@ -309,19 +310,22 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
         showingPage != page ? ("opacity-0 scale-90 " + (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")) : "opacity-100"
       )}
     >
-      <ul className="grid gap-5 grid-cols-4 grid-rows-3 max-w-7xl">
-        {(data).slice((showingPage - 1) * 12, showingPage * 12).map(magazine =>
+      <ul className="grid gap-5 grid-cols-4 grid-rows-1 max-w-7xl">
+        {(data).slice((showingPage - 1) * 3, showingPage * 3).map(magazine =>
           <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
         )}
       </ul>
     </div>
-    <Pagination
-      currentPage={page}
-      setPage={setPage}
-      totalPages={Math.ceil(data.length / 12)}
-      variant="primary"
-      control="icon"
-    />
+
+    <div className="mt-auto [&>*]:bg-transparent">
+      <Pagination
+        currentPage={page}
+        setPage={setPage}
+        totalPages={Math.ceil(data.length / 12)}
+        variant="primary"
+        control="icon"
+      />
+    </div>
   </section>
 }
 
@@ -336,9 +340,9 @@ const TedMagazinePage = () => {
   return (
     <>
       {magazineSection}
+      <HeroSection />
+      {catalogueSection}
       <main className={"flex flex-auto flex-col items-center justify-center text-white font-anderson relative"}>
-        <HeroSection />
-        {catalogueSection}
       </main>
     </>
   );
