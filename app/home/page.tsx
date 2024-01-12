@@ -167,8 +167,8 @@ const HomePage = () => {
                     />
                   </div>
                   <p className="font-anderson text-[18px] text-white text-center w-full">
-                    Symbolize {'"connect"'} as this years TEDxITB focusing on being
-                    a hub for people to connect
+                    Symbolize {'"connect"'} as this years TEDxITB focusing on
+                    being a hub for people to connect
                   </p>
                 </div>
                 <div className="w-full flex flex-col justify-start items-center md:gap-7 gap-12 rounded-md min-h-[380px] md:min-h-[450px]">
