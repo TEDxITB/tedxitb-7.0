@@ -252,9 +252,9 @@ const CoverSection = ({ magazine, setMagazine }: {
 }) => {
   const coverRef = useRef<HTMLImageElement>(null)
 
-  return <li className="flex flex-col gap-2 cursor-pointer" onClick={() => setMagazine(magazine, coverRef.current as any)}>
+  return <li className="flex flex-col items-center justify-center gap-2 cursor-pointer overflow-hidden" onClick={() => setMagazine(magazine, coverRef.current as any)}>
     <Image ref={coverRef} src={magazine.content[0]} alt="cover" width={300} height={300} />
-    <p className="text-center">Lorem ipsum dolor sit amet</p>
+    <p className="text-center">{magazine.title}</p>
   </li>
 }
 
@@ -262,10 +262,14 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
   const [data, setData] = useState<Magazine[]>([]);
   const [page, setPage] = useState(1);
   const [showingPage, setShowingPageState] = useState(page)
-  const ref = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLUListElement>(null)
+
+  const [col, setCol] = useState(1);
+  const [row, setRow] = useState(1);
+  const count = row * col
 
   const setShowingPage = (page: number) => {
-    const container = ref.current
+    const container = containerRef.current
     if (!container) return
 
     container.style.transitionDuration = "0s"
@@ -278,7 +282,7 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
   }
 
   useEffect(() => {
-    const container = ref.current
+    const container = containerRef.current
     if (!container) return
 
     const cbEnd = () => {
@@ -288,13 +292,9 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
     container.addEventListener("transitionend", cbEnd)
   }, [page, showingPage])
 
-  useEffect(() => {
-    getMagazines().then((m) => setData(m))
 
-  }, [])
-
-  if (showingPage != page && ref.current) {
-    const container = ref.current
+  if (showingPage != page && containerRef.current) {
+    const container = containerRef.current
     requestAnimationFrame(() => {
       if (container.getAnimations().length == 0 && showingPage != page) {
         setShowingPage(page)
@@ -302,26 +302,44 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
     })
   }
 
-  return <section id="cover" className="bg-black text-white font-anderson overflow-hidden w-screen p-7 flex flex-col gap-5 items-center z-10">
-    <div
-      ref={ref}
+  useEffect(() => {
+    getMagazines().then((m) => setData(m))
+
+    const container = containerRef.current
+    if (!container) return
+
+    const resizeObserver = new ResizeObserver(() => {
+      const { width, height } = container.getBoundingClientRect()
+
+      setCol(Math.floor(width / (300)) || 1)
+      setRow(Math.floor(height / (500)) || 1)
+    })
+
+    resizeObserver.observe(container)
+  }, [])
+
+  return <section id="cover" className="bg-black text-white font-anderson overflow-hidden w-screen p-7 flex flex-col gap-2 items-center z-10">
+    <ul
+      ref={containerRef}
       className={cn(
-        "transition-all duration-300",
+        "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
         showingPage != page ? ("opacity-0 scale-90 " + (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")) : "opacity-100"
       )}
+      style={{
+        gridTemplateColumns: `repeat(${col}, 1fr)`,
+        gridTemplateRows: `repeat(${row}, 1fr)`
+      }}
     >
-      <ul className="grid gap-5 grid-cols-4 grid-rows-1 max-w-7xl">
-        {(data).slice((showingPage - 1) * 3, showingPage * 3).map(magazine =>
-          <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
-        )}
-      </ul>
-    </div>
+      {(data).slice((showingPage - 1) * count, showingPage * count).map(magazine =>
+        <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
+      )}
+    </ul>
 
     <div className="mt-auto [&>*]:bg-transparent">
       <Pagination
         currentPage={page}
         setPage={setPage}
-        totalPages={Math.ceil(data.length / 12)}
+        totalPages={Math.ceil(data.length / count)}
         variant="primary"
         control="icon"
       />

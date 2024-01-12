@@ -26,7 +26,7 @@ export const magazines: Magazine[] = (new Array(30).fill(null)).map((_, i) => {
     return {
         title: `Test ${i}`,
         slug: `test-${i}`,
-        content: createContent(i + 3)
+        content: createContent(Math.floor(Math.random() * 20 + 10))
     }
 })
 
