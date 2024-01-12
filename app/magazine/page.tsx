@@ -8,6 +8,7 @@ import { Communication, getMagazines } from "./shared";
 import { Magazine } from "./shared";
 import "./style.css"
 import { createWaiter, styleElement, waitFrame, waitListener } from "./shared";
+import { cn } from "@/lib/utils";
 
 const HeroSection = () => {
   return (
@@ -258,19 +259,62 @@ const CoverSection = ({ magazine, setMagazine }: {
 }
 
 const CatalogueSection = (setMagazine: MagazineSetter) => {
-  const [page, setPage] = useState(1);
   const [data, setData] = useState<Magazine[]>([]);
+  const [page, setPage] = useState(1);
+  const [showingPage, setShowingPageState] = useState(page)
+  const ref = useRef<HTMLDivElement>(null)
+
+  const setShowingPage = (page: number) => {
+    const container = ref.current
+    if (!container) return
+
+    container.style.transitionDuration = "0s"
+    container.classList.remove("translate-x-1/2")
+    container.classList.remove("-translate-x-1/2")
+    requestIdleCallback(() => {
+      container.style.transitionDuration = ""
+      setShowingPageState(page)
+    })
+  }
+
+  useEffect(() => {
+    const container = ref.current
+    if (!container) return
+
+    const cbEnd = () => {
+      if (showingPage != page) setShowingPage(page)
+      container.removeEventListener("transitionend", cbEnd)
+    }
+    container.addEventListener("transitionend", cbEnd)
+  }, [page, showingPage])
 
   useEffect(() => {
     getMagazines().then((m) => setData(m))
   }, [])
 
+  if (showingPage != page && ref.current) {
+    const container = ref.current
+    requestAnimationFrame(() => {
+      if (container.getAnimations().length == 0 && showingPage != page) {
+        setShowingPage(page)
+      }
+    })
+  }
+
   return <section id="cover" className="bg-black w-screen p-20 [&>*]:bg-transparent flex flex-col gap-5 items-center z-10">
-    <ul className="grid gap-5 grid-cols-4 grid-rows-3 max-w-7xl">
-      {(data).slice((page - 1) * 12, page * 12).map(magazine =>
-        <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
+    <div
+      ref={ref}
+      className={cn(
+        "transition-all duration-300",
+        showingPage != page ? ("opacity-0 scale-90 " + (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")) : "opacity-100"
       )}
-    </ul>
+    >
+      <ul className="grid gap-5 grid-cols-4 grid-rows-3 max-w-7xl">
+        {(data).slice((showingPage - 1) * 12, showingPage * 12).map(magazine =>
+          <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
+        )}
+      </ul>
+    </div>
     <Pagination
       currentPage={page}
       setPage={setPage}
