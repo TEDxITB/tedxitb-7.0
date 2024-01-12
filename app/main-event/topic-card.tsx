@@ -1,11 +1,12 @@
 import TopicModal from "./topic-modal";
+import type { StructuredText as StructuredTextType } from "datocms-structured-text-utils";
 import Image from "next/image";
 
 function TopicCard(props: {
   title: string;
   speaker: string;
   image: { url: string; alt: string; width: number; height: number };
-  description: string;
+  description: StructuredTextType;
 }) {
   return (
     <div className="relative h-[175px] w-[325px] md:w-[600px] xl:w-[1000px] overflow-visible">

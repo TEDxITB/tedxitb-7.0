@@ -1,50 +1,12 @@
 import TopicCard from "./topic-card";
-import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
+import { getCMSData, mainEventTopicQuery, mainEventTopicTags } from "@/lib/cms";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { startComingSoonAnnouncementDate } from "@/lib/special-date";
+import { MainEventTopicQueryResult } from "@/types/cms";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-const dummies = [
-  {
-    title: "Unlocking the Hidden Potential of Laughter: The Science of Humor",
-    speaker: "Dr. Lily Chucklebottom",
-    image: {
-      url: "/hero-main-event.png",
-      alt: "hero",
-      width: 500,
-      height: 500,
-    },
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae diam euismod, aliquam nisl vitae, ultricies nisl.",
-  },
-  {
-    title: "Unlocking the Hidden Potential of Laughter: The Science of Humor",
-    speaker: "Dr. Lily Chucklebottom",
-    image: {
-      url: "/hero-main-event.png",
-      alt: "hero",
-      width: 500,
-      height: 500,
-    },
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae diam euismod, aliquam nisl vitae, ultricies nisl.",
-  },
-  {
-    title: "Unlocking the Hidden Potential of Laughter: The Science of Humor",
-    speaker: "Dr. Lily Chucklebottom",
-    image: {
-      url: "/hero-main-event.png",
-      alt: "hero",
-      width: 500,
-      height: 500,
-    },
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae diam euismod, aliquam nisl vitae, ultricies nisl.",
-  },
-];
 
 export const metadata: Metadata = {
   title: "Main Event | TEDxITB 7.0",
@@ -58,7 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-function page() {
+async function page() {
   const dateNow = new Date().getTime();
 
   let redirect = "/main-event/register";
@@ -66,14 +28,15 @@ function page() {
     redirect = "/main-event/announcement";
   }
 
+  const { allMainEventTopics } = await getCMSData<MainEventTopicQueryResult>(
+    mainEventTopicQuery,
+    mainEventTopicTags
+  );
+
   return (
     <main className="overflow-hidden">
-      <section className="hidden py-3 px-7 font-anderson text-ted-white lg:block xl:px-14">
-        <Breadcrumbs variant="default" />
-      </section>
-
       <section className="text-ted-white">
-        <div className="relative h-[calc(100vh-98px)] w-screen lg:h-[calc(100vh-168px)]">
+        <div className="relative w-screen min-h-[calc(100vh-98px)] py-5">
           <Image
             src="/hero-main-event.png"
             fill
@@ -81,10 +44,10 @@ function page() {
             className="z-10 object-cover"
           />
           <div className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 text-center lg:gap-12">
-            <h1 className="text-5xl lg:text-8xl drop-shadow-[2px_4px_25px_rgba(255,255,255,0.5)] font-bold">
+            <h1 className="text-5xl lg:text-8xl drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] font-bold">
               TEDxITB 7.0
             </h1>
-            <h2 className="text-3xl lg:text-6xl drop-shadow-[2px_4px_25px_rgba(255,255,255,0.5)] font-bold">
+            <h2 className="text-3xl lg:text-6xl drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] font-bold">
               The Impact Originator Hub
             </h2>
             <Link href={redirect}>
@@ -109,17 +72,17 @@ function page() {
       </section>
 
       <section className="relative bg-[#1C1C1C] text-ted-white">
-        <h2 className="pt-16 stroke-ted-white text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.5)] lg:text-6xl">
+        <h2 className="pt-16 stroke-ted-white text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
           OUR TOPIC
         </h2>
         <div className="p-16 flex flex-col items-center gap-8">
-          {dummies.map((dummy) => (
+          {allMainEventTopics.map((topic) => (
             <TopicCard
-              title={dummy.title}
-              speaker={dummy.speaker}
-              image={dummy.image}
-              description={dummy.description}
-              key={dummy.title}
+              title={topic.title}
+              speaker={topic.speaker}
+              image={topic.image}
+              description={topic.description}
+              key={topic.title}
             />
           ))}
         </div>
