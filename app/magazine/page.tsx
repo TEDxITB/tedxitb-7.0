@@ -29,7 +29,7 @@ const HeroSection = () => {
         alt="test"
       />
 
-      <div className="flex flex-row z-10 w-3/4">
+      <div className="flex flex-col lg:flex-row gap-10 sm:gap-0 z-10 w-3/4">
         <div className="flex flex-col justify-center">
           <p className="font-anderson mb-4">Magazine</p>
           <p className="font-graziela text-6xl mb-8">
@@ -47,7 +47,7 @@ const HeroSection = () => {
           </div>
         </div>
         <Image
-          className="ml-auto w-1/3"
+          className="ml-auto w-[250px] sm:w-[350px] lg:w-1/2"
           src={"/magazine-hero-1.png"}
           width={500}
           height={500}
@@ -318,7 +318,7 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
     resizeObserver.observe(container)
   }, [])
 
-  return <section id="cover" className="bg-black text-white font-anderson overflow-hidden w-screen p-7 flex flex-col gap-2 items-center z-10">
+  return <section id="cover" className="bg-black text-white font-anderson overflow-hidden w-screen py-7 px-10 flex flex-col gap-2 items-center z-10">
     <ul
       ref={containerRef}
       className={cn(
