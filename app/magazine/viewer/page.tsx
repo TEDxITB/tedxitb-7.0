@@ -1,56 +1,90 @@
 "use client"
 
 import { cn } from '@/lib/utils';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader, X } from 'lucide-react';
 import { Orientation, PageFlip } from "page-flip";
 import { useEffect, useRef, useState } from "react";
 import Book from "react-pageflip";
-import { Communication } from '../shared';
+import { Communication, Magazine, getMagazine, getMagazines } from '../shared';
+import Image from 'next/image';
+import "../style.css"
+
+const recalculatePageDimension = function (): { width: number, height: number } {
+  const width = (window.innerWidth - 200)
+  const height = (window.innerHeight - 150)
+  if (width < 0 || height < 0) return { width: 1, height: 1 }
+
+  document.body.style.overflow = "hidden"
+  if (width < height * 1.41) {
+    return { width: width / 2, height: width / 1.41 }
+  } else {
+    return { width: height * 1.41 / 2, height: height }
+  }
+}
 
 const Page = () => {
   const parentRef = useRef<Window>(null)
   const pageRef = useRef<number>(0)
-  const pageFlipRef = useRef<{ pageFlip: () => PageFlip }>()
-  const pageContainerRef = useRef<HTMLImageElement>(null)
+  const pageFlipRef = useRef<PageFlip>()
+  const bookContainerRef = useRef<HTMLDivElement>(null)
+  const pageRendererRef = useRef<HTMLDivElement>(null)
+  const pageRenderedRef = useRef<HTMLElement[]>([])
 
-  const [ready, setReady] = useState(false)
-  const [slug, setSlug] = useState("Hello, world!")
   const [inputPage, setInputPage] = useState("0")
-  const [pageHeight, setPageHeight] = useState(300)
-  const [pageWidth, setPageWidth] = useState(300)
+  const [magazine, setMagazineState] = useState<Magazine>()
 
-  const resize = () => {
-    const width = (window.innerWidth - 200)
-    const height = (window.innerHeight - 150)
-    if (width < 0 || height < 0) return
+  const [pageWidth, setPageWidth] = useState(0)
+  const [pageHeight, setPageHeight] = useState(0)
 
-    document.body.style.overflow = "hidden"
-    if (width < height * 1.41) {
-      setPageWidth(width / 2)
-      setPageHeight(width / 1.41)
-    } else {
-      setPageHeight(height)
-      setPageWidth((height * 1.41) / 2)
-    }
-
-    requestIdleCallback(() => {
-      if (!pageFlipRef.current) return
-      const pageFlip = pageFlipRef.current.pageFlip();
-      pageFlip.updateOrientation("landscape" as Orientation);
-      setReady(true)
+  const rebuildPageFlip = () => {
+    const bookContainer = bookContainerRef.current
+    const pageRenderer = pageRendererRef.current
+    if (!magazine || !bookContainer || !pageRenderer) return
+    bookContainer.innerHTML = ""
+    const pageFlip = new PageFlip(bookContainer, {
+      width: pageWidth,
+      height: pageHeight,
+      size: "stretch" as any,
+      startPage: 0
     })
 
+    const childs = Array.from(pageRenderer.children) as HTMLElement[]
+    pageRenderedRef.current = childs
+
+    pageFlip.loadFromHTML(childs)
+    pageFlip.on("flip", ({ data }) => {
+      pageRef.current = data as number
+      updateInputDisplay()
+    })
+    pageFlip.turnToPage(0)
+    pageFlipRef.current = pageFlip
+  }
+
+  const resize = () => {
+    const { width, height } = recalculatePageDimension()
+    setPageWidth(width)
+    setPageHeight(height)
+
     const parent = parentRef.current
-    const cover = pageContainerRef.current
-    if (!parent || !cover || parent == window) return
+    const container = bookContainerRef.current
+    if (!parent || !container || parent == window) return
 
     parent.postMessage(JSON.stringify({
       info: "boundUpdate",
-      bounding: cover.getBoundingClientRect()
+      bounding: container.getBoundingClientRect()
     } satisfies Communication))
   }
 
+  useEffect(() => rebuildPageFlip(), [magazine])
   useEffect(() => resize(), [pageHeight, pageWidth])
+
+  const setMagazine = (data: Magazine) => {
+    pageRenderedRef.current.forEach(el => {
+      pageRendererRef.current?.appendChild(el)
+    })
+    setMagazineState(data)
+  }
+
   useEffect(() => {
     const parent = window.parent
     // @ts-ignore
@@ -59,17 +93,28 @@ const Page = () => {
     window.addEventListener("message", ({ data }) => {
       const msg = JSON.parse(data) as Communication
       if (msg.info == "slugUpdate") {
-        const pageFlip = pageFlipRef.current?.pageFlip();
-        pageFlip?.turnToPage(0)
-        setSlug(msg.title)
+        getMagazine(msg.slug).then((data) => {
+          setMagazine(data)
+        })
       }
     })
 
-    console.log(pageContainerRef)
+    const slug = new URLSearchParams(window.location.search).get("slug")
+    if (slug) {
+      window.postMessage(JSON.stringify({
+        info: "slugUpdate",
+        slug
+      } satisfies Communication))
+    }
+
     resize()
-    window.addEventListener("resize", resize)
     updateInputDisplay()
-    return () => window.removeEventListener("resize", resize)
+    window.addEventListener("resize", resize)
+    requestAnimationFrame(() => {
+      if (window != parent) parent.postMessage(JSON.stringify({
+        info: "ready"
+      } satisfies Communication))
+    })
   }, [])
 
   const updateInputDisplay = () => {
@@ -93,7 +138,7 @@ const Page = () => {
   return <div className='bg-black fixed w-screen h-screen z-[100]'>
     <div className={cn(
       "transition-opacity duration-500 w-screen h-screen flex flex-col justify-center items-center gap-3",
-      ready ? "opacity-100" : "opacity-0"
+      magazine && magazine.content.length > 0 ? "opacity-100" : "opacity-0"
     )}>
       <div className='flex flex-row' style={{ width: pageWidth * 2 + "px" }}>
         <div className='flex-1'></div>
@@ -117,12 +162,11 @@ const Page = () => {
                 setInputPage(page.toString())
               }
 
-              const pageFlip = pageFlipRef.current?.pageFlip()
               if (page % 2 == 1) page--;
-              pageFlip?.turnToPage(page)
+              pageFlipRef.current?.turnToPage(page)
             }}
           />
-          <p className='pt-1'>&nbsp;/&nbsp;{100}</p>
+          <p className='pt-1'>&nbsp;/&nbsp;{magazine?.content.length || 0}</p>
         </div>
         <div className='flex flex-1'>
           <button onClick={closeWindow} className='text-white ml-auto'>
@@ -132,39 +176,34 @@ const Page = () => {
       </div>
       <div className='flex flex-row'>
         <button onClick={() => {
-          pageFlipRef.current?.pageFlip().flipPrev()
+          pageFlipRef.current?.flipPrev()
         }} className='text-white h-full w-10 flex justify-center items-center'>
           <ChevronLeft />
         </button>
-        <div ref={pageContainerRef} className="flex flex-row justify-center items-center" style={{ width: 2 * pageWidth + "px", height: pageHeight + "px" }}>
-          {/*
-                    // @ts-ignore */}
-          <Book
-            height={pageHeight}
-            width={pageWidth}
-            size={"stretch"}
-            ref={pageFlipRef}
-            onFlip={({ data }) => {
-              pageRef.current = data
-              if (inputPage.includes("-")) updateInputDisplay()
-            }}
-          >
-            <div className='bg-black'></div>
-            <img ref={() => { console.log("mounted") }} className='w-full h-full border-2 border-black' src="/magazine-a4-cover.png" />
-            {
-              (new Array(10)).fill(null).map((_, i) => {
-                return <div key={i} className="text-white border-2 border-black bg-blue-950 p-5" style={{ width: pageWidth + 'px', height: pageHeight + 'px' }}>
-                  <p>Book {slug}</p>
-                  <img src={`https://picsum.photos/id/${12 || Math.floor(Math.random() * 100) + 1}/200`} />
-                  <p>Page {i + 2}</p>
-                </div>
-              })
-            }
-            <div className='bg-black'></div>
-          </Book>
+
+        {/* Page Renderer, BEWARE: Only rendered ONCE every magazine update, so react state won't work here */}
+        <div ref={pageRendererRef} className='hidden'>
+          <div className='bg-black'></div>
+          {
+            (magazine?.content || []).map((src, i) => <div key={i} className='bg-black border-2 border-black overflow-hidden relative'>
+              <Image onLoad={(e) => { e.currentTarget.nextElementSibling?.remove() }} src={src} width={1000} height={1000} className='peer relative w-full h-full z-20' alt='' />
+              <div className='z-10 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 peer-[data-loaded]:hidden'>
+                <Loader size={50} className='animate-spin' />
+              </div>
+            </div>)
+          }
+          {
+            (magazine?.content && magazine?.content.length % 2 == 0) ?
+              <div className='bg-black'></div> : null
+          }
         </div>
+
+        <div className="flex flex-row justify-center items-center relative" style={{ width: 2 * pageWidth + "px", height: pageHeight + "px" }}>
+          <div ref={bookContainerRef} className='w-full h-full'></div>
+        </div>
+
         <button onClick={() => {
-          pageFlipRef.current?.pageFlip().flipNext()
+          pageFlipRef.current?.flipNext()
         }} className='text-white h-full w-10 flex justify-center items-center'>
           <ChevronRight />
         </button>

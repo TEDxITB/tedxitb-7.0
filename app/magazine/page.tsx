@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import Pagination from "@/components/ui/pagination";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { promise } from "zod";
-import { Communication } from "./shared";
+import { Communication, getMagazines } from "./shared";
 import { Magazine } from "./shared";
+import "./style.css"
 
 const HeroSection = () => {
   return (
@@ -92,8 +92,9 @@ const waitFrame = () => {
   return promise
 }
 
-const MagazineSection = () => {
+const MagazineViewerSection = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  const iframeSync = useRef(createWaiter())
   const targetCoverRef = useRef<DOMRect>()
   const [forceLandscape, setForceLandscape] = useState(false)
   const showing = useRef(false)
@@ -129,6 +130,8 @@ const MagazineSection = () => {
       const iframe = iframeRef.current
       if (!iframe) return
 
+      await iframeSync.current[0]
+
       const { top, left, width, height } = origin.getBoundingClientRect()
       const vWidth = window.innerWidth
       const vHeight = window.innerHeight
@@ -136,18 +139,18 @@ const MagazineSection = () => {
 
       const div = document.createElement("div")
       styleElement(div, {
-        top: top + "px",
-        left: left + "px",
-        width: ((width * 100) / vWidth) + "vw",
-        height: ((height * 100) / vHeight) + "vh",
+        top: "0px",
+        left: "0px",
+        width: "100vw",
+        height: "100vh",
         zIndex: "100",
         position: "fixed",
-        backgroundColor: "black",
+        backgroundColor: "rgba(0, 0, 0, 0)",
         padding: "30px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        transitionProperty: "width, height, top, left",
+        transitionProperty: "background",
         transitionDuration: "1s"
       })
       iframe.insertAdjacentElement("afterend", div)
@@ -180,10 +183,7 @@ const MagazineSection = () => {
 
       await waitFrame()
       styleElement(div, {
-        top: "0px",
-        left: "0px",
-        width: "100vw",
-        height: "100vh"
+        backgroundColor: "rgba(0, 0, 0, 1)",
       })
 
       if (targetCover) {
@@ -215,7 +215,7 @@ const MagazineSection = () => {
 
       iframe.contentWindow?.postMessage(JSON.stringify({
         info: "slugUpdate",
-        title: newMagazine.title
+        slug: newMagazine.slug
       } satisfies Communication))
 
       iframe.style.visibility = "visible"
@@ -235,21 +235,17 @@ const MagazineSection = () => {
   }
 
   useEffect(() => {
-    const closeListener = ({ data }: MessageEvent) => {
-      const msg = JSON.parse(data) as Communication
-      if (msg.info == "close") {
-        closeMagazine()
-      }
-    }
-    window.addEventListener("message", closeListener)
-
-    const boundListener = ({ data }: MessageEvent) => {
+    const messageListener = ({ data }: MessageEvent) => {
       const msg = JSON.parse(data) as Communication
       if (msg.info == "boundUpdate") {
         targetCoverRef.current = msg.bounding
+      } else if (msg.info == "close") {
+        closeMagazine()
+      } else if (msg.info == "ready") {
+        iframeSync.current[1]()
       }
     }
-    window.addEventListener("message", boundListener)
+    window.addEventListener("message", messageListener)
 
     const reorient = () => {
       const width = (window.innerWidth - 100)
@@ -262,9 +258,8 @@ const MagazineSection = () => {
     reorient()
 
     return () => {
-      window.removeEventListener("message", closeListener)
+      window.removeEventListener("message", messageListener)
       window.removeEventListener("resize", reorient)
-      window.removeEventListener("message", boundListener)
     }
   }, [])
 
@@ -283,24 +278,31 @@ const MagazineSection = () => {
   ] as const
 }
 
-const CoverSection = (magazine: Magazine, setMagazine: MagazineSetter) => {
+const CoverSection = ({ magazine, setMagazine }: {
+  magazine: Magazine,
+  setMagazine: MagazineSetter
+}) => {
   const coverRef = useRef<HTMLImageElement>(null)
 
-  return <li className="flex flex-col gap-2 cursor-pointer" key={magazine.title} onClick={() => setMagazine(magazine, coverRef.current as any)}>
-    <Image ref={coverRef} src={magazine.cover} alt="cover" width={300} height={300} />
+  return <li className="flex flex-col gap-2 cursor-pointer" onClick={() => setMagazine(magazine, coverRef.current as any)}>
+    <Image ref={coverRef} src={magazine.content[0]} alt="cover" width={300} height={300} />
     <p className="text-center">Lorem ipsum dolor sit amet</p>
   </li>
 }
 
 const CatalogueSection = (setMagazine: MagazineSetter) => {
   const [page, setPage] = useState(2);
+  const [data, setData] = useState<Magazine[]>([]);
+
+  useEffect(() => {
+    getMagazines().then((m) => setData(m))
+  }, [])
 
   return <section id="cover" className="bg-black w-screen p-20 [&>*]:bg-transparent flex flex-col gap-5 items-center z-10">
     <ul className="grid gap-5 grid-cols-4 grid-rows-3 max-w-7xl">
-      {(new Array(12)).fill(0).map((_, i) => CoverSection({
-        title: i.toString(),
-        cover: "/magazine-a4-cover.png"
-      }, setMagazine))}
+      {(data).map(magazine =>
+        <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
+      )}
     </ul>
     <Pagination
       currentPage={page}
@@ -312,16 +314,14 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
   </section>
 }
 
-const MagazineDisplay = () => {
-  const [magazineSection, setMagazine] = MagazineSection()
+const MagazineComponent = () => {
+  const [magazineSection, setMagazine] = MagazineViewerSection()
   const catalogueSection = CatalogueSection(setMagazine)
   return [catalogueSection, magazineSection]
 }
 
 const TedMagazinePage = () => {
-  const setTitle = (a: string) => { console.log(a) }
-
-  const [catalogueSection, magazineSection] = MagazineDisplay()
+  const [catalogueSection, magazineSection] = MagazineComponent()
   return (
     <>
       {magazineSection}
