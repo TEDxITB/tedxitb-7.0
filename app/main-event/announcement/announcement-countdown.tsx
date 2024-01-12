@@ -18,7 +18,7 @@ function AnnouncementCountdown(props: { announcementDate: number }) {
               Wait for the Participant Announcement at
             </p>
             <p className="text-4xl font-bold italic lg:text-6xl">
-              2 February 2024
+              20 February 2024
             </p>
             <Countdown date={new Date(props.announcementDate)} />
           </div>

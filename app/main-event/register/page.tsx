@@ -1,30 +1,48 @@
 import RegisCountdown from "./register-countdown";
 import RegisterPage from "./register-page";
 import { authOptions } from "@/lib/auth-options";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
+import { isUserRegistered } from "@/lib/query";
+import {
+  startComingSoonAnnouncementDate,
+  startRegisDate,
+} from "@/lib/special-date";
+import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Main Event Registration | TEDxITB 7.0",
+  openGraph: {
+    ...openGraphTemplate,
+    title: "Main Event Registration | TEDxITB 7.0",
+  },
+  twitter: {
+    ...twitterTemplate,
+    title: "Main Event Registration | TEDxITB 7.0",
+  },
+};
 
 async function Page() {
   const session = await getServerSession(authOptions);
 
   const dateNow = new Date().getTime();
-  const regisDate = new Date("February 2, 2024 17:00:00").getTime();
-  // const regisDate = new Date("January 1, 2024 17:00:00").getTime();
-  const announcementDate = new Date("February 17, 2024 17:00:00").getTime();
 
   // Kalo belum login, redirect ke halaman login
   if (!session) {
     redirect("/auth/sign-in");
   }
 
+  const isRegistered = await isUserRegistered(session.id);
+
   // Kalo udah lewat tanggal pendaftaran, redirect ke halaman pengumuman
-  if (dateNow > announcementDate) {
+  if (isRegistered || dateNow > startComingSoonAnnouncementDate) {
     redirect("/main-event/announcement");
   }
 
   // Kalo belum waktunya pendaftaran, tampilkan countdown
-  if (dateNow < regisDate) {
-    return <RegisCountdown regisDate={regisDate} />;
+  if (dateNow < startRegisDate) {
+    return <RegisCountdown regisDate={startRegisDate} />;
   }
 
   return <RegisterPage session={session} />;

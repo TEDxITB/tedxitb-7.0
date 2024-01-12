@@ -9,6 +9,8 @@ import {
 import { Slider } from "@/components/ui/slider";
 import { Textarea } from "@/components/ui/textarea";
 import { regisSchema } from "@/lib/zod";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { toast } from "sonner";
@@ -23,35 +25,77 @@ function SecondPage({
   form: UseFormReturn<FormValues>;
   setPage: Dispatch<SetStateAction<number>>;
 }) {
+  const router = useRouter();
+  const { update } = useSession();
+
   function prevPage() {
     setPage((page) => page - 1);
   }
 
-  async function submitHandler() {
-    await form.trigger(["q3", "q4", "scale", "q5", "q6"]);
+  async function submitHandler(data: FormValues) {
+    const idToastLoading = toast.loading("Submitting...", {
+      description: "Please wait while we submit your form",
+      duration: Infinity,
+    });
 
-    if (form.formState.errors) {
-      const errorFieldsKeys = Object.keys(
-        form.formState.errors
-      ) as (keyof FormValues)[];
-      if (errorFieldsKeys.length > 0) {
-        const firstError = errorFieldsKeys[0];
-        form.setFocus(firstError);
-      }
-    }
+    const {
+      name,
+      phone,
+      age,
+      address,
+      job,
+      instance,
+      faculty,
+      linkedin,
+      instagram,
+      allergy,
+      q1,
+      q2,
+      profile,
+      q3,
+      q4,
+      scale,
+      q5,
+      q6,
+    } = data;
 
-    if (form.formState.isValid) {
-      form.handleSubmit(async (data) => {
-        const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-        toast("Submitting...", {
-          description: "Please wait while we submit your form",
-        });
-        await sleep(3000);
-        toast("Success!", {
-          description: "Your form has been submitted",
-        });
-        console.log(data);
-      })();
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("phone", phone);
+    formData.append("age", String(age));
+    formData.append("address", address);
+    formData.append("job", job);
+    formData.append("instance", instance);
+    faculty && formData.append("faculty", faculty);
+    linkedin && formData.append("linkedin", linkedin);
+    instagram && formData.append("instagram", instagram);
+    allergy && formData.append("allergy", allergy);
+    q1 && formData.append("q1", q1);
+    formData.append("q2", q2);
+    formData.append("profile", profile);
+    formData.append("q3", q3);
+    formData.append("q4", q4);
+    formData.append("scale", String(scale));
+    q5 && formData.append("q5", q5);
+    q6 && formData.append("q6", q6);
+
+    const res = await fetch("/api/registration", {
+      method: "POST",
+      body: formData,
+    });
+
+    toast.dismiss(idToastLoading);
+
+    if (res.ok) {
+      toast.success("Success!", {
+        description: "Your form has been submitted",
+      });
+      update();
+      router.refresh();
+    } else {
+      toast.error("Error!", {
+        description: "An error occured while submitting your form",
+      });
     }
   }
 
@@ -86,7 +130,7 @@ function SecondPage({
           render={({ field }) => (
             <FormItem className="flex flex-col gap-1 grow">
               <FormLabel className="lg:text-lg leading-6 tracking-wide text-ted-white">
-                Apa yang ingin Anda peroleh dan pelajari dari acara ini?
+                Apa yang Anda ingin dapatkan dan pelajari dari acara ini?
               </FormLabel>
               <FormControl>
                 <Textarea
@@ -186,15 +230,15 @@ function SecondPage({
           size={"lg"}
           className="text-ted-red px-10"
           type="button"
-          onClick={() => prevPage()}
+          onClick={prevPage}
         >
           Back
         </Button>
         <Button
-          type="button"
+          type="submit"
           size={"lg"}
           className="px-10"
-          onClick={() => submitHandler()}
+          onClick={form.handleSubmit(submitHandler)}
         >
           Submit
         </Button>

@@ -1,18 +1,18 @@
 "use client";
 
+import { FileUploadContext } from "@/app/main-event/register/register-page";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { regisSchema } from "@/lib/zod";
-import BgFileUpload2 from "@/public/bg-file-upload2.svg";
-import BgFileUpload from "@/public/bg-file-upload.svg";
 import FileImage from "@/public/file-image.svg";
 import FileJPG from "@/public/file-jpg.svg";
 import FilePNG from "@/public/file-png.svg";
 import FileX from "@/public/file-x.svg";
 import { RotateCw, Trash2 } from "lucide-react";
 import Image from "next/image";
+import CustomImage from "next/image";
 import {
   ChangeEvent,
   Dispatch,
@@ -20,11 +20,11 @@ import {
   MouseEventHandler,
   SetStateAction,
   forwardRef,
-  useEffect,
   useRef,
-  useState,
+  useContext,
 } from "react";
 import { UseFormSetValue } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
 type FormValues = z.infer<typeof regisSchema>;
@@ -33,20 +33,27 @@ interface FileUploadProps extends React.InputHTMLAttributes<HTMLInputElement> {
   setValue: UseFormSetValue<FormValues>;
 }
 interface FileItemsProps {
-  images: Image | null;
-  handleDelete: (image: Image) => void;
-  handleRetry: (image: Image) => void;
+  images: CustomImage | null;
+  handleDelete: (image: CustomImage) => void;
+  handleRetry: (image: CustomImage) => void;
 }
 
 interface FileItemProps {
-  image: Image;
-  handleDelete: (image: Image) => void;
-  handleRetry: (image: Image) => void;
+  image: CustomImage;
+  handleDelete: (image: CustomImage) => void;
+  handleRetry: (image: CustomImage) => void;
 }
 
-export interface Image {
+export interface CustomImage {
   file: File;
   error?: string;
+}
+
+interface FileUploadContext {
+  images: CustomImage | null;
+  setImages: Dispatch<SetStateAction<CustomImage | null>>;
+  indexRetry: number;
+  setIndexRetry: Dispatch<SetStateAction<number>>;
 }
 
 const fileValidation = z
@@ -65,8 +72,9 @@ const fileValidation = z
 const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
   ({ setValue, onChange, type = "file", ...props }, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const [images, setImages] = useState<Image | null>(null);
-    const [indexRetry, setIndexRetry] = useState(-1);
+    const { images, setImages, indexRetry, setIndexRetry } = useContext(
+      FileUploadContext
+    ) as FileUploadContext;
 
     const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
       e.preventDefault();
@@ -94,13 +102,18 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
 
         if (!validate.success) {
           error = validate.error.issues.map((err) => err.message).join(", ");
-          const image: Image = {
+          const image: CustomImage = {
             file: e.dataTransfer.files[0],
             error: error,
           };
           setImages(image);
           return;
         }
+
+        const idToastLoading = toast.loading("Loading...", {
+          description: "Please wait while we upload your file",
+          duration: Infinity,
+        });
 
         const formData = new FormData();
         formData.append("file", e.dataTransfer.files[0]);
@@ -109,8 +122,13 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           body: formData,
         });
 
+        toast.dismiss(idToastLoading);
         if (!res.ok) {
-          const image: Image = {
+          toast.error("Error!", {
+            description: "Something went wrong",
+          });
+
+          const image: CustomImage = {
             file: e.dataTransfer.files[0],
             error: "Upload failed",
           };
@@ -118,7 +136,11 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           return;
         }
 
-        const image: Image = {
+        toast.success("Success!", {
+          description: "Your file has been uploaded",
+        });
+
+        const image: CustomImage = {
           file: e.dataTransfer.files[0],
         };
 
@@ -142,13 +164,18 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
 
           if (!validate.success) {
             error = validate.error.issues.map((err) => err.message).join(", ");
-            const image: Image = {
+            const image: CustomImage = {
               file: e.target.files[0],
               error: error,
             };
             setImages(image);
             return;
           }
+
+          const idToastLoading = toast.loading("Loading...", {
+            description: "Please wait while we upload your file",
+            duration: Infinity,
+          });
 
           const formData = new FormData();
           formData.append("file", e.target.files[0]);
@@ -157,8 +184,14 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             body: formData,
           });
 
+          toast.dismiss(idToastLoading);
+
           if (!res.ok) {
-            const image: Image = {
+            toast.error("Error!", {
+              description: "Something went wrong",
+            });
+
+            const image: CustomImage = {
               file: e.target.files[0],
               error: "Upload failed",
             };
@@ -166,7 +199,11 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             return;
           }
 
-          const image: Image = {
+          toast.success("Success!", {
+            description: "Your file has been uploaded",
+          });
+
+          const image: CustomImage = {
             file: e.target.files[0],
           };
 
@@ -182,13 +219,18 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
 
           if (!validate.success) {
             error = validate.error.issues.map((err) => err.message).join(", ");
-            const image: Image = {
+            const image: CustomImage = {
               file: e.target.files[0],
               error: error,
             };
             setImages(image);
             return;
           }
+
+          const idToastLoading = toast.loading("Loading...", {
+            description: "Please wait while we upload your file",
+            duration: Infinity,
+          });
 
           const formData = new FormData();
           formData.append("file", e.target.files[0]);
@@ -197,8 +239,14 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             body: formData,
           });
 
+          toast.dismiss(idToastLoading);
+
           if (!res.ok) {
-            const image: Image = {
+            toast.error("Error!", {
+              description: "Something went wrong",
+            });
+
+            const image: CustomImage = {
               file: e.target.files[0],
               error: "Upload failed",
             };
@@ -206,7 +254,11 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             return;
           }
 
-          const image: Image = {
+          toast.success("Success!", {
+            description: "Your file has been uploaded",
+          });
+
+          const image: CustomImage = {
             file: e.target.files[0],
           };
 
@@ -220,13 +272,13 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
       }
     };
 
-    const handleDelete = (image: Image) => {
+    const handleDelete = (image: CustomImage) => {
       setImages(null);
       setValue("profile", "");
       setIndexRetry(-1);
     };
 
-    const handleRetry = (image: Image) => {
+    const handleRetry = (image: CustomImage) => {
       if (inputRef.current) {
         inputRef.current.click();
       }

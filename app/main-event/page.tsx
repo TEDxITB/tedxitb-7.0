@@ -1,6 +1,9 @@
 import TopicCard from "./topic-card";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
+import { startComingSoonAnnouncementDate } from "@/lib/special-date";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -43,12 +46,23 @@ const dummies = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: "Main Event | TEDxITB 7.0",
+  openGraph: {
+    ...openGraphTemplate,
+    title: "Main Event | TEDxITB 7.0",
+  },
+  twitter: {
+    ...twitterTemplate,
+    title: "Main Event | TEDxITB 7.0",
+  },
+};
+
 function page() {
   const dateNow = new Date().getTime();
-  const announcementDate = new Date("February 19, 2024 17:00:00").getTime();
 
   let redirect = "/main-event/register";
-  if (dateNow > announcementDate) {
+  if (dateNow > startComingSoonAnnouncementDate) {
     redirect = "/main-event/announcement";
   }
 
@@ -74,7 +88,7 @@ function page() {
               The Impact Originator Hub
             </h2>
             <Link href={redirect}>
-              {dateNow > announcementDate ? (
+              {dateNow > startComingSoonAnnouncementDate ? (
                 <Button
                   size={"lg"}
                   className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"
@@ -198,7 +212,7 @@ function page() {
               ></iframe>
             </div>
             <Link href={redirect}>
-              {dateNow > announcementDate ? (
+              {dateNow > startComingSoonAnnouncementDate ? (
                 <Button
                   size={"lg"}
                   className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"

@@ -18,7 +18,7 @@ function RegisCountdown(props: { regisDate: number }) {
               The registration form will be open starting
             </p>
             <p className="text-4xl font-bold italic lg:text-6xl">
-              2 February 2024
+              3 February 2024
             </p>
             <Countdown date={new Date(props.regisDate)} />
           </div>

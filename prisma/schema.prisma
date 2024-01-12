@@ -88,10 +88,13 @@ model Confirmation {
   attendance Boolean?
   userId     String   @unique
   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ticket     Ticket?
 }
 
 model Ticket {
-  id     String @id @default(cuid())
-  userId String @unique
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id             String @id @default(cuid())
+  userId         String @unique
+  user           User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  confirmationId String @unique
+  confirmation   Confirmation @relation(fields: [confirmationId], references: [id], onDelete: Cascade)
 }

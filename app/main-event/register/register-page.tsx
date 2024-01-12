@@ -2,16 +2,19 @@
 
 import FirstPage from "./register-first-page";
 import SecondPage from "./register-second-page";
+import { CustomImage } from "@/components/ui/file-upload";
 import { Form } from "@/components/ui/form";
 import { regisSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Session } from "next-auth";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 type FormValues = z.infer<typeof regisSchema>;
+
+export const FileUploadContext = createContext({});
 
 function RegisterPage(props: { session: Session | null }) {
   const form = useForm<FormValues>({
@@ -21,6 +24,10 @@ function RegisterPage(props: { session: Session | null }) {
     resolver: zodResolver(regisSchema),
     mode: "onBlur",
   });
+
+  // Image State
+  const [images, setImages] = useState<CustomImage | null>(null);
+  const [indexRetry, setIndexRetry] = useState(-1);
 
   const [page, setPage] = useState(0);
 
@@ -33,8 +40,6 @@ function RegisterPage(props: { session: Session | null }) {
 
     timeout();
   }, [page]);
-
-  console.log(form.getValues());
 
   return (
     <section className="text-ted-white font-anderson bg-[#1E1E1E]">
@@ -49,11 +54,19 @@ function RegisterPage(props: { session: Session | null }) {
             </p>
           </div>
 
-          {page === 0 && (
-            <FirstPage form={form} setPage={setPage} session={props.session} />
-          )}
+          <FileUploadContext.Provider
+            value={{ images, setImages, indexRetry, setIndexRetry }}
+          >
+            {page === 0 && (
+              <FirstPage
+                form={form}
+                setPage={setPage}
+                session={props.session}
+              />
+            )}
 
-          {page === 1 && <SecondPage form={form} setPage={setPage} />}
+            {page === 1 && <SecondPage form={form} setPage={setPage} />}
+          </FileUploadContext.Provider>
 
           <Image
             src="/Contour.png"

@@ -12,8 +12,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { regisSchema } from "@/lib/zod";
+import _ from "lodash";
 import { Session } from "next-auth";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { z } from "zod";
 
@@ -29,7 +30,7 @@ function FirstPage({
   session: Session | null;
 }) {
   async function nextPage() {
-    await form.trigger([
+    const fieldPage1 = [
       "name",
       "phone",
       "age",
@@ -41,14 +42,19 @@ function FirstPage({
       "q1",
       "q2",
       "profile",
-    ]);
+    ] as const;
+
+    await form.trigger(fieldPage1);
 
     if (form.formState.errors) {
       const errorFieldsKeys = Object.keys(
         form.formState.errors
       ) as (keyof FormValues)[];
-      if (errorFieldsKeys.length > 0) {
-        const firstError = errorFieldsKeys[0];
+
+      const intersection = _.intersection(errorFieldsKeys, fieldPage1);
+
+      if (intersection.length > 0) {
+        const firstError = intersection[0];
         form.setFocus(firstError);
       } else {
         setPage((page) => page + 1);

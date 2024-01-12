@@ -1,74 +1,59 @@
-import { authOptions } from "@/lib/auth-options";
 import { prisma } from "@/lib/prisma";
-import { getServerSession } from "next-auth";
 import "server-only";
 
-export async function isUserRegistered() {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session || !session.id) {
-      throw new Error("Invalid session");
-    }
+export async function isUserRegistered(userId: string) {
+  const checkRegistration = await prisma.registration.findUnique({
+    where: {
+      userId: userId,
+    },
+  });
 
-    const checkRegistration = await prisma.registration.findUnique({
-      where: {
-        userId: session.id,
-      },
-    });
-
-    if (checkRegistration) {
-      return true;
-    } else {
-      return false;
-    }
-  } catch (error) {
-    console.error("Error checking user registration: ", error);
+  if (checkRegistration) {
+    return true;
+  } else {
     return false;
   }
 }
 
-export async function isUserPassed() {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session || !session.id) {
-      throw new Error("Invalid session");
-    }
-    const checkPassed = await prisma.confirmation.findUnique({
-      where: {
-        userId: session.id,
-      },
-    });
+export async function isUserPassed(userId: string) {
+  const checkPassed = await prisma.confirmation.findUnique({
+    where: {
+      userId: userId,
+    },
+  });
 
-    if (checkPassed) {
-      return true;
-    } else {
-      return false;
-    }
-  } catch (error) {
-    console.error("Error checking user status : ", error);
+  if (checkPassed) {
+    return true;
+  } else {
     return false;
   }
 }
-export async function getUserConfirmation() {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session || !session.id) {
-      throw new Error("Invalid session");
-    }
+export async function getUserConfirmation(userId: string) {
+  const checkConfirmation = await prisma.confirmation.findUnique({
+    where: {
+      userId: userId,
+    },
+  });
 
-    const checkConfirmation = await prisma.confirmation.findUnique({
-      where: {
-        userId: session.id,
-      },
-    });
+  if (!checkConfirmation) {
+    return null;
+  } else {
+    const { attendance } = checkConfirmation;
+    return attendance;
+  }
+}
 
-    if (!checkConfirmation) {
-      return null;
-    } else {
-      return checkConfirmation;
-    }
-  } catch (error) {
-    console.error("Error getting user confirmation: ", error);
-    return false;
+export async function getUserTicket(userId: string) {
+  const checkTicket = await prisma.ticket.findUnique({
+    where: {
+      userId: userId,
+    },
+  });
+
+  if (!checkTicket) {
+    return null;
+  } else {
+    const { id } = checkTicket;
+    return id;
   }
 }
