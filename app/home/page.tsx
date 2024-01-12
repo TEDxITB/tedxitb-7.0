@@ -56,7 +56,7 @@ const HomePage = () => {
                 events anywhere and everywhere, celebrating locally-driven ideas
                 and elevating them to a global stage. TEDx events are produced
                 independently of TED conferences, each event curates speakers on
-                their own, but based on TED's format and rules.
+                their own, but based on {"TED's"} format and rules.
               </p>
             </div>
           </div>
@@ -167,7 +167,7 @@ const HomePage = () => {
                     />
                   </div>
                   <p className="font-anderson text-[18px] text-white text-center w-full">
-                    Symbolize "connect" as this years TEDxITB focusing on being
+                    Symbolize {'"connect"'} as this years TEDxITB focusing on being
                     a hub for people to connect
                   </p>
                 </div>
