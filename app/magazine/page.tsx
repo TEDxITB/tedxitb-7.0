@@ -11,7 +11,7 @@ import { createWaiter, styleElement, waitFrame, waitListener } from "./shared";
 
 const HeroSection = () => {
   return (
-    <section className="w-screen h-screen flex justify-center items-center relative">
+    <section className="w-screen h-[calc(100vh-6rem)] flex justify-center items-center relative">
       <Image
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-30"
         src={"/magazine-hero-background.png"}
@@ -258,7 +258,7 @@ const CoverSection = ({ magazine, setMagazine }: {
 }
 
 const CatalogueSection = (setMagazine: MagazineSetter) => {
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
   const [data, setData] = useState<Magazine[]>([]);
 
   useEffect(() => {
@@ -267,14 +267,14 @@ const CatalogueSection = (setMagazine: MagazineSetter) => {
 
   return <section id="cover" className="bg-black w-screen p-20 [&>*]:bg-transparent flex flex-col gap-5 items-center z-10">
     <ul className="grid gap-5 grid-cols-4 grid-rows-3 max-w-7xl">
-      {(data).map(magazine =>
+      {(data).slice((page - 1) * 12, page * 12).map(magazine =>
         <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
       )}
     </ul>
     <Pagination
       currentPage={page}
       setPage={setPage}
-      totalPages={9}
+      totalPages={Math.ceil(data.length / 12)}
       variant="primary"
       control="icon"
     />

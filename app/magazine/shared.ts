@@ -22,24 +22,13 @@ const createContent = (len: number) => {
     return new Array(len).fill(null).map(() => randomImage())
 }
 // Dummy data
-const cover = "/magazine-a4-cover.png"
-export const magazines: Magazine[] = [
-    {
-        title: "Test 1",
-        slug: "test-1",
-        content: createContent(10)
-    },
-    {
-        title: "Test 2",
-        slug: "test-2",
-        content: createContent(5)
-    },
-    {
-        title: "Test 3",
-        slug: "test-3",
-        content: createContent(3)
+export const magazines: Magazine[] = (new Array(100).fill(null)).map((_, i) => {
+    return {
+        title: `Test ${i}`,
+        slug: `test-${i}`,
+        content: createContent(i + 3)
     }
-]
+})
 
 export async function getMagazines() {
     return magazines
@@ -51,7 +40,6 @@ export async function getMagazine(slug: string) {
             return magazine
         }
     }
-
     throw "Error";
 }
 export const styleElement = (el: HTMLElement, style: Partial<HTMLElement["style"]>) => {
