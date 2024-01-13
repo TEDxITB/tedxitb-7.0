@@ -50,10 +50,11 @@ export const CatalogueSection = (setMagazine: MagazineSetter) => {
     container.style.transitionDuration = "0s";
     container.classList.remove("translate-x-1/2");
     container.classList.remove("-translate-x-1/2");
-    requestIdleCallback(() => {
+
+    setTimeout(() => {
       container.style.transitionDuration = "";
       setShowingPageState(page);
-    });
+    }, 100);
   };
 
   useEffect(() => {
@@ -111,7 +112,7 @@ export const CatalogueSection = (setMagazine: MagazineSetter) => {
           "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
           showingPage != page
             ? "opacity-0 scale-90 " +
-                (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+            (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
             : "opacity-100"
         )}
         style={{
