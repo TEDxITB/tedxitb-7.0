@@ -20,7 +20,7 @@ const MagazineComponent = () => {
 const TedMagazinePage = () => {
   const [catalogueSection, magazineSection] = MagazineComponent();
   return (
-    <>
+    <main className="contents">
       {magazineSection}
       <HeroSection />
       {catalogueSection}
@@ -29,7 +29,7 @@ const TedMagazinePage = () => {
           "flex flex-auto flex-col items-center justify-center text-white font-anderson relative"
         }
       ></main>
-    </>
+    </main>
   );
 };
 

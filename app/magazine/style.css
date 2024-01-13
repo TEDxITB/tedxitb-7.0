@@ -3,7 +3,6 @@ html {
   height: 100vh !important;
   display: block !important;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
   padding-top: 6rem;
 }
 
@@ -15,7 +14,7 @@ body {
   display: contents !important;
 }
 
-body > section {
+section {
   height: calc(100svh - 6rem);
 }
 
