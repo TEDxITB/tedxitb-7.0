@@ -145,6 +145,7 @@ const Page = () => {
   useEffect(() => {
     setupListener();
     requestAnimationFrame(sendData.bind(null, { info: "ready" }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateInputDisplay = () => {
