@@ -1,28 +1,17 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/cards";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import Pagination from "@/components/ui/pagination";
 import { ImageCMS } from "@/types/cms";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import useEmblaCarousel from "embla-carousel-react";
 import { X } from "lucide-react";
-import next from "next";
 import Image from "next/image";
 import {
   Dispatch,
@@ -33,14 +22,17 @@ import {
 } from "react";
 
 export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
   const [isPhotoOpen, setIsPhotoOpen] = useState<boolean>(false);
 
+  // Change items per page based on screen size
   useEffect(() => {
     const updateItemsPerPage = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 640) {
         setItemsPerPage(3);
+      } else if (window.innerWidth < 768) {
+        setItemsPerPage(4);
       } else {
         setItemsPerPage(6);
       }
@@ -59,53 +51,53 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
     axis: "x",
   });
 
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    setPage(api.selectedScrollSnap());
-
-    api.on("select", () => {
-      setPage(api.selectedScrollSnap());
-    });
-  }, [api]);
-
   const scrollPrev = useCallback(() => {
     api?.scrollPrev();
-  }, [api]);
+    if (page === 1) {
+      setPage(totalPage);
+    } else {
+      setPage(page - 1);
+    }
+  }, [api, page, totalPage]);
 
   const scrollNext = useCallback(() => {
     api?.scrollNext();
-  }, [api]);
+    if (page === totalPage) {
+      setPage(1);
+    } else {
+      setPage(page + 1);
+    }
+  }, [api, page, totalPage]);
 
-  function changePage(dest: number): void {
-    api?.scrollTo(dest);
-    setPage(dest);
-  }
+  // Carousel component integration
+  useEffect(() => {
+    // Library index start from 0, meanwhile carousel page start from 1
+    api?.scrollTo(page - 1);
+  }, [page, api]);
 
+  // Auto play effect
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isPhotoOpen) scrollNext();
-    }, 10000);
+    }, 7500);
+
     return () => clearInterval(interval);
   }, [page, totalPage, scrollNext, isPhotoOpen]);
 
   return (
     <>
       <Carousel
-        className="w-full z-2"
-        carouselRef={carouselRef}
         api={api}
+        carouselRef={carouselRef}
         scrollPrev={scrollPrev}
         scrollNext={scrollNext}
       >
-        <CarouselContent className="w-full md:aspect-[5/2]">
+        <CarouselContent className="w-fit h-fit">
           {Array.from({ length: totalPage }).map((_, index) => (
             <CarouselItem className="w-full" key={index}>
               <div
                 key={index}
-                className="grid md:grid-cols-3 md:grid-rows-2 max-md:grid-rows-3 max-md:grid-cols-1 gap-x-6 gap-y-10 px-10"
+                className="grid grid-rows-3 grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 md:grid-cols-3 md:grid-rows-2 gap-4 lg:gap-8 px-5 lg:px-16"
               >
                 {images
                   .slice(
@@ -127,56 +119,16 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
         </CarouselContent>
 
         {/* Pagination */}
-        <div className="flex relative items-center justify-center h-8 gap-1 max-md:mt-8 mr-4">
-          <CarouselPrevious
-            className={`border-0 hover:border relative hover:bg-black hover:text-ted-red translate-x-0 -left-0 bg-white text-black rounded-sm h-full ${
-              page == 0 ? "invisible" : ""
-            }`}
-          />
-          <CarouselPagination
-            page={page}
-            changePage={changePage}
-            totalPage={totalPage}
-          />
-          <CarouselNext
-            className={`border-0 hover:border relative hover:bg-black hover:text-ted-red translate-x-0 -right-0 bg-white text-black rounded-sm h-full ${
-              page == totalPage - 1 ? "invisible" : ""
-            }`}
+        <div className="flex relative items-center justify-center h-8 gap-2 mt-8 lg:mt-12">
+          <Pagination
+            loop={true}
+            currentPage={page}
+            setPage={setPage}
+            totalPages={totalPage}
+            control="icon"
           />
         </div>
       </Carousel>
-    </>
-  );
-}
-
-function CarouselPagination({
-  page,
-  totalPage,
-  changePage,
-}: {
-  page: number;
-  totalPage: number;
-  changePage: (dest: number) => void;
-}) {
-  return (
-    <>
-      {Array.from({ length: totalPage }).map((_, index) => {
-        return (
-          <Button
-            key={index}
-            className={`w-8 text-xs px-0 py-0 h-8 ${
-              index != page
-                ? "bg-white text-black hover:bg-black hover:text-ted-red hover:border hover:border-ted-red"
-                : ""
-            }`}
-            onClick={() => {
-              if (index != page) changePage(index);
-            }}
-          >
-            {index + 1}
-          </Button>
-        );
-      })}
     </>
   );
 }
@@ -195,7 +147,7 @@ function ClickablePhoto({
           <Card className="w-full h-full relative">
             <CardContent className="flex items-center justify-center p-0 w-full h-full">
               <Image
-                className="rounded-lg object-cover object-center h-full w-full"
+                className="rounded-lg object-cover object-center h-full w-full lg:max-w-[70vh] lg:max-h-[70vh]"
                 src={image.url}
                 alt={image.alt}
                 width={image.width}

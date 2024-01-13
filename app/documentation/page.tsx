@@ -39,38 +39,50 @@ const DocumentationPage = async () => {
 
       {/* Photos documentation using carousel */}
       <section
-        className="flex items-center justify-center my-16 relative"
+        className="flex flex-col items-center justify-center py-16 lg:py-28 relative overflow-hidden"
         id="carousel"
       >
-        {/* Right bottom triangle decoration */}
+        {/* Top Right Gradient Decoration */}
         <Image
-          src="/side-triangle.png"
-          className="z-0 absolute sm:right-0 sm:-bottom-[40%] sm:w-36 max-sm:bottom-[20%] right-0 max-sm:w-24"
-          width={200}
-          height={200}
-          alt=""
+          src="/bg-decor-blur-1.svg"
+          alt="Blur Decoration"
+          width={1440}
+          height={1097}
+          className="absolute -right-24 -bottom-8 w-72 opacity-20 lg:-right-40 lg:-bottom-52 lg:w-[700px]"
         />
 
-        {/* X bottom middle decoration */}
-        <Image
-          src="/logo-per-part-05-1.png"
-          alt=""
-          width={1000}
-          height={100}
-          className="absolute xl:left-0 xl:-bottom-[135%] max-sm:bottom-[10%] max-md:w-72 md:w-96 xl:w-[96rem] sm:right-[10%] sm:-bottom-1/2"
-        />
+        {/* Right Logo */}
+        <div className="absolute right-[-65px] top-[300px] flex flex-row items-center md:top-[200px] lg:right-[-248px]">
+          {/* Right Full Logo */}
+          <Image
+            src="/tedxitb-7-logo-red-full.png"
+            width={1200}
+            height={765}
+            alt="TEDxITB 7.0 Full Logo"
+            className="h-[95px] w-auto opacity-25 lg:h-[400px]"
+          />
 
-        {/* Star top left decoration */}
+          {/* Right Rhombus */}
+          <Image
+            src="/rhombus-gradient.svg"
+            width={100}
+            height={100}
+            alt="Rhombus Gradient Decoration"
+            className="w-[130px] lg:w-[495px]"
+          />
+        </div>
+
+        {/* Top Left Gradient Decoration */}
         <Image
-          src="/star-icon-1.svg"
-          alt=""
-          width={500}
-          height={500}
-          className="absolute opacity-50 left-0 -top-[70%] max-lg:w-72"
+          src="/bg-decor-blur-1.svg"
+          alt="Blur Decoration"
+          width={1440}
+          height={1097}
+          className="absolute -left-24 -top-8 w-72 opacity-20 lg:-left-48 lg:-top-48 lg:w-[700px]"
         />
 
         {/* Main part */}
-        <div className="w-full h-full ml-4">
+        <div className="w-full h-full z-20">
           <PhotosCarousel images={carousel} />
         </div>
       </section>
