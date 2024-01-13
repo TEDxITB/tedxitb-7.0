@@ -1,34 +1,32 @@
-"use client";
-
-import { CatalogueSection } from "./CatalogueSection";
+import { Metadata } from "next";
 import { HeroSection } from "./HeroSection";
-import { MagazineViewer } from "./MagazineViewer";
+import { MagazineComponent } from "./Magazine";
 import { Magazine } from "./shared";
 import "./style.css";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 
 export type MagazineSetter = (
   magazine: Magazine,
   origin: HTMLImageElement
 ) => void;
 
-const MagazineComponent = () => {
-  const [magazineSection, setMagazine] = MagazineViewer();
-  const catalogueSection = CatalogueSection(setMagazine);
-  return [catalogueSection, magazineSection];
+export const metadata: Metadata = {
+  title: "Magazine | TEDxITB 7.0",
+  openGraph: {
+    ...openGraphTemplate,
+    title: "Magazine | TEDxITB 7.0",
+  },
+  twitter: {
+    ...twitterTemplate,
+    title: "Magazine | TEDxITB 7.0",
+  },
 };
 
 const TedMagazinePage = () => {
-  const [catalogueSection, magazineSection] = MagazineComponent();
   return (
     <main className="contents">
-      {magazineSection}
       <HeroSection />
-      {catalogueSection}
-      <main
-        className={
-          "flex flex-auto flex-col items-center justify-center text-white font-anderson relative"
-        }
-      ></main>
+      <MagazineComponent />
     </main>
   );
 };
