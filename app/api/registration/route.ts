@@ -1,19 +1,13 @@
 import { authOptions } from "@/lib/auth-options";
+import { appendGoogleSheets } from "@/lib/google-sheets";
 import { prisma } from "@/lib/prisma";
 import {
   startComingSoonAnnouncementDate,
   startRegisDate,
 } from "@/lib/special-date";
 import { regisSchema } from "@/lib/zod";
-import { google } from "googleapis";
 import { getServerSession } from "next-auth";
 import { type NextRequest, NextResponse } from "next/server";
-
-// Set up Google Sheets API credentials
-const credentials = {
-  client_email: process.env.GOOGLE_CLIENT_EMAIL as string,
-  private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n") as string,
-};
 
 export const POST = async (req: NextRequest) => {
   // Validate user session
@@ -100,6 +94,7 @@ export const POST = async (req: NextRequest) => {
     q6,
   } = data;
 
+  // Create registration table
   const createRegistrationQuery = prisma.registration.create({
     data: {
       name: name as string,
@@ -124,6 +119,7 @@ export const POST = async (req: NextRequest) => {
     },
   });
 
+  // Update user table
   const updateUserQuery = prisma.user.update({
     where: {
       id: session.id,
@@ -133,50 +129,41 @@ export const POST = async (req: NextRequest) => {
     },
   });
 
-  await Promise.all([createRegistrationQuery, updateUserQuery]);
+  // Execute both queries in parallel and get regisration id
+  const [registrationResult, _] = await Promise.all([
+    createRegistrationQuery,
+    updateUserQuery,
+  ]);
 
-  // // Connect to Google Sheets API
-  // const auth = new google.auth.GoogleAuth({
-  //   credentials,
-  //   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-  // });
-  // const sheets = google.sheets({ version: "v4", auth });
-  // const spreadsheetId = process.env.REGISTRATION_SHEET_ID as string;
-  // const range = "A1:R1";
-
-  // // Prepare the data to be written to the spreadsheet
-  // const values = [
-  //   [
-  //     name,
-  //     phone,
-  //     age,
-  //     address,
-  //     job,
-  //     instance,
-  //     faculty,
-  //     linkedin,
-  //     instagram,
-  //     allergy,
-  //     q1,
-  //     q2,
-  //     profile,
-  //     q3,
-  //     q4,
-  //     scale,
-  //     q5,
-  //     q6,
-  //   ],
-  // ];
-
-  // // Write the data to the spreadsheet
-  // await sheets.spreadsheets.values.append({
-  //   spreadsheetId,
-  //   range,
-  //   valueInputOption: "USER_ENTERED",
-  //   requestBody: {
-  //     values,
-  //   },
-  // });
+  // Update google sheets
+  const sheetId = process.env.GOOGLE_SHEET_ID as string;
+  const sheetRange = "registration!A:T";
+  const sheetValueInputOption = "RAW";
+  const values = [
+    [
+      registrationResult.id,
+      name,
+      session.email,
+      phone,
+      age,
+      address,
+      job,
+      instance,
+      faculty,
+      linkedin,
+      instagram,
+      allergy,
+      q1,
+      q2,
+      profile,
+      q3,
+      q4,
+      scale,
+      q5,
+      q6,
+    ].map((value) => String(value)),
+  ];
+  await appendGoogleSheets(sheetId, sheetRange, sheetValueInputOption, values);
 
   return NextResponse.json(
     { message: "Registration submitted successfully" },

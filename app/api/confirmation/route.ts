@@ -1,15 +1,10 @@
 import { authOptions } from "@/lib/auth-options";
+import { appendGoogleSheets } from "@/lib/google-sheets";
 import { prisma } from "@/lib/prisma";
 import { confirmationDate, startAnnouncementDate } from "@/lib/special-date";
 import { confirmationSchema } from "@/lib/zod";
-import { google } from "googleapis";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-
-const credentials = {
-  client_email: process.env.GOOGLE_CLIENT_EMAIL as string,
-  private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n") as string,
-};
 
 export const PUT = async (req: NextRequest) => {
   // Validate user session
@@ -86,41 +81,48 @@ export const PUT = async (req: NextRequest) => {
     },
   });
 
-  // For Ticketing
+  // General sheets data
+  const sheetId = process.env.CONFIRMATION_SHEET_ID as string;
+  const sheetValueInputOption = "RAW";
+
+  // Update confirmed sheets
+  const confirmedSheetRange = "confirmed!A:E";
+  const valuesConfirmedSheet = [
+    [confirmation.id, session.id, session.name, session.email, attendance].map(
+      (val) => String(val)
+    ),
+  ];
+  await appendGoogleSheets(
+    sheetId,
+    confirmedSheetRange,
+    sheetValueInputOption,
+    valuesConfirmedSheet
+  );
+
+  // For ticketing if attendance is true
   if (attendance === true) {
-    await prisma.ticket.create({
+    // Update database
+    const ticket = await prisma.ticket.create({
       data: {
         userId: session.id,
         confirmationId: confirmation.id,
       },
     });
+
+    // Update ticket sheets
+    const ticketSheetRange = "ticket!A:E";
+    const valuesTicketSheet = [
+      [ticket.id, confirmation.id, session.id, session.name, session.email].map(
+        (val) => String(val)
+      ),
+    ];
+    await appendGoogleSheets(
+      sheetId,
+      ticketSheetRange,
+      sheetValueInputOption,
+      valuesTicketSheet
+    );
   }
-
-  // // Connect to Google Sheets API
-  // const auth = new google.auth.GoogleAuth({
-  //   credentials,
-  //   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-  // });
-  // const sheets = google.sheets({ version: "v4", auth });
-  // const spreadsheetId = process.env.CONFIRMATION_SHEET_ID as string;
-  // const range = "A1:C1";
-
-  // const user = await prisma.registration.findUnique({
-  //   where: {
-  //     userId: session.id,
-  //   },
-  // });
-
-  // const values = [[user?.name, session.email, attendance]];
-
-  // await sheets.spreadsheets.values.append({
-  //   spreadsheetId,
-  //   range,
-  //   valueInputOption: "USER_ENTERED",
-  //   requestBody: {
-  //     values,
-  //   },
-  // });
 
   return NextResponse.json(
     { message: "Confirmation updated" },
