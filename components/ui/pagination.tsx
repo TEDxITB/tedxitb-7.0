@@ -43,6 +43,7 @@ interface PaginationProps extends VariantProps<typeof paginationVariants> {
   currentPage: number;
   setPage: Dispatch<SetStateAction<number>>;
   totalPages: number;
+  loop: boolean;
 }
 
 interface PaginationItemProps extends VariantProps<typeof paginationVariants> {
@@ -51,6 +52,7 @@ interface PaginationItemProps extends VariantProps<typeof paginationVariants> {
   currentPage: number;
   setPage: Dispatch<SetStateAction<number>>;
   totalPages: number;
+  loop: boolean;
 }
 
 interface PaginationDropdownProps {
@@ -63,6 +65,7 @@ interface PaginationItemsProps extends VariantProps<typeof paginationVariants> {
   currentPage: number;
   totalPages: number;
   setPage: Dispatch<SetStateAction<number>>;
+  loop: boolean;
 }
 
 enum PaginationItemType {
@@ -81,13 +84,28 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
   totalPages,
   variant,
   control,
+  loop = false,
 }) => {
   const handleOnNext = () => {
-    if (currentPage < totalPages) setPage((prev) => prev + 1);
+    if (currentPage !== totalPages) {
+      setPage((prev) => prev + 1);
+      return;
+    }
+
+    if (loop) {
+      setPage(1);
+    }
   };
 
   const handleOnPrev = () => {
-    if (currentPage > 1) setPage((prev) => prev - 1);
+    if (currentPage !== 1) {
+      setPage((prev) => prev - 1);
+      return;
+    }
+
+    if (loop) {
+      setPage(totalPages);
+    }
   };
 
   const handelOnNumClick = (num: number) => {
@@ -168,7 +186,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
     if (control === "icon") {
       return (
         <button
-          disabled={currentPage === 1}
+          disabled={currentPage === 1 && !loop}
           onClick={handleOnPrev}
           className={cn(
             paginationVariants({
@@ -185,7 +203,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
     if (control === "text") {
       return (
         <button
-          disabled={currentPage === 1}
+          disabled={currentPage === 1 && !loop}
           onClick={handleOnPrev}
           className={cn(
             paginationVariants({
@@ -205,7 +223,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
     if (control === "icon") {
       return (
         <button
-          disabled={currentPage === totalPages}
+          disabled={currentPage === totalPages && !loop}
           onClick={handleOnNext}
           className={cn(
             paginationVariants({
@@ -222,7 +240,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
     if (control === "text") {
       return (
         <button
-          disabled={currentPage === totalPages}
+          disabled={currentPage === totalPages && !loop}
           onClick={handleOnNext}
           className={cn(
             paginationVariants({
@@ -288,6 +306,7 @@ const PaginationItems: React.FC<PaginationItemsProps> = ({
   setPage,
   variant,
   control,
+  loop = false,
 }) => {
   let numArr;
 
@@ -331,6 +350,7 @@ const PaginationItems: React.FC<PaginationItemsProps> = ({
               totalPages={totalPages}
               variant={variant}
               control={control}
+              loop={loop}
             />
           );
         } else if (num === " ...") {
@@ -343,6 +363,7 @@ const PaginationItems: React.FC<PaginationItemsProps> = ({
               totalPages={totalPages}
               variant={variant}
               control={control}
+              loop={loop}
             />
           );
         } else {
@@ -356,6 +377,7 @@ const PaginationItems: React.FC<PaginationItemsProps> = ({
               totalPages={totalPages}
               variant={variant}
               control={control}
+              loop={loop}
             />
           );
         }
@@ -370,9 +392,10 @@ const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   variant,
   control,
+  loop = false,
 }) => {
   return (
-    <div className="flex h-fit w-fit items-center justify-center gap-1 bg-white px-2 py-2 sm:gap-2 md:gap-[10px]">
+    <div className="flex h-fit w-fit items-center justify-center gap-1 px-2 py-2 sm:gap-2 md:gap-[10px]">
       <PaginationItem
         currentPage={currentPage}
         type={PaginationItemType.PREV}
@@ -380,6 +403,7 @@ const Pagination: React.FC<PaginationProps> = ({
         totalPages={totalPages}
         variant={variant}
         control={control}
+        loop={loop}
       />
       {variant === "compact" ? (
         <PaginationDropdown
@@ -394,6 +418,7 @@ const Pagination: React.FC<PaginationProps> = ({
           setPage={setPage}
           variant={variant}
           control={control}
+          loop={loop}
         />
       )}
 
@@ -404,6 +429,7 @@ const Pagination: React.FC<PaginationProps> = ({
         totalPages={totalPages}
         variant={variant}
         control={control}
+        loop={loop}
       />
     </div>
   );
