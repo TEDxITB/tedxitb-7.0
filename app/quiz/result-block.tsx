@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const results = {
   creative: {
     title: "The Creative",
@@ -88,13 +90,21 @@ const ResultBlock = ({
     }
   };
   return (
-    <div
-      className="relative flex h-fit w-screen items-center justify-center bg-cover bg-center bg-no-repeat px-4 pb-20 pt-36"
-      style={{
-        backgroundImage: `url(${res.bg})`,
-      }}
-    >
-      <div className="absolute bottom-0 left-0 right-0 top-0 z-[10] bg-[url('/ted-quiz-bg-2.png')] bg-cover bg-center bg-no-repeat md:hidden" />
+    <div className="relative flex h-fit w-screen items-center justify-center px-4 pb-20 pt-36">
+      <Image
+        src={res.bg}
+        alt="bg-result"
+        fill
+        className="absolute object-cover object-center z-[-10]"
+      />
+      <div className="absolute bottom-0 left-0 right-0 top-0 z-[10] md:hidden">
+        <Image
+          src="/ted-quiz-bg-2.png"
+          alt="bg-2"
+          fill
+          className="absolute object-cover object-center"
+        />
+      </div>
       <div className="z-[20] flex h-fit w-full flex-col items-center justify-center gap-3 rounded-sm bg-none p-7 text-white md:w-[65%] md:bg-black/70">
         <div className="flex w-full flex-col items-center justify-center gap-2 text-center">
           <p className="font-anderson text-[12px] md:text-[22px]">

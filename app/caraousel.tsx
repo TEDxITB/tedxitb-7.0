@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 const variants = {
@@ -153,10 +154,7 @@ const Carousel = () => {
           {visibleItems.map((item) => {
             return (
               <motion.div
-                className="rounded-md p-0 min-w-[90vw] sm:min-w-[80vw] md:min-w-[600px] aspect-[4/3] bg-cover bg-center bg-no-repeat z-30"
-                style={{
-                  backgroundImage: `url(${item.image})`,
-                }}
+                className="relative rounded-md p-0 min-w-[90vw] sm:min-w-[80vw] md:min-w-[600px] aspect-[4/3] z-30"
                 key={item.id}
                 layout
                 custom={{
@@ -176,7 +174,14 @@ const Carousel = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.8 }}
-              ></motion.div>
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-conver object-center"
+                />
+              </motion.div>
             );
           })}
         </AnimatePresence>

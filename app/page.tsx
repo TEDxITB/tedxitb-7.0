@@ -1,12 +1,32 @@
 import Carousel from "./caraousel";
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
+
+export const metadata: Metadata = {
+  title: "TEDxITB 7.0",
+  openGraph: {
+    ...openGraphTemplate,
+    title: "TEDxITB 7.0",
+  },
+  twitter: {
+    ...twitterTemplate,
+    title: "TEDxITB 7.0",
+  },
+};
 
 const HomePage = () => {
   return (
     <div className="w-screen h-fit flex flex-col justify-center items-center">
-      <div className="w-screen min-h-[calc(100vh-6rem)] bg-[url('/bg-homepage.png')] bg-cover bg-center flex justify-center items-center z-10">
+      <div className="relative w-screen min-h-[calc(100vh-6rem)] flex justify-center items-center z-10">
+        <Image
+          alt="bg-hero"
+          src="/bg-homepage.png"
+          fill
+          className="absolute object-cover object-center"
+        />
         <div className="w-[70%] flex flex-col justify-center items-center gap-[70px]">
           <div className="text-ted-white font-garamond w-full  flex flex-col justify-center items-center gap-[10px] ">
             <h1 className="text-[48px] md:text-[70px] lg:text-[96px] font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.50)]">
@@ -16,7 +36,7 @@ const HomePage = () => {
               The Impact Originator Hub
             </h3>
           </div>
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full flex justify-center items-center z-10">
             <Link href="/main-event">
               <Button
                 className="font-garamond text-[16px] md:rounded-lg rounded-full  md:text-[22px] font-bold px-[45px] py-[14px]"
@@ -29,9 +49,23 @@ const HomePage = () => {
         </div>
       </div>
       <div className="relative w-full overflow-hidden">
-        <div className="hidden md:flex absolute bg-contain bg-left bg-no-repeat w-full md:h-[800px] lg:h-[1090px] bg-[url('/Rectangle.png')] z-5 left-0 top-[-600px]"></div>
-        <div className="flex md:hidden absolute bg-contain justify-center items-center w-full h-full z-5">
-          <div className="absolute bg-contain bg-left bg-no-repeat w-full h-[320px] bg-[url('/Rectangle.png')] z-5"></div>
+        <div className="hidden md:flex absolute w-full md:h-[800px] lg:h-[1090px] z-5 left-0 top-[-600px]">
+          <Image
+            src="/Rectangle.png"
+            alt="bg-decor1"
+            fill
+            className="absolute object-contain object-left"
+          />
+        </div>
+        <div className="flex md:hidden absolute bg-contain justify-center items-center w-full h-full z-5 ">
+          <div className="absolute w-full h-[320px] z-5">
+            <Image
+              src="/Rectangle.png"
+              alt="bg-decor1"
+              fill
+              className="absolute object-contain object-left"
+            />
+          </div>
         </div>
 
         <div className="w-full flex justify-center items-center px-[35px] sm:px-[50px] backdrop-filter backdrop-blur-[80px] md:backdrop-blur-[100px] bg-opacity-40 bg-slate-900 py-[150px] md:py-[200px] z-10 pb-20">
@@ -64,7 +98,14 @@ const HomePage = () => {
       </div>
       <div className="relative w-full h-fit overflow-hidden">
         <div className="absolute w-full h-full flex justify-end items-center z-5">
-          <div className="bg-contain bg-right bg-no-repeat bg-[url('/Rectangle(1).png')] w-full h-[400px]  md:h-[600px] lg:h-[750px]"></div>
+          <div className="relative w-full h-[400px]  md:h-[600px] lg:h-[750px]">
+            <Image
+              src="/Rectangle(1).png"
+              alt="bg-decor2"
+              fill
+              className="absolute object-contain object-right"
+            />
+          </div>
         </div>
 
         <div className="w-full flex justify-center items-center px-[35px] sm:px-[50px] backdrop-filter backdrop-blur-[80px] md:backdrop-blur-[100px] bg-opacity-40 bg-slate-900 py-[150px] md:py-[200px] z-10">
@@ -116,8 +157,22 @@ const HomePage = () => {
 
       <div className="relative w-full h-fit overflow-hidden">
         <div className="absolute w-full h-full flex flex-col md:justify-center justify-around items-center z-5">
-          <div className="bg-contain bg-center bg-no-repeat bg-[url('/Rectangle(2).png')] w-full h-[300px] md:h-[500px]"></div>
-          <div className="md:hidden flex bg-contain bg-center bg-no-repeat bg-[url('/Rectangle(2).png')] w-full h-[300px] md:h-[500px]"></div>
+          <div className="relative w-full h-[300px] md:h-[500px]">
+            <Image
+              src="/Rectangle(2).png"
+              alt="bg-decor3"
+              fill
+              className="absolute object-contain object-center"
+            />
+          </div>
+          <div className="relative md:hidden flex w-full h-[300px] md:h-[500px]">
+            <Image
+              src="/Rectangle(2).png"
+              alt="bg-decor3"
+              fill
+              className="absolute object-contain object-center"
+            />
+          </div>
         </div>
         <div className="w-full flex justify-center items-center px-[35px] sm:px-[50px] backdrop-filter backdrop-blur-[80px] md:backdrop-blur-[100px] bg-opacity-40 bg-slate-900 py-[150px] md:py-[200px] z-10">
           <div className="w-full md:w-[80%] lg:w-[70%] flex flex-col justify-center gap-12 items-center">
@@ -192,7 +247,14 @@ const HomePage = () => {
       </div>
       <div className="relative w-full h-fit overflow-hidden">
         <div className="absolute w-full h-full flex justify-center items-center md:items-start z-5 md:pt-[180px]">
-          <div className="bg-contain bg-center bg-no-repeat bg-[url('/Rectangle(3).png')] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]  md:w-[600px] md:h-[600px]"></div>
+          <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]  md:w-[600px] md:h-[600px]">
+            <Image
+              src="/Rectangle(3).png"
+              alt="bg-decor4"
+              fill
+              className="absolute object-contain object-center"
+            />
+          </div>
         </div>
         <div className="w-full h-fit py-[150px] md:py-[200px] backdrop-filter backdrop-blur-[100px] bg-opacity-40 bg-slate-900 z-10">
           <Carousel />

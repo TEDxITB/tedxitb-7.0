@@ -9,6 +9,7 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ChevronRight } from "lucide-react";
 import { ChevronLeft } from "lucide-react";
+import Image from "next/image";
 import { UseFormReturn } from "react-hook-form";
 import * as z from "zod";
 
@@ -145,7 +146,13 @@ const QuestionBlock = ({
   const question = questions[number - 1];
 
   return (
-    <div className="flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center bg-[url('/ted-quiz-bg-2.png')] bg-cover bg-center bg-no-repeat">
+    <div className="relative flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center">
+      <Image
+        src="/ted-quiz-bg-2.png"
+        alt="bg-2"
+        fill
+        className="absolute object-cover object-center z-[-10]"
+      />
       <div className="flex h-fit w-full flex-col items-center justify-center gap-7 rounded-sm p-5 text-white sm:w-[65%] sm:gap-4 sm:bg-black/70 sm:p-7">
         <h3 className="font-anderson text-[17px] md:text-[24px]">
           Question {question.number} of 5
