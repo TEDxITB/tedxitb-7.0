@@ -98,7 +98,6 @@ export const CatalogueSection = (setMagazine: MagazineSetter) => {
       id="cover"
       className="bg-black text-white font-anderson overflow-hidden w-screen py-7 px-10 flex flex-col gap-2 items-center z-10 relative"
     >
-
       {/* TODO: Apply each blur, instead using single image */}
       <Image
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-20"
@@ -114,7 +113,7 @@ export const CatalogueSection = (setMagazine: MagazineSetter) => {
           "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
           showingPage != page
             ? "opacity-0 scale-90 " +
-            (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+                (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
             : "opacity-100"
         )}
         style={{

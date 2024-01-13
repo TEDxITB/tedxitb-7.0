@@ -1,9 +1,9 @@
-import { Metadata } from "next";
 import { HeroSection } from "./HeroSection";
 import { MagazineComponent } from "./Magazine";
 import { Magazine } from "./shared";
 import "./style.css";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
+import { Metadata } from "next";
 
 export type MagazineSetter = (
   magazine: Magazine,
