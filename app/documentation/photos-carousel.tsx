@@ -49,6 +49,7 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
   const [carouselRef, api] = useEmblaCarousel({
     loop: true,
     axis: "x",
+    watchDrag: false,
   });
 
   const scrollPrev = useCallback(() => {
