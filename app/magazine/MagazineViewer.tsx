@@ -27,11 +27,11 @@ export const MagazineViewer = () => {
 
       await waitListener(iframe, "transitionend");
       styleElement(iframe, {
-        opacity: "",
+        opacity: "0",
         transitionProperty: "",
         transitionDuration: "",
       });
-      iframe.style.visibility = "hidden";
+
       iframe.style.pointerEvents = "none";
       document.documentElement.style.overflow = "";
       showing.current = false;
@@ -133,7 +133,7 @@ export const MagazineViewer = () => {
         } satisfies Communication)
       );
 
-      iframe.style.visibility = "visible";
+      iframe.style.opacity = "1";
       iframe.style.pointerEvents = "auto";
       document.documentElement.style.overflow = "hidden";
 
@@ -193,7 +193,7 @@ export const MagazineViewer = () => {
       key={0}
       ref={iframeRef}
       src="/magazine/viewer"
-      className={"fixed pointer-events-none invisible top-1/2 left-1/2 z-[100]"}
+      className={"fixed pointer-events-none opacity-0 top-1/2 left-1/2 z-[100]"}
     />,
     openMagazine,
   ] as const;
