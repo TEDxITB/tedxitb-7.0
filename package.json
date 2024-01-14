@@ -53,7 +53,6 @@
     "react-email": "^1.10.0",
     "react-hook-form": "^7.49.2",
     "react-qr-code": "^2.0.12",
-    "react-modal-image": "^2.6.0",
     "react-tagcloud": "^2.3.1",
     "resend": "^2.1.0-canary.1",
     "server-only": "^0.0.1",
