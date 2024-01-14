@@ -136,7 +136,7 @@ export const POST = async (req: NextRequest) => {
   ]);
 
   // Update google sheets
-  const sheetId = process.env.GOOGLE_SHEET_ID as string;
+  const sheetId = process.env.GOOGLE_SHEETS_ID as string;
   const sheetRange = "registration!A:U";
   const sheetValueInputOption = "RAW";
   const values = [

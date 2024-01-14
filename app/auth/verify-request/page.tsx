@@ -102,9 +102,9 @@ const VerifyRequestPage = async () => {
               </p>
               <Link href="/auth/sign-in">
                 <Button
-                  variant="outline"
+                  variant="primary"
                   size="lg"
-                  className="mt-4 bg-transparent px-8 font-bold text-ted-red"
+                  className="mt-4 px-8 font-bold"
                 >
                   Change Email
                 </Button>

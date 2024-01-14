@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { regisSchema } from "@/lib/zod";
 import _ from "lodash";
 import { Session } from "next-auth";
+import Image from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { z } from "zod";
@@ -394,18 +395,47 @@ function FirstPage({
           htmlFor="profile"
         >
           Gambar kamu! Ekspresikan diri Anda dengan bebas dalam pakaian kasual
-          bisnis
+          bisnis (Ukuran 3x4, warna latar bebas, pose bebas)
         </Label>
+        <div className="flex flex-col gap-2">
+          <p>Contoh</p>
+          <div className="flex gap-8 overflow-x-scroll pb-4">
+            <Image
+              src="/example-1.jpg"
+              alt="Example"
+              width={100}
+              height={100}
+            />
+            <Image
+              src="/example-2.jpg"
+              alt="Example"
+              width={100}
+              height={100}
+            />
+            <Image
+              src="/example-3.jpg"
+              alt="Example"
+              width={100}
+              height={100}
+            />
+            <Image
+              src="/example-4.jpg"
+              alt="Example"
+              width={100}
+              height={100}
+            />
+          </div>
+        </div>
         <FileUpload setValue={form.setValue} id="profile" />
       </div>
 
       <Button
-        className="self-start px-10"
+        className="self-start px-12"
         size={"lg"}
         type="button"
         onClick={() => nextPage()}
       >
-        Next Page
+        Next
       </Button>
     </>
   );

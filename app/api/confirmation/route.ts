@@ -82,7 +82,7 @@ export const PUT = async (req: NextRequest) => {
   });
 
   // General sheets data
-  const sheetId = process.env.CONFIRMATION_SHEET_ID as string;
+  const sheetId = process.env.GOOGLE_SHEETS_ID as string;
   const sheetValueInputOption = "RAW";
 
   // Update confirmed sheets

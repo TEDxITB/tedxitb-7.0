@@ -226,9 +226,9 @@ function SecondPage({
 
       <div className="sm:self-start grid grid-cols-2 gap-4 sm:gap-8">
         <Button
-          variant={"outline"}
+          variant={"secondary"}
           size={"lg"}
-          className="text-ted-red px-10"
+          className="px-10"
           type="button"
           onClick={prevPage}
         >

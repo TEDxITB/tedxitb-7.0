@@ -197,7 +197,7 @@ const QuestionBlock = ({
         <div className="flex w-[80%] flex-row items-center justify-between gap-3 sm:w-full sm:justify-end">
           <Button
             className="flex items-center justify-between gap-2 border-white px-8 sm:px-4"
-            variant="outline"
+            variant="secondary"
             onClick={handleBack}
             type="button"
           >

@@ -51,9 +51,9 @@ function ConfirmationButtons() {
       <AlertDialog>
         <AlertDialogTrigger className="self-start mt-4 flex">
           <Button
-            variant={"outline"}
+            variant={"secondary"}
             size={"lg"}
-            className="lg:px-10 lg:py-6 lg:text-lg text-ted-red grow"
+            className="lg:px-10 lg:py-6 lg:text-lg grow"
           >
             Confirm Absence
           </Button>
