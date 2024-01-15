@@ -108,48 +108,47 @@ export const CatalogueSection = (setMagazine: MagazineSetter) => {
         height={720}
       />
 
-      {
-        data == null ?
-          <div className="w-full h-full flex justify-center items-center">
-            <Loader2 size={50} className="animate-spin" />
-          </div>
-
-          :
-
-          <ul
-            ref={containerRef}
-            className={cn(
-              "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
-              showingPage != page
-                ? "opacity-0 scale-90 " +
-                (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
-                : "opacity-100"
-            )}
-            style={{
-              gridTemplateColumns: `repeat(${col}, 1fr)`,
-              gridTemplateRows: `repeat(${row}, 1fr)`,
-            }}
-          >
-            {data
-              .slice((showingPage - 1) * count, showingPage * count)
-              .map((magazine) => (
-                <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
-              ))}
-          </ul>
-      }
+      {data == null ? (
+        <div className="w-full h-full flex justify-center items-center">
+          <Loader2 size={50} className="animate-spin" />
+        </div>
+      ) : (
+        <ul
+          ref={containerRef}
+          className={cn(
+            "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
+            showingPage != page
+              ? "opacity-0 scale-90 " +
+                  (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+              : "opacity-100"
+          )}
+          style={{
+            gridTemplateColumns: `repeat(${col}, 1fr)`,
+            gridTemplateRows: `repeat(${row}, 1fr)`,
+          }}
+        >
+          {data
+            .slice((showingPage - 1) * count, showingPage * count)
+            .map((magazine) => (
+              <CoverSection
+                key={magazine.title}
+                {...{ magazine, setMagazine }}
+              />
+            ))}
+        </ul>
+      )}
 
       <div className="mt-auto [&>*]:bg-transparent">
-        {
-          data != null ?
-            <Pagination
-              currentPage={page}
-              setPage={setPage}
-              totalPages={Math.ceil(data.length / count)}
-              variant="primary"
-              control="icon"
-              loop={true}
-            /> : null
-        }
+        {data != null ? (
+          <Pagination
+            currentPage={page}
+            setPage={setPage}
+            totalPages={Math.ceil(data.length / count)}
+            variant="primary"
+            control="icon"
+            loop={true}
+          />
+        ) : null}
       </div>
     </section>
   );
