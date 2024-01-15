@@ -8,7 +8,7 @@ export default withAuth(
     const token = req.nextauth.token;
 
     const unAuthenticatedRoute = ["/auth/sign-in", "/auth/verify-request"];
-    const authenticatedRoute = ["/main-event/ticket"];
+    const authenticatedRoute = ["/main-event/"];
 
     // Unathenticated user requests for authenticated only page
     if (!token && authenticatedRoute.some((path) => reqPath.startsWith(path))) {

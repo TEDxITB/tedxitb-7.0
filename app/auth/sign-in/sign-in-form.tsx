@@ -119,9 +119,9 @@ const SignInForm = () => {
       {/* Google */}
       <div className="mt-5 flex flex-col">
         <Button
-          variant="outline"
+          variant="secondary"
           size="lg"
-          className="w-full bg-transparent"
+          className="w-full"
           type="button"
           disabled={isSubmitting}
           onClick={() =>

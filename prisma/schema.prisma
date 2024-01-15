@@ -39,13 +39,16 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String        @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?       @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
+  confirmation  Confirmation?
+  registration  Registration?
+  ticket        Ticket?
 }
 
 model VerificationToken {
@@ -54,4 +57,44 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Registration {
+  id                 String  @id @default(cuid())
+  name               String
+  phone              String
+  age                Int
+  address            String
+  job                String
+  instance           String
+  faculty            String?
+  linkedin           String?
+  instagram          String?
+  allergy            String?
+  q1                 String?
+  q2                 String
+  profile            String
+  q3                 String
+  q4                 String
+  participationscale Int
+  q5                 String?
+  q6                 String?
+  userId             String  @unique
+  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Confirmation {
+  id         String   @id @default(cuid())
+  attendance Boolean?
+  userId     String   @unique
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ticket     Ticket?
+}
+
+model Ticket {
+  id             String @id @default(cuid())
+  userId         String @unique
+  user           User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  confirmationId String @unique
+  confirmation   Confirmation @relation(fields: [confirmationId], references: [id], onDelete: Cascade)
 }
