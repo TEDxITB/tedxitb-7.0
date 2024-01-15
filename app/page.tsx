@@ -62,7 +62,7 @@ const HomePage = () => {
           className="absolute -left-[400px] top-20 min-h-[850px] min-w-[824px] sm:top-6 xl:-top-32"
         />
 
-        <div className="z-10 flex w-full items-center justify-center px-[35px] pt-[150px] pb-[75px] sm:px-[50px] md:py-[200px]">
+        <div className="z-10 flex w-full items-center justify-center px-[35px] pb-[75px] pt-[150px] sm:px-[50px] md:py-[200px]">
           <div className="flex w-full flex-col items-center justify-center gap-12 md:w-[80%] lg:w-[70%] lg:gap-16 ">
             {/* About TED */}
             <section className="flex w-full flex-col items-center justify-center gap-[35px] rounded-lg bg-white bg-opacity-[0.05] p-[30px] font-anderson text-ted-white shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]">

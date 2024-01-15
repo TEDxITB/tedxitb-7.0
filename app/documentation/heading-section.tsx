@@ -17,7 +17,7 @@ const HeadingSection = () => {
   };
 
   return (
-    <div className="w-full min-h-[calc(100vh-96px)] flex relative items-center justify-center px-5 py-12">
+    <div className="relative flex min-h-[calc(100vh-96px)] w-full items-center justify-center px-5 py-12">
       {/* Backround Image */}
       <Image
         src="/documentation-hero.png"
@@ -28,8 +28,8 @@ const HeadingSection = () => {
       />
 
       {/* Text and button in the middle of the picture */}
-      <div className=" flex text-white w-full h-full items-center justify-center flex-col z-20 gap-6 lg:gap-8">
-        <h1 className="text-4xl lg:text-7xl text-center">
+      <div className=" z-20 flex h-full w-full flex-col items-center justify-center gap-6 text-white lg:gap-8">
+        <h1 className="text-center text-4xl lg:text-7xl">
           <span className="font-graziela">E</span>
           <span className="font-garamond italic">xplore our shared </span>
           <span className="font-graziela">H</span>
@@ -37,7 +37,7 @@ const HeadingSection = () => {
         </h1>
         <Button
           size="lg"
-          className="px-8 flex-none text-base"
+          className="flex-none px-8 text-base"
           onClick={scrollToTarget}
         >
           See More

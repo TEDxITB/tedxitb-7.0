@@ -131,7 +131,7 @@ const ClientPageTedQuiz = () => {
             src="/ted-quiz-bg.jpeg"
             alt="bg"
             fill
-            className="absolute object-cover object-left sm:object-center z-[-10]"
+            className="absolute z-[-10] object-cover object-left sm:object-center"
           />
           <div className="absolute bottom-0 left-0 right-0 top-0 z-[30] bg-black/50 backdrop-blur-sm" />
           <div className="z-[40] flex h-full w-full flex-col items-center justify-center gap-[40px] px-5 text-center sm:w-fit">

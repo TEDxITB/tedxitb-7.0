@@ -95,7 +95,7 @@ const ResultBlock = ({
         src={res.bg}
         alt="bg-result"
         fill
-        className="absolute object-cover object-center z-[-10]"
+        className="absolute z-[-10] object-cover object-center"
       />
       <div className="absolute bottom-0 left-0 right-0 top-0 z-[10] md:hidden">
         <Image

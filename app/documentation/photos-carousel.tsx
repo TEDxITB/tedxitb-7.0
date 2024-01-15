@@ -93,12 +93,12 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
         scrollPrev={scrollPrev}
         scrollNext={scrollNext}
       >
-        <CarouselContent className="w-fit h-fit">
+        <CarouselContent className="h-fit w-fit">
           {Array.from({ length: totalPage }).map((_, index) => (
             <CarouselItem className="w-full" key={index}>
               <div
                 key={index}
-                className="grid grid-rows-3 grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 md:grid-cols-3 md:grid-rows-2 gap-4 lg:gap-8 px-5 lg:px-16"
+                className="grid grid-cols-1 grid-rows-3 gap-4 px-5 sm:grid-cols-2 sm:grid-rows-2 md:grid-cols-3 md:grid-rows-2 lg:gap-8 lg:px-16"
               >
                 {images
                   .slice(
@@ -120,7 +120,7 @@ export default function PhotosCarousel({ images }: { images: ImageCMS[] }) {
         </CarouselContent>
 
         {/* Pagination */}
-        <div className="flex relative items-center justify-center h-8 gap-2 mt-8 lg:mt-12">
+        <div className="relative mt-8 flex h-8 items-center justify-center gap-2 lg:mt-12">
           <Pagination
             loop={true}
             currentPage={page}
@@ -144,11 +144,11 @@ function ClickablePhoto({
   return (
     <Dialog onOpenChange={() => setIsPhotoOpen((state) => !state)}>
       <DialogTrigger>
-        <div className="p-1 w-full aspect-video shadow-md flex items-center justify-center">
-          <Card className="w-full h-full relative">
-            <CardContent className="flex items-center justify-center p-0 w-full h-full">
+        <div className="flex aspect-video w-full items-center justify-center p-1 shadow-md">
+          <Card className="relative h-full w-full">
+            <CardContent className="flex h-full w-full items-center justify-center p-0">
               <Image
-                className="rounded-lg object-cover object-center h-full w-full lg:max-w-[70vh] lg:max-h-[70vh]"
+                className="h-full w-full rounded-lg object-cover object-center lg:max-h-[70vh] lg:max-w-[70vh]"
                 src={image.url}
                 alt={image.alt}
                 width={image.width}
@@ -161,14 +161,14 @@ function ClickablePhoto({
 
       {/* Added customCLoseButton so that the dialog component doesn't affect any other page that also using the dialog component */}
       <DialogContent
-        className="p-0 max-w-screen max-lg:min-w-full min-w-[40%] aspect-auto"
+        className="max-w-screen aspect-auto min-w-[40%] p-0 max-lg:min-w-full"
         customCloseButton
       >
         <div className=" w-full shadow-md">
-          <Card className="w-full h-full relative">
+          <Card className="relative h-full w-full">
             <CardContent className="flex items-center justify-center">
               <Image
-                className="rounded object-cover object-center w-full"
+                className="w-full rounded object-cover object-center"
                 src={image.url}
                 alt={image.alt}
                 height={image.height}
@@ -178,7 +178,7 @@ function ClickablePhoto({
           </Card>
         </div>
         <DialogPrimitive.Close className="absolute right-4 top-4 opacity-70 ring-offset-background transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-          <X className={`h-6 w-6 bg-stone-500 stroke-white rounded-full`} />
+          <X className={`h-6 w-6 rounded-full bg-stone-500 stroke-white`} />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
       </DialogContent>
