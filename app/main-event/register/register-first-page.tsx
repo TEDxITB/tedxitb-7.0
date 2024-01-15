@@ -65,7 +65,7 @@ function FirstPage({
 
   return (
     <>
-      <div className="flex flex-col gap-4 max-w-[950px]">
+      <div className="flex max-w-[950px] flex-col gap-4">
         <FormField
           control={form.control}
           name="name"
@@ -73,7 +73,7 @@ function FirstPage({
             <FormItem className="flex flex-col gap-1">
               <FormLabel
                 htmlFor="name"
-                className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                className="leading-6 tracking-wide text-ted-white lg:text-lg"
               >
                 Nama Lengkap
               </FormLabel>
@@ -82,7 +82,7 @@ function FirstPage({
                   id="name"
                   {...field}
                   placeholder="Masukkan nama lengkapmu di sini"
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>{form.formState.errors.name?.message}</FormMessage>
@@ -93,7 +93,7 @@ function FirstPage({
         <FormItem className="flex flex-col gap-1">
           <FormLabel
             htmlFor="email"
-            className="lg:text-lg leading-6 tracking-wide text-ted-white"
+            className="leading-6 tracking-wide text-ted-white lg:text-lg"
           >
             Email
           </FormLabel>
@@ -102,20 +102,20 @@ function FirstPage({
               id="email"
               disabled
               value={session?.email}
-              className="disabled:bg-ted-black disabled:bg-opacity-[0.15] border-ted-white"
+              className="border-ted-white disabled:bg-ted-black disabled:bg-opacity-[0.15]"
             />
           </FormControl>
         </FormItem>
 
-        <div className="flex flex-col gap-4 lg:flex-row max-w-[950px] lg:gap-8">
+        <div className="flex max-w-[950px] flex-col gap-4 lg:flex-row lg:gap-8">
           <FormField
             control={form.control}
             name="phone"
             render={({ field }) => (
-              <FormItem className="flex flex-col gap-1 grow">
+              <FormItem className="flex grow flex-col gap-1">
                 <FormLabel
                   htmlFor="phone"
-                  className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                  className="leading-6 tracking-wide text-ted-white lg:text-lg"
                 >
                   Nomor HP
                 </FormLabel>
@@ -124,7 +124,7 @@ function FirstPage({
                     id="phone"
                     {...field}
                     placeholder="+6281234567890"
-                    className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                    className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                   />
                 </FormControl>
                 <FormMessage>
@@ -139,10 +139,10 @@ function FirstPage({
             control={form.control}
             name="age"
             render={({ field }) => (
-              <FormItem className="flex flex-col gap-1 grow">
+              <FormItem className="flex grow flex-col gap-1">
                 <FormLabel
                   htmlFor="age"
-                  className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                  className="leading-6 tracking-wide text-ted-white lg:text-lg"
                 >
                   Umur
                 </FormLabel>
@@ -151,7 +151,7 @@ function FirstPage({
                     id="age"
                     {...field}
                     placeholder="19"
-                    className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                    className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                   />
                 </FormControl>
                 <FormMessage>{form.formState.errors.age?.message}</FormMessage>
@@ -165,10 +165,10 @@ function FirstPage({
           control={form.control}
           name="address"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
+            <FormItem className="flex grow flex-col gap-1">
               <FormLabel
                 htmlFor="address"
-                className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                className="leading-6 tracking-wide text-ted-white lg:text-lg"
               >
                 Alamat di Bandung
               </FormLabel>
@@ -177,7 +177,7 @@ function FirstPage({
                   id="address"
                   {...field}
                   placeholder="Jl. Ganesha No. 10"
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>
@@ -191,10 +191,10 @@ function FirstPage({
           control={form.control}
           name="job"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
+            <FormItem className="flex grow flex-col gap-1">
               <FormLabel
                 htmlFor="job"
-                className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                className="leading-6 tracking-wide text-ted-white lg:text-lg"
               >
                 Pekerjaan
               </FormLabel>
@@ -203,7 +203,7 @@ function FirstPage({
                   id="job"
                   {...field}
                   placeholder="Mahasiswa"
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>{form.formState.errors.job?.message}</FormMessage>
@@ -215,10 +215,10 @@ function FirstPage({
           control={form.control}
           name="instance"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
+            <FormItem className="flex grow flex-col gap-1">
               <FormLabel
                 htmlFor="instance"
-                className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                className="leading-6 tracking-wide text-ted-white lg:text-lg"
               >
                 Perusahaan/Universitas
               </FormLabel>
@@ -227,7 +227,7 @@ function FirstPage({
                   id="instance"
                   {...field}
                   placeholder="Institut Teknologi Bandung"
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>
@@ -241,10 +241,10 @@ function FirstPage({
           control={form.control}
           name="faculty"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
+            <FormItem className="flex grow flex-col gap-1">
               <FormLabel
                 htmlFor="faculty"
-                className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                className="leading-6 tracking-wide text-ted-white lg:text-lg"
               >
                 Jurusan/Tahun <span className="text-[#FDB10E]">(Opsional)</span>
               </FormLabel>
@@ -253,7 +253,7 @@ function FirstPage({
                   id="faculty"
                   {...field}
                   placeholder="Teknik Sipil/22"
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>
@@ -268,10 +268,10 @@ function FirstPage({
           control={form.control}
           name="linkedin"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
+            <FormItem className="flex grow flex-col gap-1">
               <FormLabel
                 htmlFor="linkedin"
-                className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                className="leading-6 tracking-wide text-ted-white lg:text-lg"
               >
                 LinkedIn <span className="text-[#FDB10E]">(Opsional)</span>
               </FormLabel>
@@ -280,7 +280,7 @@ function FirstPage({
                   id="linkedin"
                   {...field}
                   placeholder="Nama lengkap"
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>
@@ -294,10 +294,10 @@ function FirstPage({
           control={form.control}
           name="instagram"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
+            <FormItem className="flex grow flex-col gap-1">
               <FormLabel
                 htmlFor="instagram"
-                className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                className="leading-6 tracking-wide text-ted-white lg:text-lg"
               >
                 Instagram <span className="text-[#FDB10E]">(Opsional)</span>
               </FormLabel>
@@ -306,7 +306,7 @@ function FirstPage({
                   id="instagram"
                   {...field}
                   placeholder="@username"
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>
@@ -320,10 +320,10 @@ function FirstPage({
           control={form.control}
           name="allergy"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
+            <FormItem className="flex grow flex-col gap-1">
               <FormLabel
                 htmlFor="allergy"
-                className="lg:text-lg leading-6 tracking-wide text-ted-white"
+                className="leading-6 tracking-wide text-ted-white lg:text-lg"
               >
                 Pembatasan/Alergi Diet Apa Pun{" "}
                 <span className="text-[#FDB10E]">(Opsional)</span>
@@ -333,7 +333,7 @@ function FirstPage({
                   id="allergy"
                   {...field}
                   placeholder="Alergi Kacang"
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] placeholder-ted-white placeholder-opacity-25 ring-offset-ted-black"
                 />
               </FormControl>
             </FormItem>
@@ -341,13 +341,13 @@ function FirstPage({
         />
       </div>
 
-      <div className="max-w-[950px] flex flex-col gap-1">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q1"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
-              <FormLabel className="lg:text-lg leading-6 tracking-wide">
+            <FormItem className="flex grow flex-col gap-1">
+              <FormLabel className="leading-6 tracking-wide lg:text-lg">
                 Apakah Anda memerlukan bantuan atau akomodasi berkebutuhan
                 khusus untuk berpartisipasi penuh dalam acara tersebut? Jika ya,
                 beri tahu kami apa yang Anda butuhkan?
@@ -356,7 +356,7 @@ function FirstPage({
               <FormControl>
                 <Textarea
                   {...field}
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
             </FormItem>
@@ -364,13 +364,13 @@ function FirstPage({
         />
       </div>
 
-      <div className="max-w-[950px] flex flex-col gap-1">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q2"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
-              <FormLabel className="lg:text-lg leading-6 tracking-wide text-ted-white">
+            <FormItem className="flex grow flex-col gap-1">
+              <FormLabel className="leading-6 tracking-wide text-ted-white lg:text-lg">
                 TEDxITB adalah platform dimana semua individu dapat berbagi ide
                 dan berdinamika bersama, kami mengundang Anda untuk berbagi
                 wawasan dan pengalaman Anda, terlepas dari latar belakang atau
@@ -380,7 +380,7 @@ function FirstPage({
               <FormControl>
                 <Textarea
                   {...field}
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>{form.formState.errors.q2?.message}</FormMessage>
@@ -389,9 +389,9 @@ function FirstPage({
         />
       </div>
 
-      <div className="max-w-[950px] flex flex-col gap-4">
+      <div className="flex max-w-[950px] flex-col gap-4">
         <Label
-          className="lg:text-lg leading-6 tracking-wide text-ted-white"
+          className="leading-6 tracking-wide text-ted-white lg:text-lg"
           htmlFor="profile"
         >
           Gambar kamu! Ekspresikan diri Anda dengan bebas dalam pakaian kasual

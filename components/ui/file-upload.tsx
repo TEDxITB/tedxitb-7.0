@@ -287,7 +287,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
     return (
       <section className="flex h-fit min-w-full flex-col items-center justify-between gap-6 md:min-w-[500px] md:flex-row md:items-start lg:min-w-[710px]">
         <div
-          className="flex w-full md:w-auto h-[152px] min-w-[180px] max-w-[400px] flex-col items-center justify-center gap-3 rounded-[14px] bg-clip-padding p-6 sm:h-[278px] sm:flex-[0.8]"
+          className="flex h-[152px] w-full min-w-[180px] max-w-[400px] flex-col items-center justify-center gap-3 rounded-[14px] bg-clip-padding p-6 sm:h-[278px] sm:flex-[0.8] md:w-auto"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
@@ -417,7 +417,7 @@ const FileItem: React.FC<FileItemProps> = ({
         <Image
           src={FileIcon}
           alt="file image"
-          className="h-[18px] w-[18px] sm:h-[24px] sm:w-[24px] stroke-ted-white"
+          className="h-[18px] w-[18px] stroke-ted-white sm:h-[24px] sm:w-[24px]"
         />
         <div className="flex flex-col">
           <p className="font-anderson text-sm leading-4 text-ted-white sm:text-[15px]">
@@ -437,7 +437,7 @@ const FileItem: React.FC<FileItemProps> = ({
         {image.error ? (
           <Button
             type="button"
-            className="p-0 h-[20px] w-[20px]"
+            className="h-[20px] w-[20px] p-0"
             variant="ghost"
             onClick={(e) => {
               e.preventDefault();
@@ -466,7 +466,7 @@ const FileItem: React.FC<FileItemProps> = ({
         </div>
         <Button
           type="button"
-          className="p-0 h-[20px] w-[20px]"
+          className="h-[20px] w-[20px] p-0"
           variant="ghost"
           onClick={() => handleDelete(image)}
         >

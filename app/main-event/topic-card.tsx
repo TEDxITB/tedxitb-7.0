@@ -9,9 +9,9 @@ function TopicCard(props: {
   description: StructuredTextType;
 }) {
   return (
-    <div className="relative h-[175px] w-[325px] md:w-[600px] xl:w-[1000px] overflow-visible">
-      <div className="absolute -top-1 -left-1 bottom-1 right-1 z-20 rounded-lg bg-gradient-to-r from-[#7D0A0A] to-[#EAD196] p-[1px]">
-        <div className="flex w-full items-center gap-4 px-2 py-3 md:px-3 md:py-4 bg-[#1C1C1C] rounded-lg h-full">
+    <div className="relative h-[175px] w-[325px] overflow-visible md:w-[600px] xl:w-[1000px]">
+      <div className="absolute -left-1 -top-1 bottom-1 right-1 z-20 rounded-lg bg-gradient-to-r from-[#7D0A0A] to-[#EAD196] p-[1px]">
+        <div className="flex h-full w-full items-center gap-4 rounded-lg bg-[#1C1C1C] px-2 py-3 md:px-3 md:py-4">
           <div className="relative h-full w-[150px]">
             <Image
               src={props.image.url}
@@ -48,7 +48,7 @@ function TopicCard(props: {
           </div>
         </div>
       </div>
-      <div className="absolute left-1 top-1 -right-1 -bottom-1 z-10 h-full w-full rounded-lg bg-gradient-to-r from-[#7D0A0A] to-[#EAD196]"></div>
+      <div className="absolute -bottom-1 -right-1 left-1 top-1 z-10 h-full w-full rounded-lg bg-gradient-to-r from-[#7D0A0A] to-[#EAD196]"></div>
     </div>
   );
 }

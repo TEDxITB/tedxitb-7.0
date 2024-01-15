@@ -37,18 +37,18 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
   };
 
   return (
-    <div className="sm:self-start grid grid-rows-2 sm:grid-cols-2 sm:gap-8">
+    <div className="grid grid-rows-2 sm:grid-cols-2 sm:gap-8 sm:self-start">
       <Dialog>
-        <DialogTrigger className="self-start mt-4 flex">
+        <DialogTrigger className="mt-4 flex self-start">
           <Button
             variant={"primary"}
             size={"lg"}
-            className="sm:px-10 lg:py-6 lg:text-lg grow"
+            className="grow sm:px-10 lg:py-6 lg:text-lg"
           >
             Magazine
           </Button>
         </DialogTrigger>
-        <DialogContent className="bg-[#1C1C1C] font-anderson text-ted-white border-none">
+        <DialogContent className="border-none bg-[#1C1C1C] font-anderson text-ted-white">
           <DialogTitle>Are you sure to confirm ABSENCE?</DialogTitle>
           <DialogDescription className="text-ted-white">
             If you find yourself able to attend the event after confirming your
@@ -58,12 +58,12 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
       </Dialog>
 
       <Dialog>
-        <DialogTrigger className="self-start mt-4 flex">
-          <Button size={"lg"} className="sm:px-10 lg:py-6 lg:text-lg grow">
+        <DialogTrigger className="mt-4 flex self-start">
+          <Button size={"lg"} className="grow sm:px-10 lg:py-6 lg:text-lg">
             Ticket
           </Button>
         </DialogTrigger>
-        <DialogContent className="bg-[#1C1C1C] font-anderson text-ted-white border-none p-8">
+        <DialogContent className="border-none bg-[#1C1C1C] p-8 font-anderson text-ted-white">
           <DialogTitle className="text-xl sm:text-2xl">Your Ticket</DialogTitle>
           <DialogDescription className="flex flex-col gap-8">
             <QRCode
@@ -71,11 +71,11 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
               value={ticketId}
               viewBox={`0 0 256 256`}
               id="QRCode"
-              className="self-center h-auto max-w-[300px] w-full"
+              className="h-auto w-full max-w-[300px] self-center"
             />
             <Button
               size={"lg"}
-              className="lg:px-10 lg:py-6 lg:text-lg self-center"
+              className="self-center lg:px-10 lg:py-6 lg:text-lg"
               onClick={onImageCownload}
             >
               Download Ticket

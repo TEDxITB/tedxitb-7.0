@@ -101,20 +101,20 @@ function SecondPage({
 
   return (
     <>
-      <div className="max-w-[950px] flex flex-col gap-1">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q3"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
-              <FormLabel className="lg:text-lg leading-6 tracking-wide text-ted-white">
+            <FormItem className="flex grow flex-col gap-1">
+              <FormLabel className="leading-6 tracking-wide text-ted-white lg:text-lg">
                 Apa yang membuat Anda tertarik dengan TEDxITB, dan mengapa Anda
                 ingin menghadiri acara TEDxITB?
               </FormLabel>
               <FormControl>
                 <Textarea
                   {...field}
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>{form.formState.errors.q3?.message}</FormMessage>
@@ -123,19 +123,19 @@ function SecondPage({
         />
       </div>
 
-      <div className="max-w-[950px] flex flex-col gap-1">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q4"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
-              <FormLabel className="lg:text-lg leading-6 tracking-wide text-ted-white">
+            <FormItem className="flex grow flex-col gap-1">
+              <FormLabel className="leading-6 tracking-wide text-ted-white lg:text-lg">
                 Apa yang Anda ingin dapatkan dan pelajari dari acara ini?
               </FormLabel>
               <FormControl>
                 <Textarea
                   {...field}
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
               <FormMessage>{form.formState.errors.q4?.message}</FormMessage>
@@ -144,14 +144,14 @@ function SecondPage({
         />
       </div>
 
-      <div className="max-w-[950px] flex flex-col gap-4">
+      <div className="flex max-w-[950px] flex-col gap-4">
         <FormField
           control={form.control}
           name="scale"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-4 grow">
+            <FormItem className="flex grow flex-col gap-4">
               <FormLabel
-                className="lg:text-lg leading-6 tracking-wide"
+                className="leading-6 tracking-wide lg:text-lg"
                 htmlFor="scale"
               >
                 Pada skala 1-5, seberapa partisipatif Anda dalam dialog mengenai
@@ -179,13 +179,13 @@ function SecondPage({
         />
       </div>
 
-      <div className="max-w-[950px] flex flex-col gap-1">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q5"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
-              <FormLabel className="lg:text-lg leading-6 tracking-wide">
+            <FormItem className="flex grow flex-col gap-1">
+              <FormLabel className="leading-6 tracking-wide lg:text-lg">
                 Apakah Anda terlibat dalam komunitas atau kegiatan serupa yang
                 sejalan dengan tema TEDxITB? Tolong beritahu kami lebih banyak
                 tentang hal itu!
@@ -194,7 +194,7 @@ function SecondPage({
               <FormControl>
                 <Textarea
                   {...field}
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
             </FormItem>
@@ -202,13 +202,13 @@ function SecondPage({
         />
       </div>
 
-      <div className="max-w-[950px] flex flex-col gap-1">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q6"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 grow">
-              <FormLabel className="lg:text-lg leading-6 tracking-wide">
+            <FormItem className="flex grow flex-col gap-1">
+              <FormLabel className="leading-6 tracking-wide lg:text-lg">
                 Bagikan ide atau konsep, jika ada, yang Anda yakini berpotensi
                 memberikan dampak positif bagi masyarakat.
                 <span className="text-[#FDB10E]"> (Opsional)</span>
@@ -216,7 +216,7 @@ function SecondPage({
               <FormControl>
                 <Textarea
                   {...field}
-                  className="bg-ted-black ring-offset-ted-black bg-opacity-[0.15] border-ted-white"
+                  className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
             </FormItem>
@@ -224,7 +224,7 @@ function SecondPage({
         />
       </div>
 
-      <div className="sm:self-start grid grid-cols-2 gap-4 sm:gap-8">
+      <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:self-start">
         <Button
           variant={"secondary"}
           size={"lg"}

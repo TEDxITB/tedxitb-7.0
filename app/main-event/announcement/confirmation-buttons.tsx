@@ -47,18 +47,18 @@ function ConfirmationButtons() {
   }
 
   return (
-    <div className="sm:self-start grid grid-rows-2 sm:grid-cols-2 sm:gap-8">
+    <div className="grid grid-rows-2 sm:grid-cols-2 sm:gap-8 sm:self-start">
       <AlertDialog>
-        <AlertDialogTrigger className="self-start mt-4 flex">
+        <AlertDialogTrigger className="mt-4 flex self-start">
           <Button
             variant={"secondary"}
             size={"lg"}
-            className="lg:px-10 lg:py-6 lg:text-lg grow"
+            className="grow lg:px-10 lg:py-6 lg:text-lg"
           >
             Confirm Absence
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent className="bg-[#1C1C1C] font-anderson text-ted-white border-none">
+        <AlertDialogContent className="border-none bg-[#1C1C1C] font-anderson text-ted-white">
           <AlertDialogHeader>
             <AlertDialogTitle>
               Are you sure to confirm ABSENCE?
@@ -83,12 +83,12 @@ function ConfirmationButtons() {
       </AlertDialog>
 
       <AlertDialog>
-        <AlertDialogTrigger className="self-start mt-4 flex">
-          <Button size={"lg"} className="lg:px-10 lg:py-6 lg:text-lg grow">
+        <AlertDialogTrigger className="mt-4 flex self-start">
+          <Button size={"lg"} className="grow lg:px-10 lg:py-6 lg:text-lg">
             Confirm Attendance
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent className="bg-[#1C1C1C] font-anderson text-ted-white border-none">
+        <AlertDialogContent className="border-none bg-[#1C1C1C] font-anderson text-ted-white">
           <AlertDialogHeader>
             <AlertDialogTitle>
               Are you sure to confirm ATTENDANCE?

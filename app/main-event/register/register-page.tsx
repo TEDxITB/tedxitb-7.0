@@ -42,14 +42,14 @@ function RegisterPage(props: { session: Session | null }) {
   }, [page]);
 
   return (
-    <section className="text-ted-white font-anderson bg-[#1E1E1E]">
+    <section className="bg-[#1E1E1E] font-anderson text-ted-white">
       <Form {...form}>
-        <form className="relative overflow-hidden bg-[#1E1E1E] w-4/5 flex flex-col gap-12 lg:gap-16 mx-auto p-8 lg:p-16 rounded-lg drop-shadow-[2px_4px_25px_rgba(75,75,75,0.5)] my-16">
+        <form className="relative mx-auto my-16 flex w-4/5 flex-col gap-12 overflow-hidden rounded-lg bg-[#1E1E1E] p-8 drop-shadow-[2px_4px_25px_rgba(75,75,75,0.5)] lg:gap-16 lg:p-16">
           <div className="flex flex-col gap-4">
-            <h2 className="text-2xl lg:text-5xl bg-gradient-to-r from-[#FDB10E] to-transparent w-fit via-transparent font-bold italic">
+            <h2 className="w-fit bg-gradient-to-r from-[#FDB10E] via-transparent to-transparent text-2xl font-bold italic lg:text-5xl">
               FORMULIR PENDAFTARAN
             </h2>
-            <p className="lg:text-3xl italic">
+            <p className="italic lg:text-3xl">
               Silakan isi formulir ini untuk menyelesaikan pendaftaran Anda
             </p>
           </div>
@@ -71,7 +71,7 @@ function RegisterPage(props: { session: Session | null }) {
           <Image
             src="/Contour.png"
             alt="Contour"
-            className="absolute -right-56 -top-44 lg:-right-96 lg:-top-80 w-[400px] h-[400px] lg:w-[750px] lg:h-[750px]"
+            className="absolute -right-56 -top-44 h-[400px] w-[400px] lg:-right-96 lg:-top-80 lg:h-[750px] lg:w-[750px]"
             width={750}
             height={750}
           />
@@ -79,7 +79,7 @@ function RegisterPage(props: { session: Session | null }) {
           <Image
             src="/Contour.png"
             alt="Contour"
-            className="absolute -right-56 -bottom-44 lg:-right-96 lg:-bottom-80 w-[400px] h-[400px] lg:w-[750px] lg:h-[750px]"
+            className="absolute -bottom-44 -right-56 h-[400px] w-[400px] lg:-bottom-80 lg:-right-96 lg:h-[750px] lg:w-[750px]"
             width={750}
             height={750}
           />

@@ -36,7 +36,7 @@ async function page() {
   return (
     <main className="overflow-hidden">
       <section className="text-ted-white">
-        <div className="relative w-screen min-h-[calc(100vh-98px)] py-5">
+        <div className="relative min-h-[calc(100vh-98px)] w-screen py-5">
           <Image
             src="/hero-main-event.png"
             fill
@@ -44,10 +44,10 @@ async function page() {
             className="z-10 object-cover"
           />
           <div className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 text-center lg:gap-12">
-            <h1 className="text-5xl lg:text-8xl drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] font-bold">
+            <h1 className="text-5xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
               TEDxITB 7.0
             </h1>
-            <h2 className="text-3xl lg:text-6xl drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] font-bold">
+            <h2 className="text-3xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
               The Impact Originator Hub
             </h2>
             <Link href={redirect}>
@@ -72,10 +72,10 @@ async function page() {
       </section>
 
       <section className="relative bg-[#1C1C1C] text-ted-white">
-        <h2 className="pt-16 stroke-ted-white text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+        <h2 className="stroke-ted-white pt-16 text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
           OUR TOPIC
         </h2>
-        <div className="p-16 flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-8 p-16">
           {allMainEventTopics.map((topic) => (
             <TopicCard
               title={topic.title}
@@ -92,7 +92,7 @@ async function page() {
           width={262}
           height={255}
           alt="Background Blur"
-          className="absolute -left-1/2 -top-32  sm:-left-64 sm:-top-64 w-[1000px]"
+          className="absolute -left-1/2 -top-32  w-[1000px] sm:-left-64 sm:-top-64"
         />
 
         <Image
@@ -100,7 +100,7 @@ async function page() {
           width={262}
           height={255}
           alt="Background Blur"
-          className="absolute -right-1/2 -bottom-40  sm:-right-96 sm:-bottom-56 w-[1000px]"
+          className="absolute -bottom-40 -right-1/2  w-[1000px] sm:-bottom-56 sm:-right-96"
         />
       </section>
 
@@ -116,7 +116,7 @@ async function page() {
             <h2 className="text-3xl font-bold lg:text-6xl">
               Networking Originator Lounge
             </h2>
-            <p className="leading-7 tracking-wide lg:text-lg font-thin">
+            <p className="font-thin leading-7 tracking-wide lg:text-lg">
               The Originators Lounge is your dedicated space to relax, mingle,
               and engage in meaningful conversations with fellow attendees.
               Here, you can be a part of the transformative energy that TEDxITB
@@ -198,7 +198,7 @@ async function page() {
             width={500}
             height={500}
             alt="Background Star"
-            className="absolute -right-4 w-[250px] lg:w-[500px] lg:right-4"
+            className="absolute -right-4 w-[250px] lg:right-4 lg:w-[500px]"
           />
 
           <div className="absolute top-0 h-8 w-full bg-gradient-to-b from-ted-black to-transparent"></div>

@@ -22,7 +22,7 @@ function TopicModal(props: {
             alt={props.image.alt}
             width={props.image.width}
             height={props.image.height}
-            className="mt-6 rounded-lg w-full aspect-[5/3] object-cover object-center"
+            className="mt-6 aspect-[5/3] w-full rounded-lg object-cover object-center"
           />
           <h2 className="text-2xl font-bold">{props.title}</h2>
           <div className="font-light">
