@@ -2,33 +2,23 @@ import BodyLayout from "./body-layout";
 import "./globals.css";
 import Footer from "@/components/ui/footer";
 import type { Viewport, Metadata } from "next";
-import { Montserrat, EB_Garamond } from "next/font/google";
 import localFont from "next/font/local";
 
-// Fonts
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500", "600", "700"],
-  variable: "--font-monsterrat",
-});
-
 const anderson = localFont({
-  src: "./fonts/AndersonGrotesk.otf",
+  src: "./fonts/anderson.otf",
   display: "swap",
   variable: "--font-anderson",
 });
 
 const laGraziela = localFont({
-  src: "./fonts/LaGraziela.otf",
+  src: "./fonts/lagraziela.otf",
   display: "swap",
   variable: "--font-graziela",
 });
 
-const garamond = EB_Garamond({
-  subsets: ["latin"],
+const garamond = localFont({
+  src: "./fonts/garamond.ttf",
   display: "swap",
-  weight: ["500", "600", "700", "400", "800"],
   variable: "--font-garamond",
 });
 
@@ -67,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.className} ${anderson.variable} ${laGraziela.variable} ${garamond.className}`}
+      className={`${anderson.variable} ${laGraziela.variable} ${garamond.className}`}
     >
       <BodyLayout>
         {children}
