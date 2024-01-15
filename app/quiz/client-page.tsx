@@ -128,14 +128,17 @@ const ClientPageTedQuiz = () => {
       {!start ? (
         <div className="relative flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center">
           <Image
-            src="/quiz/bg1.jpeg"
+            src="/quiz/bg1.jpg"
             alt="Background Image"
             fill
-            className="absolute z-[-10] object-cover object-left sm:object-center"
+            sizes="100vw"
+            className="absolute inset-0 z-0 object-cover object-center opacity-70"
           />
-          <div className="absolute bottom-0 left-0 right-0 top-0 z-[30] bg-black/50 backdrop-blur-sm" />
           <div className="z-[40] flex h-full w-full flex-col items-center justify-center gap-[40px] px-5 text-center sm:w-fit">
-            <h1 className="text-center font-garamond text-4xl font-medium tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+            <h1
+              data-aos="zoom-in-up"
+              className="text-center font-garamond text-4xl font-medium tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+            >
               <span className="mr-2 font-graziela text-6xl lg:text-8xl">W</span>
               <span>HICH </span>
               <span>TEDxITB </span>
@@ -147,6 +150,8 @@ const ClientPageTedQuiz = () => {
             </h1>
 
             <Input
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
               className="w-[80%] border-2 border-white bg-transparent font-anderson text-base leading-none text-white ring-offset-ted-black md:py-6 md:text-xl md:leading-none"
               placeholder="Enter your name here"
               type="text"
@@ -154,6 +159,8 @@ const ClientPageTedQuiz = () => {
               value={name}
             />
             <Button
+              data-aos="zoom-in-up"
+              data-aos-delay="250"
               className="px-8 py-3 text-base md:px-11 md:py-6 md:text-xl"
               onClick={handleStartQuiz}
             >

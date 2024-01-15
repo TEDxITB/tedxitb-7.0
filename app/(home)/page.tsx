@@ -30,10 +30,17 @@ const HomePage = () => {
         />
         <div className="flex w-[70%] flex-col items-center justify-center gap-8 lg:gap-12">
           <div className="flex w-full flex-col items-center justify-center gap-4 text-ted-white ">
-            <h1 className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
+            <h1
+              data-aos="zoom-in-up"
+              className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
+            >
               TEDxITB 7.0
             </h1>
-            <h2 className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+            <h2
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+            >
               <span className="mr-2 font-graziela text-5xl lg:text-8xl">T</span>
               <span>HE </span>
               <span>IMPACT </span>
@@ -42,7 +49,11 @@ const HomePage = () => {
               <span>HUB</span>
             </h2>
           </div>
-          <div className="z-10 flex w-full items-center justify-center">
+          <div
+            data-aos="zoom-in-up"
+            data-aos-delay="250"
+            className="z-10 flex w-full items-center justify-center"
+          >
             <Link href="/main-event">
               <Button
                 size="lg"
@@ -69,7 +80,10 @@ const HomePage = () => {
         <div className="z-10 flex w-full items-center justify-center px-[35px] pb-[75px] pt-[150px] sm:px-[50px] md:py-[200px]">
           <div className="flex w-full flex-col items-center justify-center gap-12 md:w-[80%] lg:w-[70%] lg:gap-16 ">
             {/* About TED */}
-            <section className="flex w-full flex-col items-center justify-center gap-[35px] rounded-lg bg-white bg-opacity-[0.05] p-[30px] font-anderson text-ted-white shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]">
+            <section
+              data-aos="fade-right"
+              className="flex w-full flex-col items-center justify-center gap-[35px] rounded-lg bg-white bg-opacity-[0.05] p-[30px] font-anderson text-ted-white shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]"
+            >
               <h4 className="w-full text-left text-3xl font-bold lg:text-5xl">
                 About TED
               </h4>
@@ -82,7 +96,10 @@ const HomePage = () => {
             </section>
 
             {/* About TEDx */}
-            <section className="flex w-full flex-col items-center justify-center gap-[35px] rounded-lg bg-white bg-opacity-[0.05] p-[30px] font-anderson text-ted-white shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)] ">
+            <section
+              data-aos="fade-left"
+              className="flex w-full flex-col items-center justify-center gap-[35px] rounded-lg bg-white bg-opacity-[0.05] p-[30px] font-anderson text-ted-white shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)] "
+            >
               <h4 className="w-full text-left text-3xl font-bold lg:text-5xl">
                 About TEDx
               </h4>
@@ -111,11 +128,17 @@ const HomePage = () => {
         <div className="z-10 flex w-full items-center justify-center px-[35px] py-[75px] sm:px-[50px] md:py-[200px]">
           <div className="relative flex w-full flex-col items-center justify-center gap-12 md:w-[80%] lg:w-[70%]">
             <div className="flex w-full flex-col items-start justify-start gap-3 text-white">
-              <h2 className="bg-gradient-to-r from-[#FEB20E] to-transparent to-50% font-anderson text-5xl font-bold italic tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
+              <h2
+                data-aos="fade-right"
+                className="bg-gradient-to-r from-[#FEB20E] to-transparent to-50% font-anderson text-5xl font-bold italic tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
+              >
                 TEDxITB 7.0
               </h2>
 
-              <h3 className="font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+              <h3
+                data-aos="fade-right"
+                className="font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+              >
                 <span className="mr-2 font-graziela text-5xl lg:text-8xl">
                   T
                 </span>
@@ -128,7 +151,10 @@ const HomePage = () => {
                 <span>HUB</span>
               </h3>
             </div>
-            <div className="flex w-full flex-col items-center justify-center gap-7 font-anderson">
+            <div
+              data-aos="fade-right"
+              className="flex w-full flex-col items-center justify-center gap-7 font-anderson"
+            >
               <p className="w-full text-left text-base text-white lg:text-2xl">
                 More than just a talk event where people seat-listen-leave.
               </p>
@@ -182,13 +208,19 @@ const HomePage = () => {
         <div className="z-10 flex w-full items-center justify-center px-[35px] py-[75px] sm:px-[50px] md:py-[200px]">
           <div className="flex w-full flex-col items-center justify-center gap-12 md:w-[80%] lg:w-[70%]">
             <div className="flex w-full items-center justify-center text-center">
-              <h3 className="font-anderson text-3xl font-bold text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-5xl">
+              <h3
+                data-aos="zoom-in-up"
+                className="font-anderson text-3xl font-bold text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-5xl"
+              >
                 Behind Our Logo
               </h3>
             </div>
             <div className="flex w-full flex-col items-center justify-center gap-12 md:gap-7 lg:flex-row">
               <div className="flex w-full flex-col items-start justify-center gap-12 md:flex-row md:gap-7">
-                <div className="flex min-h-[380px] w-full flex-col items-center justify-start gap-6 rounded-md md:min-h-[450px] md:gap-7">
+                <div
+                  data-aos="zoom-in-up"
+                  className="flex min-h-[380px] w-full flex-col items-center justify-start gap-6 rounded-md md:min-h-[450px] md:gap-7"
+                >
                   <div className="flex aspect-square w-full items-center justify-center rounded-md bg-white bg-opacity-5 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]">
                     <Image
                       width={1200}
@@ -202,7 +234,10 @@ const HomePage = () => {
                     TEDxITB 7.0: The Impact Orginator Hub
                   </p>
                 </div>
-                <div className="flex min-h-[380px] w-full flex-col items-center justify-start gap-6 rounded-md md:min-h-[450px] md:gap-7">
+                <div
+                  data-aos="zoom-in-up"
+                  className="flex min-h-[380px] w-full flex-col items-center justify-start gap-6 rounded-md md:min-h-[450px] md:gap-7"
+                >
                   <div className="flex aspect-square w-full items-center justify-center rounded-md bg-white bg-opacity-5 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]">
                     <Image
                       width={594}
@@ -219,7 +254,10 @@ const HomePage = () => {
               </div>
 
               <div className="flex w-full flex-col items-start justify-center gap-12 md:flex-row md:gap-7">
-                <div className="flex min-h-[380px] w-full flex-col items-center justify-start gap-6 rounded-md md:min-h-[450px] md:gap-7">
+                <div
+                  data-aos="zoom-in-up"
+                  className="flex min-h-[380px] w-full flex-col items-center justify-start gap-6 rounded-md md:min-h-[450px] md:gap-7"
+                >
                   <div className="flex aspect-square w-full items-center justify-center rounded-md bg-white bg-opacity-5 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]">
                     <Image
                       width={1200}
@@ -234,7 +272,10 @@ const HomePage = () => {
                     being a hub for people to connect
                   </p>
                 </div>
-                <div className="flex min-h-[380px] w-full flex-col items-center justify-start gap-6 rounded-md md:min-h-[450px] md:gap-7">
+                <div
+                  data-aos="zoom-in-up"
+                  className="flex min-h-[380px] w-full flex-col items-center justify-start gap-6 rounded-md md:min-h-[450px] md:gap-7"
+                >
                   <div className="flex aspect-square w-full items-center justify-center rounded-md bg-white bg-opacity-5 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]">
                     <Image
                       width={510}
@@ -268,7 +309,10 @@ const HomePage = () => {
             />
           </div>
         </div>
-        <div className="z-10 h-fit w-full py-[150px] md:py-[200px]">
+        <div
+          data-aos="zoom-in-up"
+          className="z-10 h-fit w-full py-[150px] md:py-[200px]"
+        >
           <Carousel />
         </div>
       </div>

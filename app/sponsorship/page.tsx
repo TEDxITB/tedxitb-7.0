@@ -43,18 +43,29 @@ export default async function Sponsorship() {
         {/* Content */}
         <div className="absolute flex h-full w-full flex-col items-start justify-center gap-8 p-6 font-garamond text-white sm:p-16 lg:gap-12 lg:p-28 2xl:p-36">
           <h1 className="tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)]">
-            <span className="font-garamond text-2xl font-medium lg:text-5xl">
+            <span
+              data-aos="fade-right"
+              className="font-garamond text-2xl font-medium lg:text-5xl"
+            >
               <span className="mr-2 font-graziela text-4xl lg:text-7xl">S</span>
               <span>PECIAL </span>
               <span>THANKS </span>
               <span>TO</span>
             </span>
             <br />
-            <span className="font-anderson text-5xl font-bold lg:text-8xl">
+            <span
+              data-aos="fade-right"
+              data-aos-delay="150"
+              className="font-anderson text-5xl font-bold lg:text-8xl"
+            >
               OUR SPONSORS
             </span>
           </h1>
-          <p className="font-anderson text-base tracking-wide lg:text-2xl">
+          <p
+            data-aos="fade-right"
+            data-aos-delay="250"
+            className="font-anderson text-base tracking-wide lg:text-2xl"
+          >
             Our success would not be possible without the continued support of
             these incredible partners.
           </p>
@@ -71,6 +82,7 @@ export default async function Sponsorship() {
               return (
                 <div
                   key={data.id}
+                  data-aos="zoom-in-up"
                   className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[155px] sm:w-[190px] sm:p-4 lg:h-[250px] lg:w-[300px] lg:p-6"
                 >
                   <Image
@@ -91,6 +103,7 @@ export default async function Sponsorship() {
               return (
                 <div
                   key={data.id}
+                  data-aos="zoom-in-up"
                   className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[125px] sm:w-[140px] sm:p-4 lg:h-[200px] lg:w-[225px]"
                 >
                   <Image
@@ -111,6 +124,7 @@ export default async function Sponsorship() {
               return (
                 <div
                   key={data.id}
+                  data-aos="zoom-in-up"
                   className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[95px] sm:w-[110px] sm:p-4 lg:h-[150px] lg:w-[175px]"
                 >
                   <Image
@@ -131,6 +145,7 @@ export default async function Sponsorship() {
               return (
                 <div
                   key={data.id}
+                  data-aos="zoom-in-up"
                   className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] lg:h-[115px] lg:w-[140px] lg:p-4"
                 >
                   <Image
@@ -147,7 +162,10 @@ export default async function Sponsorship() {
         </div>
 
         {/* Become Sponsor Section */}
-        <section className="z-20 flex w-full max-w-[650px] flex-col items-center justify-center gap-6 text-center font-anderson">
+        <section
+          data-aos="zoom-in-up"
+          className="z-20 flex w-full max-w-[650px] flex-col items-center justify-center gap-6 text-center font-anderson"
+        >
           <p className="font-anderson text-lg text-white lg:text-3xl">
             TEDxITB is made possibble thanks to the grate companies and
             community support

@@ -45,10 +45,17 @@ const DocumentationPage = async () => {
         {/* Text and button in the middle of the picture */}
         <div className=" z-20 flex h-full w-full flex-col items-center justify-center gap-8 text-white lg:gap-12">
           <div className="flex flex-col items-center gap-4">
-            <h1 className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] sm:uppercase lg:text-8xl">
+            <h1
+              data-aos="zoom-in-up"
+              className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] sm:uppercase lg:text-8xl"
+            >
               Documentation
             </h1>
-            <h2 className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+            <h2
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+            >
               <span className="mr-2 font-graziela text-5xl lg:text-8xl">E</span>
               <span>XPLORE </span>
               <span>OUR </span>
@@ -58,7 +65,7 @@ const DocumentationPage = async () => {
             </h2>
           </div>
 
-          <SeeMoreButton />
+          <SeeMoreButton data-aos="zoom-in-up" data-aos-delay="250" />
         </div>
       </section>
 
@@ -107,7 +114,11 @@ const DocumentationPage = async () => {
         />
 
         {/* Main part */}
-        <div className="z-20 h-full w-full">
+        <div
+          data-aos="zoom-in-up"
+          data-aos-delay="250"
+          className="z-20 h-full w-full"
+        >
           <PhotosCarousel images={carousel} />
         </div>
       </section>

@@ -137,7 +137,7 @@ async function Footer() {
                   alt="Tiktok"
                 />
               </Link>
-              <Link href="#">
+              <Link href="https://twitter.com/TEDxITB2023">
                 <Image
                   src="/icon/twitter-fill.svg"
                   className="h-11 w-11"

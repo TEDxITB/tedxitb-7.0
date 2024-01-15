@@ -223,17 +223,20 @@ const data = [
   },
 ];
 
-function ComingSoon() {
+function ComingSoon({ ...props }) {
   const [word, setWord] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   return (
-    <div className="mb-6 flex max-w-xs flex-col gap-2 text-center sm:max-w-sm md:max-w-lg lg:mb-24 lg:max-w-3xl xl:max-w-5xl">
+    <div
+      {...props}
+      className="mb-6 flex max-w-xs flex-col gap-2 text-center font-anderson sm:max-w-sm md:max-w-lg lg:mb-24 lg:max-w-3xl xl:max-w-5xl"
+    >
       <div className="self-center md:flex md:flex-row md:gap-1">
-        <p className="text-[13px] font-thin text-ted-white md:text-base lg:text-xl">
+        <p className="text-base font-thin text-ted-white md:text-base lg:text-2xl">
           In One Word,
         </p>
-        <h3 className="mb-2 text-ted-white lg:text-xl">
+        <h3 className="mb-2 text-base text-ted-white lg:text-2xl">
           What Do You Think Of <span className="text-ted-red">TEDx</span>ITB?
         </h3>
       </div>

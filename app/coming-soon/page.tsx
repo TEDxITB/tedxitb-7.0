@@ -5,36 +5,48 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "TEDxITB 7.0",
+  title: "Coming Soon | TEDxITB 7.0",
   openGraph: {
     ...openGraphTemplate,
-    title: "TEDxITB 7.0",
+    title: "Coming Soon | TEDxITB 7.0",
   },
   twitter: {
     ...twitterTemplate,
-    title: "TEDxITB 7.0",
+    title: "Coming Soon | TEDxITB 7.0",
   },
 };
 
 export default function Home() {
   return (
-    <main className="relative flex flex-auto flex-col items-center overflow-hidden px-6 py-20 font-anderson sm:p-12 lg:p-24">
-      <div className="mb-24 items-start text-center">
-        <Image
-          className="lg:w-[550px]"
-          alt="Ted X Logo"
-          src="/logo/tedxitb-logo-white-cropped.png"
-          width={320}
-          height={195}
-        />
-        <h1 className="mx-auto mt-10 w-fit bg-gradient-to-r from-ted-red to-ted-white bg-clip-text text-2xl font-bold text-transparent ease-in-out motion-safe:animate-bounce lg:mt-16 lg:text-4xl">
-          7.0 Is Coming Soon!
+    <main className="relative flex flex-auto flex-col items-center overflow-hidden px-6 py-20 text-white sm:p-12 lg:p-24">
+      <div className="mb-24 flex flex-col items-center gap-4 text-center lg:gap-8">
+        <h1
+          data-aos="zoom-in-up"
+          className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
+        >
+          <span className="text-ted-red">TEDx</span>
+          ITB 7.0
         </h1>
+        <h2
+          data-aos="zoom-in-up"
+          data-aos-delay="150"
+          className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+        >
+          <span className="mr-2 font-graziela text-5xl lg:text-8xl">C</span>
+          <span>OMING </span>
+          <span className="mr-2 font-graziela text-5xl lg:text-8xl">S</span>
+          <span>OON</span>
+          <span className="mr-2 font-graziela text-5xl lg:text-8xl">!</span>
+        </h2>
       </div>
 
-      <WordCloud />
+      <WordCloud data-aos="zoom-in-up" data-aos-delay="250" />
 
-      <div className="mb-8 mt-auto flex flex-col gap-4 text-center text-ted-white lg:gap-10">
+      <div
+        data-aos="zoom-in-up"
+        data-aos-delay="350"
+        className="mb-8 mt-auto flex flex-col gap-4 text-center font-anderson text-ted-white lg:gap-10"
+      >
         <h3 className="font-bold lg:text-4xl">Our Contact</h3>
         <ul className="flex flex-wrap items-center justify-center gap-5 sm:gap-12">
           <li>
@@ -96,17 +108,8 @@ export default function Home() {
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
         src="/coming-soon/bg.png"
         alt="Background Image"
-        width={1080}
-        height={720}
-      />
-
-      {/* Effect in Top Right */}
-      <Image
-        className="absolute -right-36 -top-14 -z-10 aspect-square w-[500px] opacity-10 sm:-right-48 sm:-top-56 lg:-right-60 lg:-top-80 lg:w-[800px]"
-        src="/decoration/effect1.png"
-        alt="Effect 1 Image"
-        width={1000}
-        height={1000}
+        width={1920}
+        height={1080}
       />
     </main>
   );
