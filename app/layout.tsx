@@ -11,7 +11,7 @@ const anderson = localFont({
 });
 
 const laGraziela = localFont({
-  src: "./fonts/lagraziela.otf",
+  src: "./fonts/LaGraziela.otf",
   display: "swap",
   variable: "--font-graziela",
 });
