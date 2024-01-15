@@ -5,6 +5,7 @@ import { getMagazines } from "./shared";
 import { Magazine } from "./shared";
 import Pagination from "@/components/ui/pagination";
 import { cn } from "@/lib/utils";
+import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -33,8 +34,9 @@ const CoverSection = ({
     </li>
   );
 };
+
 export const CatalogueSection = (setMagazine: MagazineSetter) => {
-  const [data, setData] = useState<Magazine[]>([]);
+  const [data, setData] = useState<Magazine[] | null>(null);
   const [page, setPage] = useState(1);
   const [showingPage, setShowingPageState] = useState(page);
   const containerRef = useRef<HTMLUListElement>(null);
@@ -98,7 +100,6 @@ export const CatalogueSection = (setMagazine: MagazineSetter) => {
       id="cover"
       className="bg-black text-white font-anderson overflow-hidden w-screen py-7 px-10 flex flex-col gap-2 items-center z-10 relative"
     >
-      {/* TODO: Apply each blur, instead using single image */}
       <Image
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-20"
         src={"/modalBackgroundType3.png"}
@@ -107,35 +108,48 @@ export const CatalogueSection = (setMagazine: MagazineSetter) => {
         height={720}
       />
 
-      <ul
-        ref={containerRef}
-        className={cn(
-          "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
-          showingPage != page
-            ? "opacity-0 scale-90 " +
+      {
+        data == null ?
+          <div className="w-full h-full flex justify-center items-center">
+            <Loader2 size={50} className="animate-spin" />
+          </div>
+
+          :
+
+          <ul
+            ref={containerRef}
+            className={cn(
+              "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
+              showingPage != page
+                ? "opacity-0 scale-90 " +
                 (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
-            : "opacity-100"
-        )}
-        style={{
-          gridTemplateColumns: `repeat(${col}, 1fr)`,
-          gridTemplateRows: `repeat(${row}, 1fr)`,
-        }}
-      >
-        {data
-          .slice((showingPage - 1) * count, showingPage * count)
-          .map((magazine) => (
-            <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
-          ))}
-      </ul>
+                : "opacity-100"
+            )}
+            style={{
+              gridTemplateColumns: `repeat(${col}, 1fr)`,
+              gridTemplateRows: `repeat(${row}, 1fr)`,
+            }}
+          >
+            {data
+              .slice((showingPage - 1) * count, showingPage * count)
+              .map((magazine) => (
+                <CoverSection key={magazine.title} {...{ magazine, setMagazine }} />
+              ))}
+          </ul>
+      }
 
       <div className="mt-auto [&>*]:bg-transparent">
-        <Pagination
-          currentPage={page}
-          setPage={setPage}
-          totalPages={Math.ceil(data.length / count)}
-          variant="primary"
-          control="icon"
-        />
+        {
+          data != null ?
+            <Pagination
+              currentPage={page}
+              setPage={setPage}
+              totalPages={Math.ceil(data.length / count)}
+              variant="primary"
+              control="icon"
+              loop={true}
+            /> : null
+        }
       </div>
     </section>
   );

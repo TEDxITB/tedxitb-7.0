@@ -9,7 +9,7 @@ import {
 } from "../shared";
 import "./style.css";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight, Loader, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader, Loader2, X } from "lucide-react";
 import Image from "next/image";
 import { Orientation, PageFlip } from "page-flip";
 import { useEffect, useRef, useState } from "react";
@@ -237,7 +237,7 @@ const Page = () => {
                   alt=""
                 />
                 <div className="z-10 text-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 peer-[data-loaded]:hidden">
-                  <Loader size={50} className="animate-spin" />
+                  <Loader2 size={50} className="animate-spin" />
                 </div>
               </div>
             ))}
