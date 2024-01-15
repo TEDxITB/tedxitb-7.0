@@ -1,5 +1,5 @@
-import ErrorPage from "../error/error";
-import NotFoundPage from "../not-found/not-found";
+import ErrorPage from "../error";
+import NotFoundPage from "../not-found";
 
 export default function Test() {
   return (
