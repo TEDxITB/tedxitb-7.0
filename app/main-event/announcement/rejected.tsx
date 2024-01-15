@@ -5,7 +5,7 @@ function Rejected(props: { name?: string }) {
     <div className="font-anderson text-ted-white">
       <div className="relative h-[700px] w-full">
         <Image
-          src="/impact-originator.png"
+          src="/main-event/impact-originator.png"
           alt="Impact Originator"
           fill
           className="object-cover"
@@ -31,7 +31,7 @@ function Rejected(props: { name?: string }) {
         </div>
 
         <Image
-          src="/tedxitb-7-logo-white-full.png"
+          src="/logo/x-logo-white-full-uncropped.png"
           width={175}
           height={190}
           alt="TEDxITB 7.0 Logo"

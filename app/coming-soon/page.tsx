@@ -23,7 +23,7 @@ export default function Home() {
         <Image
           className="lg:w-[550px]"
           alt="Ted X Logo"
-          src="/tedxitb-logo-white.png"
+          src="/logo/tedxitb-logo-white-cropped.png"
           width={320}
           height={195}
         />
@@ -46,7 +46,7 @@ export default function Home() {
                 <Image
                   className="p-2 lg:p-1"
                   alt="instagram"
-                  src="/instagram.svg"
+                  src="/icon/instagram-outline.svg"
                   width={32}
                   height={32}
                 />
@@ -63,7 +63,7 @@ export default function Home() {
                 <Image
                   className="p-2 lg:p-1"
                   alt="email"
-                  src="/email.svg"
+                  src="/icon/email-outline.svg"
                   width={32}
                   height={32}
                 />
@@ -80,7 +80,7 @@ export default function Home() {
                 <Image
                   className="p-2 lg:p-[6px]"
                   alt="tiktok"
-                  src="/tiktok.svg"
+                  src="/icon/tiktok-outline.svg"
                   width={32}
                   height={32}
                 />
@@ -94,7 +94,7 @@ export default function Home() {
       {/* Background Image */}
       <Image
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-        src="/background1.png"
+        src="/coming-soon/bg.png"
         alt="Background Image"
         width={1080}
         height={720}
@@ -103,7 +103,7 @@ export default function Home() {
       {/* Effect in Top Right */}
       <Image
         className="absolute -right-36 -top-14 -z-10 aspect-square w-[500px] opacity-10 sm:-right-48 sm:-top-56 lg:-right-60 lg:-top-80 lg:w-[800px]"
-        src="/effect1.png"
+        src="/decoration/effect1.png"
         alt="Effect 1 Image"
         width={1000}
         height={1000}

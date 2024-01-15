@@ -30,13 +30,17 @@ const HomePage = () => {
         />
         <div className="flex w-[70%] flex-col items-center justify-center gap-8 lg:gap-12">
           <div className="flex w-full flex-col items-center justify-center gap-4 text-ted-white ">
-            <h1 className="text-center font-anderson text-6xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
+            <h1 className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
               TEDxITB 7.0
             </h1>
-            <h3 className="text-center font-garamond text-4xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
-              <span className="mr-2 font-graziela text-6xl lg:text-8xl">T</span>
-              HE IMPACT ORIGINATOR HUB
-            </h3>
+            <h2 className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+              <span className="mr-2 font-graziela text-5xl lg:text-8xl">T</span>
+              <span>HE </span>
+              <span>IMPACT </span>
+              <span className="mr-2 font-graziela text-5xl lg:text-8xl">O</span>
+              <span>RIGINATOR </span>
+              <span>HUB</span>
+            </h2>
           </div>
           <div className="z-10 flex w-full items-center justify-center">
             <Link href="/main-event">
@@ -111,12 +115,18 @@ const HomePage = () => {
                 TEDxITB 7.0
               </h2>
 
-              <h4 className="text-left font-garamond text-2xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-5xl">
-                <span className="mr-2 font-graziela text-4xl lg:text-7xl">
+              <h3 className="font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
                   T
                 </span>
-                HE IMPACT ORIGINATOR HUB
-              </h4>
+                <span>HE </span>
+                <span>IMPACT </span>
+                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
+                  O
+                </span>
+                <span>RIGINATOR </span>
+                <span>HUB</span>
+              </h3>
             </div>
             <div className="flex w-full flex-col items-center justify-center gap-7 font-anderson">
               <p className="w-full text-left text-base text-white lg:text-2xl">

@@ -4,6 +4,7 @@ import { getCMSData, mainEventTopicQuery, mainEventTopicTags } from "@/lib/cms";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { startComingSoonAnnouncementDate } from "@/lib/special-date";
 import { MainEventTopicQueryResult } from "@/types/cms";
+import { MapPin } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,30 +39,41 @@ async function page() {
       <section className="text-ted-white">
         <div className="relative min-h-[calc(100vh-98px)] w-screen py-5">
           <Image
-            src="/hero-main-event.png"
+            src="/main-event/hero.png"
             fill
             alt="hero"
             className="z-10 object-cover"
           />
           <div className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 text-center lg:gap-12">
-            <h1 className="text-5xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
-              TEDxITB 7.0
-            </h1>
-            <h2 className="text-3xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
-              The Impact Originator Hub
-            </h2>
+            <div className="flex w-full flex-col items-center justify-center gap-4 text-ted-white ">
+              <h1 className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
+                MAIN EVENT
+              </h1>
+              <h2 className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
+                  T
+                </span>
+                <span>HE </span>
+                <span>IMPACT </span>
+                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
+                  O
+                </span>
+                <span>RIGINATOR </span>
+                <span>HUB</span>
+              </h2>
+            </div>
             <Link href={redirect}>
               {dateNow > startComingSoonAnnouncementDate ? (
                 <Button
                   size={"lg"}
-                  className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"
+                  className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
                 >
                   Announcement
                 </Button>
               ) : (
                 <Button
                   size={"lg"}
-                  className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"
+                  className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
                 >
                   Register Now
                 </Button>
@@ -88,32 +100,32 @@ async function page() {
         </div>
 
         <Image
-          src="/Blur1.png"
+          src="/decoration/blur1.png"
           width={262}
           height={255}
           alt="Background Blur"
-          className="absolute -left-1/2 -top-32  w-[1000px] sm:-left-64 sm:-top-64"
+          className="absolute -left-1/2 -top-32 w-[1000px] sm:-left-64 sm:-top-64"
         />
 
         <Image
-          src="/Blur2.png"
+          src="/decoration/blur2.png"
           width={262}
           height={255}
           alt="Background Blur"
-          className="absolute -bottom-40 -right-1/2  w-[1000px] sm:-bottom-56 sm:-right-96"
+          className="absolute -bottom-40 -right-1/2 w-[1000px] sm:-bottom-56 sm:-right-96"
         />
       </section>
 
       <section className="font-anderson text-ted-white shadow-inner">
         <div className="relative h-[550px] w-full bg-gradient-to-r from-[#7D0A0A] to-[#EAD196]">
           <Image
-            src="/networking-originator-lounge.png"
+            src="/main-event/networking-originator-lounge.png"
             alt="Networking Originator Lounge"
             fill
             className="object-cover pt-[1px]"
           />
           <div className="absolute left-1/2 top-1/2 flex min-w-[300px] max-w-[1000px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 text-center lg:gap-12">
-            <h2 className="text-3xl font-bold lg:text-6xl">
+            <h2 className="text-3xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
               Networking Originator Lounge
             </h2>
             <p className="font-thin leading-7 tracking-wide lg:text-lg">
@@ -133,14 +145,14 @@ async function page() {
       <section className="font-anderson text-ted-white">
         <div className="relative h-[1000px] w-full">
           <Image
-            src="/impact-originator.png"
+            src="/main-event/impact-originator.png"
             alt="Impact Originator"
             fill
             className="object-cover"
           />
 
           <div className="absolute left-1/2 top-1/2 flex min-w-[320px] max-w-[1000px] -translate-x-1/2 -translate-y-1/2 flex-col gap-8 lg:left-0 lg:top-0 lg:mx-24 lg:mt-20 lg:-translate-x-0 lg:-translate-y-0 lg:gap-12">
-            <div className="flex flex-col font-bold italic">
+            <div className="flex flex-col font-bold italic drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)]">
               <h2 className="text-2xl lg:text-5xl">READY TO BE PART OF</h2>
               <h2 className="bg-gradient-to-r from-ted-red to-transparent text-3xl lg:text-6xl">
                 IMPACT ORIGINATOR?
@@ -151,13 +163,7 @@ async function page() {
               15.00 - 20.30
             </p>
             <div className="flex gap-2 align-middle">
-              <Image
-                src="/location-icon.svg"
-                alt="Location"
-                width={16}
-                height={16}
-                className="h-4 w-4 lg:h-8 lg:w-8"
-              />
+              <MapPin className="h-4 w-4 lg:h-8 lg:w-8" />
               <p className="lg:text-2xl">
                 The House Convention Hall, Paskal 23
               </p>
@@ -194,7 +200,7 @@ async function page() {
           </div>
 
           <Image
-            src="/mesh.png"
+            src="/decoration/mesh.png"
             width={500}
             height={500}
             alt="Background Star"

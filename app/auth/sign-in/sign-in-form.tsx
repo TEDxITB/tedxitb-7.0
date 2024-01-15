@@ -131,7 +131,12 @@ const SignInForm = () => {
             })
           }
         >
-          <Image alt="Google Logo" src="/google.svg" width={20} height={20} />
+          <Image
+            alt="Google Logo"
+            src="/icon/google.svg"
+            width={20}
+            height={20}
+          />
           <span className="ml-2">Continue with Google</span>
         </Button>
       </div>

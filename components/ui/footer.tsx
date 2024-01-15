@@ -21,7 +21,7 @@ async function Footer() {
       <div className="absolute inset-0">
         <Image
           className="object-cover"
-          src="/background1.png"
+          src="/components/bg-footer.png"
           fill
           alt="background"
         />
@@ -29,7 +29,7 @@ async function Footer() {
 
       <div className="relative z-10 flex flex-col gap-8 p-8 text-ted-white md:hidden">
         <Image
-          src="/tedxitb-logo-white-cropped.png"
+          src="/logo/tedxitb-logo-white-cropped.png"
           width={200}
           height={200}
           alt="logo"
@@ -77,7 +77,7 @@ async function Footer() {
           <div className="flex gap-4">
             <Link href="https://www.tiktok.com/@tedxitb">
               <Image
-                src="/TikTok_new.svg"
+                src="/icon/tiktok-fill.svg"
                 className="h-10 w-10"
                 width={32}
                 height={32}
@@ -86,7 +86,7 @@ async function Footer() {
             </Link>
             <Link href="https://twitter.com/TEDxITB2023">
               <Image
-                src="/TwitterX.svg"
+                src="/icon/twitter-fill.svg"
                 className="h-10 w-10"
                 width={32}
                 height={32}
@@ -98,7 +98,7 @@ async function Footer() {
             </Link>
             <Link href="https://www.linkedin.com/company/tedxitb/">
               <Image
-                src="/LinkedIn.svg"
+                src="/icon/linkedin-fill.svg"
                 className="h-10 w-10"
                 width={32}
                 height={32}
@@ -107,7 +107,7 @@ async function Footer() {
             </Link>
             <Link href="https://www.instagram.com/tedxitb/">
               <Image
-                src="/Instagram_new.svg"
+                src="/icon/instagram-fill.svg"
                 className="h-10 w-10"
                 width={32}
                 height={32}
@@ -122,7 +122,7 @@ async function Footer() {
         <div className="mb-16 flex p-4 md:gap-8 lg:gap-24 lg:p-16 xl:gap-48">
           <div className="flex flex-col gap-6">
             <Image
-              src="/tedxitb-logo-white-cropped.png"
+              src="/logo/tedxitb-logo-white-cropped.png"
               width={300}
               height={300}
               alt="logo"
@@ -130,7 +130,7 @@ async function Footer() {
             <div className="flex gap-2">
               <Link href="https://www.tiktok.com/@tedxitb">
                 <Image
-                  src="/TikTok_new.svg"
+                  src="/icon/tiktok-fill.svg"
                   className="h-11 w-11"
                   width={32}
                   height={32}
@@ -139,7 +139,7 @@ async function Footer() {
               </Link>
               <Link href="#">
                 <Image
-                  src="/TwitterX.svg"
+                  src="/icon/twitter-fill.svg"
                   className="h-11 w-11"
                   width={32}
                   height={32}
@@ -151,7 +151,7 @@ async function Footer() {
               </Link>
               <Link href="https://www.linkedin.com/company/tedxitb/">
                 <Image
-                  src="/LinkedIn.svg"
+                  src="/icon/linkedin-fill.svg"
                   className="h-11 w-11"
                   width={32}
                   height={32}
@@ -160,7 +160,7 @@ async function Footer() {
               </Link>
               <Link href="https://www.instagram.com/tedxitb/">
                 <Image
-                  src="/Instagram_new.svg"
+                  src="/icon/instagram-fill.svg"
                   className="h-11 w-11"
                   width={32}
                   height={32}

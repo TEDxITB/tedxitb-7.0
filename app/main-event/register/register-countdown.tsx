@@ -6,7 +6,7 @@ function RegisCountdown(props: { regisDate: number }) {
     <div className="font-anderson text-ted-white">
       <div className="relative h-[calc(100vh-104px)] w-full">
         <Image
-          src="/impact-originator.png"
+          src="/main-event/impact-originator.png"
           alt="Impact Originator"
           fill
           className="object-cover"
@@ -25,7 +25,7 @@ function RegisCountdown(props: { regisDate: number }) {
         </div>
 
         <Image
-          src="/tedxitb-7-logo-white-full.png"
+          src="/logo/x-logo-white-full-uncropped.png"
           width={175}
           height={190}
           alt="TEDxITB 7.0 Logo"

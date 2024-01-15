@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { authOptions } from "@/lib/auth-options";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { type Metadata } from "next";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Verify Request | TEDxITB 7.0",
@@ -17,12 +20,17 @@ export const metadata: Metadata = {
 };
 
 const VerifyRequestPage = async () => {
+  const session = await getServerSession(authOptions);
+  if (session) {
+    redirect("/");
+  }
+
   return (
     <main className="relative flex h-full min-h-[calc(100vh-96px)] flex-auto items-center justify-center overflow-hidden p-5 py-16 font-anderson sm:p-16 lg:p-24">
       {/* Background Image */}
       <Image
         className="absolute inset-0 h-full w-full object-cover object-center"
-        src="/bg-tedx-sign-in-2.jpg"
+        src="/auth/bg-auth-2.jpg"
         alt="Background Image"
         fill={true}
         sizes="100vw"
@@ -44,7 +52,7 @@ const VerifyRequestPage = async () => {
           {/* Top Left Star*/}
           <Image
             className="pointer-events-none absolute -left-6 -top-6 w-24 opacity-5 lg:-left-28 lg:-top-20 lg:w-64"
-            src="/star.png"
+            src="/decoration/star.png"
             alt="Star Decoration"
             width={262}
             height={255}
@@ -53,7 +61,7 @@ const VerifyRequestPage = async () => {
           {/* Top Right Star */}
           <Image
             className="pointer-events-none absolute -right-12 -top-12 w-32 opacity-5 lg:right-24 lg:top-16 lg:w-14"
-            src="/star.png"
+            src="/decoration/star.png"
             alt="Star Decoration"
             width={262}
             height={255}
@@ -62,7 +70,7 @@ const VerifyRequestPage = async () => {
           {/* Middle Right Star */}
           <Image
             className="pointer-events-none absolute -right-12 top-52 w-24 opacity-5 lg:-right-16 lg:top-48 lg:w-32"
-            src="/star.png"
+            src="/decoration/star.png"
             alt="Star Decoration"
             width={262}
             height={255}
@@ -71,7 +79,7 @@ const VerifyRequestPage = async () => {
           {/* Left Middle X Logo */}
           <Image
             className="pointer-events-none absolute bottom-32 left-8 w-16 opacity-25 lg:bottom-36"
-            src="/tedxitb-7-logo-red-half-left.png"
+            src="/logo/x-logo-red-left-cropped.png"
             alt="TEDxITB 7.0 Logo Half Left"
             width={510}
             height={427}
@@ -80,7 +88,7 @@ const VerifyRequestPage = async () => {
           {/* Right Bottom X Logo */}
           <Image
             className="pointer-events-none absolute bottom-8 right-8 w-28 opacity-25 lg:right-20 lg:w-36"
-            src="/tedxitb-7-logo-red-full.png"
+            src="/logo/x-logo-red-full-cropped.png"
             alt="TEDxITB 7.0 Logo Full"
             width={1200}
             height={765}

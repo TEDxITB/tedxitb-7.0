@@ -69,7 +69,7 @@ function RegisterPage(props: { session: Session | null }) {
           </FileUploadContext.Provider>
 
           <Image
-            src="/Contour.png"
+            src="/decoration/contour.png"
             alt="Contour"
             className="absolute -right-56 -top-44 h-[400px] w-[400px] lg:-right-96 lg:-top-80 lg:h-[750px] lg:w-[750px]"
             width={750}
@@ -77,7 +77,7 @@ function RegisterPage(props: { session: Session | null }) {
           />
 
           <Image
-            src="/Contour.png"
+            src="/decoration/contour.png"
             alt="Contour"
             className="absolute -bottom-44 -right-56 h-[400px] w-[400px] lg:-bottom-80 lg:-right-96 lg:h-[750px] lg:w-[750px]"
             width={750}

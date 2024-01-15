@@ -401,25 +401,25 @@ function FirstPage({
           <p>Contoh</p>
           <div className="flex gap-8 overflow-x-scroll pb-4">
             <Image
-              src="/example-1.jpg"
+              src="/main-event/example-1.jpg"
               alt="Example"
               width={100}
               height={100}
             />
             <Image
-              src="/example-2.jpg"
+              src="/main-event/example-2.jpg"
               alt="Example"
               width={100}
               height={100}
             />
             <Image
-              src="/example-3.jpg"
+              src="/main-event/example-3.jpg"
               alt="Example"
               width={100}
               height={100}
             />
             <Image
-              src="/example-4.jpg"
+              src="/main-event/example-4.jpg"
               alt="Example"
               width={100}
               height={100}

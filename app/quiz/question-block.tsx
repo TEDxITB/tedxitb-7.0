@@ -148,8 +148,8 @@ const QuestionBlock = ({
   return (
     <div className="relative flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center">
       <Image
-        src="/ted-quiz-bg-2.png"
-        alt="bg-2"
+        src="/quiz/bg2.png"
+        alt="Background Image"
         fill
         className="absolute z-[-10] object-cover object-center"
       />

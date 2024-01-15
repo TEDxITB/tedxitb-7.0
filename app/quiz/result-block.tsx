@@ -4,25 +4,25 @@ const results = {
   creative: {
     title: "The Creative",
     desc: "The Creative personality type is likely characterized by a strong inclination towards imagination, originality, and artistic expression. Creatives often enjoy exploring new ideas, thinking outside the box, and engaging in various forms of artistic and creative endeavors.",
-    bg: "/ted-quiz-creative.png",
+    bg: "/quiz/creative.png",
     video: "https://www.youtube.com/embed/D2FSRiJdqho?si=efxBbiAl_tlqOr4b",
   },
   social: {
     title: "The Social",
     desc: "The Social personality type may be associated with individuals who are sociable, outgoing, and enjoy social interactions. They might be skilled at building and maintaining relationships, and they may thrive in group settings and social activities.",
-    bg: "/ted-quiz-social.png",
+    bg: "/quiz/social.png",
     video: "https://www.youtube.com/embed/Kr7lP1z8UCw?si=bUpbBsaO_V2CW4Ec",
   },
   scientist: {
     title: "The Scientist",
     desc: "The Scientist personality type could be described as analytical, logical, and detail-oriented. People with this personality might have a strong interest in understanding and explaining the world through systematic observation and analysis.",
-    bg: "/ted-quiz-scientist.png",
+    bg: "/quiz/scientist.png",
     video: "https://www.youtube.com/embed/i-UAhK-vfQw?si=I8mbu68wzILel-Yi",
   },
   director: {
     title: "The Director",
     desc: "This personality type might be characterized as someone who is assertive, goal-oriented, and takes charge in various situations. Directors are often seen as leaders and decision-makers, and they tend to be driven and focused on achieving their objectives.",
-    bg: "/ted-quiz-director.png",
+    bg: "/quiz/director.png",
     video: "https://www.youtube.com/embed/2YM7rc29uW8?si=Xc9FFngg0vuAmFMI",
   },
 };
@@ -37,55 +37,39 @@ const ResultBlock = ({
   const Title = () => {
     if (resType === "creative") {
       return (
-        <h2 className="font-garamond text-[30px] italic md:text-[41px]">
-          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
-            T
-          </label>
-          he{" "}
-          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
-            C
-          </label>
-          reative
-        </h2>
+        <h1 className="text-center font-garamond text-4xl font-medium tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+          <span className="mr-2 font-graziela text-6xl lg:text-8xl">T</span>
+          <span>HE </span>
+          <span className="mr-2 font-graziela text-6xl lg:text-8xl">C</span>
+          <span>REATIVE</span>
+        </h1>
       );
     } else if (resType === "scientist") {
       return (
-        <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
-            T
-          </label>
-          he{" "}
-          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
-            S
-          </label>
-          cientist
-        </h2>
+        <h1 className="text-center font-garamond text-4xl font-medium tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+          <span className="mr-2 font-graziela text-6xl lg:text-8xl">T</span>
+          <span>HE </span>
+          <span className="mr-2 font-graziela text-6xl lg:text-8xl">S</span>
+          <span>CIENTIST</span>
+        </h1>
       );
     } else if (resType === "director") {
       return (
-        <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
-            T
-          </label>
-          he{" "}
-          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
-            D
-          </label>
-          irector
-        </h2>
+        <h1 className="text-center font-garamond text-4xl font-medium tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+          <span className="mr-2 font-graziela text-6xl lg:text-8xl">T</span>
+          <span>HE </span>
+          <span className="mr-2 font-graziela text-6xl lg:text-8xl">D</span>
+          <span>IRECTOR</span>
+        </h1>
       );
     } else if (resType === "social") {
       return (
-        <h2 className="font-garamond text-[41px] italic">
-          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
-            T
-          </label>
-          he{" "}
-          <label className="font-graziela text-[48px] not-italic md:text-[75px]">
-            S
-          </label>
-          ocial
-        </h2>
+        <h1 className="text-center font-garamond text-4xl font-medium tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+          <span className="mr-2 font-graziela text-6xl lg:text-8xl">T</span>
+          <span>HE </span>
+          <span className="mr-2 font-graziela text-6xl lg:text-8xl">S</span>
+          <span>OCIAL</span>
+        </h1>
       );
     }
   };
@@ -93,14 +77,14 @@ const ResultBlock = ({
     <div className="relative flex h-fit w-screen items-center justify-center px-4 pb-20 pt-36">
       <Image
         src={res.bg}
-        alt="bg-result"
+        alt="Result Background Image"
         fill
         className="absolute z-[-10] object-cover object-center"
       />
       <div className="absolute bottom-0 left-0 right-0 top-0 z-[10] md:hidden">
         <Image
-          src="/ted-quiz-bg-2.png"
-          alt="bg-2"
+          src="/quiz/bg2.png"
+          alt="Background Image"
           fill
           className="absolute object-cover object-center"
         />
