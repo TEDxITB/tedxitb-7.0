@@ -39,7 +39,7 @@ const DocumentationPage = async () => {
 
       {/* Photos documentation using carousel */}
       <section
-        className="flex flex-col items-center justify-center py-16 lg:py-28 relative overflow-hidden"
+        className="relative flex flex-col items-center justify-center overflow-hidden py-16 lg:py-28"
         id="carousel"
       >
         {/* Top Right Gradient Decoration */}
@@ -48,7 +48,7 @@ const DocumentationPage = async () => {
           alt="Blur Decoration"
           width={1440}
           height={1097}
-          className="absolute -right-24 -bottom-8 w-72 opacity-20 lg:-right-40 lg:-bottom-52 lg:w-[700px]"
+          className="absolute -bottom-8 -right-24 w-72 opacity-20 lg:-bottom-52 lg:-right-40 lg:w-[700px]"
         />
 
         {/* Right Logo */}
@@ -82,7 +82,7 @@ const DocumentationPage = async () => {
         />
 
         {/* Main part */}
-        <div className="w-full h-full z-20">
+        <div className="z-20 h-full w-full">
           <PhotosCarousel images={carousel} />
         </div>
       </section>

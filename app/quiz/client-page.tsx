@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -125,7 +126,13 @@ const ClientPageTedQuiz = () => {
   return (
     <>
       {!start ? (
-        <div className="relative flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center bg-[url('/ted-quiz-bg.jpeg')] bg-cover bg-left bg-no-repeat sm:bg-center">
+        <div className="relative flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center">
+          <Image
+            src="/ted-quiz-bg.jpeg"
+            alt="bg"
+            fill
+            className="absolute z-[-10] object-cover object-left sm:object-center"
+          />
           <div className="absolute bottom-0 left-0 right-0 top-0 z-[30] bg-black/50 backdrop-blur-sm" />
           <div className="z-[40] flex h-full w-full flex-col items-center justify-center gap-[40px] px-5 text-center sm:w-fit">
             <h2 className="text-center font-garamond text-[32px] italic text-white lg:text-[50px]">
