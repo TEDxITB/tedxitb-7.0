@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -125,39 +126,41 @@ const ClientPageTedQuiz = () => {
   return (
     <>
       {!start ? (
-        <div className="relative flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center bg-[url('/ted-quiz-bg.jpeg')] bg-cover bg-left bg-no-repeat sm:bg-center">
-          <div className="absolute bottom-0 left-0 right-0 top-0 z-[30] bg-black/50 backdrop-blur-sm" />
+        <div className="relative flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center">
+          <Image
+            src="/quiz/bg1.jpg"
+            alt="Background Image"
+            fill
+            sizes="100vw"
+            className="absolute inset-0 z-0 object-cover object-center opacity-70"
+          />
           <div className="z-[40] flex h-full w-full flex-col items-center justify-center gap-[40px] px-5 text-center sm:w-fit">
-            <h2 className="text-center font-garamond text-[32px] italic text-white lg:text-[50px]">
-              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
-                W
-              </span>
-              hich{" "}
-              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
-                T
-              </span>
-              EDxITB{" "}
-              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
-                T
-              </span>
-              alks{" "}
-              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
-                A
-              </span>
-              re{" "}
-              <span className="font-graziela text-[50px] font-[550] lg:text-[70px]">
-                Y
-              </span>
-              ou?
-            </h2>
+            <h1
+              data-aos="zoom-in-up"
+              className="text-center font-garamond text-4xl font-medium tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+            >
+              <span className="mr-2 font-graziela text-6xl lg:text-8xl">W</span>
+              <span>HICH </span>
+              <span>TEDxITB </span>
+              <span className="mr-2 font-graziela text-6xl lg:text-8xl">T</span>
+              <span>ALKS </span>
+              <span>ARE </span>
+              <span className="mr-2 font-graziela text-6xl lg:text-8xl">Y</span>
+              <span>OU?</span>
+            </h1>
+
             <Input
-              className="w-[80%] border-2 border-white bg-transparent px-2 pb-2 pt-3 font-anderson text-base text-white ring-offset-ted-black md:px-4 md:pb-5 md:pt-6 md:text-xl md:leading-none"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              className="w-[80%] border-2 border-white bg-transparent font-anderson text-base leading-none text-white ring-offset-ted-black md:py-6 md:text-xl md:leading-none"
               placeholder="Enter your name here"
               type="text"
               onChange={(e) => setName(e.target.value)}
               value={name}
             />
             <Button
+              data-aos="zoom-in-up"
+              data-aos-delay="250"
               className="px-8 py-3 text-base md:px-11 md:py-6 md:text-xl"
               onClick={handleStartQuiz}
             >

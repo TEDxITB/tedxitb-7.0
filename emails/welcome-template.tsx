@@ -52,7 +52,7 @@ export default function WelcomeEMail() {
             <Section className="flex flex-col items-center justify-center">
               <Container className="relative h-[100px] w-[300px]" content="">
                 <Img
-                  src="https://tedxitb.id/tedxitb-logo-black.png"
+                  src="https://tedxitb.id/logo/tedxitb-logo-black-cropped.png"
                   alt="TEDxITB Logo"
                   width={300}
                   height={150}

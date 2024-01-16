@@ -119,9 +119,9 @@ const SignInForm = () => {
       {/* Google */}
       <div className="mt-5 flex flex-col">
         <Button
-          variant="outline"
+          variant="secondary"
           size="lg"
-          className="w-full bg-transparent"
+          className="w-full"
           type="button"
           disabled={isSubmitting}
           onClick={() =>
@@ -131,7 +131,12 @@ const SignInForm = () => {
             })
           }
         >
-          <Image alt="Google Logo" src="/google.svg" width={20} height={20} />
+          <Image
+            alt="Google Logo"
+            src="/icon/google.svg"
+            width={20}
+            height={20}
+          />
           <span className="ml-2">Continue with Google</span>
         </Button>
       </div>

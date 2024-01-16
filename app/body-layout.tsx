@@ -7,6 +7,8 @@ import {
   PostHogIdentifyOrReset,
   PostHogPageview,
 } from "@/lib/posthog-client";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { SessionProvider } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
@@ -20,6 +22,18 @@ const BodyLayout = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     setIsNavBarActive(false);
   }, [pathname]);
+
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      delay: 50,
+      duration: 500,
+      once: true,
+      easing: "ease-out",
+      anchorPlacement: "top-bottom",
+      mirror: false,
+    });
+  }, []);
 
   return (
     <SessionProvider>

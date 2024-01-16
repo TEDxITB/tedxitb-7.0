@@ -46,13 +46,16 @@ export default function NavBar({
   const { data: session } = useSession();
 
   return (
-    <nav className="sticky left-0 right-0 top-0 z-[50] flex w-full flex-col border-b-2 border-slate-800 bg-black font-anderson text-white">
+    <nav
+      className="sticky left-0 right-0 top-0 z-[50] flex w-full flex-col border-b-2 border-slate-800 bg-black font-anderson text-white"
+      id="navbar"
+    >
       <div className="flex h-24 flex-row items-center justify-between px-7 xl:px-14">
         <div className="relative flex lg:align-middle">
           <Link href={"/"}>
             <Image
               className="static h-9 w-auto object-contain xl:h-10"
-              src={"/tedxitb-7-logo-red-full.png"}
+              src={"/logo/x-logo-red-full-cropped.png"}
               alt="Logo"
               width={200}
               height={100}
@@ -88,7 +91,7 @@ export default function NavBar({
             <div className="absolute -z-50 h-full w-full overflow-hidden border-l-2 border-slate-800 lg:hidden">
               <Image
                 className="absolute"
-                src="/header-mobile-bubble.png"
+                src="/components/bubble-navbar.png"
                 width={200}
                 height={100}
                 alt="Bubble"
