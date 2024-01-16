@@ -68,10 +68,9 @@ async function Footer() {
         </div>
         <div className="flex flex-col gap-1">
           <p className="underline">LEGAL</p>
-          <Link href="#">Terms of Service</Link>
-          <Link href="#">Privacy Policy</Link>
+          <Link href="/terms-service">Terms of Service</Link>
+          <Link href="/privacy-policy">Privacy Policy</Link>
           <Link href="/sitemap.xml">Sitemap</Link>
-          <Link href="#">Security</Link>
         </div>
         <div className="flex flex-col gap-2">
           <p className="underline">FOLLOW US</p>
@@ -197,16 +196,13 @@ async function Footer() {
           <p>@ 2023 TEDxITB 7.0. All rights reserved.</p>
           <ul className="flex gap-8">
             <li className="underline-offset-2 hover:underline">
-              <Link href="#">Terms of Service</Link>
+              <Link href="/terms-service">Terms of Service</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="#">Privacy Policy</Link>
+              <Link href="/privacy-policy">Privacy Policy</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
               <Link href="/sitemap.xml">Sitemap</Link>
-            </li>
-            <li className="underline-offset-2 hover:underline">
-              <Link href="#">Security</Link>
             </li>
           </ul>
         </div>
