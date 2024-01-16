@@ -144,39 +144,24 @@ function ClickablePhoto({
   return (
     <Dialog onOpenChange={() => setIsPhotoOpen((state) => !state)}>
       <DialogTrigger>
-        <div className="flex aspect-video w-full items-center justify-center p-1 shadow-md">
-          <Card className="relative h-full w-full">
-            <CardContent className="flex h-full w-full items-center justify-center p-0">
-              <Image
-                className="h-full w-full rounded-lg object-cover object-center lg:max-h-[70vh] lg:max-w-[70vh]"
-                src={image.url}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-              />
-            </CardContent>
-          </Card>
-        </div>
+        <Image
+          className="aspect-video h-full w-full rounded-lg object-cover object-center shadow-md"
+          src={image.url}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+        />
       </DialogTrigger>
 
       {/* Added customCLoseButton so that the dialog component doesn't affect any other page that also using the dialog component */}
-      <DialogContent
-        className="max-w-screen aspect-auto min-w-[40%] p-0 max-lg:min-w-full"
-        customCloseButton
-      >
-        <div className=" w-full shadow-md">
-          <Card className="relative h-full w-full">
-            <CardContent className="flex items-center justify-center">
-              <Image
-                className="w-full rounded object-cover object-center"
-                src={image.url}
-                alt={image.alt}
-                height={image.height}
-                width={image.width}
-              />
-            </CardContent>
-          </Card>
-        </div>
+      <DialogContent className="w-full p-0 sm:max-w-[70vw]" customCloseButton>
+        <Image
+          className="aspect-video w-full rounded object-cover object-center shadow-md"
+          src={image.url}
+          alt={image.alt}
+          height={image.height}
+          width={image.width}
+        />
         <DialogPrimitive.Close className="absolute right-4 top-4 opacity-70 ring-offset-background transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
           <X className={`h-6 w-6 rounded-full bg-stone-500 stroke-white`} />
           <span className="sr-only">Close</span>
