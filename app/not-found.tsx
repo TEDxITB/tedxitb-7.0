@@ -1,57 +1,83 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
+import { type Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Error 404 | TEDxITB 7.0",
+  openGraph: {
+    ...openGraphTemplate,
+    title: "Error 404 | TEDxITB 7.0",
+  },
+  twitter: {
+    ...twitterTemplate,
+    title: "Error 404 | TEDxITB 7.0",
+  },
+};
 
 export default function NotFoundPage() {
   return (
-    <main className="relative flex h-full min-h-[calc(100vh-96px)] items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute flex flex-col items-center lg:flex-row lg:justify-between h-full w-full object-cover bg-[#1E1E1E]">
-        <Image
-          className="lg:order-1 blur-lg opacity-40 mb-24 lg:ml-20 lg:my-0 lg:w-2/5"
-          src="/gradient-2.jpg"
-          alt="gradient"
-          width={400}
-          height={400}
-        />
-
-        <Image
-          className="blur-2xl opacity-20 w-80 lg:w-1/3 -ml-40 lg:my-20"
-          src="/gradient-1.jpg"
-          alt="gradient"
-          width={600}
-          height={600}
-        />
-      </div>
-
+    <main className="flex h-full min-h-[calc(100vh-96px)] items-center justify-center overflow-hidden bg-[#1E1E1E] px-6 py-12 sm:p-16 lg:p-24">
       {/* Container */}
-      <div className="z-10 m-12 flex flex-col lg:flex-row items-center">
+      <section className="z-10 flex flex-col items-center gap-6 md:flex-row-reverse lg:gap-12 xl:gap-16 2xl:gap-20">
+        {/* Error Decoration */}
         <Image
-          className="lg:order-1 lg:w-1/2"
-          src="/astro-error.svg"
-          alt="Astro Image"
-          width={200}
-          height={100}
+          className="w-full sm:max-w-xs lg:max-w-sm xl:max-w-md 2xl:max-w-xl"
+          src="/error/404.png"
+          alt="Error Decoration"
+          width={1746}
+          height={1211}
         />
 
-        <div className="text-white flex flex-col items-center lg:items-start">
-          <div>
-            <p className="font-anderson italic text-2xl lg:text-4xl xl:text-6xl my-10">
-              Error 404
-              <br />
-              Not Found
-            </p>
-            <p className="font-anderson text-base xl:text-xl lg:mr-24 xl:mr-36">
-              Oops! You&apos;ve stumbled upon a digital dead-end. Our digital
-              guides are on the case to reunite you with the missing content.
-              While we work our magic, feel free to explore elsewhere in our
-              virtual universe or hit the back button to return.
+        {/* Content */}
+        <div className="relative flex w-full max-w-2xl flex-col items-center gap-6 text-white md:items-start lg:gap-9">
+          {/* Background Decoration*/}
+          <Image
+            className="absolute -left-16 -top-12 z-0 w-80 max-w-none md:w-96 lg:-left-28 lg:-top-20 lg:w-[600px] xl:-left-36 xl:-top-28 xl:w-[800px]"
+            src="/decoration/blur1.png"
+            alt="Blur Decoration 1"
+            width={1440}
+            height={1096}
+          />
+
+          <div className="z-10 flex flex-col gap-3">
+            {/* Big Texts */}
+            <div>
+              <h1 className="font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
+                ERROR 404
+              </h1>
+              <h2 className="font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
+                  N
+                </span>
+                <span>OT </span>
+                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
+                  F
+                </span>
+                <span>OUND</span>
+              </h2>
+            </div>
+
+            {/* Description */}
+            <p className="font-anderson text-base xl:text-2xl">
+              It appears the requested page is presently unavailable. Should you
+              wish to initiate a new inquiry, kindly revisit our homepage or
+              scrutinize the URL for accuracy.
             </p>
           </div>
-          <Button className="mt-20 lg:w-60">Go Back Home</Button>
+
+          {/* Home Button */}
+          <Link href="/">
+            <Button
+              size="lg"
+              className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
+            >
+              Home Page
+            </Button>
+          </Link>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
