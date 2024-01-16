@@ -30,9 +30,10 @@ async function Footer() {
       <div className="relative z-10 flex flex-col gap-8 p-8 text-ted-white md:hidden">
         <Image
           src="/logo/tedxitb-logo-white-cropped.png"
-          width={200}
-          height={200}
-          alt="logo"
+          className="h-auto w-[200px]"
+          width={1119}
+          height={223}
+          alt="TEDxITB Logo"
         />
         <ul className="flex flex-col gap-1">
           <li>
@@ -123,9 +124,10 @@ async function Footer() {
           <div className="flex flex-col gap-6">
             <Image
               src="/logo/tedxitb-logo-white-cropped.png"
-              width={300}
-              height={300}
-              alt="logo"
+              className="h-auto w-[300px]"
+              width={1119}
+              height={223}
+              alt="TEDxITB Logo"
             />
             <div className="flex gap-2">
               <Link href="https://www.tiktok.com/@tedxitb">
