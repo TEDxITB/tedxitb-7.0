@@ -1,5 +1,6 @@
 import { authOptions } from "@/lib/auth-options";
 import { appendGoogleSheets } from "@/lib/google-sheets";
+import PostHogClient from "@/lib/posthog-server";
 import { prisma } from "@/lib/prisma";
 import {
   startComingSoonAnnouncementDate,
@@ -134,6 +135,13 @@ export const POST = async (req: NextRequest) => {
     createRegistrationQuery,
     updateUserQuery,
   ]);
+
+  // Posthog
+  const posthogClient = PostHogClient();
+  posthogClient.capture({
+    distinctId: session.id,
+    event: "user registered main event",
+  });
 
   // Update google sheets
   const sheetId = process.env.GOOGLE_SHEETS_ID as string;

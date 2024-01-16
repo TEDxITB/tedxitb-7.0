@@ -1,5 +1,6 @@
 import { authOptions } from "@/lib/auth-options";
 import { appendGoogleSheets } from "@/lib/google-sheets";
+import PostHogClient from "@/lib/posthog-server";
 import { prisma } from "@/lib/prisma";
 import { confirmationDate, startAnnouncementDate } from "@/lib/special-date";
 import { confirmationSchema } from "@/lib/zod";
@@ -77,6 +78,16 @@ export const PUT = async (req: NextRequest) => {
       userId: session.id,
     },
     data: {
+      attendance: attendance,
+    },
+  });
+
+  // Posthog
+  const posthogClient = PostHogClient();
+  posthogClient.capture({
+    distinctId: session.id,
+    event: "user confirmation",
+    properties: {
       attendance: attendance,
     },
   });
