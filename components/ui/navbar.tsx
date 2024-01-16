@@ -89,14 +89,19 @@ export default function NavBar({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="absolute -z-50 h-full w-full overflow-hidden border-l-2 border-slate-800 lg:hidden">
-              <Image
+              {/* <Image
                 className="absolute"
                 src="/components/bubble-navbar.png"
                 width={200}
                 height={100}
                 alt="Bubble"
+              /> */}
+              <Image
+                fill
+                alt="bg"
+                sizes="400px"
+                src="/components/bg-navbar.png"
               />
-              <Image fill alt="bg" src={"/header-mobile-bg.png"} />
               <div className="absolute -z-10 h-full w-full bg-black" />
             </div>
 
@@ -145,11 +150,11 @@ export default function NavBar({
             </ul>
             <Link className="mb-8 mt-auto self-center lg:hidden" href={"/"}>
               <Image
-                className="static object-contain"
-                src={"/tedxitb-logo-white.png"}
+                className="static h-auto w-[150px] object-contain"
+                src="/logo/tedxitb-logo-white-cropped.png"
                 alt="Logo"
-                width={150}
-                height={100}
+                width={1119}
+                height={223}
               />
             </Link>
           </div>
