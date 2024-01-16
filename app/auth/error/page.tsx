@@ -5,14 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Error 404 | TEDxITB 7.0",
+  title: "Auth Error | TEDxITB 7.0",
   openGraph: {
     ...openGraphTemplate,
-    title: "Error 404 | TEDxITB 7.0",
+    title: "Auth Error | TEDxITB 7.0",
   },
   twitter: {
     ...twitterTemplate,
-    title: "Error 404 | TEDxITB 7.0",
+    title: "Auth Error | TEDxITB 7.0",
   },
 };
 
@@ -24,7 +24,7 @@ export default function NotFoundPage() {
         {/* Error Decoration */}
         <Image
           className="w-full sm:max-w-xs lg:max-w-sm xl:max-w-md 2xl:max-w-xl"
-          src="/error/404.png"
+          src="/error/500.png"
           alt="Error Decoration"
           width={1746}
           height={1211}
@@ -45,35 +45,34 @@ export default function NotFoundPage() {
             {/* Big Texts */}
             <div>
               <h1 className="font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
-                ERROR 404
+                ERROR 500
               </h1>
               <h2 className="font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
                 <span className="mr-2 font-graziela text-5xl lg:text-8xl">
-                  N
+                  A
                 </span>
-                <span>OT </span>
+                <span>UTH </span>
                 <span className="mr-2 font-graziela text-5xl lg:text-8xl">
-                  F
+                  E
                 </span>
-                <span>OUND</span>
+                <span>RROR</span>
               </h2>
             </div>
 
             {/* Description */}
             <p className="font-anderson text-base xl:text-2xl">
-              It appears the requested page is presently unavailable. Should you
-              wish to initiate a new inquiry, kindly revisit our homepage or
-              scrutinize the URL for accuracy.
+              It appears that an error occured while we try to sign you in.
+              Please wait for a few moments and click again.
             </p>
           </div>
 
           {/* Home Button */}
-          <Link href="/" className="z-10">
+          <Link href="/auth/sign-in" className="z-10">
             <Button
               size="lg"
               className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
             >
-              Home Page
+              Try Again
             </Button>
           </Link>
         </div>

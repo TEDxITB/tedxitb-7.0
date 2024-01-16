@@ -35,7 +35,7 @@ export default function ErrorPage({
             height={1096}
           />
 
-          <div className="z-10 flex flex-col gap-3">
+          <div className="z-10 flex flex-col gap-3 lg:gap-6">
             {/* Big Texts */}
             <div>
               <h1 className="font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
