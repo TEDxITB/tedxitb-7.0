@@ -4,25 +4,25 @@ const results = {
   creative: {
     title: "The Creative",
     desc: "The Creative personality type is likely characterized by a strong inclination towards imagination, originality, and artistic expression. Creatives often enjoy exploring new ideas, thinking outside the box, and engaging in various forms of artistic and creative endeavors.",
-    bg: "/quiz/creative.png",
+    bg: "/quiz/creative.jpg",
     video: "https://www.youtube.com/embed/D2FSRiJdqho?si=efxBbiAl_tlqOr4b",
   },
   social: {
     title: "The Social",
     desc: "The Social personality type may be associated with individuals who are sociable, outgoing, and enjoy social interactions. They might be skilled at building and maintaining relationships, and they may thrive in group settings and social activities.",
-    bg: "/quiz/social.png",
+    bg: "/quiz/social.jpg",
     video: "https://www.youtube.com/embed/Kr7lP1z8UCw?si=bUpbBsaO_V2CW4Ec",
   },
   scientist: {
     title: "The Scientist",
     desc: "The Scientist personality type could be described as analytical, logical, and detail-oriented. People with this personality might have a strong interest in understanding and explaining the world through systematic observation and analysis.",
-    bg: "/quiz/scientist.png",
+    bg: "/quiz/scientist.jpg",
     video: "https://www.youtube.com/embed/i-UAhK-vfQw?si=I8mbu68wzILel-Yi",
   },
   director: {
     title: "The Director",
     desc: "This personality type might be characterized as someone who is assertive, goal-oriented, and takes charge in various situations. Directors are often seen as leaders and decision-makers, and they tend to be driven and focused on achieving their objectives.",
-    bg: "/quiz/director.png",
+    bg: "/quiz/director.jpg",
     video: "https://www.youtube.com/embed/2YM7rc29uW8?si=Xc9FFngg0vuAmFMI",
   },
 };
@@ -83,7 +83,7 @@ const ResultBlock = ({
       />
       <div className="absolute bottom-0 left-0 right-0 top-0 z-[10] md:hidden">
         <Image
-          src="/quiz/bg2.png"
+          src="/quiz/bg2.jpg"
           alt="Background Image"
           fill
           className="absolute object-cover object-center"

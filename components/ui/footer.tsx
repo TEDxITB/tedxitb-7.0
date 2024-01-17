@@ -21,7 +21,7 @@ async function Footer() {
       <div className="absolute inset-0">
         <Image
           className="object-cover"
-          src="/components/bg-footer.png"
+          src="/components/bg-footer.jpg"
           fill
           alt="background"
         />
