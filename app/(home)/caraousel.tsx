@@ -128,24 +128,22 @@ const Carousel = () => {
         <div className="absolute z-50 flex h-full w-full items-center justify-center">
           <div className="relative z-[60] flex aspect-[4/3] min-w-[90vw] items-center justify-center px-3 sm:min-w-[80vw] md:min-w-[600px]">
             <div className="flex h-full w-full items-center justify-between">
-              <span aria-label="prev">
                 <motion.button
                   whileTap={{ scale: 0.8 }}
                   onClick={() => handleClick(-1)}
                   className="rounded-full bg-ted-red p-1"
                 >
+                  <span className="hidden">foo</span>
                   <ChevronLeft className="h-6 w-6 text-white" />
                 </motion.button>
-              </span>
-              <span aria-label="next">
                 <motion.button
                   whileTap={{ scale: 0.8 }}
                   onClick={() => handleClick(1)}
                   className="rounded-full bg-ted-red p-1"
                 >
+                  <span className="hidden">foo</span>
                   <ChevronRight className="h-6 w-6 text-white" />
                 </motion.button>
-              </span>
             </div>
             <div className="absolute bottom-2 flex w-full items-end justify-center">
               <div className="flex items-center justify-center gap-3 rounded-full bg-slate-600 bg-opacity-20 p-2 backdrop-blur-md backdrop-filter">
