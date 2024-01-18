@@ -84,10 +84,7 @@ function ConfirmationButtons() {
 
       <AlertDialog>
         <AlertDialogTrigger className="mt-4 flex self-start">
-          <Button
-            size={"lg"}
-            className="grow lg:px-10 lg:py-6 lg:text-lg"
-          >
+          <Button size={"lg"} className="grow lg:px-10 lg:py-6 lg:text-lg">
             Confirm Attendance
           </Button>
         </AlertDialogTrigger>

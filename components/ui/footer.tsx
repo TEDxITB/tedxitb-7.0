@@ -42,34 +42,22 @@ async function Footer() {
             </Link>
           </li>
           <li>
-            <Link
-              href="/main-event"
-              className="underline"
-            >
+            <Link href="/main-event" className="underline">
               MAIN EVENT
             </Link>
           </li>
           <li>
-            <Link
-              href="/magazine"
-              className="underline"
-            >
+            <Link href="/magazine" className="underline">
               MAGAZINE
             </Link>
           </li>
           <li>
-            <Link
-              href="/magazine"
-              className="underline"
-            >
+            <Link href="/magazine" className="underline">
               QUIZ
             </Link>
           </li>
           <li>
-            <Link
-              href="/sponsorship"
-              className="underline"
-            >
+            <Link href="/sponsorship" className="underline">
               SPONSORSHIP
             </Link>
           </li>
@@ -226,29 +214,19 @@ async function Footer() {
           </div>
           <ul className="flex flex-col gap-4">
             <li className="underline-offset-2 hover:underline">
-              <Link href="/">
-                HOME
-              </Link>
+              <Link href="/">HOME</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/main-event">
-                MAIN EVENT
-              </Link>
+              <Link href="/main-event">MAIN EVENT</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/magazine">
-                MAGAZINE
-              </Link>
+              <Link href="/magazine">MAGAZINE</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/main-event">
-                QUIZ
-              </Link>
+              <Link href="/main-event">QUIZ</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/sponsorship">
-                SPONSORSHIP
-              </Link>
+              <Link href="/sponsorship">SPONSORSHIP</Link>
             </li>
           </ul>
           <div className="flex h-48 flex-col gap-4 sm:w-40 md:w-52 xl:w-auto">
