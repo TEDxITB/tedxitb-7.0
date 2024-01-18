@@ -13,9 +13,7 @@ function TopicModal(props: {
   return (
     <Dialog>
       <DialogTrigger className="self-end">
-        <Button className="md:px-8">
-          See Details
-        </Button>
+        <Button className="md:px-8">See Details</Button>
       </DialogTrigger>
       <DialogContent className="h-fit bg-[#1C1C1C] font-anderson text-white">
         <div className="space-y-6">

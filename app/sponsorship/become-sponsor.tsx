@@ -14,10 +14,7 @@ export default function BecomeSponsorButtonModal() {
   return (
     <Dialog>
       <DialogTrigger>
-        <Button
-          size="lg"
-          className="font-anderson lg:h-12 lg:px-10 lg:text-lg"
-        >
+        <Button size="lg" className="font-anderson lg:h-12 lg:px-10 lg:text-lg">
           Become a Sponsor
         </Button>
       </DialogTrigger>
