@@ -132,24 +132,27 @@ export default function NavBar({
                   </li>
                 );
               })}
-              {session ? (
-                <Button
-                  size={"lg"}
-                  className="px-7 text-base"
-                  onClick={() => signOut({ callbackUrl: "/?phState=reset" })}
-                >
-                  Sign Out
-                </Button>
-              ) : (
-                <Link className="w-fit self-center" href="/auth/sign-in">
+              <li>
+                {session ? (
                   <Button
                     size={"lg"}
-                    className="px-8 text-base"
+                    className="px-7 text-base"
+                    onClick={() => signOut({ callbackUrl: "/?phState=reset" })}
                   >
-                    Sign In
+                    Sign Out
                   </Button>
-                </Link>
-              )}
+                ) : (
+                  <Link className="w-fit self-center" href="/auth/sign-in">
+                    <Button
+                      size={"lg"}
+                      className="px-8 text-base"
+                    >
+                      Sign In
+                    </Button>
+                  </Link>
+                )}
+              </li>
+
             </ul>
             <Link className="mb-8 mt-auto self-center lg:hidden" href={"/"}>
               <Image
