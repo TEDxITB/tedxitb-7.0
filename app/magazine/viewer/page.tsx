@@ -1,19 +1,16 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import { ChevronLeft, ChevronRight, Loader2, X } from "lucide-react";
+import Image from "next/image";
+import { PageFlip } from "page-flip";
+import { useEffect, useRef, useState } from "react";
 import {
   Communication,
   Magazine,
   createWaiter,
-  getMagazine,
-  getMagazines,
 } from "../shared";
 import "./style.css";
-import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight, Loader, Loader2, X } from "lucide-react";
-import Image from "next/image";
-import { Orientation, PageFlip } from "page-flip";
-import { useEffect, useRef, useState } from "react";
-import Book from "react-pageflip";
 
 const recalculatePageDimension = function (): {
   width: number;

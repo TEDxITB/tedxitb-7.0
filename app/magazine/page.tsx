@@ -1,9 +1,11 @@
+import { getCMSData, magazineQuery, magazineTags } from "@/lib/cms";
 import { HeroSection } from "./HeroSection";
 import { MagazineComponent } from "./Magazine";
-import { Magazine } from "./shared";
 import "./style.css";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { Metadata } from "next";
+import { MagazineQueryResult } from "@/types/cms";
+import { Magazine } from "./shared";
 
 export type MagazineSetter = (
   magazine: Magazine,
@@ -22,11 +24,16 @@ export const metadata: Metadata = {
   },
 };
 
-const TedMagazinePage = () => {
+const TedMagazinePage = async () => {
+  const data = await getCMSData<MagazineQueryResult>(
+    magazineQuery,
+    magazineTags
+  )
+
   return (
     <main className="contents">
       <HeroSection />
-      <MagazineComponent />
+      <MagazineComponent magazines={data} />
     </main>
   );
 };

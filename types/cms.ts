@@ -43,6 +43,6 @@ export interface MagazineQueryResult {
       alt: string;
       width: string;
       height: string;
-    }
-  }
+    }[]
+  }[]
 }
