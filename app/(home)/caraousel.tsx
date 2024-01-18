@@ -132,16 +132,16 @@ const Carousel = () => {
                 whileTap={{ scale: 0.8 }}
                 onClick={() => handleClick(-1)}
                 className="rounded-full bg-ted-red p-1"
+                aria-label="prev"
               >
-                <span className="hidden">foo</span>
                 <ChevronLeft className="h-6 w-6 text-white" />
               </motion.button>
               <motion.button
                 whileTap={{ scale: 0.8 }}
                 onClick={() => handleClick(1)}
                 className="rounded-full bg-ted-red p-1"
+                aria-label="Next"
               >
-                <span className="hidden">foo</span>
                 <ChevronRight className="h-6 w-6 text-white" />
               </motion.button>
             </div>
