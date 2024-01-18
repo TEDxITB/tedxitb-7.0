@@ -38,6 +38,7 @@ export default async function Sponsorship() {
           width={1920}
           height={1080}
           className="absolute inset-0 h-full w-full object-cover object-center"
+          priority
         />
 
         {/* Content */}

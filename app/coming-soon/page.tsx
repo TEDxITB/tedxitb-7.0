@@ -110,6 +110,7 @@ export default function Home() {
         alt="Background Image"
         width={1920}
         height={1080}
+        priority
       />
     </main>
   );

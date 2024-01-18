@@ -33,6 +33,7 @@ const SignInPage = async () => {
         alt="Background Image"
         fill={true}
         sizes="100vw"
+        priority
       />
 
       {/* Non Overflow Container */}
