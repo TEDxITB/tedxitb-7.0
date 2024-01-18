@@ -43,6 +43,7 @@ async function page() {
             fill
             alt="hero"
             className="z-10 object-cover"
+            priority
           />
           <div className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 text-center lg:gap-12">
             <div className="flex w-full flex-col items-center justify-center gap-4 text-ted-white ">

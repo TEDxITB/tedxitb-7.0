@@ -245,7 +245,7 @@ export default async function Sponsorship() {
 
         {/* Bottom Right TEDxITB 7.0 Logo Triangle */}
         <Image
-          src="/decoration/triangles-tedx-logo.svg"
+          src="/decoration/triangles-tedx-logo.jpg"
           width={200}
           height={200}
           alt="Triangles Decoration"

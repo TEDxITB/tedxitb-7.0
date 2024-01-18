@@ -28,6 +28,7 @@ const HomePage = () => {
           fill
           sizes="100vw"
           className="absolute object-cover object-center"
+          priority
         />
         <div className="flex w-[70%] flex-col items-center justify-center gap-8 lg:gap-12">
           <div className="flex w-full flex-col items-center justify-center gap-4 text-ted-white ">

@@ -40,6 +40,7 @@ const DocumentationPage = async () => {
           alt="Documentation Hero Backround Image"
           sizes="100vw"
           fill
+          priority
         />
 
         {/* Text and button in the middle of the picture */}
