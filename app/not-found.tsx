@@ -68,7 +68,7 @@ export default function NotFoundPage() {
           </div>
 
           {/* Home Button */}
-          <Link href="/" className="z-10"  aria-label="Linked to home">
+          <Link href="/" className="z-10" aria-label="Linked to home">
             <Button
               size="lg"
               className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
