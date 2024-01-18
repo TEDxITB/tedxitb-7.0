@@ -56,7 +56,7 @@ const HomePage = () => {
             data-aos-delay="250"
             className="z-10 flex w-full items-center justify-center"
           >
-            <Link href="/main-event">
+            <Link href="/main-event" aria-label="To main-event page">
               <Button
                 size="lg"
                 className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"

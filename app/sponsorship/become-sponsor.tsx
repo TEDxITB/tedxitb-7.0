@@ -37,7 +37,7 @@ export default function BecomeSponsorButtonModal() {
               Esther Pauline Napitupulu
             </p>
             <p>Director of Fundraise TEDxITB 7.0</p>
-            <Link className="block" href="tel:+6282179253838">
+            <Link className="block" href="tel:+6282179253838" aria-label="Contact TEDxITB through phone">
               <Button variant="link" className="h-fit p-0 text-base text-white">
                 082179253838
               </Button>
@@ -45,6 +45,7 @@ export default function BecomeSponsorButtonModal() {
             <Link
               className="block"
               href="mailto:sponsorshiptedxitb7.0@gmail.com"
+              aria-label="Contact TEDxITB through email to engage sponsorships"
             >
               <Button variant="link" className="h-fit p-0 text-base text-white">
                 sponsorshiptedxitb7.0@gmail.com
@@ -57,7 +58,7 @@ export default function BecomeSponsorButtonModal() {
             <p className="font-semibold tracking-wide">Naurah Cantika Zuhair</p>
             <p>Vice Director of Fundraise TEDxITB 7.0</p>
             <Button variant="link" className="h-fit p-0 text-base text-white">
-              <Link className="block" href="tel:+6282375092511">
+              <Link className="block" href="tel:+6282375092511" aria-label="Contact TEDxITB through phone">
                 082375092511
               </Link>
             </Button>

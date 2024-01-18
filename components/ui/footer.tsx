@@ -37,27 +37,27 @@ async function Footer() {
         />
         <ul className="flex flex-col gap-1">
           <li>
-            <Link href="/" className="underline">
+            <Link href="/" className="underline" aria-label="To home page">
               HOME
             </Link>
           </li>
           <li>
-            <Link href="/main-event" className="underline">
+            <Link href="/main-event" className="underline" aria-label="To main-event page">
               MAIN EVENT
             </Link>
           </li>
           <li>
-            <Link href="/magazine" className="underline">
+            <Link href="/magazine" className="underline" aria-label="To magazine page">
               MAGAZINE
             </Link>
           </li>
           <li>
-            <Link href="/magazine" className="underline">
+            <Link href="/magazine" className="underline" aria-label="To quiz page">
               QUIZ
             </Link>
           </li>
           <li>
-            <Link href="/sponsorship" className="underline">
+            <Link href="/sponsorship" className="underline" aria-label="To sponsorship page">
               SPONSORSHIP
             </Link>
           </li>
@@ -68,14 +68,14 @@ async function Footer() {
         </div>
         <div className="flex flex-col gap-1">
           <p className="underline">LEGAL</p>
-          <Link href="/terms-service">Terms of Service</Link>
-          <Link href="/privacy-policy">Privacy Policy</Link>
-          <Link href="/sitemap.xml">Sitemap</Link>
+          <Link href="/terms-service" aria-label="Read more about terms of service">Terms of Service</Link>
+          <Link href="/privacy-policy" aria-label="Read more about privacy-policy">Privacy Policy</Link>
+          <Link href="/sitemap.xml" aria-label="Read more about sitemap">Sitemap</Link>
         </div>
         <div className="flex flex-col gap-2">
           <p className="underline">FOLLOW US</p>
           <div className="flex gap-4">
-            <Link href="https://www.tiktok.com/@tedxitb">
+            <Link href="https://www.tiktok.com/@tedxitb" aria-label="Know more about TEDxITB through TikTok">
               <Image
                 src="/icon/tiktok-fill.svg"
                 className="h-10 w-10"
@@ -84,7 +84,7 @@ async function Footer() {
                 alt="Tiktok"
               />
             </Link>
-            <Link href="https://twitter.com/TEDxITB2023">
+            <Link href="https://twitter.com/TEDxITB2023" aria-label="Keep up with TEDxITB news through Twitter">
               <Image
                 src="/icon/twitter-fill.svg"
                 className="h-10 w-10"
@@ -93,10 +93,10 @@ async function Footer() {
                 alt="Twitter"
               />
             </Link>
-            <Link href="mailto:contact.tedxitb@gmail.com">
+            <Link href="mailto:contact.tedxitb@gmail.com"  aria-label="Contact TEDxITB through email">
               <Mail className="h-10 w-10" />
             </Link>
-            <Link href="https://www.linkedin.com/company/tedxitb/">
+            <Link href="https://www.linkedin.com/company/tedxitb/" aria-label="Learn more about TEDxITB through LinkedIn">
               <Image
                 src="/icon/linkedin-fill.svg"
                 className="h-10 w-10"
@@ -105,7 +105,7 @@ async function Footer() {
                 alt="Linkedin"
               />
             </Link>
-            <Link href="https://www.instagram.com/tedxitb/">
+            <Link href="https://www.instagram.com/tedxitb/" aria-label="Find more about TEDxITB through Instagram">
               <Image
                 src="/icon/instagram-fill.svg"
                 className="h-10 w-10"
@@ -129,7 +129,7 @@ async function Footer() {
               alt="TEDxITB Logo"
             />
             <div className="flex gap-2">
-              <Link href="https://www.tiktok.com/@tedxitb">
+              <Link href="https://www.tiktok.com/@tedxitb" aria-label="Know more about TEDxITB through TikTok">
                 <Image
                   src="/icon/tiktok-fill.svg"
                   className="h-11 w-11"
@@ -138,7 +138,7 @@ async function Footer() {
                   alt="Tiktok"
                 />
               </Link>
-              <Link href="https://twitter.com/TEDxITB2023">
+              <Link href="https://twitter.com/TEDxITB2023" aria-label="Keep up with TEDxITB news through Twitter">
                 <Image
                   src="/icon/twitter-fill.svg"
                   className="h-11 w-11"
@@ -147,10 +147,10 @@ async function Footer() {
                   alt="Twitter"
                 />
               </Link>
-              <Link href="mailto:contact.tedxitb@gmail.com">
+              <Link href="mailto:contact.tedxitb@gmail.com" aria-label="Contact TEDxITB through email">
                 <Mail className="h-11 w-11" />
               </Link>
-              <Link href="https://www.linkedin.com/company/tedxitb/">
+              <Link href="https://www.linkedin.com/company/tedxitb/" aria-label="Learn more about TEDxITB through LinkedIn">
                 <Image
                   src="/icon/linkedin-fill.svg"
                   className="h-11 w-11"
@@ -159,7 +159,7 @@ async function Footer() {
                   alt="Linkedin"
                 />
               </Link>
-              <Link href="https://www.instagram.com/tedxitb/">
+              <Link href="https://www.instagram.com/tedxitb/" aria-label="Find more about TEDxITB through Instagram">
                 <Image
                   src="/icon/instagram-fill.svg"
                   className="h-11 w-11"
@@ -172,19 +172,19 @@ async function Footer() {
           </div>
           <ul className="flex flex-col gap-4">
             <li className="underline-offset-2 hover:underline">
-              <Link href="/">HOME</Link>
+              <Link href="/" aria-label="To home page">HOME</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/main-event">MAIN EVENT</Link>
+              <Link href="/main-event" aria-label="To main event page">MAIN EVENT</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/magazine">MAGAZINE</Link>
+              <Link href="/magazine" aria-label="To magazine page">MAGAZINE</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/main-event">QUIZ</Link>
+              <Link href="/main-event" aria-label="To quiz page">QUIZ</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/sponsorship">SPONSORSHIP</Link>
+              <Link href="/sponsorship" aria-label="To sponsorship page">SPONSORSHIP</Link>
             </li>
           </ul>
           <div className="flex h-48 flex-col gap-4 sm:w-40 md:w-52 xl:w-auto">
@@ -196,13 +196,13 @@ async function Footer() {
           <p>@ 2023 TEDxITB 7.0. All rights reserved.</p>
           <ul className="flex gap-8">
             <li className="underline-offset-2 hover:underline">
-              <Link href="/terms-service">Terms of Service</Link>
+              <Link href="/terms-service" aria-label="Read more about terms of service">Terms of Service</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/privacy-policy">Privacy Policy</Link>
+              <Link href="/privacy-policy" aria-label="Read more about privacy-policy">Privacy Policy</Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/sitemap.xml">Sitemap</Link>
+              <Link href="/sitemap.xml" aria-label="Read more about sitemap">Sitemap</Link>
             </li>
           </ul>
         </div>
