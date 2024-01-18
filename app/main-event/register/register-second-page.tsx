@@ -231,6 +231,7 @@ function SecondPage({
           className="px-10"
           type="button"
           onClick={prevPage}
+          aria-label="Click to back"
         >
           Back
         </Button>
@@ -239,6 +240,7 @@ function SecondPage({
           size={"lg"}
           className="px-10"
           onClick={form.handleSubmit(submitHandler)}
+          aria-label="Click to submit"
         >
           Submit
         </Button>

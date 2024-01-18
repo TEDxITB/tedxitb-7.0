@@ -14,7 +14,7 @@ export default function BecomeSponsorButtonModal() {
   return (
     <Dialog>
       <DialogTrigger>
-        <Button size="lg" className="font-anderson lg:h-12 lg:px-10 lg:text-lg">
+        <Button size="lg" className="font-anderson lg:h-12 lg:px-10 lg:text-lg" aria-label="Click to become a sponsor">
           Become a Sponsor
         </Button>
       </DialogTrigger>
@@ -38,7 +38,7 @@ export default function BecomeSponsorButtonModal() {
             </p>
             <p>Director of Fundraise TEDxITB 7.0</p>
             <Link className="block" href="tel:+6282179253838" aria-label="Contact TEDxITB through phone">
-              <Button variant="link" className="h-fit p-0 text-base text-white">
+              <Button variant="link" className="h-fit p-0 text-base text-white" aria-label="Our phone number">
                 082179253838
               </Button>
             </Link>
@@ -47,7 +47,7 @@ export default function BecomeSponsorButtonModal() {
               href="mailto:sponsorshiptedxitb7.0@gmail.com"
               aria-label="Contact TEDxITB through email to engage sponsorships"
             >
-              <Button variant="link" className="h-fit p-0 text-base text-white">
+              <Button variant="link" className="h-fit p-0 text-base text-white" aria-label="Our email">
                 sponsorshiptedxitb7.0@gmail.com
               </Button>
             </Link>
@@ -57,7 +57,7 @@ export default function BecomeSponsorButtonModal() {
           <div>
             <p className="font-semibold tracking-wide">Naurah Cantika Zuhair</p>
             <p>Vice Director of Fundraise TEDxITB 7.0</p>
-            <Button variant="link" className="h-fit p-0 text-base text-white">
+            <Button variant="link" className="h-fit p-0 text-base text-white" aria-label="Our phone number">
               <Link className="block" href="tel:+6282375092511" aria-label="Contact TEDxITB through phone">
                 082375092511
               </Link>

@@ -344,6 +344,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             size="default"
             className="py-[5px] text-[11px] sm:py-[6px] sm:text-base"
             onClick={handleClick}
+            aria-label="Click to choose the file you wanted to upload"
           >
             Choose File
           </Button>
@@ -443,6 +444,7 @@ const FileItem: React.FC<FileItemProps> = ({
               e.preventDefault();
               handleRetry(image);
             }}
+            aria-label="Retrying"
           >
             <RotateCw className="h-[15px] w-[15px] text-ted-red sm:h-[16px] sm:w-[16px]" />
           </Button>
@@ -469,6 +471,7 @@ const FileItem: React.FC<FileItemProps> = ({
           className="h-[20px] w-[20px] p-0"
           variant="ghost"
           onClick={() => handleDelete(image)}
+          aria-label="Click to delete image"
         >
           <Trash2 className="h-[15px] w-[15px] sm:h-[16px] sm:w-[16px]" />
         </Button>

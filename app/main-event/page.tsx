@@ -75,6 +75,7 @@ async function page() {
                 <Button
                   size={"lg"}
                   className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
+                  aria-label="Announcement"
                 >
                   Announcement
                 </Button>
@@ -82,6 +83,7 @@ async function page() {
                 <Button
                   size={"lg"}
                   className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
+                  aria-label="Register Now"
                 >
                   Register Now
                 </Button>
@@ -213,6 +215,7 @@ async function page() {
                 <Button
                   size={"lg"}
                   className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"
+                  aria-label="Announcement"
                 >
                   Announcement
                 </Button>
@@ -220,6 +223,7 @@ async function page() {
                 <Button
                   size={"lg"}
                   className="my-2 lg:my-6 lg:px-12 lg:py-6 lg:text-xl"
+                  aria-label="Register Now"
                 >
                   Register Now
                 </Button>

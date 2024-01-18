@@ -434,6 +434,7 @@ function FirstPage({
         size={"lg"}
         type="button"
         onClick={() => nextPage()}
+        aria-label="Click to Next"
       >
         Next
       </Button>

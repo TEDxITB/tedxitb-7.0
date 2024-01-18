@@ -68,6 +68,7 @@ export default function ErrorPage({
               window.location.reload();
               reset();
             }}
+            aria-label="Try Again"
           >
             Try Again
           </Button>

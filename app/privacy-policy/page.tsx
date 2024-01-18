@@ -105,7 +105,7 @@ const PrivacyPolicyPage = () => {
             If you have any questions, concerns, or requests related to this
             Privacy Policy or how we handle your data, please contact us at {}
             <Link href="mailto:website.tedxitb@gmail.com" target="_blank" aria-label="Contact TEDxITB through email">
-              <Button variant="link" className="h-fit p-0 text-base lg:text-lg">
+              <Button variant="link" className="h-fit p-0 text-base lg:text-lg" aria-label="Click to email us !">
                 this email.
               </Button>
             </Link>

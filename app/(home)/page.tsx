@@ -60,6 +60,7 @@ const HomePage = () => {
               <Button
                 size="lg"
                 className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
+                aria-label="Explore to Main Event"
               >
                 Explore Main Event
               </Button>

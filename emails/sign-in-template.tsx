@@ -82,6 +82,7 @@ export default function SignInEmail({ url }: { url: string }) {
                 <Button
                   href={url}
                   className="flex flex-col items-center justify-center rounded-md border-none bg-ted-red px-5 py-3 text-primary-foreground text-white hover:bg-ted-red/90"
+                  aria-label="verify-request"
                 >
                   <Text className="m-0 text-sm">Verify Request</Text>
                 </Button>

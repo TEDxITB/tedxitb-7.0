@@ -208,6 +208,7 @@ const QuestionBlock = ({
             variant="secondary"
             onClick={handleBack}
             type="button"
+            aria-label="Click to back"
           >
             <ChevronLeft className="hidden h-4 w-4 sm:flex" />
             Back
@@ -218,6 +219,7 @@ const QuestionBlock = ({
                 className="hidden items-center justify-between gap-2 sm:flex"
                 onClick={handleNextQuestion}
                 type="button"
+                aria-label="Click to go to the next question"
               >
                 Next Question
                 <ChevronRight className="h-4 w-4" />
@@ -226,6 +228,7 @@ const QuestionBlock = ({
                 className="flex items-center justify-between gap-2 px-8 sm:hidden"
                 onClick={handleNextQuestion}
                 type="button"
+                aria-label="Click to go next"
               >
                 Next
               </Button>
@@ -234,6 +237,7 @@ const QuestionBlock = ({
             <Button
               className="flex items-center justify-between gap-2 px-8 sm:px-4"
               type="submit"
+              aria-label="Click to submit"
             >
               Submit
             </Button>
