@@ -270,7 +270,6 @@ function ComingSoon({ ...props }) {
                     word.length === 0 ? "opacity-70" : ""
                   }`}
                   onClick={() => setIsSubmitted(true)}
-                  aria-label="Send"
                 >
                   Send
                 </button>

@@ -13,7 +13,7 @@ function TopicModal(props: {
   return (
     <Dialog>
       <DialogTrigger className="self-end">
-        <Button className="md:px-8" aria-label="Click to see details">
+        <Button className="md:px-8">
           See Details
         </Button>
       </DialogTrigger>

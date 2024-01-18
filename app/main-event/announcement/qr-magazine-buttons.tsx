@@ -44,7 +44,6 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
             variant={"primary"}
             size={"lg"}
             className="grow sm:px-10 lg:py-6 lg:text-lg"
-            aria-label="Magazine"
           >
             Magazine
           </Button>
@@ -63,7 +62,6 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
           <Button
             size={"lg"}
             className="grow sm:px-10 lg:py-6 lg:text-lg"
-            aria-label="Ticket"
           >
             Ticket
           </Button>
@@ -82,7 +80,6 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
               size={"lg"}
               className="self-center lg:px-10 lg:py-6 lg:text-lg"
               onClick={onImageCownload}
-              aria-label="Click to Download Ticket"
             >
               Download Ticket
             </Button>

@@ -344,7 +344,6 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             size="default"
             className="py-[5px] text-[11px] sm:py-[6px] sm:text-base"
             onClick={handleClick}
-            aria-label="Click to choose the file you wanted to upload"
           >
             Choose File
           </Button>

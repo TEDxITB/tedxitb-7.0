@@ -21,7 +21,6 @@ const SeeMoreButton = ({ ...props }) => {
       size="lg"
       className="flex-none px-8 text-base"
       onClick={scrollToTarget}
-      aria-label="Click to see more"
       {...props}
     >
       See More <ArrowDownCircle className="ml-2 h-5 w-5" />

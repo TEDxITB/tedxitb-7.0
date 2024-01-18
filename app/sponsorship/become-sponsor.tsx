@@ -17,7 +17,6 @@ export default function BecomeSponsorButtonModal() {
         <Button
           size="lg"
           className="font-anderson lg:h-12 lg:px-10 lg:text-lg"
-          aria-label="Click to become a sponsor"
         >
           Become a Sponsor
         </Button>

@@ -37,7 +37,7 @@ async function Footer() {
         />
         <ul className="flex flex-col gap-1">
           <li>
-            <Link href="/" className="underline" aria-label="To home page">
+            <Link href="/" className="underline">
               HOME
             </Link>
           </li>
@@ -45,7 +45,6 @@ async function Footer() {
             <Link
               href="/main-event"
               className="underline"
-              aria-label="To main-event page"
             >
               MAIN EVENT
             </Link>
@@ -54,7 +53,6 @@ async function Footer() {
             <Link
               href="/magazine"
               className="underline"
-              aria-label="To magazine page"
             >
               MAGAZINE
             </Link>
@@ -63,7 +61,6 @@ async function Footer() {
             <Link
               href="/magazine"
               className="underline"
-              aria-label="To quiz page"
             >
               QUIZ
             </Link>
@@ -72,7 +69,6 @@ async function Footer() {
             <Link
               href="/sponsorship"
               className="underline"
-              aria-label="To sponsorship page"
             >
               SPONSORSHIP
             </Link>
@@ -230,27 +226,27 @@ async function Footer() {
           </div>
           <ul className="flex flex-col gap-4">
             <li className="underline-offset-2 hover:underline">
-              <Link href="/" aria-label="To home page">
+              <Link href="/">
                 HOME
               </Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/main-event" aria-label="To main event page">
+              <Link href="/main-event">
                 MAIN EVENT
               </Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/magazine" aria-label="To magazine page">
+              <Link href="/magazine">
                 MAGAZINE
               </Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/main-event" aria-label="To quiz page">
+              <Link href="/main-event">
                 QUIZ
               </Link>
             </li>
             <li className="underline-offset-2 hover:underline">
-              <Link href="/sponsorship" aria-label="To sponsorship page">
+              <Link href="/sponsorship">
                 SPONSORSHIP
               </Link>
             </li>

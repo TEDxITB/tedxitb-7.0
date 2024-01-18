@@ -101,7 +101,6 @@ const SignInForm = () => {
             size="lg"
             type="submit"
             disabled={isSubmitting}
-            aria-label="Submit"
           >
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Continue with Email
@@ -131,7 +130,6 @@ const SignInForm = () => {
               callbackUrl: "/?phState=identify",
             })
           }
-          aria-label="Continue sign-in with Google"
         >
           <Image
             alt="Google Logo"

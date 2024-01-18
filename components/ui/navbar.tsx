@@ -137,7 +137,6 @@ export default function NavBar({
                   size={"lg"}
                   className="px-7 text-base"
                   onClick={() => signOut({ callbackUrl: "/?phState=reset" })}
-                  aria-label="sign-out"
                 >
                   Sign Out
                 </Button>
@@ -146,7 +145,6 @@ export default function NavBar({
                   <Button
                     size={"lg"}
                     className="px-8 text-base"
-                    aria-label="sign-in"
                   >
                     Sign In
                   </Button>

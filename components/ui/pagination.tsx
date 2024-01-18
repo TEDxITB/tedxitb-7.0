@@ -254,7 +254,6 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
                 "ml-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 disabled:cursor-not-allowed disabled:text-gray-400 md:ml-2",
             })
           )}
-          aria-label="Next button"
         >
           Next
         </button>

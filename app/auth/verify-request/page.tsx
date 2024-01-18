@@ -109,7 +109,7 @@ const VerifyRequestPage = async () => {
                 If you entered wrong email or wish to change existing email
                 address please click below
               </p>
-              <Link href="/auth/sign-in" aria-label="Sign-in">
+              <Link href="/auth/sign-in">
                 <Button
                   variant="primary"
                   size="lg"

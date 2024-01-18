@@ -164,7 +164,6 @@ const ClientPageTedQuiz = () => {
               data-aos-delay="250"
               className="px-8 py-3 text-base md:px-11 md:py-6 md:text-xl"
               onClick={handleStartQuiz}
-              aria-label="Click to start-quiz"
             >
               Start Quiz
             </Button>
