@@ -14,7 +14,11 @@ export default function BecomeSponsorButtonModal() {
   return (
     <Dialog>
       <DialogTrigger>
-        <Button size="lg" className="font-anderson lg:h-12 lg:px-10 lg:text-lg" aria-label="Click to become a sponsor">
+        <Button
+          size="lg"
+          className="font-anderson lg:h-12 lg:px-10 lg:text-lg"
+          aria-label="Click to become a sponsor"
+        >
           Become a Sponsor
         </Button>
       </DialogTrigger>
@@ -51,7 +55,11 @@ export default function BecomeSponsorButtonModal() {
               href="mailto:sponsorshiptedxitb7.0@gmail.com"
               aria-label="Contact TEDxITB through email to engage sponsorships"
             >
-              <Button variant="link" className="h-fit p-0 text-base text-white" aria-label="Our email">
+              <Button
+                variant="link"
+                className="h-fit p-0 text-base text-white"
+                aria-label="Our email"
+              >
                 sponsorshiptedxitb7.0@gmail.com
               </Button>
             </Link>

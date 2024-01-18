@@ -60,7 +60,11 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
 
       <Dialog>
         <DialogTrigger className="mt-4 flex self-start">
-          <Button size={"lg"} className="grow sm:px-10 lg:py-6 lg:text-lg" aria-label="Ticket">
+          <Button
+            size={"lg"}
+            className="grow sm:px-10 lg:py-6 lg:text-lg"
+            aria-label="Ticket"
+          >
             Ticket
           </Button>
         </DialogTrigger>
