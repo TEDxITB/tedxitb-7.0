@@ -143,16 +143,12 @@ export default function NavBar({
                   </Button>
                 ) : (
                   <Link className="w-fit self-center" href="/auth/sign-in">
-                    <Button
-                      size={"lg"}
-                      className="px-8 text-base"
-                    >
+                    <Button size={"lg"} className="px-8 text-base">
                       Sign In
                     </Button>
                   </Link>
                 )}
               </li>
-
             </ul>
             <Link className="mb-8 mt-auto self-center lg:hidden" href={"/"}>
               <Image
