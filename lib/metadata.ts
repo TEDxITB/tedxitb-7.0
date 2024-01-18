@@ -8,7 +8,7 @@ export const openGraphTemplate: Metadata["openGraph"] = {
   locale: "en_US",
   type: "website",
   images: {
-    url: "https://tedxitb.id/tedxitb-link-preview.png",
+    url: "https://tedxitb.id/logo/link-preview.png",
     width: "1200",
     height: "630",
     alt: "TEDxITB 7.0 Logo",
@@ -24,7 +24,7 @@ export const twitterTemplate: Metadata["twitter"] = {
   creator: "@TEDxITB2023",
   creatorId: "1705061790290509824",
   images: {
-    url: "https://tedxitb.id/tedxitb-link-preview.png",
+    url: "https://tedxitb.id/logo/link-preview.png",
     alt: "TEDxITB 7.0 Logo",
   },
 };

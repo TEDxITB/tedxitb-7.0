@@ -33,7 +33,7 @@ export default async function Sponsorship() {
       <section className="relative h-full min-h-[calc(100vh-6rem)] w-full">
         {/* Background Image */}
         <Image
-          src="/bg-tedx-sponsorship.jpg"
+          src="/sponsorship/bg.jpg"
           alt="background"
           width={1920}
           height={1080}
@@ -41,17 +41,31 @@ export default async function Sponsorship() {
         />
 
         {/* Content */}
-        <div className="absolute flex h-full w-full flex-col items-start justify-center gap-6 p-6 font-garamond text-white sm:p-16 lg:gap-12 lg:p-28 2xl:p-36">
-          <h1>
-            <span className="text-xl font-medium tracking-wide lg:text-4xl">
-              Special Thanks To
+        <div className="absolute flex h-full w-full flex-col items-start justify-center gap-8 p-6 font-garamond text-white sm:p-16 lg:gap-12 lg:p-28 2xl:p-36">
+          <h1 className="tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)]">
+            <span
+              data-aos="fade-right"
+              className="font-garamond text-2xl font-medium lg:text-5xl"
+            >
+              <span className="mr-2 font-graziela text-4xl lg:text-7xl">S</span>
+              <span>PECIAL </span>
+              <span>THANKS </span>
+              <span>TO</span>
             </span>
             <br />
-            <span className="text-4xl font-bold tracking-wider lg:text-7xl">
+            <span
+              data-aos="fade-right"
+              data-aos-delay="150"
+              className="font-anderson text-5xl font-bold lg:text-8xl"
+            >
               OUR SPONSORS
             </span>
           </h1>
-          <p className="text-lg tracking-wide lg:text-2xl">
+          <p
+            data-aos="fade-right"
+            data-aos-delay="250"
+            className="font-anderson text-base tracking-wide lg:text-2xl"
+          >
             Our success would not be possible without the continued support of
             these incredible partners.
           </p>
@@ -68,6 +82,7 @@ export default async function Sponsorship() {
               return (
                 <div
                   key={data.id}
+                  data-aos="zoom-in-up"
                   className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[155px] sm:w-[190px] sm:p-4 lg:h-[250px] lg:w-[300px] lg:p-6"
                 >
                   <Image
@@ -88,6 +103,7 @@ export default async function Sponsorship() {
               return (
                 <div
                   key={data.id}
+                  data-aos="zoom-in-up"
                   className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[125px] sm:w-[140px] sm:p-4 lg:h-[200px] lg:w-[225px]"
                 >
                   <Image
@@ -108,6 +124,7 @@ export default async function Sponsorship() {
               return (
                 <div
                   key={data.id}
+                  data-aos="zoom-in-up"
                   className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[95px] sm:w-[110px] sm:p-4 lg:h-[150px] lg:w-[175px]"
                 >
                   <Image
@@ -128,6 +145,7 @@ export default async function Sponsorship() {
               return (
                 <div
                   key={data.id}
+                  data-aos="zoom-in-up"
                   className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] lg:h-[115px] lg:w-[140px] lg:p-4"
                 >
                   <Image
@@ -144,7 +162,10 @@ export default async function Sponsorship() {
         </div>
 
         {/* Become Sponsor Section */}
-        <section className="z-20 flex w-full max-w-[650px] flex-col items-center justify-center gap-6 text-center font-anderson">
+        <section
+          data-aos="zoom-in-up"
+          className="z-20 flex w-full max-w-[650px] flex-col items-center justify-center gap-6 text-center font-anderson"
+        >
           <p className="font-anderson text-lg text-white lg:text-3xl">
             TEDxITB is made possibble thanks to the grate companies and
             community support
@@ -153,38 +174,38 @@ export default async function Sponsorship() {
         </section>
 
         {/* Background Decorations */}
-        {/* Top Left Star */}
+        {/* Top Left Blur */}
         <Image
-          src="/star.png"
-          width={262}
-          height={255}
-          alt="Background Star"
-          className="absolute -left-32 -top-32 w-64 opacity-5 lg:left-[-275px] lg:top-[-275px] lg:w-[700px]"
+          src="/decoration/blur1.png"
+          width={1440}
+          height={1096}
+          alt="Background Blur 1"
+          className="absolute -left-40 -top-24 w-96 lg:left-[-700px] lg:top-[-400px] lg:w-[1400px]"
         />
 
-        {/* Bottom Right Star */}
+        {/* Bottom Left Blur */}
         <Image
-          src="/star.png"
-          width={262}
-          height={255}
-          alt="Background Star"
-          className="absolute -bottom-8 -right-16 w-64 opacity-5 lg:bottom-[-88px] lg:right-[-175px] lg:w-[700px]"
+          src="/decoration/blur1.png"
+          width={1440}
+          height={1096}
+          alt="Background Blur 1"
+          className="absolute -bottom-24 -left-40 w-96 lg:bottom-[-500px] lg:left-[-700px] lg:w-[1400px]"
         />
 
-        {/* Bottom Left Star */}
+        {/* Middle Right Star */}
         <Image
-          src="/star.png"
-          width={262}
-          height={255}
-          alt="Background Star"
-          className="absolute -left-32 bottom-52 w-64 opacity-5 lg:bottom-64 lg:left-[-350px] lg:w-[700px]"
+          src="/decoration/blur2.png"
+          width={1734}
+          height={1183}
+          alt="Background Blur 2"
+          className="absolute -right-52 top-[650px] w-96 lg:right-[-850px] lg:top-[850px] lg:w-[1500px]"
         />
 
         {/* Right Logo */}
         <div className="absolute right-[-65px] top-[400px] flex flex-row items-center lg:right-[-248px] lg:top-[350px]">
           {/* Right Full Logo */}
           <Image
-            src="/tedxitb-7-logo-red-full.png"
+            src="/logo/x-logo-red-full-cropped.png"
             width={1200}
             height={765}
             alt="TEDxITB 7.0 Full Logo"
@@ -193,7 +214,7 @@ export default async function Sponsorship() {
 
           {/* Right Rhombus */}
           <Image
-            src="/rhombus-gradient.svg"
+            src="/decoration/rhombus-gradient.svg"
             width={100}
             height={100}
             alt="Rhombus Gradient Decoration"
@@ -205,7 +226,7 @@ export default async function Sponsorship() {
         <div className="absolute bottom-[650px] left-[-65px] flex flex-row items-center lg:bottom-[700px] lg:left-[-248px]">
           {/* Left Rhombus Logo */}
           <Image
-            src="/rhombus-gradient.svg"
+            src="/decoration/rhombus-gradient.svg"
             width={100}
             height={100}
             alt="Rhombus Gradient Decoration"
@@ -214,7 +235,7 @@ export default async function Sponsorship() {
 
           {/* Left Half Logo */}
           <Image
-            src="/tedxitb-7-logo-red-half-left.png"
+            src="/logo/x-logo-red-left-cropped.png"
             width={510}
             height={427}
             alt="TEDxITB 7.0 Half Logo"
@@ -224,7 +245,7 @@ export default async function Sponsorship() {
 
         {/* Bottom Right TEDxITB 7.0 Logo Triangle */}
         <Image
-          src="/triangles-tedx-logo.svg"
+          src="/decoration/triangles-tedx-logo.svg"
           width={200}
           height={200}
           alt="Triangles Decoration"

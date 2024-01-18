@@ -72,3 +72,24 @@ export const documentationQuery = `{
     }
   }
 }`;
+
+export const mainEventTopicTags = ["main-event-topic"];
+export const mainEventTopicQuery = `{
+  allMainEventTopics {
+    id
+    title
+    description {
+      blocks
+      links
+      value
+    }
+    speaker
+    image {
+      id
+      url
+      alt
+      width
+      height
+    }
+  }
+}`;

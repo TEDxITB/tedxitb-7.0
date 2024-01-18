@@ -17,10 +17,10 @@ interface ModalsProps {
 }
 
 const backgroundImages = {
-  "type-1": "/modalBackgroundType1.png",
-  "type-2": "/modalBackgroundType2.png",
-  "type-3": "/modalBackgroundType3.png",
-  "type-4": "/modalBackgroundType4.png",
+  "type-1": "/components/modalBackgroundType1.png",
+  "type-2": "/components/modalBackgroundType2.png",
+  "type-3": "/components/modalBackgroundType3.png",
+  "type-4": "/components/modalBackgroundType4.png",
 };
 
 const Modals: React.FC<ModalsProps> = ({

@@ -22,6 +22,8 @@ const config: Config = {
         sm: "0 1px 2px var(--tw-shadow-color)",
         DEFAULT: "0 2px 4px var(--tw-shadow-color)",
         lg: "0 2px 6px var(--tw-shadow-color)",
+        xl: "0 2px 8px var(--tw-shadow-color)",
+        "2xl": "0 4px 12px var(--tw-shadow-color)",
       },
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],

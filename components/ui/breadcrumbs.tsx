@@ -1,5 +1,6 @@
 "use client";
 
+import { getTitleCase } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -24,11 +25,11 @@ const Breadcrumbs = ({ variant }: BreadcrumbsProps) => {
       {pathNames.map((link, index) => {
         let href = `/${pathNames.slice(0, index + 1).join("/")}`;
         let itemClasses = "p-2";
-        let itemLink = link.charAt(0).toUpperCase() + link.slice(1);
+        let itemLink = getTitleCase(link.replace(/-/g, " "));
 
         if (paths === href) {
           if (variant == "default") {
-            itemClasses += " text-[#FF335B]";
+            itemClasses += " text-[#FDB10E]";
           } else if (variant == "highlighted") {
             itemClasses += " bg-[#FF335B] rounded-3xl text-white px-4";
           }

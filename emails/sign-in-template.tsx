@@ -49,12 +49,12 @@ export default function SignInEmail({ url }: { url: string }) {
         <Body className="bg-white">
           <Container className="flex aspect-video w-full max-w-[800px] flex-col items-center justify-center p-12">
             <Section className="flex flex-col items-center justify-center">
-              <Container className="relative h-[100px] w-[300px]" content="">
+              <Container className="relative h-[60px] w-[95px]" content="">
                 <Img
-                  src="https://tedxitb.id/tedxitb-logo-black.png"
-                  alt="TEDxITB Logo"
-                  width={300}
-                  height={150}
+                  src="https://tedxitb.id/logo/x-logo-red-full-cropped.png"
+                  alt="TEDxITB 7.0 Logo"
+                  width={95}
+                  height={60}
                 />
               </Container>
               <Text
