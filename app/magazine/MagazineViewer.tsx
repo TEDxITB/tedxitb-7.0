@@ -45,7 +45,7 @@ export const MagazineViewer = () => {
 
       await iframeSync.current.waiter;
 
-      const { top, left, width, height } = origin.getBoundingClientRect();
+      const { bottom, right, width, height } = origin.getBoundingClientRect();
       const vWidth = window.innerWidth;
       const vHeight = window.innerHeight;
       const targetCover = targetCoverRef.current;
@@ -77,9 +77,9 @@ export const MagazineViewer = () => {
           width: width + "px",
           height: height + "px",
           position: "fixed",
-          top: top + "px",
-          left: left + "px",
-          transitionProperty: "width, height, top, left, transform",
+          bottom: vHeight - bottom + "px",
+          right: vWidth - right + "px",
+          transitionProperty: "width, height, bottom, right, transform",
           transitionDuration: "1s",
           pointerEvents: "none",
         });
@@ -100,22 +100,22 @@ export const MagazineViewer = () => {
       });
 
       if (targetCover) {
-        const { top, left, width, height } = targetCover;
+        const { bottom, right, width, height } = targetCover;
         if (forceLandscape) {
           styleElement(img, {
-            top: left + width / 2 + "px",
-            left: vWidth - top + "px",
+            bottom: (vHeight - right) + "px",
+            right: bottom + "px",
             width: width / 2 + "px",
             height: height + "px",
-            transformOrigin: "top left",
+            transformOrigin: "bottom right",
             transform: "rotate(90deg)",
           });
         } else {
           styleElement(img, {
             width: width / 2 + "px",
             height: height + "px",
-            top: top + "px",
-            left: left + width / 2 + "px",
+            bottom: vHeight - bottom + "px",
+            right: vWidth - right + "px",
           });
         }
       } else {
