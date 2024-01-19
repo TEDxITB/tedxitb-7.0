@@ -16,7 +16,6 @@ const CoverSection = ({
   setMagazine: MagazineSetter;
 }) => {
   const coverRef = useRef<HTMLImageElement>(null);
-  console.log(magazine)
 
   return (
     <li

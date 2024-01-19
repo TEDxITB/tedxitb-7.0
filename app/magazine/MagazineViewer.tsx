@@ -129,7 +129,7 @@ export const MagazineViewer = () => {
       iframe.contentWindow?.postMessage(
         JSON.stringify({
           info: "idUpdate",
-          id: newMagazine.slug,
+          id: newMagazine.id,
         } satisfies Communication)
       );
 
