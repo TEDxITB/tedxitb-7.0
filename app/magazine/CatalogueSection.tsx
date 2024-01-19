@@ -145,7 +145,7 @@ export const CatalogueSection = (
 
       <div
         ref={containerRef}
-        className="flex w-full flex-grow items-center justify-center overflow-hidden"
+        className="flex w-full flex-grow flex-col items-center justify-center overflow-hidden"
       >
         <ul
           ref={listRef}
@@ -175,7 +175,7 @@ export const CatalogueSection = (
         </ul>
 
         <div className="[&>*]:bg-transparent">
-          {gridArea != 0 ? (
+          {maxPage != 1 && gridArea != 0 ? (
             <Pagination
               currentPage={page}
               setPage={setPage}
