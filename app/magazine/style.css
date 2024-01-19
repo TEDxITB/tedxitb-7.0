@@ -11,10 +11,6 @@ nav {
   position: fixed !important;
 }
 
-body {
-  display: contents !important;
-}
-
 section {
   height: calc(100svh - 6rem);
 }

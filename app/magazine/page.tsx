@@ -31,7 +31,7 @@ const TedMagazinePage = async () => {
   );
 
   return (
-    <main className="contents">
+    <main>
       <HeroSection />
       <MagazineComponent magazines={data} />
     </main>

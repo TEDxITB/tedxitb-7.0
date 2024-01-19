@@ -8,7 +8,7 @@ export const HeroSection = () => {
     <section className="relative flex w-screen items-center justify-center text-white">
       <Image
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-30"
-        src={"/magazine-hero-background.png"}
+        src={"/magazine/hero-background.png"}
         alt="Background"
         width={1080}
         height={720}
@@ -17,7 +17,7 @@ export const HeroSection = () => {
       <Image
         data-aos="fade-up"
         className="absolute bottom-0 left-[70%] w-[min(15%,200px)] -translate-x-1/2"
-        src={"/magazine-hero-2.png"}
+        src={"/magazine/hero-2.png"}
         width={500}
         height={500}
         alt="test"
@@ -35,7 +35,7 @@ export const HeroSection = () => {
             hts
           </p>
           <div>
-            <a href="#cover">
+            <a href="#catalogue">
               <Button className="rounded-full">See More</Button>
             </a>
           </div>
@@ -43,7 +43,7 @@ export const HeroSection = () => {
         <Image
           data-aos="fade-left"
           className="ml-auto w-[250px] sm:w-[350px] lg:w-[450px]"
-          src={"/magazine-hero-1.png"}
+          src={"/magazine/hero-1.png"}
           width={500}
           height={500}
           alt="test"
