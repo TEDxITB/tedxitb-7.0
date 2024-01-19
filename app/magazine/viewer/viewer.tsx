@@ -1,13 +1,12 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Communication, Magazine, createWaiter } from "../shared";
 import { cn } from "@/lib/utils";
+import { MagazineQueryResult } from "@/types/cms";
 import { ChevronLeft, ChevronRight, Loader2, X } from "lucide-react";
 import Image from "next/image";
 import { PageFlip } from "page-flip";
-import { Communication, Magazine, createWaiter } from "../shared";
-import { MagazineQueryResult } from "@/types/cms";
-
+import { useEffect, useRef, useState } from "react";
 
 export const recalculatePageDimension = function (): {
   width: number;
@@ -25,9 +24,7 @@ export const recalculatePageDimension = function (): {
   }
 };
 
-export const Viewer = ({ data }: {
-  data: Record<string, Magazine>
-}) => {
+export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
   const parentRef = useRef<Window>(null as any);
 
   const idRef = useRef("");
@@ -113,7 +110,7 @@ export const Viewer = ({ data }: {
     window.addEventListener("message", (e) => {
       const msg = JSON.parse(e.data) as Communication;
       if (msg.info == "idUpdate") {
-        setMagazine(data[msg.id])
+        setMagazine(data[msg.id]);
       }
     });
 
@@ -162,25 +159,27 @@ export const Viewer = ({ data }: {
   };
 
   return (
-    <div className="bg-black fixed w-screen h-screen z-[100]">
-      <div className={cn(
-        "w-full h-full flex justify-center items-center text-7xl text-white fixed",
-        magazine ? "hidden" : ""
-      )}>
+    <div className="fixed z-[100] h-screen w-screen bg-black">
+      <div
+        className={cn(
+          "fixed flex h-full w-full items-center justify-center text-7xl text-white",
+          magazine ? "hidden" : ""
+        )}
+      >
         Magazine Not Found
       </div>
       <div
         className={cn(
-          "transition-opacity duration-500 w-screen h-screen flex flex-col justify-center items-center gap-3",
+          "flex h-screen w-screen flex-col items-center justify-center gap-3 transition-opacity duration-500",
           magazine && magazine.magazine.length > 0 ? "opacity-100" : "opacity-0"
         )}
       >
         <div className="flex flex-row" style={{ width: pageWidth * 2 + "px" }}>
           <div className="flex-1"></div>
-          <div className=" text-white flex flex-row font-anderson text-xs lg:text-lg">
+          <div className=" flex flex-row font-anderson text-xs text-white lg:text-lg">
             <p className="pt-1">Pages:&nbsp;</p>
             <input
-              className="bg-white text-black w-14 text-center rounded-lg pt-1"
+              className="w-14 rounded-lg bg-white pt-1 text-center text-black"
               value={inputPage}
               pattern="[0-9]"
               type="text"
@@ -201,11 +200,14 @@ export const Viewer = ({ data }: {
 
                 if (page % 2 == 1) page--;
                 pageFlipRef.current?.turnToPage(page);
-              }} />
-            <p className="pt-1">&nbsp;/&nbsp;{magazine?.magazine.length || 0}</p>
+              }}
+            />
+            <p className="pt-1">
+              &nbsp;/&nbsp;{magazine?.magazine.length || 0}
+            </p>
           </div>
           <div className="flex flex-1">
-            <button onClick={closeWindow} className="text-white ml-auto">
+            <button onClick={closeWindow} className="ml-auto text-white">
               <X />
             </button>
           </div>
@@ -215,7 +217,7 @@ export const Viewer = ({ data }: {
             onClick={() => {
               pageFlipRef.current?.flipPrev();
             }}
-            className="text-white h-full w-10 flex justify-center items-center"
+            className="flex h-full w-10 items-center justify-center text-white"
           >
             <ChevronLeft />
           </button>
@@ -226,15 +228,16 @@ export const Viewer = ({ data }: {
             {(magazine?.magazine || []).map((page, i) => (
               <div
                 key={i}
-                className="bg-white border-2 w-full h-full border-black overflow-hidden relative"
+                className="relative h-full w-full overflow-hidden border-2 border-black bg-white"
               >
                 <Image
                   src={page.url}
                   width={1000}
                   height={1000}
-                  className="peer relative w-full h-full z-20"
-                  alt={page.alt} />
-                <div className="z-10 text-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 peer-[data-loaded]:hidden">
+                  className="peer relative z-20 h-full w-full"
+                  alt={page.alt}
+                />
+                <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-black peer-[data-loaded]:hidden">
                   <Loader2 size={50} className="animate-spin" />
                 </div>
               </div>
@@ -245,17 +248,17 @@ export const Viewer = ({ data }: {
           </div>
 
           <div
-            className="flex flex-row justify-center items-center relative"
+            className="relative flex flex-row items-center justify-center"
             style={{ width: 2 * pageWidth + "px", height: pageHeight + "px" }}
           >
-            <div ref={bookContainerRef} className="w-full h-full"></div>
+            <div ref={bookContainerRef} className="h-full w-full"></div>
           </div>
 
           <button
             onClick={() => {
               pageFlipRef.current?.flipNext();
             }}
-            className="text-white h-full w-10 flex justify-center items-center"
+            className="flex h-full w-10 items-center justify-center text-white"
           >
             <ChevronRight />
           </button>

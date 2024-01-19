@@ -19,7 +19,7 @@ const CoverSection = ({
 
   return (
     <li
-      className="flex flex-col items-center justify-center gap-2 cursor-pointer overflow-hidden"
+      className="flex cursor-pointer flex-col items-center justify-center gap-2 overflow-hidden"
       onClick={() => setMagazine(magazine, coverRef.current as any)}
     >
       <Image
@@ -34,7 +34,10 @@ const CoverSection = ({
   );
 };
 
-export const CatalogueSection = ({ allMonthlyMagazines }: MagazineQueryResult, setMagazine: MagazineSetter) => {
+export const CatalogueSection = (
+  { allMonthlyMagazines }: MagazineQueryResult,
+  setMagazine: MagazineSetter
+) => {
   const [page, setPage] = useState(1);
   const [showingPage, setShowingPageState] = useState(page);
   const containerRef = useRef<HTMLUListElement>(null);
@@ -86,7 +89,7 @@ export const CatalogueSection = ({ allMonthlyMagazines }: MagazineQueryResult, s
 
       setCol(Math.floor(width / 300) || 1);
       setRow(Math.floor(height / 500) || 1);
-      setPage(1)
+      setPage(1);
     });
 
     resizeObserver.observe(container);
@@ -95,11 +98,11 @@ export const CatalogueSection = ({ allMonthlyMagazines }: MagazineQueryResult, s
   return (
     <section
       id="cover"
-      className="text-white font-anderson overflow-hidden w-screen py-7 px-10 flex flex-col gap-2 items-center z-10 relative"
+      className="relative z-10 flex w-screen flex-col items-center gap-2 overflow-hidden px-10 py-7 font-anderson text-white"
     >
-      <div className="absolute w-full h-full top-0 left-0">
+      <div className="absolute left-0 top-0 h-full w-full">
         <Image
-          className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2"
+          className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2"
           src={"/decoration/blur1.png"}
           alt="Background"
           width={1080}
@@ -107,7 +110,7 @@ export const CatalogueSection = ({ allMonthlyMagazines }: MagazineQueryResult, s
         />
 
         <Image
-          className="absolute right-0 top-1/2 translate-x-3/4 -translate-y-1/2"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3/4"
           src={"/decoration/blur2.png"}
           alt="Background"
           width={1080}
@@ -115,23 +118,22 @@ export const CatalogueSection = ({ allMonthlyMagazines }: MagazineQueryResult, s
         />
 
         <Image
-          className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2"
+          className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2"
           src={"/decoration/blur3.png"}
           alt="Background"
           width={1080}
           height={720}
         />
-
       </div>
 
       <ul
         data-aos="zoom-in"
         ref={containerRef}
         className={cn(
-          "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
+          "grid h-full w-full max-w-7xl gap-4 overflow-hidden transition-all duration-300",
           showingPage != page
-            ? "opacity-0 scale-90 " +
-            (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+            ? "scale-90 opacity-0 " +
+                (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
             : "opacity-100"
         )}
         style={{
@@ -145,22 +147,22 @@ export const CatalogueSection = ({ allMonthlyMagazines }: MagazineQueryResult, s
             <CoverSection
               key={magazine.id}
               setMagazine={setMagazine}
-              magazine={magazine} />
+              magazine={magazine}
+            />
           ))}
       </ul>
 
       <div className="mt-auto [&>*]:bg-transparent">
-        {
-          count != 0 ?
-            <Pagination
-              currentPage={page}
-              setPage={setPage}
-              totalPages={Math.ceil(allMonthlyMagazines.length / count)}
-              variant="primary"
-              control="icon"
-              loop={true}
-            /> : null
-        }
+        {count != 0 ? (
+          <Pagination
+            currentPage={page}
+            setPage={setPage}
+            totalPages={Math.ceil(allMonthlyMagazines.length / count)}
+            variant="primary"
+            control="icon"
+            loop={true}
+          />
+        ) : null}
       </div>
     </section>
   );

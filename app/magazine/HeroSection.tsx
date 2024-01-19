@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export const HeroSection = () => {
   return (
-    <section className="w-screen text-white flex justify-center items-center relative">
+    <section className="relative flex w-screen items-center justify-center text-white">
       <Image
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-30"
         src={"/magazine-hero-background.png"}
@@ -23,10 +23,10 @@ export const HeroSection = () => {
         alt="test"
       />
 
-      <div className="flex flex-col lg:flex-row gap-10 sm:gap-0 z-10 w-3/4 max-w-7xl">
+      <div className="z-10 flex w-3/4 max-w-7xl flex-col gap-10 sm:gap-0 lg:flex-row">
         <div data-aos="fade-up" className="flex flex-col justify-center">
-          <p className="font-anderson mb-4">Magazine</p>
-          <p className="font-graziela text-6xl mb-8">
+          <p className="mb-4 font-anderson">Magazine</p>
+          <p className="mb-8 font-graziela text-6xl">
             <span className="font-graziela">R</span>
             ead for &#160;
             <span className="font-graziela">L</span>

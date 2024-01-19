@@ -103,7 +103,7 @@ export const MagazineViewer = () => {
         const { bottom, right, width, height } = targetCover;
         if (forceLandscape) {
           styleElement(img, {
-            bottom: (vHeight - right) + "px",
+            bottom: vHeight - right + "px",
             right: bottom + "px",
             width: width / 2 + "px",
             height: height + "px",
@@ -193,7 +193,7 @@ export const MagazineViewer = () => {
       key={0}
       ref={iframeRef}
       src="/magazine/viewer"
-      className={"fixed pointer-events-none opacity-0 top-1/2 left-1/2 z-[100]"}
+      className={"pointer-events-none fixed left-1/2 top-1/2 z-[100] opacity-0"}
     />,
     openMagazine,
   ] as const;
