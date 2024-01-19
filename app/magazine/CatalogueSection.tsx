@@ -41,41 +41,42 @@ export const CatalogueSection = (
 ) => {
   const [page, setPage] = useState(1);
   const [showingPage, setShowingPageState] = useState(page);
-  const containerRef = useRef<HTMLUListElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const [col, setCol] = useState(0);
   const [row, setRow] = useState(0);
   const count = row * col;
 
   const setShowingPage = (page: number) => {
-    const container = containerRef.current;
-    if (!container) return;
+    const list = listRef.current;
+    if (!list) return;
 
-    container.style.transitionDuration = "0s";
-    container.classList.remove("translate-x-1/2");
-    container.classList.remove("-translate-x-1/2");
+    list.style.transitionDuration = "0s";
+    list.classList.remove("translate-x-1/2");
+    list.classList.remove("-translate-x-1/2");
 
     setTimeout(() => {
-      container.style.transitionDuration = "";
+      list.style.transitionDuration = "";
       setShowingPageState(page);
     }, 100);
   };
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    const list = listRef.current;
+    if (!list) return;
 
     const cbEnd = () => {
       if (showingPage != page) setShowingPage(page);
-      container.removeEventListener("transitionend", cbEnd);
+      list.removeEventListener("transitionend", cbEnd);
     };
-    container.addEventListener("transitionend", cbEnd);
+    list.addEventListener("transitionend", cbEnd);
   }, [page, showingPage]);
 
-  if (showingPage != page && containerRef.current) {
-    const container = containerRef.current;
+  if (showingPage != page && listRef.current) {
+    const list = listRef.current;
     requestAnimationFrame(() => {
-      if (container.getAnimations().length == 0 && showingPage != page) {
+      if (list.getAnimations().length == 0 && showingPage != page) {
         setShowingPage(page);
       }
     });
@@ -105,7 +106,7 @@ export const CatalogueSection = (
   return (
     <section
       id="catalogue"
-      className="relative z-10 flex w-screen flex-col items-center gap-2 overflow-hidden bg-[#1E1E1E] px-10 py-7 font-anderson text-white"
+      className="relative z-10 flex flex-col items-center w-screen min-h-[600px] h-[calc(100vh-6rem)] gap-2 overflow-hidden bg-[#1E1E1E] px-10 py-7 font-anderson text-white"
     >
       <div className="pointer-events-none absolute left-0 top-0 h-full w-full">
         <Image
@@ -133,32 +134,36 @@ export const CatalogueSection = (
         />
       </div>
 
-      <ul
-        ref={containerRef}
-        className={cn(
-          "grid h-full w-full max-w-7xl gap-4 overflow-hidden transition-all duration-300",
-          showingPage != page
-            ? "scale-90 opacity-0 " +
-                (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
-            : "opacity-100"
-        )}
-        style={{
-          gridTemplateColumns: `repeat(${col}, 1fr)`,
-          gridTemplateRows: `repeat(${row}, 1fr)`,
-        }}
-      >
-        {allMonthlyMagazines
-          .slice((showingPage - 1) * count, showingPage * count)
-          .map((magazine) => (
-            <CoverSection
-              key={magazine.id}
-              setMagazine={setMagazine}
-              magazine={magazine}
-            />
-          ))}
-      </ul>
+      <div ref={containerRef} className="w-full flex-grow flex items-center justify-center overflow-hidden">
+        <ul
+          ref={listRef}
+          className={cn(
+            "grid h-full w-full max-w-7xl gap-4 overflow-hidden transition-all duration-300",
+            showingPage != page
+              ? "scale-90 opacity-0 " +
+              (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+              : "opacity-100"
+          )}
+          style={{
+            gridTemplateColumns: `repeat(${col}, 1fr)`,
+            gridTemplateRows: `repeat(${row}, 1fr)`,
+            maxWidth: col * 350 + "px",
+            maxHeight: row * 550 + "px"
+          }}
+        >
+          {allMonthlyMagazines
+            .slice((showingPage - 1) * count, showingPage * count)
+            .map((magazine) => (
+              <CoverSection
+                key={magazine.id}
+                setMagazine={setMagazine}
+                magazine={magazine}
+              />
+            ))}
+        </ul>
+      </div>
 
-      <div className="mt-auto [&>*]:bg-transparent">
+      <div className="[&>*]:bg-transparent">
         {count != 0 ? (
           <Pagination
             currentPage={page}

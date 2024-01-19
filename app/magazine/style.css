@@ -11,10 +11,6 @@ nav {
   position: fixed !important;
 }
 
-section {
-  height: calc(100svh - 6rem);
-}
-
 body > * {
   scroll-snap-align: end;
 }
