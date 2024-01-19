@@ -48,11 +48,17 @@ export const CatalogueSection = (
   const [row, setRow] = useState(0);
   const gridArea = row * col;
 
-  const magazineCount = allMonthlyMagazines.length
-  const maxPage = Math.ceil(magazineCount / gridArea)
+  const magazineCount = allMonthlyMagazines.length;
+  const maxPage = Math.ceil(magazineCount / gridArea);
   const needBound = page == maxPage && gridArea != magazineCount;
-  const neededRow = needBound ? Math.ceil((magazineCount % gridArea) / col) : row;
-  const neededCol = needBound ? (neededRow == 1 ? ((magazineCount % gridArea) % col) : col) : col;
+  const neededRow = needBound
+    ? Math.ceil((magazineCount % gridArea) / col)
+    : row;
+  const neededCol = needBound
+    ? neededRow == 1
+      ? (magazineCount % gridArea) % col
+      : col
+    : col;
 
   const setShowingPage = (page: number) => {
     const list = listRef.current;
@@ -112,7 +118,7 @@ export const CatalogueSection = (
   return (
     <section
       id="catalogue"
-      className="relative z-10 flex flex-col items-center w-screen min-h-[600px] h-[calc(100vh-6rem)] gap-2 overflow-hidden bg-[#1E1E1E] px-10 py-7 font-anderson text-white"
+      className="relative z-10 flex h-[calc(100vh-6rem)] min-h-[600px] w-screen flex-col items-center gap-2 overflow-hidden bg-[#1E1E1E] px-10 py-7 font-anderson text-white"
     >
       <div className="pointer-events-none absolute left-0 top-0 h-full w-full">
         <Image
@@ -140,21 +146,24 @@ export const CatalogueSection = (
         />
       </div>
 
-      <div ref={containerRef} className="w-full flex-grow flex items-center justify-center overflow-hidden">
+      <div
+        ref={containerRef}
+        className="flex w-full flex-grow items-center justify-center overflow-hidden"
+      >
         <ul
           ref={listRef}
           className={cn(
             "grid h-full w-full max-w-7xl gap-4 overflow-hidden transition-all duration-300",
             showingPage != page
               ? "scale-90 opacity-0 " +
-              (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+                  (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
               : "opacity-100"
           )}
           style={{
             gridTemplateColumns: `repeat(${neededCol}, 1fr)`,
             gridTemplateRows: `repeat(${neededRow}, 1fr)`,
             maxWidth: neededCol * 350 + "px",
-            maxHeight: neededRow * 550 + "px"
+            maxHeight: neededRow * 550 + "px",
           }}
         >
           {allMonthlyMagazines
