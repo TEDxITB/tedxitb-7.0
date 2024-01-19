@@ -95,7 +95,8 @@ export const CatalogueSection = ({ allMonthlyMagazines }: MagazineQueryResult, s
   return (
     <section
       id="cover"
-      className="bg-black text-white font-anderson overflow-hidden w-screen py-7 px-10 flex flex-col gap-2 items-center z-10 relative"
+      data-aos="zoom-in"
+      className="text-white font-anderson overflow-hidden w-screen py-7 px-10 flex flex-col gap-2 items-center z-10 relative"
     >
       {/* <Image
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-20"
