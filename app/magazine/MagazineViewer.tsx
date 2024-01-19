@@ -82,7 +82,7 @@ export const MagazineViewer = () => {
           transitionProperty: "width, height, bottom, right, transform",
           transitionDuration: "1s",
           pointerEvents: "none",
-          objectFit: "contain"
+          objectFit: "contain",
         });
       } else {
         styleElement(img, {
