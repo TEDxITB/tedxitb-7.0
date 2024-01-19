@@ -177,7 +177,7 @@ export const Viewer = ({ data }: {
       >
         <div className="flex flex-row" style={{ width: pageWidth * 2 + "px" }}>
           <div className="flex-1"></div>
-          <div className=" text-white flex flex-row font-anderson text-lg">
+          <div className=" text-white flex flex-row font-anderson text-xs lg:text-lg">
             <p className="pt-1">Pages:&nbsp;</p>
             <input
               className="bg-white text-black w-14 text-center rounded-lg pt-1"
