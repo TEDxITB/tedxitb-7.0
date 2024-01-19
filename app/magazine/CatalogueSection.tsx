@@ -48,17 +48,12 @@ export const CatalogueSection = (
   const [row, setRow] = useState(0);
   const gridArea = row * col;
 
-  const magazineCount = allMonthlyMagazines.length;
-  const maxPage = Math.ceil(magazineCount / gridArea);
-  const needBound = page == maxPage && gridArea != magazineCount;
-  const neededRow = needBound
-    ? Math.ceil((magazineCount % gridArea) / col)
-    : row;
-  const neededCol = needBound
-    ? neededRow == 1
-      ? (magazineCount % gridArea) % col
-      : col
-    : col;
+  const magazineCount = allMonthlyMagazines.length
+  const maxPage = Math.ceil(magazineCount / gridArea)
+  const needBound = maxPage == 1;
+  const neededArea = needBound ? (magazineCount % gridArea || gridArea) : gridArea;
+  const neededRow = needBound ? Math.ceil(neededArea / col) : row;
+  const neededCol = (needBound && neededRow == 1) ? neededArea : col;
 
   const setShowingPage = (page: number) => {
     const list = listRef.current;
@@ -156,7 +151,7 @@ export const CatalogueSection = (
             "grid h-full w-full max-w-7xl gap-4 overflow-hidden transition-all duration-300",
             showingPage != page
               ? "scale-90 opacity-0 " +
-                  (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+              (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
               : "opacity-100"
           )}
           style={{
@@ -167,7 +162,7 @@ export const CatalogueSection = (
           }}
         >
           {allMonthlyMagazines
-            .slice((showingPage - 1) * gridArea, showingPage * gridArea)
+            .slice((showingPage - 1) * neededArea, showingPage * neededArea)
             .map((magazine) => (
               <CoverSection
                 key={magazine.id}
@@ -176,20 +171,21 @@ export const CatalogueSection = (
               />
             ))}
         </ul>
+
+        <div className="[&>*]:bg-transparent">
+          {gridArea != 0 ? (
+            <Pagination
+              currentPage={page}
+              setPage={setPage}
+              totalPages={maxPage}
+              variant="primary"
+              control="icon"
+              loop={true}
+            />
+          ) : null}
+        </div>
       </div>
 
-      <div className="[&>*]:bg-transparent">
-        {gridArea != 0 ? (
-          <Pagination
-            currentPage={page}
-            setPage={setPage}
-            totalPages={maxPage}
-            variant="primary"
-            control="icon"
-            loop={true}
-          />
-        ) : null}
-      </div>
     </section>
   );
 };
