@@ -23,7 +23,7 @@ const CoverSection = ({
       onClick={() => setMagazine(magazine, coverRef.current as any)}
     >
       <Image
-        className="object-contain object-center max-w-full max-h-[calc(100%-2rem)]"
+        className="max-h-[calc(100%-2rem)] max-w-full object-contain object-center"
         ref={coverRef}
         src={magazine.magazine[0].url}
         alt="cover"
@@ -87,14 +87,14 @@ export const CatalogueSection = (
 
     const resizeObserver = new ResizeObserver(() => {
       const { width, height } = container.getBoundingClientRect();
-      const ratio = width / height
+      const ratio = width / height;
 
       if (ratio < 3) {
         setCol(Math.floor(width / 300) || 1);
         setRow(Math.floor(height / 500) || 1);
       } else {
         setCol(Math.floor(ratio) || 1);
-        setRow(1)
+        setRow(1);
       }
       setPage(1);
     });
@@ -139,7 +139,7 @@ export const CatalogueSection = (
           "grid h-full w-full max-w-7xl gap-4 overflow-hidden transition-all duration-300",
           showingPage != page
             ? "scale-90 opacity-0 " +
-            (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+                (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
             : "opacity-100"
         )}
         style={{
