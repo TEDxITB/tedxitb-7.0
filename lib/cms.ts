@@ -94,7 +94,7 @@ export const mainEventTopicQuery = `{
   }
 }`;
 
-export const magazineTags = ["monthly-event"];
+export const magazineTags = ["monthly-magazine"];
 export const magazineQuery = `{
   allMonthlyMagazines {
     id

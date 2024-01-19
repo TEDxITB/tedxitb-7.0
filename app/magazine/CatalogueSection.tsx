@@ -19,7 +19,7 @@ const CoverSection = ({
 
   return (
     <li
-      className="flex cursor-pointer flex-col items-center justify-center gap-2 overflow-hidden"
+      className="flex cursor-pointer flex-col items-center justify-center gap-2 overflow-hidden lg:gap-4"
       onClick={() => setMagazine(magazine, coverRef.current as any)}
     >
       <Image
@@ -30,7 +30,7 @@ const CoverSection = ({
         width={1000}
         height={1000}
       />
-      <p className="text-center">{magazine.title}</p>
+      <p className="text-center text-base lg:text-xl">{magazine.title}</p>
     </li>
   );
 };
@@ -145,12 +145,13 @@ export const CatalogueSection = (
 
       <div
         ref={containerRef}
-        className="flex w-full flex-grow items-center justify-center overflow-hidden"
+        data-aos="zoom-in-up"
+        className="flex w-full flex-grow flex-col items-center justify-center overflow-hidden lg:gap-8"
       >
         <ul
           ref={listRef}
           className={cn(
-            "grid h-full w-full max-w-7xl gap-4 overflow-hidden transition-all duration-300",
+            "grid h-full w-full max-w-7xl gap-12 overflow-hidden transition-all duration-300",
             showingPage != page
               ? "scale-90 opacity-0 " +
                   (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
