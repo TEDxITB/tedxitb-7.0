@@ -128,8 +128,8 @@ export const MagazineViewer = () => {
 
       iframe.contentWindow?.postMessage(
         JSON.stringify({
-          info: "slugUpdate",
-          slug: newMagazine.slug,
+          info: "idUpdate",
+          id: newMagazine.slug,
         } satisfies Communication)
       );
 

@@ -12,8 +12,8 @@ export type Communication =
     bounding: DOMRect;
   }
   | {
-    info: "slugUpdate";
-    slug: string;
+    info: "idUpdate";
+    id: string;
   };
 
 export type Magazine = MagazineQueryResult['allMonthlyMagazines'] extends (infer K)[] ? K : never
