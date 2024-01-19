@@ -29,8 +29,8 @@ const HomePage = () => {
           sizes="100vw"
           className="absolute object-cover object-center"
         />
-        <div className="flex w-[70%] flex-col items-center justify-center gap-8 lg:gap-12">
-          <div className="flex w-full flex-col items-center justify-center gap-4 text-ted-white ">
+        <div className="flex w-[70%] flex-col items-center justify-center gap-6 lg:gap-12">
+          <div className="flex w-full flex-col items-center justify-center gap-2 text-ted-white lg:gap-4 ">
             <h1
               data-aos="zoom-in-up"
               className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"

@@ -98,7 +98,7 @@ export const CatalogueSection = (
   return (
     <section
       id="catalogue"
-      className="relative z-10 flex w-screen flex-col items-center gap-2 overflow-hidden px-10 py-7 font-anderson text-white"
+      className="relative z-10 flex w-screen flex-col items-center gap-2 overflow-hidden bg-[#1E1E1E] px-10 py-7 font-anderson text-white"
     >
       <div className="pointer-events-none absolute left-0 top-0 h-full w-full">
         <Image
