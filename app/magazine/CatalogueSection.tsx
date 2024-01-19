@@ -176,7 +176,7 @@ export const CatalogueSection = (
         </ul>
 
         <div className="[&>*]:bg-transparent">
-          {gridArea != 0 ? (
+          {maxPage != 1 && gridArea != 0 ? (
             <Pagination
               currentPage={page}
               setPage={setPage}
