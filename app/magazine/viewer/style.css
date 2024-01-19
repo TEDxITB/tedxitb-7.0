@@ -5,3 +5,11 @@
 .stf__block .--right {
   border-left: 0px;
 }
+
+nav {
+  display: none !important;
+}
+
+footer {
+  display: none !important;
+}
