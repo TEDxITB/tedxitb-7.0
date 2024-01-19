@@ -4,6 +4,7 @@ html {
   display: block !important;
   overflow-y: scroll;
   padding-top: 6rem;
+  scroll-padding-top: 6rem;
 }
 
 nav {
