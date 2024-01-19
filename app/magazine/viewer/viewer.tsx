@@ -163,6 +163,12 @@ export const Viewer = ({ data }: {
 
   return (
     <div className="bg-black fixed w-screen h-screen z-[100]">
+      <div className={cn(
+        "w-full h-full flex justify-center items-center text-7xl text-white fixed",
+        magazine ? "hidden" : ""
+      )}>
+        Magazine Not Found
+      </div>
       <div
         className={cn(
           "transition-opacity duration-500 w-screen h-screen flex flex-col justify-center items-center gap-3",
