@@ -100,7 +100,7 @@ export const CatalogueSection = (
       id="catalogue"
       className="relative z-10 flex w-screen flex-col items-center gap-2 overflow-hidden px-10 py-7 font-anderson text-white"
     >
-      <div className="absolute left-0 top-0 h-full w-full pointer-events-none">
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-full">
         <Image
           className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2"
           src={"/decoration/blur1.png"}
@@ -132,7 +132,7 @@ export const CatalogueSection = (
           "grid h-full w-full max-w-7xl gap-4 overflow-hidden transition-all duration-300",
           showingPage != page
             ? "scale-90 opacity-0 " +
-            (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+                (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
             : "opacity-100"
         )}
         style={{
