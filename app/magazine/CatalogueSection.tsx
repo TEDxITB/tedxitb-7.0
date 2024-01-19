@@ -95,42 +95,59 @@ export const CatalogueSection = ({ allMonthlyMagazines }: MagazineQueryResult, s
   return (
     <section
       id="cover"
-      data-aos="zoom-in"
       className="text-white font-anderson overflow-hidden w-screen py-7 px-10 flex flex-col gap-2 items-center z-10 relative"
     >
-      {/* <Image
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-20"
-        src={"/modalBackgroundType3.png"}
-        alt="Background"
-        width={1080}
-        height={720}
-      /> */}
+      <div className="absolute w-full h-full top-0 left-0">
+        <Image
+          className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2"
+          src={"/decoration/blur1.png"}
+          alt="Background"
+          width={1080}
+          height={720}
+        />
 
-      {
-        <ul
-          ref={containerRef}
-          className={cn(
-            "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
-            showingPage != page
-              ? "opacity-0 scale-90 " +
-              (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
-              : "opacity-100"
-          )}
-          style={{
-            gridTemplateColumns: `repeat(${col}, 1fr)`,
-            gridTemplateRows: `repeat(${row}, 1fr)`,
-          }}
-        >
-          {allMonthlyMagazines
-            .slice((showingPage - 1) * count, showingPage * count)
-            .map((magazine) => (
-              <CoverSection
-                key={magazine.id}
-                setMagazine={setMagazine}
-                magazine={magazine} />
-            ))}
-        </ul>
-      }
+        <Image
+          className="absolute right-0 top-1/2 translate-x-3/4 -translate-y-1/2"
+          src={"/decoration/blur2.png"}
+          alt="Background"
+          width={1080}
+          height={720}
+        />
+
+        <Image
+          className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2"
+          src={"/decoration/blur3.png"}
+          alt="Background"
+          width={1080}
+          height={720}
+        />
+
+      </div>
+
+      <ul
+        data-aos="zoom-in"
+        ref={containerRef}
+        className={cn(
+          "transition-all duration-300 w-full h-full overflow-hidden grid gap-4 max-w-7xl",
+          showingPage != page
+            ? "opacity-0 scale-90 " +
+            (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+            : "opacity-100"
+        )}
+        style={{
+          gridTemplateColumns: `repeat(${col}, 1fr)`,
+          gridTemplateRows: `repeat(${row}, 1fr)`,
+        }}
+      >
+        {allMonthlyMagazines
+          .slice((showingPage - 1) * count, showingPage * count)
+          .map((magazine) => (
+            <CoverSection
+              key={magazine.id}
+              setMagazine={setMagazine}
+              magazine={magazine} />
+          ))}
+      </ul>
 
       <div className="mt-auto [&>*]:bg-transparent">
         {
