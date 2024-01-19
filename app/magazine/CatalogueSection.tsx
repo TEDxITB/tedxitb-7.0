@@ -86,6 +86,7 @@ export const CatalogueSection = ({ allMonthlyMagazines }: MagazineQueryResult, s
 
       setCol(Math.floor(width / 300) || 1);
       setRow(Math.floor(height / 500) || 1);
+      setPage(1)
     });
 
     resizeObserver.observe(container);
