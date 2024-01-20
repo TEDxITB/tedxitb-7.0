@@ -2,19 +2,19 @@ import { MagazineQueryResult } from "@/types/cms";
 
 export type Communication =
   | {
-    info: "close";
-  }
+      info: "close";
+    }
   | {
-    info: "ready";
-  }
+      info: "ready";
+    }
   | {
-    info: "boundUpdate";
-    bounding: DOMRect;
-  }
+      info: "boundUpdate";
+      bounding: DOMRect;
+    }
   | {
-    info: "idUpdate";
-    id: string;
-  };
+      info: "idUpdate";
+      id: string;
+    };
 
 export type Magazine =
   MagazineQueryResult["allMonthlyMagazines"] extends (infer K)[] ? K : never;
@@ -61,6 +61,6 @@ export const waitFrameSingle = () => {
 
 export const waitFrame = async () => {
   for (let i = 0; i < 5; ++i) {
-    await waitFrameSingle()
+    await waitFrameSingle();
   }
 };
