@@ -125,6 +125,17 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
       );
     }
 
+    console.log("Init");
+    document.addEventListener("keydown", (e) => {
+      if (e.key == "ArrowRight") {
+        pageFlipRef.current.flipNext();
+        e.preventDefault();
+      } else if (e.key == "ArrowLeft") {
+        pageFlipRef.current.flipPrev();
+        e.preventDefault();
+      }
+    });
+
     resize();
     window.addEventListener("resize", resize);
   };
@@ -134,9 +145,13 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
     if (window != parent) parent.postMessage(JSON.stringify(msg));
   };
 
+  const initializedRef = useRef(false);
   useEffect(() => {
-    setupListener();
-    requestAnimationFrame(sendData.bind(null, { info: "ready" }));
+    if (initializedRef.current == false) {
+      setupListener();
+      requestAnimationFrame(sendData.bind(null, { info: "ready" }));
+      initializedRef.current = true;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
