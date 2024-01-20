@@ -43,8 +43,8 @@ const DocumentationPage = async () => {
         />
 
         {/* Text and button in the middle of the picture */}
-        <div className=" z-20 flex h-full w-full flex-col items-center justify-center gap-8 text-white lg:gap-12">
-          <div className="flex flex-col items-center gap-4">
+        <div className=" z-20 flex h-full w-full flex-col items-center justify-center gap-6 text-white lg:gap-12">
+          <div className="flex flex-col items-center gap-2 lg:gap-4">
             <h1
               data-aos="zoom-in-up"
               className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] sm:uppercase lg:text-8xl"

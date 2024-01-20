@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const HomePage = () => {
   return (
-    <div className="flex h-fit w-screen flex-col items-center justify-center bg-[#1E1E1E]">
+    <main className="flex h-fit w-screen flex-col items-center justify-center bg-[#1E1E1E]">
       {/* Hero */}
       <section className="relative z-10 flex min-h-[calc(100vh-6rem)] w-screen items-center justify-center">
         <Image
@@ -29,8 +29,8 @@ const HomePage = () => {
           sizes="100vw"
           className="absolute object-cover object-center"
         />
-        <div className="flex w-[70%] flex-col items-center justify-center gap-8 lg:gap-12">
-          <div className="flex w-full flex-col items-center justify-center gap-4 text-ted-white ">
+        <div className="flex w-[70%] flex-col items-center justify-center gap-6 lg:gap-12">
+          <div className="flex w-full flex-col items-center justify-center gap-2 text-ted-white lg:gap-4 ">
             <h1
               data-aos="zoom-in-up"
               className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
@@ -297,8 +297,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/*  */}
-      <div className="relative w-full overflow-hidden">
+      {/* Previous TEDx */}
+      <section className="relative w-full overflow-hidden">
         <div className="z-5 absolute flex h-full w-full items-center justify-center md:items-start md:pt-[90px]">
           <div className="relative h-[400px] w-[400px] md:h-[850px] md:w-[870px]">
             <Image
@@ -316,8 +316,8 @@ const HomePage = () => {
         >
           <Carousel />
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
