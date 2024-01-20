@@ -32,3 +32,17 @@ export interface MainEventTopicQueryResult {
     image: ImageCMS;
   }[];
 }
+
+export interface MagazineQueryResult {
+  allMonthlyMagazines: {
+    id: string;
+    title: string;
+    magazine: {
+      id: string;
+      url: string;
+      alt: string;
+      width: string;
+      height: string;
+    }[];
+  }[];
+}

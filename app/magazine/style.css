@@ -1,0 +1,16 @@
+html {
+  scroll-behavior: smooth;
+  height: 100vh !important;
+  display: block !important;
+  overflow-y: scroll;
+  padding-top: 6rem;
+  scroll-padding-top: 6rem;
+}
+
+nav {
+  position: fixed !important;
+}
+
+body > * {
+  scroll-snap-align: end;
+}

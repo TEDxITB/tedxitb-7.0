@@ -93,3 +93,18 @@ export const mainEventTopicQuery = `{
     }
   }
 }`;
+
+export const magazineTags = ["monthly-magazine"];
+export const magazineQuery = `{
+  allMonthlyMagazines {
+    id
+    title
+    magazine {
+      id
+      url
+      alt
+      width
+      height
+    }
+  }
+}`;

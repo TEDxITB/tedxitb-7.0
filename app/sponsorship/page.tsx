@@ -43,22 +43,18 @@ export default async function Sponsorship() {
 
         {/* Content */}
         <div className="absolute flex h-full w-full flex-col items-start justify-center gap-8 p-6 font-garamond text-white sm:p-16 lg:gap-12 lg:p-28 2xl:p-36">
-          <h1 className="tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)]">
-            <span
-              data-aos="fade-right"
-              className="font-garamond text-2xl font-medium lg:text-5xl"
-            >
+          <h1
+            data-aos="fade-right"
+            className="tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)]"
+          >
+            <span className="font-garamond text-2xl font-medium lg:text-5xl">
               <span className="mr-2 font-graziela text-4xl lg:text-7xl">S</span>
               <span>PECIAL </span>
               <span>THANKS </span>
               <span>TO</span>
             </span>
             <br />
-            <span
-              data-aos="fade-right"
-              data-aos-delay="150"
-              className="font-anderson text-5xl font-bold lg:text-8xl"
-            >
+            <span className="font-anderson text-5xl font-bold lg:text-8xl">
               OUR SPONSORS
             </span>
           </h1>
