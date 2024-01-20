@@ -125,7 +125,6 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
       );
     }
 
-    console.log("Init");
     document.addEventListener("keydown", (e) => {
       if (e.key == "ArrowRight") {
         pageFlipRef.current.flipNext();
