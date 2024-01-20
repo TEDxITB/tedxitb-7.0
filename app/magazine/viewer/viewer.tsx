@@ -183,6 +183,7 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
               value={inputPage}
               pattern="[0-9]"
               type="text"
+              aria-label="input-page"
               onFocus={() => setInputPageValue("")}
               onBlur={() => updateInputDisplay()}
               onChange={(e) => {
@@ -207,7 +208,7 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
             </p>
           </div>
           <div className="flex flex-1">
-            <button onClick={closeWindow} className="ml-auto text-white">
+            <button onClick={closeWindow} className="ml-auto text-white" aria-label="Close Button">
               <X />
             </button>
           </div>
@@ -218,6 +219,7 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
               pageFlipRef.current?.flipPrev();
             }}
             className="flex h-full w-10 items-center justify-center text-white"
+            aria-label="Prev"
           >
             <ChevronLeft />
           </button>
@@ -259,6 +261,7 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
               pageFlipRef.current?.flipNext();
             }}
             className="flex h-full w-10 items-center justify-center text-white"
+            aria-label="Next"
           >
             <ChevronRight />
           </button>
