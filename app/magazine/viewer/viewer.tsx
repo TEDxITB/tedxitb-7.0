@@ -55,6 +55,7 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
     pageFlip.on("flip", () => {
       updateInputDisplay();
     });
+
     pageFlipRef.current = pageFlip;
 
     const childs = Array.from(pageRenderer.children) as HTMLElement[];
@@ -183,8 +184,14 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
               value={inputPage}
               pattern="[0-9]"
               type="text"
-              onFocus={() => setInputPageValue("")}
-              onBlur={() => updateInputDisplay()}
+              onFocus={() => {
+                pageFlipRef.current.off("flip");
+                setInputPageValue("");
+              }}
+              onBlur={() => {
+                pageFlipRef.current.on("flip", updateInputDisplay);
+                updateInputDisplay();
+              }}
               onChange={(e) => {
                 const raw = Array.from(e.target.value)
                   .filter((c) => "0" <= c && c <= "9")
