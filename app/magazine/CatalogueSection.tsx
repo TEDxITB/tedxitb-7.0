@@ -154,7 +154,7 @@ export const CatalogueSection = (
             "grid h-full w-full max-w-7xl gap-4 overflow-hidden transition-all duration-300",
             showingPage != page
               ? "scale-90 opacity-0 " +
-              (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
+                  (showingPage < page ? "-translate-x-1/2" : "translate-x-1/2")
               : "opacity-100"
           )}
           style={{
