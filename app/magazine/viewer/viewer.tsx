@@ -208,7 +208,11 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
             </p>
           </div>
           <div className="flex flex-1">
-            <button onClick={closeWindow} className="ml-auto text-white" aria-label="Close Button">
+            <button
+              onClick={closeWindow}
+              className="ml-auto text-white"
+              aria-label="Close Button"
+            >
               <X />
             </button>
           </div>
