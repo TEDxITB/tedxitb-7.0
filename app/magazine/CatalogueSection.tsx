@@ -19,6 +19,7 @@ const CoverSection = ({
 
   return (
     <li
+      role="button"
       className="flex cursor-pointer flex-col items-center justify-center gap-2 overflow-hidden lg:gap-4"
       onClick={() => setMagazine(magazine, coverRef.current as any)}
     >

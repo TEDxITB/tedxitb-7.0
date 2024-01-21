@@ -55,6 +55,7 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
     pageFlip.on("flip", () => {
       updateInputDisplay();
     });
+
     pageFlipRef.current = pageFlip;
 
     const childs = Array.from(pageRenderer.children) as HTMLElement[];
@@ -124,6 +125,16 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
       );
     }
 
+    document.addEventListener("keydown", (e) => {
+      if (e.key == "ArrowRight") {
+        pageFlipRef.current.flipNext();
+        e.preventDefault();
+      } else if (e.key == "ArrowLeft") {
+        pageFlipRef.current.flipPrev();
+        e.preventDefault();
+      }
+    });
+
     resize();
     window.addEventListener("resize", resize);
   };
@@ -133,9 +144,13 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
     if (window != parent) parent.postMessage(JSON.stringify(msg));
   };
 
+  const initializedRef = useRef(false);
   useEffect(() => {
-    setupListener();
-    requestAnimationFrame(sendData.bind(null, { info: "ready" }));
+    if (initializedRef.current == false) {
+      setupListener();
+      requestAnimationFrame(sendData.bind(null, { info: "ready" }));
+      initializedRef.current = true;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -184,18 +199,27 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
               pattern="[0-9]"
               type="text"
               aria-label="input-page"
-              onFocus={() => setInputPageValue("")}
-              onBlur={() => updateInputDisplay()}
+              onFocus={() => {
+                pageFlipRef.current.off("flip");
+                setInputPageValue("");
+              }}
+              onBlur={() => {
+                pageFlipRef.current.on("flip", updateInputDisplay);
+                updateInputDisplay();
+              }}
               onChange={(e) => {
                 const raw = Array.from(e.target.value)
                   .filter((c) => "0" <= c && c <= "9")
                   .join("");
                 setInputPageValue(raw);
 
+                let length = magazine?.magazine.length;
+                if (!length) return;
+
                 let page = parseInt(raw);
-                if (page < 0 || 10 < page) {
+                if (page < 0 || length < page) {
                   if (page < 0) page = 0;
-                  if (10 < page) page = 10;
+                  if (length < page) page = length;
                   setInputPageValue(page.toString());
                 }
 
