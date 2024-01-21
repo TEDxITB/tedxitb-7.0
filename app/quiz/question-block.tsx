@@ -148,10 +148,11 @@ const QuestionBlock = ({
   return (
     <div className="relative flex h-full min-h-[calc(100vh-6rem)] w-full items-center justify-center">
       <Image
-        src="/quiz/bg2.png"
+        src="/quiz/bg2.jpg"
         alt="Background Image"
         fill
         className="absolute z-[-10] object-cover object-center"
+        priority
       />
       <div className="flex h-fit w-full flex-col items-center justify-center gap-7 rounded-sm p-5 text-white sm:w-[65%] sm:gap-4 sm:bg-black/70 sm:p-7">
         <h3 className="font-anderson text-[17px] md:text-[24px]">

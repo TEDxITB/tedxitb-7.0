@@ -133,6 +133,7 @@ const ClientPageTedQuiz = () => {
             fill
             sizes="100vw"
             className="absolute inset-0 z-0 object-cover object-center opacity-70"
+            priority
           />
           <div className="z-[40] flex h-full w-full flex-col items-center justify-center gap-[40px] px-5 text-center sm:w-fit">
             <h1

@@ -132,6 +132,7 @@ const Carousel = () => {
                 whileTap={{ scale: 0.8 }}
                 onClick={() => handleClick(-1)}
                 className="rounded-full bg-ted-red p-1"
+                aria-label="prev"
               >
                 <ChevronLeft className="h-6 w-6 text-white" />
               </motion.button>
@@ -139,6 +140,7 @@ const Carousel = () => {
                 whileTap={{ scale: 0.8 }}
                 onClick={() => handleClick(1)}
                 className="rounded-full bg-ted-red p-1"
+                aria-label="Next"
               >
                 <ChevronRight className="h-6 w-6 text-white" />
               </motion.button>
@@ -221,9 +223,9 @@ const Carousel = () => {
               exit="exit"
               transition={{ duration: 0.8 }}
             >
-              <h3 className="w-full text-center font-anderson text-[24px] font-bold text-white">
+              <h5 className="w-full text-center font-anderson text-[24px] font-bold text-white">
                 {item.title}
-              </h3>
+              </h5>
               <p className="w-full text-center font-anderson text-[16px] text-white md:text-[20px]">
                 {item.desc}
               </p>

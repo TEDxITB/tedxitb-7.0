@@ -443,6 +443,7 @@ const FileItem: React.FC<FileItemProps> = ({
               e.preventDefault();
               handleRetry(image);
             }}
+            aria-label="Retrying"
           >
             <RotateCw className="h-[15px] w-[15px] text-ted-red sm:h-[16px] sm:w-[16px]" />
           </Button>
@@ -469,6 +470,7 @@ const FileItem: React.FC<FileItemProps> = ({
           className="h-[20px] w-[20px] p-0"
           variant="ghost"
           onClick={() => handleDelete(image)}
+          aria-label="Click to delete image"
         >
           <Trash2 className="h-[15px] w-[15px] sm:h-[16px] sm:w-[16px]" />
         </Button>

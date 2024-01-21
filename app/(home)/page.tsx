@@ -28,6 +28,7 @@ const HomePage = () => {
           fill
           sizes="100vw"
           className="absolute object-cover object-center"
+          priority
         />
         <div className="flex w-[70%] flex-col items-center justify-center gap-6 lg:gap-12">
           <div className="flex w-full flex-col items-center justify-center gap-2 text-ted-white lg:gap-4 ">
@@ -85,9 +86,9 @@ const HomePage = () => {
               data-aos="fade-right"
               className="flex w-full flex-col items-center justify-center gap-[35px] rounded-lg bg-white bg-opacity-[0.05] p-[30px] font-anderson text-ted-white shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]"
             >
-              <h4 className="w-full text-left text-3xl font-bold lg:text-5xl">
+              <h3 className="w-full text-left text-3xl font-bold lg:text-5xl">
                 About TED
-              </h4>
+              </h3>
               <p className="w-full text-left text-base lg:text-2xl">
                 TED is a nonprofit devoted to spreading ideas, usually in the
                 form of short, powerful talks (18 minutes or less) with a
@@ -101,9 +102,9 @@ const HomePage = () => {
               data-aos="fade-left"
               className="flex w-full flex-col items-center justify-center gap-[35px] rounded-lg bg-white bg-opacity-[0.05] p-[30px] font-anderson text-ted-white shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)] "
             >
-              <h4 className="w-full text-left text-3xl font-bold lg:text-5xl">
+              <h3 className="w-full text-left text-3xl font-bold lg:text-5xl">
                 About TEDx
-              </h4>
+              </h3>
               <p className="w-full text-left text-base lg:text-2xl">
                 TEDx is an international community that organizes TED-style
                 events anywhere and everywhere, celebrating locally-driven ideas

@@ -12,6 +12,7 @@ export const HeroSection = () => {
         alt="Hero Background"
         width={1080}
         height={720}
+        priority
       />
 
       <div className="z-10 flex w-fit flex-col gap-12 sm:flex-row lg:gap-24">

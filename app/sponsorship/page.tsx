@@ -38,6 +38,7 @@ export default async function Sponsorship() {
           width={1920}
           height={1080}
           className="absolute inset-0 h-full w-full object-cover object-center"
+          priority
         />
 
         {/* Content */}
@@ -241,7 +242,7 @@ export default async function Sponsorship() {
 
         {/* Bottom Right TEDxITB 7.0 Logo Triangle */}
         <Image
-          src="/decoration/triangles-tedx-logo.svg"
+          src="/decoration/triangles-tedx-logo.jpg"
           width={200}
           height={200}
           alt="Triangles Decoration"

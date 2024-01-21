@@ -195,6 +195,7 @@ export const MagazineViewer = () => {
       ref={iframeRef}
       src="/magazine/viewer"
       className={"pointer-events-none fixed left-1/2 top-1/2 z-[100] opacity-0"}
+      title="Open Magazine"
     />,
     openMagazine,
   ] as const;

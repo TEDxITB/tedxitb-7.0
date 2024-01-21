@@ -52,6 +52,7 @@ export default function Home() {
           <li>
             <Link
               href="https://www.instagram.com/tedxitb/"
+              aria-label="Know more about TEDxITB through instagram"
               className="flex items-center gap-1"
             >
               <div className="flex justify-center rounded-full bg-gradient-to-b from-ted-black to-ted-red drop-shadow-lg lg:h-10 lg:w-10">
@@ -70,6 +71,7 @@ export default function Home() {
             <Link
               href="mailto:contact.tedxitb@gmail.com"
               className="flex items-center gap-1"
+              aria-label="Contact TEDxITB through email"
             >
               <div className="flex justify-center rounded-full bg-gradient-to-b from-ted-black to-ted-red drop-shadow-lg lg:h-10 lg:w-10">
                 <Image
@@ -87,6 +89,7 @@ export default function Home() {
             <Link
               href="https://www.tiktok.com/@tedxitb"
               className="flex items-center gap-1"
+              aria-label="Stay in touch with TEDxITB through TikTok"
             >
               <div className="flex justify-center rounded-full bg-gradient-to-b from-ted-black to-ted-red drop-shadow-lg lg:h-10 lg:w-10">
                 <Image
@@ -110,6 +113,7 @@ export default function Home() {
         alt="Background Image"
         width={1920}
         height={1080}
+        priority
       />
     </main>
   );

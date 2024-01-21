@@ -10,6 +10,7 @@ function RegisCountdown(props: { regisDate: number }) {
           alt="Impact Originator"
           fill
           className="object-cover"
+          priority
         />
 
         <div className="absolute left-1/2 top-1/2 z-20 flex h-[95%] w-[95%] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 rounded-lg bg-[#1F1F1F] bg-opacity-40 text-center shadow-2xl shadow-[##1F1F1F] md:h-[90%] md:w-[90%] lg:h-4/5 lg:w-4/5 lg:gap-12">

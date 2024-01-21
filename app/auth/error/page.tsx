@@ -28,6 +28,7 @@ export default function NotFoundPage() {
           alt="Error Decoration"
           width={1746}
           height={1211}
+          priority
         />
 
         {/* Content */}

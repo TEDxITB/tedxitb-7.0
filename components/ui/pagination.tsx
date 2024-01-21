@@ -158,6 +158,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
             className: "group bg-white text-black hover:bg-gray-100",
           })
         )}
+        aria-label="next"
       >
         <ChevronsRight className="hidden h-5 w-5 font-black group-hover:block" />
         <p className="block group-hover:hidden">...</p>
@@ -175,6 +176,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
             className: "group bg-white text-black hover:bg-gray-100",
           })
         )}
+        aria-label="prev"
       >
         <ChevronsLeft className="hidden h-5 w-5 font-black group-hover:block" />
         <p className="block group-hover:hidden">...</p>
@@ -195,6 +197,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
                 "bg-white text-black hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400",
             })
           )}
+          aria-label="Prev"
         >
           <ChevronLeftIcon className="h-5 w-5" />
         </button>
@@ -212,6 +215,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
                 "mr-1 border-none bg-white px-2 font-[500] text-black hover:text-black/80 disabled:cursor-not-allowed disabled:text-gray-400 md:mr-2",
             })
           )}
+          aria-label="Prev"
         >
           Prev
         </button>
@@ -232,6 +236,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
                 "bg-white text-black hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400",
             })
           )}
+          aria-label="Next"
         >
           <ChevronRightIcon className="h-5 w-5" />
         </button>

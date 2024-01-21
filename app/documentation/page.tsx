@@ -35,11 +35,12 @@ const DocumentationPage = async () => {
       <section className="relative flex min-h-[calc(100vh-96px)] w-full items-center justify-center px-5 py-12">
         {/* Backround Image */}
         <Image
-          src="/documentation/hero.png"
+          src="/documentation/hero.jpg"
           className="z-10 w-full object-cover object-center"
           alt="Documentation Hero Backround Image"
           sizes="100vw"
           fill
+          priority
         />
 
         {/* Text and button in the middle of the picture */}
