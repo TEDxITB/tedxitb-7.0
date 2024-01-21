@@ -438,7 +438,7 @@ function FirstPage({
             />
           </div>
         </div>
-        <FileUpload setValue={form.setValue} id="profile" />
+        <FileUpload setValue={form.setValue} form={form} id="profile" />
       </div>
 
       <Button

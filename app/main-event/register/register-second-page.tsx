@@ -90,6 +90,7 @@ function SecondPage({
       toast.success("Success!", {
         description: "Your form has been submitted",
       });
+      localStorage.removeItem("formData");
       update();
       router.refresh();
     } else {
