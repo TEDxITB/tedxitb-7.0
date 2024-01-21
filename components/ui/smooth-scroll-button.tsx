@@ -1,12 +1,20 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowDownCircle } from "lucide-react";
 
-const SeeMoreButton = ({ ...props }) => {
+interface SmoothScrollButtonProps {
+  targetId: string;
+  children: React.ReactNode;
+}
+
+const SmoothScrollButton = ({
+  targetId,
+  children,
+  ...props
+}: SmoothScrollButtonProps) => {
   const scrollToTarget = () => {
     const navbar = document.getElementById("navbar") as HTMLElement;
-    const target = document.getElementById("carousel") as HTMLElement;
+    const target = document.getElementById(targetId) as HTMLElement;
 
     if (!navbar || !target) return;
 
@@ -23,9 +31,9 @@ const SeeMoreButton = ({ ...props }) => {
       onClick={scrollToTarget}
       {...props}
     >
-      See More <ArrowDownCircle className="ml-2 h-5 w-5" />
+      {children}
     </Button>
   );
 };
 
-export default SeeMoreButton;
+export default SmoothScrollButton;

@@ -1,8 +1,9 @@
+import SmoothScrollButton from "../../components/ui/smooth-scroll-button";
 import PhotosCarousel from "./photos-carousel";
-import SeeMoreButton from "./see-more";
 import { getCMSData, documentationQuery, documentationTags } from "@/lib/cms";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { DocumentationQueryResult } from "@/types/cms";
+import { ArrowDownCircle } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
@@ -66,7 +67,13 @@ const DocumentationPage = async () => {
             </h2>
           </div>
 
-          <SeeMoreButton data-aos="zoom-in-up" data-aos-delay="250" />
+          <SmoothScrollButton
+            targetId="carousel"
+            data-aos="zoom-in-up"
+            data-aos-delay="250"
+          >
+            See More <ArrowDownCircle className="ml-2 h-5 w-5" />
+          </SmoothScrollButton>
         </div>
       </section>
 
