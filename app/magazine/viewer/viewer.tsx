@@ -212,10 +212,13 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
                   .join("");
                 setInputPageValue(raw);
 
+                let length = magazine?.magazine.length;
+                if (!length) return;
+
                 let page = parseInt(raw);
-                if (page < 0 || 10 < page) {
+                if (page < 0 || length < page) {
                   if (page < 0) page = 0;
-                  if (10 < page) page = 10;
+                  if (length < page) page = length;
                   setInputPageValue(page.toString());
                 }
 
