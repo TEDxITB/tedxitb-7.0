@@ -46,3 +46,15 @@ export interface MagazineQueryResult {
     }[];
   }[];
 }
+
+export interface StudentSpeakerCandidate {
+  id: string;
+  image: ImageCMS;
+  name: string;
+  instagramUrl: string;
+  videoUrl: string;
+  isSelected: boolean;
+}
+export interface StudentSpeakerQueryResult {
+  allStudentSpeakerCandidates: StudentSpeakerCandidate[];
+}

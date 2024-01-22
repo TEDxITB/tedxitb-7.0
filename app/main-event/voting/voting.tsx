@@ -1,94 +1,17 @@
 import VoteOption from "./vote-option";
 import SmoothScrollButton from "@/components/ui/smooth-scroll-button";
-import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
-import { ImageCMS } from "@/types/cms";
+import { getCMSData, studentSpeakerQuery, studentSpeakerTags } from "@/lib/cms";
+import { StudentSpeakerQueryResult } from "@/types/cms";
 import { ArrowDownCircle } from "lucide-react";
-import { Metadata } from "next";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: "Voting | TEDxITB 7.0",
-  openGraph: {
-    ...openGraphTemplate,
-    title: "Voting | TEDxITB 7.0",
-  },
-  twitter: {
-    ...twitterTemplate,
-    title: "Voting | TEDxITB 7.0",
-  },
-};
+const VotingStatePage = async () => {
+  const { allStudentSpeakerCandidates } =
+    await getCMSData<StudentSpeakerQueryResult>(
+      studentSpeakerQuery,
+      studentSpeakerTags
+    );
 
-interface Candidate {
-  id: string;
-  name: string;
-  image: ImageCMS;
-  ig: string;
-}
-
-const candidates: Candidate[] = [
-  {
-    id: "1",
-    name: "This Full Name 1",
-    image: {
-      id: "1",
-      url: "/main-event/example-1.jpg",
-      width: 1200,
-      height: 765,
-      alt: "This Full Name 1",
-    },
-    ig: "@username1",
-  },
-  {
-    id: "2",
-    name: "This Full Name 2",
-    image: {
-      id: "2",
-      url: "/main-event/example-2.jpg",
-      width: 1200,
-      height: 765,
-      alt: "This Full Name 2",
-    },
-    ig: "@username2",
-  },
-  {
-    id: "3",
-    name: "This Full Name 3",
-    image: {
-      id: "3",
-      url: "/main-event/example-3.jpg",
-      width: 1200,
-      height: 765,
-      alt: "This Full Name 3",
-    },
-    ig: "@username3",
-  },
-  {
-    id: "4",
-    name: "This Full Name 4",
-    image: {
-      id: "4",
-      url: "/main-event/example-4.jpg",
-      width: 1200,
-      height: 765,
-      alt: "This Full Name 4",
-    },
-    ig: "@username4",
-  },
-  {
-    id: "5",
-    name: "This Full Name 5",
-    image: {
-      id: "5",
-      url: "/main-event/example-1.jpg",
-      width: 1200,
-      height: 765,
-      alt: "This Full Name 5",
-    },
-    ig: "@username5",
-  },
-];
-
-const HomePage = () => {
   return (
     <main className="flex h-fit w-screen flex-col items-center justify-center bg-[#1E1E1E]">
       {/* Hero */}
@@ -132,7 +55,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Logo Meaning */}
       <section id="voting" className="relative h-fit w-full overflow-hidden">
         {/* Top Left Gradient Decoration */}
         <Image
@@ -185,7 +107,7 @@ const HomePage = () => {
 
             {/* Boxes */}
             <div className="flex w-full max-w-6xl flex-row flex-wrap items-center justify-center gap-16">
-              {candidates.map((candidate) => {
+              {allStudentSpeakerCandidates.map((candidate) => {
                 return (
                   <VoteOption
                     key={candidate.id}
@@ -202,4 +124,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default VotingStatePage;

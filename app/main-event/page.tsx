@@ -128,36 +128,92 @@ async function page() {
         />
       </section>
 
-      <section className="font-anderson text-ted-white shadow-inner">
-        <div className="relative h-[550px] w-full bg-gradient-to-r from-[#7D0A0A] to-[#EAD196]">
-          <Image
-            src="/main-event/networking-originator-lounge.png"
-            alt="Networking Originator Lounge"
-            fill
-            className="object-cover pt-[1px]"
-          />
-          <div className="absolute left-1/2 top-1/2 flex min-w-[300px] max-w-[1000px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 text-center lg:gap-12">
+      <section className="relative flex items-center justify-center text-ted-white">
+        <Image
+          src="/main-event/networking-originator-lounge.png"
+          alt="Networking Originator Lounge"
+          fill
+          sizes="100vw"
+          className="absolute inset-0 object-cover object-center"
+        />
+
+        <div className="flex min-w-[300px] max-w-7xl flex-col items-center gap-8 px-6 py-24 text-center font-anderson sm:p-16 lg:gap-12 lg:px-24 lg:py-48">
+          <h2
+            data-aos="zoom-in-up"
+            className="text-4xl font-bold tracking-wide drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+          >
+            NETWORKING ORIGINATOR LOUNGE
+          </h2>
+          <p data-aos="zoom-in-up" className="text-base lg:text-2xl">
+            The Originators Lounge is your dedicated space to relax, mingle, and
+            engage in meaningful conversations with fellow attendees. Here, you
+            can be a part of the transformative energy that TEDxITB represents.
+            Whether you&apos;re seeking to discuss the inspiring talks
+            you&apos;ve just witnessed or looking to meet potential
+            collaborators for your own ideas, the Originators Lounge is the
+            place to be.
+          </p>
+        </div>
+      </section>
+
+      {/* Student Speaker Audition */}
+      {/* Only render section before voting closes */}
+      <section className="relative flex items-center justify-center overflow-hidden bg-black px-6 py-24 text-ted-white sm:p-16 lg:px-24 lg:py-48">
+        <div className="z-20 flex max-w-5xl flex-col items-center gap-6 lg:gap-12">
+          <div className="flex flex-col items-center gap-4 lg:gap-8">
             <h2
               data-aos="zoom-in-up"
-              className="text-3xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+              className="text-center font-anderson text-4xl font-bold tracking-wide drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
             >
-              Networking Originator Lounge
+              STUDENT SPEAKER AUDITION
             </h2>
             <p
               data-aos="zoom-in-up"
-              className="font-thin leading-7 tracking-wide lg:text-lg"
+              className="text-center font-anderson text-base lg:text-2xl"
             >
-              The Originators Lounge is your dedicated space to relax, mingle,
-              and engage in meaningful conversations with fellow attendees.
-              Here, you can be a part of the transformative energy that TEDxITB
-              represents. Whether you&apos;re seeking to discuss the inspiring
-              talks you&apos;ve just witnessed or looking to meet potential
-              collaborators for your own ideas, the Originators Lounge is the
-              place to be.
+              Student Speaker is an event held by TEDXITB 7.0. Aligned with
+              TED&apos;s slogan which is Ideas Worth Spreading, this event
+              provides opportunity for ITB undergraduate students to create new
+              sparks in the society by voicing their aspirations as a speaker in
+              TEDxITB 7.0 Main Event.
             </p>
           </div>
-          <div className="absolute bottom-0 h-8 w-full bg-gradient-to-t from-ted-black to-transparent"></div>
+          <Link data-aos="zoom-in-up" href="/main-event/voting">
+            <Button
+              size="lg"
+              className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
+            >
+              Vote Now
+            </Button>
+          </Link>
         </div>
+
+        {/* Backgorund Image */}
+        <Image
+          alt="bg-hero"
+          src="/main-event/bg-voting.jpg"
+          sizes="100vw"
+          fill
+          className="absolute inset-0 z-0 object-cover object-center opacity-40"
+        />
+
+        {/* Decoration Top Left */}
+        <Image
+          src="/decoration/blur1.png"
+          width={262}
+          height={255}
+          alt="Background Blur"
+          className="absolute -left-1/2 -top-32 z-10 w-[1000px] sm:-left-96 sm:-top-64"
+        />
+
+        {/* Decoration Bottom Left */}
+        <Image
+          src="/decoration/blur2.png"
+          width={262}
+          height={255}
+          alt="Background Blur"
+          className="absolute -bottom-40 -right-1/2 z-10 w-[1000px] sm:-bottom-56 sm:right-[-500px]"
+        />
       </section>
 
       <section className="font-anderson text-ted-white">
