@@ -91,6 +91,7 @@ function SecondPage({
         description: "Your form has been submitted",
       });
       localStorage.removeItem("formData");
+      localStorage.removeItem("profile");
       update();
       router.refresh();
     } else {
@@ -173,7 +174,7 @@ function SecondPage({
               <FormControl onBlur={handleFocus}>
                 <Slider
                   id="scale"
-                  defaultValue={[2]}
+                  defaultValue={[form.getValues("scale") - 1 ?? 2]}
                   min={0}
                   max={4}
                   step={1}
