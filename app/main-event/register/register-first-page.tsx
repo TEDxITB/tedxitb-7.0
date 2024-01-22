@@ -63,6 +63,16 @@ function FirstPage({
     }
   }
 
+  async function handleFocus(e: React.FocusEvent<HTMLInputElement>) {
+    const name = e.target.name as keyof FormValues;
+
+    await form.trigger(name);
+
+    if (!form.formState.errors[name]) {
+      localStorage.setItem("formData", JSON.stringify(form.getValues()));
+    }
+  }
+
   return (
     <>
       <div className="flex max-w-[950px] flex-col gap-4">
@@ -77,7 +87,7 @@ function FirstPage({
               >
                 Nama Lengkap
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Input
                   id="name"
                   {...field}
@@ -97,7 +107,7 @@ function FirstPage({
           >
             Email
           </FormLabel>
-          <FormControl>
+          <FormControl onBlur={handleFocus}>
             <Input
               id="email"
               disabled
@@ -119,7 +129,7 @@ function FirstPage({
                 >
                   Nomor HP
                 </FormLabel>
-                <FormControl>
+                <FormControl onBlur={handleFocus}>
                   <Input
                     id="phone"
                     {...field}
@@ -146,7 +156,7 @@ function FirstPage({
                 >
                   Umur
                 </FormLabel>
-                <FormControl>
+                <FormControl onBlur={handleFocus}>
                   <Input
                     id="age"
                     {...field}
@@ -172,7 +182,7 @@ function FirstPage({
               >
                 Alamat di Bandung
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Input
                   id="address"
                   {...field}
@@ -198,7 +208,7 @@ function FirstPage({
               >
                 Pekerjaan
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Input
                   id="job"
                   {...field}
@@ -222,7 +232,7 @@ function FirstPage({
               >
                 Perusahaan/Universitas
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Input
                   id="instance"
                   {...field}
@@ -248,7 +258,7 @@ function FirstPage({
               >
                 Jurusan/Tahun <span className="text-[#FDB10E]">(Opsional)</span>
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Input
                   id="faculty"
                   {...field}
@@ -275,7 +285,7 @@ function FirstPage({
               >
                 LinkedIn <span className="text-[#FDB10E]">(Opsional)</span>
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Input
                   id="linkedin"
                   {...field}
@@ -301,7 +311,7 @@ function FirstPage({
               >
                 Instagram <span className="text-[#FDB10E]">(Opsional)</span>
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Input
                   id="instagram"
                   {...field}
@@ -328,7 +338,7 @@ function FirstPage({
                 Pembatasan/Alergi Diet Apa Pun{" "}
                 <span className="text-[#FDB10E]">(Opsional)</span>
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Input
                   id="allergy"
                   {...field}
@@ -353,9 +363,10 @@ function FirstPage({
                 beri tahu kami apa yang Anda butuhkan?
                 <span className="text-[#FDB10E]"> (Opsional)</span>
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Textarea
                   {...field}
+                  id="q1"
                   className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
@@ -377,9 +388,10 @@ function FirstPage({
                 disiplin ilmunya. Ceritakan lebih banyak tentang diri Anda
                 kepada kami!
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Textarea
                   {...field}
+                  id="q2"
                   className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
@@ -426,7 +438,7 @@ function FirstPage({
             />
           </div>
         </div>
-        <FileUpload setValue={form.setValue} id="profile" />
+        <FileUpload setValue={form.setValue} form={form} id="profile" />
       </div>
 
       <Button

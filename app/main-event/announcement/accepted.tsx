@@ -18,7 +18,7 @@ async function Accepted(props: { session: Session }) {
 
   return (
     <div className="font-anderson text-ted-white">
-      <div className="relative h-[1200px] w-full">
+      <div className="relative h-[950px] w-full lg:h-[1200px] xl:h-[900px]">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
@@ -70,7 +70,7 @@ async function Accepted(props: { session: Session }) {
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="hidden h-[200px] rounded-lg sm:block sm:w-[400px]"
+                className="hidden h-[200px] rounded-lg sm:block sm:w-[350px]"
               ></iframe>
             </div>
           </div>

@@ -22,15 +22,18 @@ import {
   forwardRef,
   useRef,
   useContext,
+  useEffect,
 } from "react";
-import { UseFormSetValue } from "react-hook-form";
+import { UseFormReturn, UseFormSetValue } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
 
 type FormValues = z.infer<typeof regisSchema>;
 
-interface FileUploadProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface FileUploadProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "form"> {
   setValue: UseFormSetValue<FormValues>;
+  form: UseFormReturn<FormValues>;
 }
 interface FileItemsProps {
   images: CustomImage | null;
@@ -70,7 +73,7 @@ const fileValidation = z
  * kalu tidak menggunakan react hook form dan hanya mau menggunakan useState biasa maka yang perlu dikirimkan adalah setState nya
  */
 const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
-  ({ setValue, onChange, type = "file", ...props }, ref) => {
+  ({ setValue, onChange, type = "file", form, ...props }, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const { images, setImages, indexRetry, setIndexRetry } = useContext(
       FileUploadContext
@@ -148,6 +151,10 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
 
         const data = await res.json();
         setValue("profile", data.imageUrl);
+
+        localStorage.setItem("formData", JSON.stringify(form.getValues()));
+        localStorage.setItem("profile", image.file.name);
+
         setIndexRetry(-1);
       }
     };
@@ -212,6 +219,9 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           const data = await res.json();
           setValue("profile", data.imageUrl);
 
+          localStorage.setItem("formData", JSON.stringify(form.getValues()));
+          localStorage.setItem("profile", image.file.name);
+
           setIndexRetry(-1);
         } else if (indexRetry > -1) {
           const validate = fileValidation.safeParse(e.target.files[0]);
@@ -267,6 +277,9 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           const data = await res.json();
           setValue("profile", data.imageUrl);
 
+          localStorage.setItem("formData", JSON.stringify(form.getValues()));
+          localStorage.setItem("profile", image.file.name);
+
           setIndexRetry(-1);
         }
       }
@@ -275,6 +288,10 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
     const handleDelete = (image: CustomImage) => {
       setImages(null);
       setValue("profile", "");
+
+      localStorage.setItem("formData", JSON.stringify(form.getValues()));
+      localStorage.removeItem("profile");
+
       setIndexRetry(-1);
     };
 
@@ -283,6 +300,17 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
         inputRef.current.click();
       }
     };
+
+    useEffect(() => {
+      const value = localStorage.getItem("profile");
+
+      if (value) {
+        const image: CustomImage = {
+          file: new File([new Blob()], value),
+        };
+        setImages(image);
+      }
+    }, [setImages]);
 
     return (
       <section className="flex h-fit min-w-full flex-col items-center justify-between gap-6 md:min-w-[500px] md:flex-row md:items-start lg:min-w-[710px]">

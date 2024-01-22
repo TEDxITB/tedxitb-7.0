@@ -4,7 +4,7 @@ import Image from "next/image";
 function RegisCountdown(props: { regisDate: number }) {
   return (
     <div className="font-anderson text-ted-white">
-      <div className="relative h-[calc(100vh-104px)] w-full">
+      <div className="relative h-[750px] w-full">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"

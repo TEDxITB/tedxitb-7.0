@@ -41,6 +41,15 @@ function RegisterPage(props: { session: Session | null }) {
     timeout();
   }, [page]);
 
+  useEffect(() => {
+    const value = localStorage.getItem("formData");
+
+    if (value) {
+      const data = JSON.parse(value);
+      form.reset(data);
+    }
+  }, [form]);
+
   return (
     <section className="bg-[#1E1E1E] font-anderson text-ted-white">
       <Form {...form}>
