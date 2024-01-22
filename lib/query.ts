@@ -57,3 +57,17 @@ export async function getUserTicket(userId: string) {
     return id;
   }
 }
+
+export async function isUserVoted(userId: string) {
+  const checkVote = await prisma.vote.findUnique({
+    where: {
+      userId: userId,
+    },
+  });
+
+  if (checkVote) {
+    return true;
+  } else {
+    return false;
+  }
+}

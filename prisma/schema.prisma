@@ -49,6 +49,7 @@ model User {
   confirmation  Confirmation?
   registration  Registration?
   ticket        Ticket?
+  vote          Vote?
 }
 
 model VerificationToken {
@@ -92,9 +93,25 @@ model Confirmation {
 }
 
 model Ticket {
-  id             String @id @default(cuid())
-  userId         String @unique
-  user           User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  confirmationId String @unique
+  id             String       @id @default(cuid())
+  userId         String       @unique
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  confirmationId String       @unique
   confirmation   Confirmation @relation(fields: [confirmationId], references: [id], onDelete: Cascade)
+}
+
+model Vote {
+  id              String    @id @default(cuid())
+  userId          String    @unique
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  candidateId     String    @unique
+  chosencandidate Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  createdAt       DateTime  @default(now())
+}
+
+model Candidate {
+  id    String @id @default(cuid())
+  name  String
+  score Int
+  votes Vote[]
 }
