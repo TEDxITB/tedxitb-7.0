@@ -2,7 +2,10 @@ import TopicCard from "./topic-card";
 import { Button } from "@/components/ui/button";
 import { getCMSData, mainEventTopicQuery, mainEventTopicTags } from "@/lib/cms";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
-import { startComingSoonAnnouncementDate } from "@/lib/special-date";
+import {
+  endVotingDate,
+  startComingSoonAnnouncementDate,
+} from "@/lib/special-date";
 import { MainEventTopicQueryResult } from "@/types/cms";
 import { MapPin } from "lucide-react";
 import { Metadata } from "next";
@@ -98,7 +101,7 @@ async function page() {
         >
           OUR TOPIC
         </h2>
-        <div className="flex flex-col items-center gap-8 p-16">
+        <div className="flex flex-col items-center gap-12 px-8 py-16 sm:gap-8 sm:p-16">
           {allMainEventTopics.map((topic, index) => (
             <TopicCard
               key={topic.id}
@@ -158,66 +161,68 @@ async function page() {
 
       {/* Student Speaker Audition */}
       {/* Only render section before voting closes */}
-      <section className="relative flex items-center justify-center overflow-hidden bg-black px-6 py-24 text-ted-white sm:p-16 lg:px-24 lg:py-48">
-        <div className="z-20 flex max-w-5xl flex-col items-center gap-6 lg:gap-12">
-          <div className="flex flex-col items-center gap-4 lg:gap-8">
-            <h2
-              data-aos="zoom-in-up"
-              className="text-center font-anderson text-4xl font-bold tracking-wide drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
-            >
-              STUDENT SPEAKER AUDITION
-            </h2>
-            <p
-              data-aos="zoom-in-up"
-              className="text-center font-anderson text-base lg:text-2xl"
-            >
-              Student Speaker is an event held by TEDXITB 7.0. Aligned with
-              TED&apos;s slogan which is Ideas Worth Spreading, this event
-              provides opportunity for ITB undergraduate students to create new
-              sparks in the society by voicing their aspirations as a speaker in
-              TEDxITB 7.0 Main Event.
-            </p>
+      {Date.now() <= endVotingDate && (
+        <section className="relative flex items-center justify-center overflow-hidden bg-black px-6 py-24 text-ted-white sm:p-16 lg:px-24 lg:py-48">
+          <div className="z-20 flex max-w-5xl flex-col items-center gap-6 lg:gap-12">
+            <div className="flex flex-col items-center gap-4 lg:gap-8">
+              <h2
+                data-aos="zoom-in-up"
+                className="text-center font-anderson text-4xl font-bold tracking-wide drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+              >
+                STUDENT SPEAKER AUDITION
+              </h2>
+              <p
+                data-aos="zoom-in-up"
+                className="text-center font-anderson text-base lg:text-2xl"
+              >
+                Student Speaker is an event held by TEDXITB 7.0. Aligned with
+                TED&apos;s slogan which is Ideas Worth Spreading, this event
+                provides opportunity for ITB undergraduate students to create
+                new sparks in the society by voicing their aspirations as a
+                speaker in TEDxITB 7.0 Main Event.
+              </p>
+            </div>
+            <Link data-aos="zoom-in-up" href="/main-event/voting">
+              <Button
+                size="lg"
+                className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
+              >
+                Vote Now
+              </Button>
+            </Link>
           </div>
-          <Link data-aos="zoom-in-up" href="/main-event/voting">
-            <Button
-              size="lg"
-              className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
-            >
-              Vote Now
-            </Button>
-          </Link>
-        </div>
 
-        {/* Backgorund Image */}
-        <Image
-          alt="bg-hero"
-          src="/main-event/bg-voting.jpg"
-          sizes="100vw"
-          fill
-          className="absolute inset-0 z-0 object-cover object-center opacity-40"
-        />
+          {/* Backgorund Image */}
+          <Image
+            alt="bg-hero"
+            src="/main-event/bg-voting.jpg"
+            sizes="100vw"
+            fill
+            className="absolute inset-0 z-0 object-cover object-center opacity-40"
+          />
 
-        {/* Decoration Top Left */}
-        <Image
-          src="/decoration/blur1.png"
-          width={262}
-          height={255}
-          alt="Background Blur"
-          className="absolute -left-1/2 -top-32 z-10 w-[1000px] sm:-left-96 sm:-top-64"
-        />
+          {/* Decoration Top Left */}
+          <Image
+            src="/decoration/blur1.png"
+            width={262}
+            height={255}
+            alt="Background Blur"
+            className="absolute -left-1/2 -top-32 z-10 w-[1000px] sm:-left-96 sm:-top-64"
+          />
 
-        {/* Decoration Bottom Left */}
-        <Image
-          src="/decoration/blur2.png"
-          width={262}
-          height={255}
-          alt="Background Blur"
-          className="absolute -bottom-40 -right-1/2 z-10 w-[1000px] sm:-bottom-56 sm:right-[-500px]"
-        />
-      </section>
+          {/* Decoration Bottom Left */}
+          <Image
+            src="/decoration/blur2.png"
+            width={262}
+            height={255}
+            alt="Background Blur"
+            className="absolute -bottom-40 -right-1/2 z-10 w-[1000px] sm:-bottom-56 sm:right-[-500px]"
+          />
+        </section>
+      )}
 
       <section className="font-anderson text-ted-white">
-        <div className="relative h-[1000px] w-full">
+        <div className="relative min-h-fit w-screen">
           <Image
             src="/main-event/impact-originator.png"
             alt="Impact Originator"
@@ -225,7 +230,17 @@ async function page() {
             className="object-cover"
           />
 
-          <div className="absolute left-1/2 top-1/2 flex min-w-[320px] max-w-[1000px] -translate-x-1/2 -translate-y-1/2 flex-col gap-8 lg:left-0 lg:top-0 lg:mx-24 lg:mt-20 lg:-translate-x-0 lg:-translate-y-0 lg:gap-12">
+          <Image
+            src="/decoration/mesh.png"
+            width={500}
+            height={500}
+            alt="Background Star"
+            className="absolute -right-4 w-[250px] lg:right-4 lg:w-[500px]"
+          />
+
+          <div className="absolute top-0 h-8 w-full bg-gradient-to-b from-ted-black to-transparent"></div>
+
+          <div className="left-0 top-0 flex min-w-[320px] max-w-fit -translate-x-0 -translate-y-0 flex-col gap-8 p-8 sm:p-24 md:left-0 md:top-0 md:-translate-x-0 md:-translate-y-0 md:gap-12">
             <div className="flex flex-col font-bold italic drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)]">
               <h2 data-aos="fade-right" className="text-2xl lg:text-5xl">
                 READY TO BE PART OF
@@ -282,16 +297,6 @@ async function page() {
               )}
             </Link>
           </div>
-
-          <Image
-            src="/decoration/mesh.png"
-            width={500}
-            height={500}
-            alt="Background Star"
-            className="absolute -right-4 w-[250px] lg:right-4 lg:w-[500px]"
-          />
-
-          <div className="absolute top-0 h-8 w-full bg-gradient-to-b from-ted-black to-transparent"></div>
         </div>
       </section>
     </main>

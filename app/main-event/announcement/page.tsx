@@ -1,5 +1,5 @@
+import MainEventCountdown from "../main-event-countdown";
 import Accepted from "./accepted";
-import AnnouncementCountdown from "./announcement-countdown";
 import NotRegistered from "./not-registered";
 import Rejected from "./rejected";
 import { authOptions } from "@/lib/auth-options";
@@ -52,7 +52,12 @@ async function page() {
 
   // Sebelum tanggal pengumuman, tampilkan countdown
   if (dateNow < startAnnouncementDate) {
-    return <AnnouncementCountdown announcementDate={startAnnouncementDate} />;
+    return (
+      <MainEventCountdown
+        title="Wait for the Participant Announcement at"
+        date={startAnnouncementDate}
+      />
+    );
   }
 
   // State 4

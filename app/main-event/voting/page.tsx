@@ -1,4 +1,4 @@
-import VotingCountdown from "./countdown";
+import MainEventCountdown from "../main-event-countdown";
 import VotingStatePage from "./voting";
 import { authOptions } from "@/lib/auth-options";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
@@ -27,7 +27,12 @@ const VotingPage = async () => {
 
   if (Date.now() < startVotingDate) {
     // Return countdown
-    return <VotingCountdown announcementDate={startVotingDate} />;
+    return (
+      <MainEventCountdown
+        title="Wait for the Participant Announcement at"
+        date={startVotingDate}
+      />
+    );
   } else if (Date.now() < endVotingDate) {
     // Return voting page
     return <VotingStatePage />;
