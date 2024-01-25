@@ -53,7 +53,6 @@ export interface StudentSpeakerCandidate {
   name: string;
   instagramUrl: string;
   videoUrl: string;
-  isSelected: boolean;
 }
 export interface StudentSpeakerQueryResult {
   allStudentSpeakerCandidates: StudentSpeakerCandidate[];

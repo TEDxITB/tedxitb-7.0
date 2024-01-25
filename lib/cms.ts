@@ -123,6 +123,5 @@ export const studentSpeakerQuery = `{
     name
     instagramUrl
     videoUrl
-    isSelected
   }
 }`;
