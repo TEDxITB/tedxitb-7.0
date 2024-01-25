@@ -94,14 +94,14 @@ async function page() {
         </div>
       </section>
 
-      <section className="relative bg-[#1C1C1C] text-ted-white">
+      <section className="relative flex flex-col gap-16 bg-[#1C1C1C] px-8 py-16 text-ted-white">
         <h2
           data-aos="zoom-in-up"
-          className="stroke-ted-white pt-16 text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+          className="stroke-ted-white text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
         >
           OUR TOPIC
         </h2>
-        <div className="flex flex-col items-center gap-12 px-8 py-16 sm:gap-8 sm:p-16">
+        <div className="z-30 grid auto-rows-fr justify-center gap-12 sm:flex sm:flex-col sm:items-center sm:justify-normal sm:gap-8">
           {allMainEventTopics.map((topic, index) => (
             <TopicCard
               key={topic.id}
