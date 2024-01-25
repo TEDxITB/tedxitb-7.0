@@ -61,7 +61,7 @@ model VerificationToken {
 }
 
 model Registration {
-  id                 String  @id @default(cuid())
+  id                 String   @id @default(cuid())
   name               String
   phone              String
   age                Int
@@ -80,22 +80,25 @@ model Registration {
   participationscale Int
   q5                 String?
   q6                 String?
-  userId             String  @unique
-  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId             String   @unique
+  registeredAt       DateTime @default(now())
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Confirmation {
-  id         String   @id @default(cuid())
-  attendance Boolean?
-  userId     String   @unique
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  ticket     Ticket?
+  id          String   @id @default(cuid())
+  attendance  Boolean?
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ticket      Ticket?
+  confirmedAt DateTime @default(now())
 }
 
 model Ticket {
   id             String       @id @default(cuid())
   userId         String       @unique
   user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  madeAt         DateTime     @default(now())
   confirmationId String       @unique
   confirmation   Confirmation @relation(fields: [confirmationId], references: [id], onDelete: Cascade)
 }

@@ -46,8 +46,8 @@ export const POST = async (req: NextRequest) => {
   }
 
   const reqFormData = await req.formData();
-  const candidateId = String(reqFormData.get("candidateId"));
-  const zodParseResult = voteSchema.safeParse(candidateId);
+  const rawCandidateId = reqFormData.get("candidateId");
+  const zodParseResult = voteSchema.safeParse(rawCandidateId);
   if (!zodParseResult.success) {
     return NextResponse.json(
       {
@@ -57,6 +57,8 @@ export const POST = async (req: NextRequest) => {
       { status: 400 }
     );
   }
+
+  const candidateId = zodParseResult.data;
   // Create Voting table
   const createVotingQuery = prisma.vote.create({
     data: {
@@ -86,7 +88,8 @@ export const POST = async (req: NextRequest) => {
 
   const { name } = candidate;
   const time = currentTimeWIB.toLocaleString("en-US", {
-    timeZone: "Asia/Jakarta",
+    hour12: false,
+    timeZone: "UTC", // Replace with your desired timezone
   });
   const sheetId = process.env.GOOGLE_SHEETS_ID as string;
   const sheetRange = "votes!A:D";
@@ -99,5 +102,4 @@ export const POST = async (req: NextRequest) => {
     { message: "Vote submitted successfully" },
     { status: 201 }
   );
-  // Update google sheets
 };
