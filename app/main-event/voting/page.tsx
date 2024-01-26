@@ -2,6 +2,7 @@ import MainEventCountdown from "../main-event-countdown";
 import VotingStatePage from "./voting";
 import { authOptions } from "@/lib/auth-options";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
+import { isUserVoted } from "@/lib/query";
 import { endVotingDate, startVotingDate } from "@/lib/special-date";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
@@ -25,15 +26,29 @@ const VotingPage = async () => {
     redirect("/auth/sign-in");
   }
 
+  const isVoted = await isUserVoted(session.id);
+
   if (Date.now() < startVotingDate) {
     // Return countdown
     return (
       <MainEventCountdown
-        title="Wait for the Participant Announcement at"
+        title="Anticipate the commencement of voting on"
         date={startVotingDate}
       />
     );
   } else if (Date.now() < endVotingDate) {
+    // If user has voted
+    if (isVoted) {
+      // Return countdown to announcement
+      return (
+        <MainEventCountdown
+          title="Wait for Student Speaker Announcement on"
+          date={endVotingDate}
+        />
+      );
+    }
+
+    // Else if user hasn't voted
     // Return voting page
     return <VotingStatePage />;
   } else {

@@ -17,12 +17,45 @@ import { ImageCMS, StudentSpeakerCandidate } from "@/types/cms";
 import { Instagram, Video } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 interface VoteOptionProps {
   candidate: StudentSpeakerCandidate;
 }
 
 const VoteOption = ({ candidate, ...props }: VoteOptionProps) => {
+  const router = useRouter();
+
+  async function handleSubmit() {
+    const idToastLoading = toast.loading("Submitting...", {
+      description: "Please wait while we submit your vote",
+      duration: Infinity,
+    });
+
+    const formData = new FormData();
+    formData.append("candidateId", candidate.id);
+
+    const res = await fetch("/api/vote", {
+      method: "POST",
+      body: formData,
+    });
+
+    toast.dismiss(idToastLoading);
+
+    if (res.ok) {
+      toast.success("Success!", {
+        description: "Your vote has been submitted",
+      });
+      router.replace("/main-event/voting", { scroll: true });
+      router.refresh();
+    } else {
+      toast.error("Error!", {
+        description: "An error has occured while submitting your confirmation",
+      });
+    }
+  }
+
   // https://www.instagram.com/dewo.tm/
   const igUsername = candidate.instagramUrl
     .replace("https://www.instagram.com/", "")
@@ -103,7 +136,7 @@ const VoteOption = ({ candidate, ...props }: VoteOptionProps) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel className="sm:w-[100px]">Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={() => {}} className="sm:w-[100px]">
+          <AlertDialogAction onClick={handleSubmit} className="sm:w-[100px]">
             Continue
           </AlertDialogAction>
         </AlertDialogFooter>
