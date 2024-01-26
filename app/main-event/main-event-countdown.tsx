@@ -31,7 +31,7 @@ function MainEventCountdown({ title, date }: { title: string; date: number }) {
             width={175}
             height={190}
             alt="TEDxITB 7.0 Logo"
-            className="absolute left-1/2 bottom-3 w-[100px] -translate-x-1/2 opacity-20"
+            className="absolute bottom-3 left-1/2 w-[100px] -translate-x-1/2 opacity-20"
           />
         </div>
       </div>
