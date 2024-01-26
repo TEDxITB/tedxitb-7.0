@@ -107,10 +107,10 @@ export const PUT = async (req: NextRequest) => {
     [
       confirmation.id,
       session.id,
+      time,
       session.name,
       session.email,
       attendance,
-      time,
     ].map((val) => String(val)),
   ];
   await appendGoogleSheets(
@@ -138,9 +138,9 @@ export const PUT = async (req: NextRequest) => {
         ticket.id,
         confirmation.id,
         session.id,
+        time,
         session.name,
         session.email,
-        time,
       ].map((val) => String(val)),
     ];
     await appendGoogleSheets(

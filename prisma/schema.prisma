@@ -107,7 +107,7 @@ model Vote {
   id              String    @id @default(cuid())
   userId          String    @unique
   user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  candidateId     String    @unique
+  candidateId     String    
   chosencandidate Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
   createdAt       DateTime  @default(now())
 }

@@ -94,7 +94,7 @@ export const POST = async (req: NextRequest) => {
   const sheetId = process.env.GOOGLE_SHEETS_ID as string;
   const sheetRange = "votes!A:D";
   const sheetValueInputOption = "RAW";
-  const values = [[voteResult.id, session.email, name, time]];
+  const values = [[voteResult.id, time, session.email, name]];
 
   await appendGoogleSheets(sheetId, sheetRange, sheetValueInputOption, values);
 

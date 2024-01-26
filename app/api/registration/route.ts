@@ -157,7 +157,9 @@ export const POST = async (req: NextRequest) => {
   const values = [
     [
       registrationResult.id,
+
       session.id,
+      time,
       name,
       session.email,
       phone,
@@ -177,7 +179,6 @@ export const POST = async (req: NextRequest) => {
       scale,
       q5,
       q6,
-      time,
     ].map((value) => String(value)),
   ];
   await appendGoogleSheets(sheetId, sheetRange, sheetValueInputOption, values);
