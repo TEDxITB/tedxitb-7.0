@@ -54,7 +54,7 @@ async function page() {
   if (dateNow < startAnnouncementDate) {
     return (
       <MainEventCountdown
-        title="Wait for the Participant Announcement at"
+        title="Wait for the Participant Announcement on"
         date={startAnnouncementDate}
       />
     );

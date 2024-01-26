@@ -34,7 +34,7 @@ const VoteOption = ({ candidate, ...props }: VoteOptionProps) => {
     });
 
     const formData = new FormData();
-    formData.append("candidateId", String(candidate.id));
+    formData.append("candidateId", candidate.id);
 
     const res = await fetch("/api/vote", {
       method: "POST",
@@ -47,6 +47,7 @@ const VoteOption = ({ candidate, ...props }: VoteOptionProps) => {
       toast.success("Success!", {
         description: "Your vote has been submitted",
       });
+      router.replace("/main-event/voting", { scroll: true });
       router.refresh();
     } else {
       toast.error("Error!", {
