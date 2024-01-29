@@ -59,6 +59,19 @@ export const POST = async (req: NextRequest) => {
   }
 
   const candidateId = zodParseResult.data;
+
+  const valid = await prisma.candidate.findUnique({
+    where: {
+      id: candidateId as string,
+    },
+  });
+
+  if (!valid) {
+    return NextResponse.json(
+      { error: "Bad Request", message: "Candidate ID is not available" },
+      { status: 400 }
+    );
+  }
   // Create Voting table
   const createVotingQuery = prisma.vote.create({
     data: {
