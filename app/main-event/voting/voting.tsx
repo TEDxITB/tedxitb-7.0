@@ -1,8 +1,6 @@
 import VoteOption from "./vote-option";
-import SmoothScrollButton from "@/components/ui/smooth-scroll-button";
 import { getCMSData, studentSpeakerQuery, studentSpeakerTags } from "@/lib/cms";
 import { StudentSpeakerQueryResult } from "@/types/cms";
-import { ArrowDownCircle } from "lucide-react";
 import Image from "next/image";
 
 const VotingStatePage = async () => {
@@ -14,48 +12,10 @@ const VotingStatePage = async () => {
 
   return (
     <main className="flex h-fit w-screen flex-col items-center justify-center bg-[#1E1E1E]">
-      {/* Hero */}
-      <section className="relative z-10 flex min-h-[calc(100vh-6rem)] w-screen items-center justify-center">
-        {/* Bg Hero */}
-        <Image
-          alt="bg-hero"
-          src="/voting/hero.jpg"
-          fill
-          sizes="100vw"
-          className="absolute object-cover object-center opacity-50"
-        />
-
-        <div className="flex w-[70%] flex-col items-center justify-center gap-6 lg:gap-12">
-          <div className="flex w-full flex-col items-center justify-center gap-2 text-ted-white lg:gap-4 ">
-            <h1
-              data-aos="zoom-in-up"
-              className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
-            >
-              VOTING
-            </h1>
-            <h2
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
-              className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
-            >
-              <span className="mr-2 font-graziela text-5xl lg:text-8xl">S</span>
-              <span>TUDENT </span>
-              <span>SPEAKER </span>
-              <span className="mr-2 font-graziela text-5xl lg:text-8xl">A</span>
-              <span>UDITION </span>
-            </h2>
-          </div>
-          <SmoothScrollButton
-            targetId="voting"
-            data-aos="zoom-in-up"
-            data-aos-delay="250"
-          >
-            Vote Now <ArrowDownCircle className="ml-2 h-5 w-5" />
-          </SmoothScrollButton>
-        </div>
-      </section>
-
-      <section id="voting" className="relative h-fit w-full overflow-hidden">
+      <section
+        id="voting"
+        className="relative h-fit w-full overflow-hidden px-6 py-16 sm:p-16 lg:p-24"
+      >
         {/* Top Left Gradient Decoration */}
         <Image
           src="/decoration/blur1.png"
@@ -95,12 +55,12 @@ const VotingStatePage = async () => {
           />
         </div>
 
-        <div className="z-10 flex w-full items-center justify-center px-[35px] py-[75px] sm:px-[50px] md:py-[200px]">
+        <div className="z-10 flex w-full items-center justify-center">
           <div className="flex w-full flex-col items-center justify-center gap-12 lg:gap-16">
             {/* Title */}
             <h3
               data-aos="zoom-in-up"
-              className="text-center font-anderson text-3xl font-bold text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-5xl"
+              className="text-center font-anderson text-3xl font-bold tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-5xl"
             >
               STUDENT SPEAKER CANDIDATES
             </h3>
