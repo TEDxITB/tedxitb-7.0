@@ -103,7 +103,7 @@ const VoteOption = ({ candidate, ...props }: VoteOptionProps) => {
 
             {/* Trigger Vote Button */}
             <AlertDialogTrigger asChild>
-              <Button className="w-full">Vote</Button>
+              <Button className="w-full">VOTE</Button>
             </AlertDialogTrigger>
           </div>
         </div>
