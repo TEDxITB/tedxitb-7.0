@@ -12,8 +12,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import CustomLink from "@/components/ui/links";
-import { ImageCMS, StudentSpeakerCandidate } from "@/types/cms";
+import { StudentSpeakerCandidate } from "@/types/cms";
 import { Instagram, Video } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -56,72 +55,59 @@ const VoteOption = ({ candidate, ...props }: VoteOptionProps) => {
     }
   }
 
-  // https://www.instagram.com/dewo.tm/
-  const igUsername = candidate.instagramUrl
-    .replace("https://www.instagram.com/", "")
-    .replace("/", "");
-
   return (
     <AlertDialog>
-      {/* Trigger */}
-      <AlertDialogTrigger asChild>
-        <button
-          {...props}
-          className="flex w-[320px] flex-col items-center gap-4 rounded-md lg:gap-6"
-        >
-          {/* Photo */}
-          <div className="flex w-full flex-col items-center justify-center gap-5 rounded-md bg-white bg-opacity-[8%] p-6 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]">
-            <Image
-              width={candidate.image.width}
-              height={candidate.image.height}
-              alt={candidate.image.alt}
-              src={candidate.image.url}
-              className="aspect-square rounded-md object-cover object-center"
-            />
-            <div className="flex w-full flex-col gap-3">
-              {/* Name */}
-              <p className="text-center font-anderson text-lg  tracking-wide text-white lg:text-xl">
-                {candidate.name}
-              </p>
+      <article
+        {...props}
+        className="flex w-[320px] flex-col items-center gap-4 rounded-md lg:gap-6"
+      >
+        {/* Photo */}
+        <div className="flex w-full flex-col items-center justify-center gap-5 rounded-md bg-white bg-opacity-[8%] p-6 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]">
+          <Image
+            width={candidate.image.width}
+            height={candidate.image.height}
+            alt={candidate.image.alt}
+            src={candidate.image.url}
+            className="aspect-square rounded-md object-cover object-center"
+          />
 
-              <div className="flex flex-row justify-center gap-6">
-                {/* Instagram */}
-                <Link
-                  href={candidate.instagramUrl}
-                  target="_blank"
-                  onClick={(e) => e.stopPropagation()}
+          <div className="flex w-full flex-col gap-3">
+            {/* Name */}
+            <p className="text-center font-anderson text-lg  tracking-wide text-white lg:text-xl">
+              {candidate.name}
+            </p>
+
+            <div className="flex flex-row justify-center gap-6">
+              {/* Instagram */}
+              <Link href={candidate.instagramUrl} target="_blank">
+                <Button
+                  variant="link"
+                  className="h-auto p-0 text-base text-slate-300 hover:text-primary lg:text-lg"
                 >
-                  <Button
-                    variant="link"
-                    className="h-auto p-0 text-base text-slate-300 hover:text-primary lg:text-lg"
-                  >
-                    <Instagram className="mr-2" />
-                    Instagram
-                  </Button>
-                </Link>
+                  <Instagram className="mr-2" />
+                  Instagram
+                </Button>
+              </Link>
 
-                {/* Audition Video */}
-                <Link
-                  href={candidate.videoUrl}
-                  target="_blank"
-                  onClick={(e) => e.stopPropagation()}
+              {/* Audition Video */}
+              <Link href={candidate.videoUrl} target="_blank">
+                <Button
+                  variant="link"
+                  className="h-auto p-0 text-base text-slate-300 hover:text-primary lg:text-lg"
                 >
-                  <Button
-                    variant="link"
-                    className="h-auto p-0 text-base text-slate-300 hover:text-primary lg:text-lg"
-                  >
-                    <Video className="mr-2" />
-                    Audition
-                  </Button>
-                </Link>
-              </div>
-
-              {/* Vote Button */}
-              <Button className="w-full">Vote</Button>
+                  <Video className="mr-2" />
+                  Audition
+                </Button>
+              </Link>
             </div>
+
+            {/* Trigger Vote Button */}
+            <AlertDialogTrigger asChild>
+              <Button className="w-full">Vote</Button>
+            </AlertDialogTrigger>
           </div>
-        </button>
-      </AlertDialogTrigger>
+        </div>
+      </article>
 
       {/* Content */}
       <AlertDialogContent className="border-none bg-[#1C1C1C] font-anderson text-ted-white">

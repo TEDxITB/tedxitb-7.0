@@ -122,7 +122,7 @@ export default function NavBar({
                     <Link
                       href={url}
                       className={`${
-                        currentPath == url
+                        currentPath.startsWith(url)
                           ? "font-bold text-ted-red"
                           : "font-medium text-ted-white"
                       }`}

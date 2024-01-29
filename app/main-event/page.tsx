@@ -94,7 +94,7 @@ async function page() {
         </div>
       </section>
 
-      <section className="relative flex flex-col gap-16 bg-[#1C1C1C] px-8 py-16 text-ted-white">
+      <section className="relative flex flex-col gap-16 bg-[#1C1C1C] px-8 py-16 text-ted-white sm:p-16 lg:p-24">
         <h2
           data-aos="zoom-in-up"
           className="stroke-ted-white text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
