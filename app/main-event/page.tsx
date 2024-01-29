@@ -94,7 +94,8 @@ async function page() {
         </div>
       </section>
 
-      <section className="relative flex flex-col gap-16 bg-[#1C1C1C] px-8 py-16 text-ted-white sm:p-16 lg:p-24">
+      {/* Topic */}
+      {/* <section className="relative flex flex-col gap-16 bg-[#1C1C1C] px-8 py-16 text-ted-white sm:p-16 lg:px-24 lg:py-48">
         <h2
           data-aos="zoom-in-up"
           className="stroke-ted-white text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
@@ -129,8 +130,9 @@ async function page() {
           alt="Background Blur"
           className="absolute -bottom-40 -right-1/2 w-[1000px] sm:-bottom-56 sm:-right-96"
         />
-      </section>
+      </section> */}
 
+      {/* Networking Originator Lounge */}
       <section className="relative flex items-center justify-center text-ted-white">
         <Image
           src="/main-event/networking-originator-lounge.png"
@@ -221,7 +223,8 @@ async function page() {
         </section>
       )}
 
-      <section className="font-anderson text-ted-white">
+      {/* Ready to be part of */}
+      {/* <section className="font-anderson text-ted-white">
         <div className="relative min-h-fit w-screen">
           <Image
             src="/main-event/impact-originator.png"
@@ -298,7 +301,7 @@ async function page() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

@@ -1,8 +1,6 @@
 import VoteOption from "./vote-option";
-import SmoothScrollButton from "@/components/ui/smooth-scroll-button";
 import { getCMSData, studentSpeakerQuery, studentSpeakerTags } from "@/lib/cms";
 import { StudentSpeakerQueryResult } from "@/types/cms";
-import { ArrowDownCircle } from "lucide-react";
 import Image from "next/image";
 
 const VotingStatePage = async () => {
