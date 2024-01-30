@@ -1,3 +1,4 @@
+import { appendGoogleSheets } from "./google-sheets";
 import PostHogClient from "./posthog-server";
 import { prisma } from "./prisma";
 import SignInEmail from "@/emails/sign-in-template";
@@ -82,6 +83,33 @@ export const authOptions: AuthOptions = {
             subject: "Welcome to TEDxITB 7.0 Website!",
             react: WelcomeEMail(),
           });
+        } catch (error) {
+          console.log({ error });
+        }
+        try {
+          const currentTime = Date.now();
+          const wibOffset = 7 * 60 * 60 * 1000; // WIB is UTC+7
+          const currentTimeWIB = new Date(currentTime + wibOffset);
+          const time = currentTimeWIB.toLocaleString("en-US", {
+            hour12: false,
+            timeZone: "UTC",
+          });
+          const sheetId = process.env.GOOGLE_SHEETS_ID as string;
+          const sheetRange = "users!A:D";
+          const sheetValueInputOption = "RAW";
+          let method = "email";
+          if (user.name != null) {
+            method = "google";
+          }
+          const values = [
+            [user.name, user.email, method, time].map((val) => String(val)),
+          ];
+          await appendGoogleSheets(
+            sheetId,
+            sheetRange,
+            sheetValueInputOption,
+            values
+          );
         } catch (error) {
           console.log({ error });
         }

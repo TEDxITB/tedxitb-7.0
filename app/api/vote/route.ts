@@ -1,5 +1,6 @@
 import { authOptions } from "@/lib/auth-options";
 import { appendGoogleSheets } from "@/lib/google-sheets";
+import PostHogClient from "@/lib/posthog-server";
 import { prisma } from "@/lib/prisma";
 import { isUserVoted } from "@/lib/query";
 import { startVotingDate, endVotingDate } from "@/lib/special-date";
@@ -98,6 +99,16 @@ export const POST = async (req: NextRequest) => {
     createVotingQuery,
     updateCandidateQuery,
   ]);
+
+  const posthogClient = PostHogClient();
+  posthogClient.capture({
+    distinctId: session.id,
+    event: "vote",
+    properties: {
+      name: candidate.name,
+      candidateId: candidateId,
+    },
+  });
 
   const { name } = candidate;
   const time = currentTimeWIB.toLocaleString("en-US", {
