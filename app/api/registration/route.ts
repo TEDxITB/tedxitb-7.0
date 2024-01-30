@@ -11,7 +11,6 @@ import { getServerSession } from "next-auth";
 import { type NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest) => {
-  
   // Validate user session
   const session = await getServerSession(authOptions);
   if (!session) {
