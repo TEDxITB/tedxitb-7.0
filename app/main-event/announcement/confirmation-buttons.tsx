@@ -20,7 +20,7 @@ function ConfirmationButtons() {
 
   async function handleSubmit(val: string) {
     const idToastLoading = toast.loading("Submitting...", {
-      description: "Please wait while we submit confirmation",
+      description: "Please wait while we submit your confirmation",
       duration: Infinity,
     });
 

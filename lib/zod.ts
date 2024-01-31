@@ -59,3 +59,5 @@ export const regisSchema = z.object({
 export const confirmationSchema = z.object({
   attendance: z.boolean(),
 });
+
+export const voteSchema = z.string();

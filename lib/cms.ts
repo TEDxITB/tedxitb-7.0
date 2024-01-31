@@ -108,3 +108,20 @@ export const magazineQuery = `{
     }
   }
 }`;
+
+export const studentSpeakerTags = ["student-speaker"];
+export const studentSpeakerQuery = `{
+  allStudentSpeakerCandidates {
+    id
+    image {
+      id
+      url
+      alt
+      width
+      height
+    }
+    name
+    instagramUrl
+    videoUrl
+  }
+}`;

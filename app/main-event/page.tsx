@@ -2,7 +2,10 @@ import TopicCard from "./topic-card";
 import { Button } from "@/components/ui/button";
 import { getCMSData, mainEventTopicQuery, mainEventTopicTags } from "@/lib/cms";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
-import { startComingSoonAnnouncementDate } from "@/lib/special-date";
+import {
+  endVotingDate,
+  startComingSoonAnnouncementDate,
+} from "@/lib/special-date";
 import { MainEventTopicQueryResult } from "@/types/cms";
 import { MapPin } from "lucide-react";
 import { Metadata } from "next";
@@ -91,14 +94,15 @@ async function page() {
         </div>
       </section>
 
-      <section className="relative bg-[#1C1C1C] text-ted-white">
+      {/* Topic */}
+      {/* <section className="relative flex flex-col gap-16 bg-[#1C1C1C] px-8 py-16 text-ted-white sm:p-16 lg:px-24 lg:py-48">
         <h2
           data-aos="zoom-in-up"
-          className="stroke-ted-white pt-16 text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+          className="stroke-ted-white text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
         >
           OUR TOPIC
         </h2>
-        <div className="flex flex-col items-center gap-8 p-16">
+        <div className="z-30 grid auto-rows-fr justify-center gap-12 sm:flex sm:flex-col sm:items-center sm:justify-normal sm:gap-8">
           {allMainEventTopics.map((topic, index) => (
             <TopicCard
               key={topic.id}
@@ -126,42 +130,102 @@ async function page() {
           alt="Background Blur"
           className="absolute -bottom-40 -right-1/2 w-[1000px] sm:-bottom-56 sm:-right-96"
         />
-      </section>
+      </section> */}
 
-      <section className="font-anderson text-ted-white shadow-inner">
-        <div className="relative h-[550px] w-full bg-gradient-to-r from-[#7D0A0A] to-[#EAD196]">
-          <Image
-            src="/main-event/networking-originator-lounge.png"
-            alt="Networking Originator Lounge"
-            fill
-            className="object-cover pt-[1px]"
-          />
-          <div className="absolute left-1/2 top-1/2 flex min-w-[300px] max-w-[1000px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 text-center lg:gap-12">
-            <h2
-              data-aos="zoom-in-up"
-              className="text-3xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
-            >
-              Networking Originator Lounge
-            </h2>
-            <p
-              data-aos="zoom-in-up"
-              className="font-thin leading-7 tracking-wide lg:text-lg"
-            >
-              The Originators Lounge is your dedicated space to relax, mingle,
-              and engage in meaningful conversations with fellow attendees.
-              Here, you can be a part of the transformative energy that TEDxITB
-              represents. Whether you&apos;re seeking to discuss the inspiring
-              talks you&apos;ve just witnessed or looking to meet potential
-              collaborators for your own ideas, the Originators Lounge is the
-              place to be.
-            </p>
-          </div>
-          <div className="absolute bottom-0 h-8 w-full bg-gradient-to-t from-ted-black to-transparent"></div>
+      {/* Networking Originator Lounge */}
+      <section className="relative flex items-center justify-center text-ted-white">
+        <Image
+          src="/main-event/networking-originator-lounge.png"
+          alt="Networking Originator Lounge"
+          fill
+          sizes="100vw"
+          className="absolute inset-0 object-cover object-center"
+        />
+
+        <div className="flex min-w-[300px] max-w-7xl flex-col items-center gap-8 px-6 py-24 text-center font-anderson sm:p-16 lg:gap-12 lg:px-24 lg:py-48">
+          <h2
+            data-aos="zoom-in-up"
+            className="text-4xl font-bold tracking-wide drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+          >
+            NETWORKING ORIGINATOR LOUNGE
+          </h2>
+          <p data-aos="zoom-in-up" className="text-base lg:text-2xl">
+            The Originators Lounge is your dedicated space to relax, mingle, and
+            engage in meaningful conversations with fellow attendees. Here, you
+            can be a part of the transformative energy that TEDxITB represents.
+            Whether you&apos;re seeking to discuss the inspiring talks
+            you&apos;ve just witnessed or looking to meet potential
+            collaborators for your own ideas, the Originators Lounge is the
+            place to be.
+          </p>
         </div>
       </section>
 
+      {/* Student Speaker Audition */}
+      {/* Only render section before voting closes */}
+      {Date.now() <= endVotingDate && (
+        <section className="relative flex items-center justify-center overflow-hidden bg-black px-6 py-24 text-ted-white sm:p-16 lg:px-24 lg:py-48">
+          <div className="z-20 flex max-w-5xl flex-col items-center gap-6 lg:gap-12">
+            <div className="flex flex-col items-center gap-4 lg:gap-8">
+              <h2
+                data-aos="zoom-in-up"
+                className="text-center font-anderson text-4xl font-bold tracking-wide drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+              >
+                STUDENT SPEAKER AUDITION
+              </h2>
+              <p
+                data-aos="zoom-in-up"
+                className="text-center font-anderson text-base lg:text-2xl"
+              >
+                Student Speaker is an event held by TEDXITB 7.0. Aligned with
+                TED&apos;s slogan which is Ideas Worth Spreading, this event
+                provides opportunity for ITB undergraduate students to create
+                new sparks in the society by voicing their aspirations as a
+                speaker in TEDxITB 7.0 Main Event.
+              </p>
+            </div>
+            <Link data-aos="zoom-in-up" href="/main-event/voting">
+              <Button
+                size="lg"
+                className="px-8 font-anderson text-base tracking-wide lg:rounded-lg lg:px-10 lg:py-6 lg:text-lg"
+              >
+                Vote Now
+              </Button>
+            </Link>
+          </div>
+
+          {/* Backgorund Image */}
+          <Image
+            alt="bg-hero"
+            src="/main-event/bg-voting.jpg"
+            sizes="100vw"
+            fill
+            className="absolute inset-0 z-0 object-cover object-center opacity-40"
+          />
+
+          {/* Decoration Top Left */}
+          <Image
+            src="/decoration/blur1.png"
+            width={262}
+            height={255}
+            alt="Background Blur"
+            className="absolute -left-1/2 -top-32 z-10 w-[1000px] sm:-left-96 sm:-top-64"
+          />
+
+          {/* Decoration Bottom Left */}
+          <Image
+            src="/decoration/blur2.png"
+            width={262}
+            height={255}
+            alt="Background Blur"
+            className="absolute -bottom-40 -right-1/2 z-10 w-[1000px] sm:-bottom-56 sm:right-[-500px]"
+          />
+        </section>
+      )}
+
+      {/* Ready to be part of */}
       <section className="font-anderson text-ted-white">
-        <div className="relative h-[1000px] w-full">
+        <div className="relative min-h-fit w-screen">
           <Image
             src="/main-event/impact-originator.png"
             alt="Impact Originator"
@@ -169,7 +233,17 @@ async function page() {
             className="object-cover"
           />
 
-          <div className="absolute left-1/2 top-1/2 flex min-w-[320px] max-w-[1000px] -translate-x-1/2 -translate-y-1/2 flex-col gap-8 lg:left-0 lg:top-0 lg:mx-24 lg:mt-20 lg:-translate-x-0 lg:-translate-y-0 lg:gap-12">
+          <Image
+            src="/decoration/mesh.png"
+            width={500}
+            height={500}
+            alt="Background Star"
+            className="absolute -right-4 w-[250px] lg:right-4 lg:w-[500px]"
+          />
+
+          <div className="absolute top-0 h-8 w-full bg-gradient-to-b from-ted-black to-transparent"></div>
+
+          <div className="left-0 top-0 flex min-w-[320px] max-w-fit -translate-x-0 -translate-y-0 flex-col gap-8 p-8 sm:p-24 md:left-0 md:top-0 md:-translate-x-0 md:-translate-y-0 md:gap-12">
             <div className="flex flex-col font-bold italic drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)]">
               <h2 data-aos="fade-right" className="text-2xl lg:text-5xl">
                 READY TO BE PART OF
@@ -182,19 +256,17 @@ async function page() {
               </h2>
             </div>
             <p data-aos="fade-right" className="text-xl lg:text-3xl">
-              Saturday, March 2nd 2024
+              Saturday, March 9th 2024
             </p>
             <p
               data-aos="fade-right"
               className="text-3xl italic text-[#FDB10E] lg:text-5xl"
             >
-              15.00 - 20.30
+              15.00 WIB - TBA
             </p>
             <div data-aos="fade-right" className="flex gap-2 align-middle">
               <MapPin className="h-4 w-4 lg:h-8 lg:w-8" />
-              <p className="lg:text-2xl">
-                The House Convention Hall, Paskal 23
-              </p>
+              <p className="lg:text-2xl">The House Paskal 23, Bandung</p>
             </div>
             <div data-aos="fade-right">
               <iframe
@@ -226,16 +298,6 @@ async function page() {
               )}
             </Link>
           </div>
-
-          <Image
-            src="/decoration/mesh.png"
-            width={500}
-            height={500}
-            alt="Background Star"
-            className="absolute -right-4 w-[250px] lg:right-4 lg:w-[500px]"
-          />
-
-          <div className="absolute top-0 h-8 w-full bg-gradient-to-b from-ted-black to-transparent"></div>
         </div>
       </section>
     </main>

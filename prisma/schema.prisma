@@ -49,6 +49,7 @@ model User {
   confirmation  Confirmation?
   registration  Registration?
   ticket        Ticket?
+  vote          Vote?
 }
 
 model VerificationToken {
@@ -60,7 +61,7 @@ model VerificationToken {
 }
 
 model Registration {
-  id                 String  @id @default(cuid())
+  id                 String   @id @default(cuid())
   name               String
   phone              String
   age                Int
@@ -79,22 +80,41 @@ model Registration {
   participationscale Int
   q5                 String?
   q6                 String?
-  userId             String  @unique
-  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId             String   @unique
+  registeredAt       DateTime @default(now())
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Confirmation {
-  id         String   @id @default(cuid())
-  attendance Boolean?
-  userId     String   @unique
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  ticket     Ticket?
+  id          String   @id @default(cuid())
+  attendance  Boolean?
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ticket      Ticket?
+  confirmedAt DateTime @default(now())
 }
 
 model Ticket {
-  id             String @id @default(cuid())
-  userId         String @unique
-  user           User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  confirmationId String @unique
+  id             String       @id @default(cuid())
+  userId         String       @unique
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  madeAt         DateTime     @default(now())
+  confirmationId String       @unique
   confirmation   Confirmation @relation(fields: [confirmationId], references: [id], onDelete: Cascade)
+}
+
+model Vote {
+  id              String    @id @default(cuid())
+  userId          String    @unique
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  candidateId     String    
+  chosencandidate Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  createdAt       DateTime  @default(now())
+}
+
+model Candidate {
+  id    String @id @default(cuid())
+  name  String
+  score Int
+  votes Vote[]
 }

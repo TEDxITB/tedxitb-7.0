@@ -1,4 +1,4 @@
-import RegisCountdown from "./register-countdown";
+import MainEventCountdown from "../main-event-countdown";
 import RegisterPage from "./register-page";
 import { authOptions } from "@/lib/auth-options";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
@@ -42,7 +42,12 @@ async function Page() {
 
   // Kalo belum waktunya pendaftaran, tampilkan countdown
   if (dateNow < startRegisDate) {
-    return <RegisCountdown regisDate={startRegisDate} />;
+    return (
+      <MainEventCountdown
+        title="The registration form will be open starting"
+        date={startRegisDate}
+      />
+    );
   }
 
   return <RegisterPage session={session} />;

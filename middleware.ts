@@ -4,7 +4,7 @@ export function middleware(req: NextRequest) {
   const reqPath = req.nextUrl.pathname;
 
   // Coming soon
-  const comingSoonPath = ["/main-event"];
+  const comingSoonPath = [""];
   if (comingSoonPath.includes(reqPath)) {
     return NextResponse.redirect(new URL("/coming-soon", req.nextUrl));
   }

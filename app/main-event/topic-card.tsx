@@ -19,21 +19,21 @@ function TopicCard({
   return (
     <article
       {...props}
-      className="relative h-[175px] w-[325px] overflow-visible md:w-[600px] xl:w-[1000px]"
+      className="relative h-full w-full overflow-visible sm:h-[175px] sm:min-h-full md:w-[600px] xl:w-[1000px]"
     >
-      <div className="absolute -left-1 -top-1 bottom-1 right-1 z-20 rounded-lg bg-gradient-to-r from-[#7D0A0A] to-[#EAD196] p-[1px]">
-        <div className="flex h-full w-full items-center gap-4 rounded-lg bg-[#1C1C1C] px-2 py-3 md:px-3 md:py-4">
-          <div className="relative h-full w-[150px]">
+      <div className="relative -left-1 -top-1 bottom-1 right-1 z-20 flex h-full w-full rounded-lg bg-gradient-to-r from-[#7D0A0A] to-[#EAD196] p-[1px] sm:absolute">
+        <div className="flex h-full w-full flex-col items-center gap-4 rounded-lg bg-[#1C1C1C] px-2 py-3 sm:flex-row sm:px-3 sm:py-4">
+          <div className="relative aspect-video max-h-[150px] w-full sm:h-full sm:w-[150px]">
             <Image
               src={image.url}
               alt="hero"
               fill
-              className="rounded-lg object-cover"
+              className="absolute inset-0 h-full w-full rounded-lg object-cover"
             />
           </div>
-          <div className="flex h-full w-full flex-col justify-between font-anderson md:hidden">
+          <div className="flex w-full grow flex-col gap-2 font-anderson md:hidden">
             <p className="font-bold xl:text-3xl">{title}</p>
-            <p className="text-xs font-normal text-ted-red xl:text-base">
+            <p className="grow text-xs font-normal text-ted-red xl:text-base">
               {speaker}
             </p>
             <TopicModal

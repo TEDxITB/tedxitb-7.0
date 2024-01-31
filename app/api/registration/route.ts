@@ -22,6 +22,8 @@ export const POST = async (req: NextRequest) => {
 
   // Validate Date For registration
   const currentTime = Date.now();
+  const wibOffset = 7 * 60 * 60 * 1000; // WIB is UTC+7
+  const currentTimeWIB = new Date(currentTime + wibOffset);
 
   if (currentTime < startRegisDate) {
     return NextResponse.json(
@@ -117,6 +119,7 @@ export const POST = async (req: NextRequest) => {
       q5: q5 as string,
       q6: q6 as string,
       userId: session.id,
+      registeredAt: currentTimeWIB,
     },
   });
 
@@ -145,12 +148,17 @@ export const POST = async (req: NextRequest) => {
 
   // Update google sheets
   const sheetId = process.env.GOOGLE_SHEETS_ID as string;
-  const sheetRange = "registration!A:U";
+  const time = currentTimeWIB.toLocaleString("en-US", {
+    hour12: false,
+    timeZone: "UTC", // Replace with your desired timezone
+  });
+  const sheetRange = "registration!A:V";
   const sheetValueInputOption = "RAW";
   const values = [
     [
       registrationResult.id,
       session.id,
+      time,
       name,
       session.email,
       phone,

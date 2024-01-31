@@ -11,3 +11,9 @@ export const startAnnouncementDate = new Date(
 export const confirmationDate = new Date(
   "February 23, 2024 17:00:00"
 ).getTime();
+
+// 1 Februari 08:00 WIB
+export const startVotingDate = new Date("February 1, 2024 01:00:00").getTime();
+
+// 7 Februari 21:00 WIB
+export const endVotingDate = new Date("February 7, 2024 13:00:00").getTime();

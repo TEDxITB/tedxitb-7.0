@@ -12,8 +12,8 @@ function TopicModal(props: {
 }) {
   return (
     <Dialog>
-      <DialogTrigger className="self-end">
-        <Button className="md:px-8">See Details</Button>
+      <DialogTrigger className="sm:self-end">
+        <Button className="w-full md:px-8">See Details</Button>
       </DialogTrigger>
       <DialogContent className="h-fit bg-[#1C1C1C] font-anderson text-white">
         <div className="space-y-6">
@@ -22,7 +22,7 @@ function TopicModal(props: {
             alt={props.image.alt}
             width={props.image.width}
             height={props.image.height}
-            className="mt-6 aspect-[5/3] w-full rounded-lg object-cover object-center"
+            className="mt-6 w-full rounded-lg object-cover object-center sm:aspect-[5/3]"
           />
           <h2 className="text-2xl font-bold">{props.title}</h2>
           <div className="font-light">

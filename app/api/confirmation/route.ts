@@ -19,6 +19,8 @@ export const PUT = async (req: NextRequest) => {
 
   // Validate Date For confirmation
   const currentTime = Date.now();
+  const wibOffset = 7 * 60 * 60 * 1000; // WIB is UTC+7
+  const currentTimeWIB = new Date(currentTime + wibOffset);
 
   if (currentTime < startAnnouncementDate) {
     return NextResponse.json(
@@ -71,7 +73,6 @@ export const PUT = async (req: NextRequest) => {
       { status: 400 }
     );
   }
-
   // For confirmation
   const confirmation = await prisma.confirmation.update({
     where: {
@@ -79,6 +80,7 @@ export const PUT = async (req: NextRequest) => {
     },
     data: {
       attendance: attendance,
+      confirmedAt: currentTimeWIB,
     },
   });
 
@@ -95,20 +97,22 @@ export const PUT = async (req: NextRequest) => {
   // General sheets data
   const sheetId = process.env.GOOGLE_SHEETS_ID as string;
   const sheetValueInputOption = "RAW";
-
+  const time = currentTimeWIB.toLocaleString("en-US", {
+    hour12: false,
+    timeZone: "UTC",
+  });
   // Update confirmed sheets
-  const confirmedSheetRange = "confirmed!A:E";
+  const confirmedSheetRange = "confirmed!A:F";
   const valuesConfirmedSheet = [
-    [confirmation.id, session.id, session.name, session.email, attendance].map(
-      (val) => String(val)
-    ),
+    [
+      confirmation.id,
+      session.id,
+      time,
+      session.name,
+      session.email,
+      attendance,
+    ].map((val) => String(val)),
   ];
-  await appendGoogleSheets(
-    sheetId,
-    confirmedSheetRange,
-    sheetValueInputOption,
-    valuesConfirmedSheet
-  );
 
   // For ticketing if attendance is true
   if (attendance === true) {
@@ -117,21 +121,44 @@ export const PUT = async (req: NextRequest) => {
       data: {
         userId: session.id,
         confirmationId: confirmation.id,
+        madeAt: currentTimeWIB,
       },
     });
 
     // Update ticket sheets
-    const ticketSheetRange = "ticket!A:E";
+    const ticketSheetRange = "ticket!A:F";
     const valuesTicketSheet = [
-      [ticket.id, confirmation.id, session.id, session.name, session.email].map(
-        (val) => String(val)
-      ),
+      [
+        ticket.id,
+        confirmation.id,
+        session.id,
+        time,
+        session.name,
+        session.email,
+      ].map((val) => String(val)),
     ];
+    // Update both sheets parallelly
+    await Promise.all([
+      appendGoogleSheets(
+        sheetId,
+        ticketSheetRange,
+        sheetValueInputOption,
+        valuesTicketSheet
+      ),
+      appendGoogleSheets(
+        sheetId,
+        confirmedSheetRange,
+        sheetValueInputOption,
+        valuesConfirmedSheet
+      ),
+    ]);
+  } else {
+    // Only update confirmed sheets
     await appendGoogleSheets(
       sheetId,
-      ticketSheetRange,
+      confirmedSheetRange,
       sheetValueInputOption,
-      valuesTicketSheet
+      valuesConfirmedSheet
     );
   }
 
