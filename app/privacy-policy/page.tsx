@@ -5,14 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Guess Astro",
+  title: "Privacy Policy | TEDxITB 7.0",
   openGraph: {
     ...openGraphTemplate,
-    title: "Privacy Policy | Guess Astro",
+    title: "Privacy Policy | TEDxITB 7.0",
   },
   twitter: {
     ...twitterTemplate,
-    title: "Privacy Policy | Guess Astro",
+    title: "Privacy Policy | TEDxITB 7.0",
   },
 };
 

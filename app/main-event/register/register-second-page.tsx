@@ -90,12 +90,24 @@ function SecondPage({
       toast.success("Success!", {
         description: "Your form has been submitted",
       });
+      localStorage.removeItem("formData");
+      localStorage.removeItem("profile");
       update();
       router.refresh();
     } else {
       toast.error("Error!", {
         description: "An error occured while submitting your form",
       });
+    }
+  }
+
+  async function handleFocus(e: React.FocusEvent<HTMLInputElement>) {
+    const name = e.target.name as keyof FormValues;
+
+    await form.trigger(name);
+
+    if (!form.formState.errors[name]) {
+      localStorage.setItem("formData", JSON.stringify(form.getValues()));
     }
   }
 
@@ -111,9 +123,10 @@ function SecondPage({
                 Apa yang membuat Anda tertarik dengan TEDxITB, dan mengapa Anda
                 ingin menghadiri acara TEDxITB?
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Textarea
                   {...field}
+                  id="q3"
                   className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
@@ -132,9 +145,10 @@ function SecondPage({
               <FormLabel className="leading-6 tracking-wide text-ted-white lg:text-lg">
                 Apa yang Anda ingin dapatkan dan pelajari dari acara ini?
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Textarea
                   {...field}
+                  id="q4"
                   className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
@@ -157,10 +171,10 @@ function SecondPage({
                 Pada skala 1-5, seberapa partisipatif Anda dalam dialog mengenai
                 topik terkait inovasi, teknologi, atau isu sosial?
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Slider
                   id="scale"
-                  defaultValue={[2]}
+                  defaultValue={[form.getValues("scale") - 1 ?? 2]}
                   min={0}
                   max={4}
                   step={1}
@@ -191,9 +205,10 @@ function SecondPage({
                 tentang hal itu!
                 <span className="text-[#FDB10E]"> (Opsional)</span>
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Textarea
                   {...field}
+                  id="q5"
                   className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>
@@ -213,9 +228,10 @@ function SecondPage({
                 memberikan dampak positif bagi masyarakat.
                 <span className="text-[#FDB10E]"> (Opsional)</span>
               </FormLabel>
-              <FormControl>
+              <FormControl onBlur={handleFocus}>
                 <Textarea
                   {...field}
+                  id="q6"
                   className="border-ted-white bg-ted-black bg-opacity-[0.15] ring-offset-ted-black"
                 />
               </FormControl>

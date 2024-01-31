@@ -242,11 +242,11 @@ export default async function Sponsorship() {
 
         {/* Bottom Right TEDxITB 7.0 Logo Triangle */}
         <Image
-          src="/decoration/triangles-tedx-logo.jpg"
-          width={200}
-          height={200}
+          src="/decoration/triangles-tedx-logo.png"
+          width={745}
+          height={494}
           alt="Triangles Decoration"
-          className="absolute bottom-0 right-0 z-10 w-[300px] sm:w-[500px] lg:w-[700px]"
+          className="absolute bottom-0 right-0 z-10 w-[200px] sm:w-[300px] lg:w-[500px]"
         />
       </div>
     </main>
