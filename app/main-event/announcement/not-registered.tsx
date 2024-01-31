@@ -2,8 +2,8 @@ import Image from "next/image";
 
 function NotRegistered() {
   return (
-    <div className="font-anderson text-ted-white">
-      <div className="relative h-[750px] w-full">
+    <main className="font-anderson text-ted-white">
+      <section className="relative h-[750px] w-full">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
@@ -43,8 +43,8 @@ function NotRegistered() {
           alt="TEDxITB 7.0 Logo"
           className="absolute left-1/2 top-3/4 w-[100px] -translate-x-1/2 opacity-20"
         />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

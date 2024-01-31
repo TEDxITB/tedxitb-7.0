@@ -16,7 +16,7 @@ function TopicModal(props: {
         <Button className="w-full md:px-8">See Details</Button>
       </DialogTrigger>
       <DialogContent className="h-fit bg-[#1C1C1C] font-anderson text-white">
-        <div className="space-y-6">
+        <article className="space-y-6">
           <Image
             src={props.image.url}
             alt={props.image.alt}
@@ -28,7 +28,7 @@ function TopicModal(props: {
           <div className="font-light">
             <StructuredText data={props.description} />
           </div>
-        </div>
+        </article>
       </DialogContent>
     </Dialog>
   );

@@ -17,8 +17,8 @@ async function Accepted(props: { session: Session }) {
   const isQRMagazineShown = ticketId !== null;
 
   return (
-    <div className="font-anderson text-ted-white">
-      <div className="relative h-[950px] w-full lg:h-[1200px] xl:h-[900px]">
+    <main className="font-anderson text-ted-white">
+      <section className="relative h-[950px] w-full lg:h-[1200px] xl:h-[900px]">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
@@ -83,8 +83,8 @@ async function Accepted(props: { session: Session }) {
           alt="TEDxITB 7.0 Logo"
           className="absolute left-1/2 top-3/4 w-[100px] -translate-x-1/2 opacity-20"
         />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

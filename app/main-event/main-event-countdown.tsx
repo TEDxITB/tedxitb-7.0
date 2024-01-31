@@ -3,8 +3,8 @@ import Image from "next/image";
 
 function MainEventCountdown({ title, date }: { title: string; date: number }) {
   return (
-    <div className="font-anderson text-ted-white">
-      <div className="relative flex min-h-[calc(100vh-104px)] w-full items-center justify-center py-12">
+    <main className="font-anderson text-ted-white">
+      <section className="relative flex min-h-[calc(100vh-104px)] w-full items-center justify-center py-12">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
@@ -34,8 +34,8 @@ function MainEventCountdown({ title, date }: { title: string; date: number }) {
             className="absolute bottom-3 left-1/2 w-[100px] -translate-x-1/2 opacity-20"
           />
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
