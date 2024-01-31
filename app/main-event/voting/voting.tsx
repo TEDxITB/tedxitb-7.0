@@ -14,7 +14,7 @@ const VotingStatePage = async () => {
     <main className="flex h-fit w-screen flex-col items-center justify-center bg-[#1E1E1E]">
       <section
         id="voting"
-        className="relative h-fit w-full overflow-hidden px-6 py-16 sm:p-16 lg:p-24"
+        className="relative flex h-fit w-full overflow-hidden px-6 py-24 sm:p-16 lg:p-24"
       >
         {/* Top Left Gradient Decoration */}
         <Image
@@ -31,7 +31,7 @@ const VotingStatePage = async () => {
           alt="Blur Decoration"
           width={1440}
           height={1097}
-          className="absolute -bottom-8 -right-24 w-72 lg:-bottom-52 lg:-right-40 lg:w-[700px]"
+          className="absolute -bottom-20 -right-24 w-72 lg:-bottom-52 lg:-right-80 lg:w-[700px]"
         />
 
         {/* Left Logo */}
@@ -55,7 +55,7 @@ const VotingStatePage = async () => {
           />
         </div>
 
-        <div className="z-10 flex w-full items-center justify-center">
+        <div className="z-20 flex w-full items-center justify-center">
           <div className="flex w-full flex-col items-center justify-center gap-12 lg:gap-16">
             {/* Title */}
             <h3
@@ -66,7 +66,7 @@ const VotingStatePage = async () => {
             </h3>
 
             {/* Boxes */}
-            <div className="flex w-full max-w-6xl flex-row flex-wrap items-center justify-center gap-16">
+            <div className="grid grid-cols-1 gap-16 sm:grid-cols-2 xl:grid-cols-3">
               {allStudentSpeakerCandidates.map((candidate) => {
                 return (
                   <VoteOption

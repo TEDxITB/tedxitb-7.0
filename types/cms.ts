@@ -53,6 +53,7 @@ export interface StudentSpeakerCandidate {
   name: string;
   instagramUrl: string;
   videoUrl: string;
+  topic: string;
 }
 export interface StudentSpeakerQueryResult {
   allStudentSpeakerCandidates: StudentSpeakerCandidate[];

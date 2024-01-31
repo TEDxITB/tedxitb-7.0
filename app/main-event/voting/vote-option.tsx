@@ -59,10 +59,11 @@ const VoteOption = ({ candidate, ...props }: VoteOptionProps) => {
     <AlertDialog>
       <article
         {...props}
-        className="flex w-[320px] flex-col items-center gap-4 rounded-md lg:gap-6"
+        className="flex w-[320px] flex-col justify-between gap-6 rounded-md bg-white bg-opacity-[8%] p-6 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]"
       >
-        {/* Photo */}
-        <div className="flex w-full flex-col items-center justify-center gap-5 rounded-md bg-white bg-opacity-[8%] p-6 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.1)]">
+        {/* Image & Texts */}
+        <div className="flex flex-col gap-6">
+          {/* Photo */}
           <Image
             width={candidate.image.width}
             height={candidate.image.height}
@@ -71,9 +72,10 @@ const VoteOption = ({ candidate, ...props }: VoteOptionProps) => {
             className="aspect-square rounded-md object-cover object-center"
           />
 
-          <div className="flex w-full flex-col gap-3">
+          {/* Texts */}
+          <div className="flex flex-col gap-3">
             {/* Name */}
-            <p className="text-center font-anderson text-lg  tracking-wide text-white lg:text-xl">
+            <p className="text-center font-anderson text-lg font-semibold tracking-wide text-white lg:text-xl">
               {candidate.name}
             </p>
 
@@ -101,12 +103,16 @@ const VoteOption = ({ candidate, ...props }: VoteOptionProps) => {
               </Link>
             </div>
 
-            {/* Trigger Vote Button */}
-            <AlertDialogTrigger asChild>
-              <Button className="w-full">VOTE</Button>
-            </AlertDialogTrigger>
+            <p className="text-center font-anderson text-base text-white lg:text-lg">
+              {candidate.topic}
+            </p>
           </div>
         </div>
+
+        {/* Trigger Vote Button */}
+        <AlertDialogTrigger asChild>
+          <Button className="w-full">VOTE</Button>
+        </AlertDialogTrigger>
       </article>
 
       {/* Content */}

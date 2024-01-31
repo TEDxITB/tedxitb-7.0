@@ -123,5 +123,6 @@ export const studentSpeakerQuery = `{
     name
     instagramUrl
     videoUrl
+    topic
   }
 }`;

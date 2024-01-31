@@ -32,7 +32,7 @@ const VotingPage = async () => {
     // Return countdown
     return (
       <MainEventCountdown
-        title="Anticipate the commencement of voting on"
+        title="Anticipate student speaker voting on"
         date={startVotingDate}
       />
     );
