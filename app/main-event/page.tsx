@@ -224,7 +224,7 @@ async function page() {
       )}
 
       {/* Ready to be part of */}
-      {/* <section className="font-anderson text-ted-white">
+      <section className="font-anderson text-ted-white">
         <div className="relative min-h-fit w-screen">
           <Image
             src="/main-event/impact-originator.png"
@@ -256,19 +256,17 @@ async function page() {
               </h2>
             </div>
             <p data-aos="fade-right" className="text-xl lg:text-3xl">
-              Saturday, March 2nd 2024
+              Saturday, March 9th 2024
             </p>
             <p
               data-aos="fade-right"
               className="text-3xl italic text-[#FDB10E] lg:text-5xl"
             >
-              15.00 - 20.30
+              15.00 WIB - TBA
             </p>
             <div data-aos="fade-right" className="flex gap-2 align-middle">
               <MapPin className="h-4 w-4 lg:h-8 lg:w-8" />
-              <p className="lg:text-2xl">
-                The House Convention Hall, Paskal 23
-              </p>
+              <p className="lg:text-2xl">The House Paskal 23, Bandung</p>
             </div>
             <div data-aos="fade-right">
               <iframe
@@ -301,7 +299,7 @@ async function page() {
             </Link>
           </div>
         </div>
-      </section> */}
+      </section>
     </main>
   );
 }

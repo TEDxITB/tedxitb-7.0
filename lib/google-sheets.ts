@@ -34,12 +34,12 @@ export const appendGoogleSheets = async (
     values,
   };
 
-  const result = await service.spreadsheets.values.append({
+  const promise = service.spreadsheets.values.append({
     spreadsheetId,
     range,
     valueInputOption,
     requestBody,
   });
 
-  return result;
+  return promise;
 };

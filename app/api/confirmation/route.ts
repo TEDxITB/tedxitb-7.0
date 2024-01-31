@@ -113,12 +113,6 @@ export const PUT = async (req: NextRequest) => {
       attendance,
     ].map((val) => String(val)),
   ];
-  await appendGoogleSheets(
-    sheetId,
-    confirmedSheetRange,
-    sheetValueInputOption,
-    valuesConfirmedSheet
-  );
 
   // For ticketing if attendance is true
   if (attendance === true) {
@@ -143,11 +137,28 @@ export const PUT = async (req: NextRequest) => {
         session.email,
       ].map((val) => String(val)),
     ];
+    // Update both sheets parallelly
+    await Promise.all([
+      appendGoogleSheets(
+        sheetId,
+        ticketSheetRange,
+        sheetValueInputOption,
+        valuesTicketSheet
+      ),
+      appendGoogleSheets(
+        sheetId,
+        confirmedSheetRange,
+        sheetValueInputOption,
+        valuesConfirmedSheet
+      ),
+    ]);
+  } else {
+    // Only update confirmed sheets
     await appendGoogleSheets(
       sheetId,
-      ticketSheetRange,
+      confirmedSheetRange,
       sheetValueInputOption,
-      valuesTicketSheet
+      valuesConfirmedSheet
     );
   }
 
