@@ -266,9 +266,10 @@ async function page() {
             </p>
             <div data-aos="fade-right" className="flex gap-2 align-middle">
               <MapPin className="h-4 w-4 lg:h-8 lg:w-8" />
-              <p className="lg:text-2xl">The House Paskal 23, Bandung</p>
+              {/* <p className="lg:text-2xl">The House Paskal 23, Bandung</p> */}
+              <p className="lg:text-2xl">To Be Announced</p>
             </div>
-            <div data-aos="fade-right">
+            {/* <div data-aos="fade-right">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7985193189184!2d107.59057777499645!3d-6.914676593084865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e78e0372cfc7%3A0x54f02d7a7d90f635!2sThe%20House%20Convention%20Hall!5e0!3m2!1sen!2sid!4v1704370854993!5m2!1sen!2sid"
                 width="250"
@@ -279,7 +280,7 @@ async function page() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="rounded-lg lg:h-[250px] lg:w-[450px]"
               ></iframe>
-            </div>
+            </div> */}
             <Link data-aos="fade-right" href={redirect}>
               {dateNow > startComingSoonAnnouncementDate ? (
                 <Button
