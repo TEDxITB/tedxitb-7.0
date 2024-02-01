@@ -73,7 +73,10 @@ async function page() {
                 <span>HUB</span>
               </h2>
             </div>
-            <Link className="animate-in fade-in-0 slide-in-from-bottom-32 duration-900 fill-mode-both delay-1000" href={redirect}>
+            <Link
+              className="duration-900 delay-1000 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both"
+              href={redirect}
+            >
               {dateNow > startComingSoonAnnouncementDate ? (
                 <Button
                   size={"lg"}
