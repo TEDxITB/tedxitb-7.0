@@ -132,7 +132,7 @@ export default function NavBar({
                   </li>
                 );
               })}
-              <li>
+              <li className="self-center">
                 {session ? (
                   <Button
                     size={"lg"}
