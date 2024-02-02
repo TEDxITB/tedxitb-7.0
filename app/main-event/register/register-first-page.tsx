@@ -411,7 +411,7 @@ function FirstPage({
         </Label>
         <div className="flex flex-col gap-2">
           <p>Contoh</p>
-          <div className="flex gap-8 overflow-x-scroll pb-4">
+          <div className="flex gap-8 overflow-auto pb-4">
             <Image
               src="/main-event/example-1.jpg"
               alt="Example"
