@@ -21,16 +21,13 @@ export default function Home() {
     <main className="relative flex flex-auto flex-col items-center overflow-hidden px-6 py-20 text-white sm:p-12 lg:p-24">
       <div className="mb-24 flex flex-col items-center gap-4 text-center lg:gap-8">
         <h1
-          data-aos="zoom-in-up"
-          className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
+          className="animate-in-fadetop-h1 text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
         >
           <span className="text-ted-red">TEDx</span>
           ITB 7.0
         </h1>
         <h2
-          data-aos="zoom-in-up"
-          data-aos-delay="150"
-          className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+          className="animate-in-fadetop-h2 text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
         >
           <span className="mr-2 font-graziela text-5xl lg:text-8xl">C</span>
           <span>OMING </span>
@@ -40,7 +37,9 @@ export default function Home() {
         </h2>
       </div>
 
-      <WordCloud data-aos="zoom-in-up" data-aos-delay="250" />
+      <div className="animate-in-fadetop-link">
+        <WordCloud/>
+      </div>
 
       <div
         data-aos="zoom-in-up"

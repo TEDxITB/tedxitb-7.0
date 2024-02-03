@@ -51,12 +51,12 @@ async function page() {
           <div className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-6 text-center lg:gap-12">
             <div className="flex w-full flex-col items-center justify-center gap-2 text-ted-white lg:gap-4 ">
               <h1
-                className="duration-500 delay-50 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
+                className="animate-in-fadetop-h1 text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
               >
                 MAIN EVENT
               </h1>
               <h2
-                className="duration-500 delay-150 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+                className="animate-in-fadetop-h2 text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
               >
                 <span className="mr-2 font-graziela text-5xl lg:text-8xl">
                   T
@@ -71,7 +71,7 @@ async function page() {
               </h2>
             </div>
             <Link
-              className="duration-500 delay-250 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both"
+              className="animate-in-fadetop-link"
               href={redirect}
             >
               {dateNow > startComingSoonAnnouncementDate ? (

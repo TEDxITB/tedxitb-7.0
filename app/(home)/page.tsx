@@ -33,15 +33,12 @@ const HomePage = () => {
         <div className="flex w-[70%] flex-col items-center justify-center gap-6 lg:gap-12">
           <div className="flex w-full flex-col items-center justify-center gap-2 text-ted-white lg:gap-4 ">
             <h1
-              data-aos="zoom-in-up"
-              className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
+              className="animate-in-fadetop-h1 text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
             >
               TEDxITB 7.0
             </h1>
             <h2
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
-              className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+              className="animate-in-fadetop-h2 text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
             >
               <span className="mr-2 font-graziela text-5xl lg:text-8xl">T</span>
               <span>HE </span>
@@ -52,9 +49,7 @@ const HomePage = () => {
             </h2>
           </div>
           <div
-            data-aos="zoom-in-up"
-            data-aos-delay="250"
-            className="z-10 flex w-full items-center justify-center"
+            className="animate-in-fadetop-link z-10 flex w-full items-center justify-center"
           >
             <Link href="/main-event">
               <Button
