@@ -136,9 +136,7 @@ const ClientPageTedQuiz = () => {
             priority
           />
           <div className="z-[40] flex h-full w-full flex-col items-center justify-center gap-[40px] px-5 text-center sm:w-fit">
-            <h1
-              className="animate-in-fadetop-h1 text-center font-garamond text-4xl font-medium tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
-            >
+            <h1 className="animate-in-fadetop-h1 text-center font-garamond text-4xl font-medium tracking-wider text-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
               <span className="mr-2 font-graziela text-6xl lg:text-8xl">W</span>
               <span>HICH </span>
               <span>TEDxITB </span>

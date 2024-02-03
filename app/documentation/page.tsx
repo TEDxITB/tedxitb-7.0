@@ -47,14 +47,10 @@ const DocumentationPage = async () => {
         {/* Text and button in the middle of the picture */}
         <div className=" z-20 flex h-full w-full flex-col items-center justify-center gap-6 text-white lg:gap-12">
           <div className="flex flex-col items-center gap-2 lg:gap-4">
-            <h1
-              className="animate-in-fadetop-h1 text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] sm:uppercase lg:text-8xl"
-            >
+            <h1 className="animate-in-fadetop-h1 text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] sm:uppercase lg:text-8xl">
               Documentation
             </h1>
-            <h2
-              className="animate-in-fadetop-h2 text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
-            >
+            <h2 className="animate-in-fadetop-h2 text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
               <span className="mr-2 font-graziela text-5xl lg:text-8xl">E</span>
               <span>XPLORE </span>
               <span>OUR </span>
@@ -63,13 +59,13 @@ const DocumentationPage = async () => {
               <span>HISTORY</span>
             </h2>
           </div>
-          
-          <div className="animate-in-fadetop-link">          <SmoothScrollButton
-            targetId="carousel"
-          >
-            See More <ArrowDownCircle className="ml-2 h-5 w-5" />
-          </SmoothScrollButton></div>
 
+          <div className="animate-in-fadetop-link">
+            {" "}
+            <SmoothScrollButton targetId="carousel">
+              See More <ArrowDownCircle className="ml-2 h-5 w-5" />
+            </SmoothScrollButton>
+          </div>
         </div>
       </section>
 

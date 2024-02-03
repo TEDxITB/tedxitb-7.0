@@ -62,24 +62,24 @@
 
 @layer components {
   .animate-in-fadetop-h1 {
-    @apply duration-500 delay-50 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both;
+    @apply delay-50 duration-500 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both;
   }
   .animate-in-fadetop-h2 {
-    @apply duration-500 delay-150 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both;
+    @apply delay-150 duration-500 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both;
   }
   .animate-in-fadetop-link {
-    @apply duration-500 delay-250 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both;
+    @apply delay-250 duration-500 animate-in fade-in-0 slide-in-from-bottom-32 fill-mode-both;
   }
   .animate-in-faderight-h1 {
-    @apply duration-500 delay-50 animate-in fade-in-0 slide-in-from-left-24 fill-mode-both;
+    @apply delay-50 duration-500 animate-in fade-in-0 slide-in-from-left-24 fill-mode-both;
   }
   .animate-in-faderight-h2 {
-    @apply duration-500 delay-150 animate-in fade-in-0 slide-in-from-left-24 fill-mode-both;
+    @apply delay-150 duration-500 animate-in fade-in-0 slide-in-from-left-24 fill-mode-both;
   }
   .animate-in-faderight-link {
-    @apply duration-500 delay-250 animate-in fade-in-0 slide-in-from-left-24 fill-mode-both;
+    @apply delay-250 duration-500 animate-in fade-in-0 slide-in-from-left-24 fill-mode-both;
   }
   .animate-in-fadeleft-image {
-    @apply duration-500 delay-50 animate-in fade-in-0 slide-in-from-right-24 fill-mode-both;
+    @apply delay-50 duration-500 animate-in fade-in-0 slide-in-from-right-24 fill-mode-both;
   }
 }
