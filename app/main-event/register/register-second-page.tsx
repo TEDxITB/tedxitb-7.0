@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { regisSchema } from "@/lib/zod";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -27,12 +27,15 @@ function SecondPage({
 }) {
   const router = useRouter();
   const { update } = useSession();
+  const [isClicked, setIsClicked] = useState(false);
 
   function prevPage() {
     setPage((page) => page - 1);
   }
 
   async function submitHandler(data: FormValues) {
+    setIsClicked(true);
+
     const idToastLoading = toast.loading("Submitting...", {
       description: "Please wait while we submit your form",
       duration: Infinity,
@@ -99,6 +102,8 @@ function SecondPage({
         description: "An error occured while submitting your form",
       });
     }
+
+    setIsClicked(false);
   }
 
   async function handleFocus(e: React.FocusEvent<HTMLInputElement>) {
@@ -256,6 +261,7 @@ function SecondPage({
             size={"lg"}
             className="px-10"
             onClick={form.handleSubmit(submitHandler)}
+            disabled={isClicked}
           >
             Submit
           </Button>
