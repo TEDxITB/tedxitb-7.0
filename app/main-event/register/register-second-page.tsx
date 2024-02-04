@@ -250,6 +250,7 @@ function SecondPage({
             className="px-10"
             type="button"
             onClick={prevPage}
+            disabled={form.formState.isSubmitting}
           >
             Back
           </Button>

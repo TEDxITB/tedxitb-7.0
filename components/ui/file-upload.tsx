@@ -384,7 +384,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             {...props}
           />
         </div>
-        <div className="flex h-[100px] w-full flex-col justify-start sm:flex-[1.1]">
+        <div className="flex min-h-[100px] w-full flex-col justify-start sm:flex-[1.1]">
           <h2 className="w-full font-anderson text-base text-ted-white sm:text-2xl">
             Uploaded File
           </h2>
