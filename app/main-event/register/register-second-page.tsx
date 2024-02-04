@@ -240,7 +240,7 @@ function SecondPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
+      <div className="z-50 flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
         <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:self-start">
           <Button
             variant={"secondary"}
