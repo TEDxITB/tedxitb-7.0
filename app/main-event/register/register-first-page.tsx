@@ -75,7 +75,7 @@ function FirstPage({
 
   return (
     <>
-      <div className="flex max-w-[950px] flex-col gap-4">
+      <div className="z-50 flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
         <FormField
           control={form.control}
           name="name"
@@ -112,7 +112,7 @@ function FirstPage({
               id="email"
               disabled
               value={session?.email}
-              className="border-ted-white disabled:bg-ted-black disabled:bg-opacity-[0.15]"
+              className="border-ted-white disabled:bg-ted-black disabled:bg-opacity-50 disabled:text-gray-400"
             />
           </FormControl>
         </FormItem>
@@ -351,7 +351,7 @@ function FirstPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-1">
+      <div className="flex max-w-[950px] flex-col gap-1 xl:min-w-[950px] xl:self-center">
         <FormField
           control={form.control}
           name="q1"
@@ -375,7 +375,7 @@ function FirstPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-1">
+      <div className="flex max-w-[950px] flex-col gap-1 xl:min-w-[950px] xl:self-center">
         <FormField
           control={form.control}
           name="q2"
@@ -401,7 +401,7 @@ function FirstPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-4">
+      <div className="flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
         <Label
           className="leading-6 tracking-wide text-ted-white lg:text-lg"
           htmlFor="profile"
@@ -441,14 +441,16 @@ function FirstPage({
         <FileUpload setValue={form.setValue} form={form} id="profile" />
       </div>
 
-      <Button
-        className="self-start px-12"
-        size={"lg"}
-        type="button"
-        onClick={() => nextPage()}
-      >
-        Next
-      </Button>
+      <div className="flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
+        <Button
+          className="self-start px-12"
+          size={"lg"}
+          type="button"
+          onClick={() => nextPage()}
+        >
+          Next
+        </Button>
+      </div>
     </>
   );
 }
