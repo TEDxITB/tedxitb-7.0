@@ -75,7 +75,7 @@ function FirstPage({
 
   return (
     <>
-      <div className="z-50 flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
+      <div className="z-50 flex max-w-[950px] flex-col gap-4">
         <FormField
           control={form.control}
           name="name"
@@ -351,7 +351,7 @@ function FirstPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-1 xl:min-w-[950px] xl:self-center">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q1"
@@ -375,7 +375,7 @@ function FirstPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-1 xl:min-w-[950px] xl:self-center">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q2"
@@ -401,7 +401,7 @@ function FirstPage({
         />
       </div>
 
-      <div className="z-50 flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
+      <div className="z-50 flex max-w-[950px] flex-col gap-4">
         <Label
           className="leading-6 tracking-wide text-ted-white lg:text-lg"
           htmlFor="profile"
@@ -441,7 +441,7 @@ function FirstPage({
         <FileUpload setValue={form.setValue} form={form} id="profile" />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
+      <div className="flex max-w-[950px] flex-col gap-4">
         <Button
           className="self-start px-12"
           size={"lg"}

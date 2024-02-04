@@ -97,7 +97,8 @@ function SecondPage({
     } else {
       const data = await res.json();
       toast.error("Error!", {
-        description: data?.message || "An error occured while submitting your form",
+        description:
+          data?.message || "An error occured while submitting your form",
       });
     }
   }
@@ -114,7 +115,7 @@ function SecondPage({
 
   return (
     <>
-      <div className="z-50 flex max-w-[950px] flex-col gap-1 xl:min-w-[950px] xl:self-center">
+      <div className="z-50 flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q3"
@@ -137,7 +138,7 @@ function SecondPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-1 xl:min-w-[950px] xl:self-center">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q4"
@@ -159,7 +160,7 @@ function SecondPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
+      <div className="flex max-w-[950px] flex-col gap-4">
         <FormField
           control={form.control}
           name="scale"
@@ -194,7 +195,7 @@ function SecondPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-1 xl:min-w-[950px] xl:self-center">
+      <div className="flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q5"
@@ -218,7 +219,7 @@ function SecondPage({
         />
       </div>
 
-      <div className="z-50 flex max-w-[950px] flex-col gap-1 xl:min-w-[950px] xl:self-center">
+      <div className="z-50 flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q6"
@@ -241,7 +242,7 @@ function SecondPage({
         />
       </div>
 
-      <div className="z-50 flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
+      <div className="z-50 flex max-w-[950px] flex-col gap-4">
         <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:self-start">
           <Button
             variant={"secondary"}
