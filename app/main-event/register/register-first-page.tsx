@@ -401,7 +401,7 @@ function FirstPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
+      <div className="z-50 flex max-w-[950px] flex-col gap-4 xl:min-w-[950px] xl:self-center">
         <Label
           className="leading-6 tracking-wide text-ted-white lg:text-lg"
           htmlFor="profile"

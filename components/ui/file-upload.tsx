@@ -127,8 +127,9 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
 
         toast.dismiss(idToastLoading);
         if (!res.ok) {
+          const data = await res.json();
           toast.error("Error!", {
-            description: "Something went wrong",
+            description: data?.message || "Something went wrong",
           });
 
           const image: CustomImage = {

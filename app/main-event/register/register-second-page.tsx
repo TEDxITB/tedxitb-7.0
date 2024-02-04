@@ -95,8 +95,9 @@ function SecondPage({
       update();
       router.refresh();
     } else {
+      const data = await res.json();
       toast.error("Error!", {
-        description: "An error occured while submitting your form",
+        description: data?.message || "An error occured while submitting your form",
       });
     }
   }
