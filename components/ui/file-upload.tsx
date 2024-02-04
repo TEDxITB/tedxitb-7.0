@@ -388,7 +388,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           <h2 className="w-full font-anderson text-base text-ted-white sm:text-2xl">
             Uploaded File
           </h2>
-          <Separator className="my-2 h-[1px] bg-ted-white" />
+          <Separator className="my-2 h-[1px] bg-white" />
           <FileItems
             images={images}
             handleDelete={handleDelete}
