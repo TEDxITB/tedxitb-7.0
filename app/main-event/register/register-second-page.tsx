@@ -97,7 +97,8 @@ function SecondPage({
     } else {
       const data = await res.json();
       toast.error("Error!", {
-        description: data?.message || "An error occured while submitting your form",
+        description:
+          data?.message || "An error occured while submitting your form",
       });
     }
   }
