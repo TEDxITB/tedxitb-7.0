@@ -40,8 +40,11 @@ function ConfirmationButtons() {
       });
       router.refresh();
     } else {
+      const data = await res.json();
       toast.error("Error!", {
-        description: "An error has occured while submitting your confirmation",
+        description:
+          data?.message ||
+          "An error has occured while submitting your confirmation",
       });
     }
   }
