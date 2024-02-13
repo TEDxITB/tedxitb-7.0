@@ -61,3 +61,13 @@ export const confirmationSchema = z.object({
 });
 
 export const voteSchema = z.string();
+
+export const feedbackSchema = z.object({
+  q1: z.number().int().min(1).max(10),
+  q2: z.string({ required_error: "Masukkan Jawaban" }).min(1),
+  q3: z.string(),
+  q4: z.string({ required_error: "Masukkan Jawaban" }).min(1),
+  q5: z.string({ required_error: "Masukkan Jawaban" }).min(1),
+  q6: z.string({ required_error: "Masukkan Jawaban" }).min(1),
+  q7: z.string(),
+});
