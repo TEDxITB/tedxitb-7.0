@@ -1,7 +1,7 @@
 export const startRegisDate = new Date("February 3, 2024 03:00:00").getTime();
 
 export const startComingSoonAnnouncementDate = new Date(
-  "February 13, 2024 12:00:00"
+  "February 13, 2024 12:30:00"
 ).getTime();
 
 export const startAnnouncementDate = new Date(
