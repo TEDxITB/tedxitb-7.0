@@ -18,12 +18,11 @@ async function Accepted(props: { session: Session }) {
   const ticketId = await getUserTicket(props.session.id);
   const isQRMagazineShown = ticketId !== null;
 
-  // const isFeedbackShown = ticketId !== null && dateNow > mainEventEndDate;
-  const isFeedbackShown = true;
+  const isFeedbackShown = ticketId !== null && dateNow > mainEventEndDate;
 
   return (
     <main className="flex flex-col items-center font-anderson text-ted-white">
-      <section className="relative h-[950px] w-full lg:h-[1200px] xl:h-[900px]">
+      <section className="relative h-[1100px] w-full lg:h-[1200px] xl:h-[900px]">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"

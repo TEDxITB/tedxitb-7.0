@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Form } from "@/components/ui/form";
 import {
   FormControl,
@@ -25,6 +26,29 @@ import { z } from "zod";
 
 type FormValues = z.infer<typeof feedbackSchema>;
 
+const options = [
+  {
+    id: "venue",
+    label: "Venue",
+  },
+  {
+    id: "talks",
+    label: "Talks",
+  },
+  {
+    id: "performance",
+    label: "Performance",
+  },
+  {
+    id: "originators lounge",
+    label: "Originators Lounge",
+  },
+  {
+    id: "date selection",
+    label: "Date Selection",
+  },
+] as const;
+
 function FeedbackPage() {
   const router = useRouter();
   const { update } = useSession();
@@ -32,6 +56,7 @@ function FeedbackPage() {
   const form = useForm<FormValues>({
     defaultValues: {
       q1: 7,
+      q7: [],
     },
     resolver: zodResolver(feedbackSchema),
     mode: "onBlur",
@@ -61,7 +86,9 @@ function FeedbackPage() {
     formData.append("q4", q4);
     formData.append("q5", q5);
     formData.append("q6", q6);
-    formData.append("q7", q7);
+    q7.forEach((value) => {
+      formData.append("q7", value);
+    });
 
     // To Do: Add the endpoint to submit the feedback
     const res = await fetch("/api/registration", {
@@ -291,58 +318,54 @@ function FeedbackPage() {
             <FormField
               control={form.control}
               name="q7"
-              render={({ field }) => (
+              render={() => (
                 <FormItem className="flex grow flex-col gap-1">
                   <FormLabel className="leading-6 tracking-wide text-ted-white lg:text-lg">
-                    What is/are your favortie aspects of TEDxITB 7.0?
+                    What is/are your favorite aspects of TEDxITB 7.0?
                   </FormLabel>
-                  <FormControl>
-                    <RadioGroup
-                      value={form.getValues("q7") as string}
-                      onValueChange={(value: string) => {
-                        field.onChange(value);
-                        handleFocus({ target: { name: "q7" } } as any);
+                  {options.map((option) => (
+                    <FormField
+                      key={option.id}
+                      control={form.control}
+                      name="q7"
+                      render={({ field }) => {
+                        return (
+                          <FormItem
+                            key={option.id}
+                            className="flex flex-row items-start space-x-3 space-y-0"
+                          >
+                            <FormControl>
+                              <Checkbox
+                                className="border-ted-red data-[state=checked]:bg-ted-red data-[state=checked]:text-ted-white"
+                                checked={field.value?.includes(option.label)}
+                                onCheckedChange={(checked) => {
+                                  if (checked) {
+                                    field.onChange([
+                                      ...field.value,
+                                      option.label,
+                                    ]);
+                                  } else {
+                                    field.onChange(
+                                      field.value?.filter(
+                                        (value) => value !== option.label
+                                      )
+                                    );
+                                  }
+                                  localStorage.setItem(
+                                    "formData",
+                                    JSON.stringify(form.getValues())
+                                  );
+                                }}
+                              />
+                            </FormControl>
+                            <FormLabel className="text-ted-white">
+                              {option.label}
+                            </FormLabel>
+                          </FormItem>
+                        );
                       }}
-                      className="flex flex-col space-y-1"
-                    >
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="venue" />
-                        </FormControl>
-                        <FormLabel className="text-ted-white">Venue</FormLabel>
-                      </FormItem>
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="talks" />
-                        </FormControl>
-                        <FormLabel className="text-ted-white">Talks</FormLabel>
-                      </FormItem>
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="performance" />
-                        </FormControl>
-                        <FormLabel className="text-ted-white">
-                          Performance
-                        </FormLabel>
-                      </FormItem>
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="originators lounge" />
-                        </FormControl>
-                        <FormLabel className="text-ted-white">
-                          Originators Lounge
-                        </FormLabel>
-                      </FormItem>
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="date selection" />
-                        </FormControl>
-                        <FormLabel className="text-ted-white">
-                          Date Selection
-                        </FormLabel>
-                      </FormItem>
-                    </RadioGroup>
-                  </FormControl>
+                    />
+                  ))}
                   <FormMessage>{form.formState.errors.q7?.message}</FormMessage>
                 </FormItem>
               )}

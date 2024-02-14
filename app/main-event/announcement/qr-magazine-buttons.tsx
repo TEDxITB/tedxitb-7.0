@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import Link from "next/link";
+import SmoothScrollButton from "@/components/ui/smooth-scroll-button";
 import QRCode from "react-qr-code";
 
 function QRMagazineButtons({ ticketId }: { ticketId: string }) {
@@ -37,28 +37,18 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
     img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
   };
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault();
-    const href = e.currentTarget.href;
-    const targetId = href.replace(/.*\#/, "");
-    const elem = document.getElementById(targetId);
-    elem?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
-
   return (
     <div className="grid w-full max-w-sm grid-rows-2 justify-items-center gap-8 self-center py-4 sm:w-auto sm:max-w-none sm:grid-cols-2 sm:grid-rows-none sm:self-start">
       <div className="flex w-full">
-        <Button
+        <SmoothScrollButton
+          targetId="magazine"
+          offset={-20}
           size={"lg"}
           variant={"secondary"}
           className="grow sm:px-10 lg:py-6 lg:text-lg"
         >
-          <Link href="#magazine" onClick={handleScroll}>
-            See Magazine
-          </Link>
-        </Button>
+          See Magazine
+        </SmoothScrollButton>
       </div>
       <Dialog>
         <DialogTrigger className="flex w-full">
