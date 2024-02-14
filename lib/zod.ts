@@ -65,9 +65,11 @@ export const voteSchema = z.string();
 export const feedbackSchema = z.object({
   q1: z.number().int().min(1).max(10),
   q2: z.string({ required_error: "Masukkan Jawaban" }).min(1),
-  q3: z.string(),
+  q3: z.string({ required_error: "Pilih Jawaban" }).min(1),
   q4: z.string({ required_error: "Masukkan Jawaban" }).min(1),
   q5: z.string({ required_error: "Masukkan Jawaban" }).min(1),
   q6: z.string({ required_error: "Masukkan Jawaban" }).min(1),
-  q7: z.string(),
+  q7: z.array(z.string()).refine((value) => value.some((item) => item), {
+    message: "Pilih minimal satu",
+  }),
 });
