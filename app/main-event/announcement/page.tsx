@@ -5,7 +5,7 @@ import Rejected from "./rejected";
 import { authOptions } from "@/lib/auth-options";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { isUserPassed, isUserRegistered } from "@/lib/query";
-import { startAnnouncementDate, startRegisDate } from "@/lib/special-date";
+import { startAnnouncementDate, startComingSoonAnnouncementDate, startRegisDate } from "@/lib/special-date";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
@@ -40,7 +40,7 @@ async function page() {
   const isRegistered = await isUserRegistered(session.id);
 
   // State 2
-  if (!isRegistered && dateNow < startAnnouncementDate) {
+  if (!isRegistered && dateNow < startComingSoonAnnouncementDate) {
     redirect("/main-event/register");
   }
 
