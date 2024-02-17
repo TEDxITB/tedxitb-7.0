@@ -50,6 +50,7 @@ model User {
   registration  Registration?
   ticket        Ticket?
   vote          Vote?
+  Feedback      Feedback?
 }
 
 model VerificationToken {
@@ -107,7 +108,7 @@ model Vote {
   id              String    @id @default(cuid())
   userId          String    @unique
   user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  candidateId     String    
+  candidateId     String
   chosencandidate Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
   createdAt       DateTime  @default(now())
 }
@@ -117,4 +118,18 @@ model Candidate {
   name  String
   score Int
   votes Vote[]
+}
+
+model Feedback {
+  id         String   @id @default(cuid())
+  q1         Int
+  q2         String
+  q3         String
+  q4         String
+  q5         String
+  q6         String
+  q7         String[]
+  feedbackAt DateTime @default(now())
+  userId     String   @unique
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

@@ -19,3 +19,7 @@ export const startVotingDate = new Date("February 1, 2024 01:00:00").getTime();
 export const endVotingDate = new Date("February 7, 2024 13:00:00").getTime();
 
 export const mainEventEndDate = new Date("March 2, 2024 13:30:00").getTime();
+
+export const feedbackStartDate = new Date("March 1, 2024 08:00:00").getTime();
+
+export const feedbackEndDate = new Date("March 2, 2024 08:00:00").getTime();

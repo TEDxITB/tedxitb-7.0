@@ -91,7 +91,7 @@ function FeedbackPage() {
     });
 
     // To Do: Add the endpoint to submit the feedback
-    const res = await fetch("/api/registration", {
+    const res = await fetch("/api/feedback", {
       method: "POST",
       body: formData,
     });
