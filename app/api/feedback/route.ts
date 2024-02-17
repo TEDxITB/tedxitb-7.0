@@ -27,12 +27,12 @@ export const POST = async (req: NextRequest) => {
     );
   }
 
-  if (currentTime > feedbackEndDate) {
-    return NextResponse.json(
-      { error: "Bad Request", message: "Feedback is closed" },
-      { status: 400 }
-    );
-  }
+  // if (currentTime > feedbackEndDate) {
+  //   return NextResponse.json(
+  //     { error: "Bad Request", message: "Feedback is closed" },
+  //     { status: 400 }
+  //   );
+  // }
 
   // Check if feedbacked
   const check1 = await isUserFeedbacked(session.id);
