@@ -90,7 +90,6 @@ function FeedbackPage() {
       formData.append("q7", value);
     });
 
-    // To Do: Add the endpoint to submit the feedback
     const res = await fetch("/api/feedback", {
       method: "POST",
       body: formData,

@@ -1,6 +1,12 @@
 import FeedbackPage from "./feedback-page";
 import { authOptions } from "@/lib/auth-options";
-import { isUserPassed, isUserRegistered } from "@/lib/query";
+import {
+  isUserAllowedFeedback,
+  isUserFeedbacked,
+  isUserPassed,
+  isUserRegistered,
+} from "@/lib/query";
+import { feedbackStartDate } from "@/lib/special-date";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
@@ -25,6 +31,16 @@ async function page() {
   }
 
   // To Do: Add the condition to check if the user has submitted the feedback
+  const checkAllow = await isUserAllowedFeedback(session.id);
+  const isFeedbacked = await isUserFeedbacked(session.id);
+
+  if (isFeedbacked) {
+    redirect("/main-event/announcement");
+  }
+
+  if (!checkAllow || dateNow < feedbackStartDate) {
+    redirect("/main-event/announcement");
+  }
 
   return <FeedbackPage />;
 }

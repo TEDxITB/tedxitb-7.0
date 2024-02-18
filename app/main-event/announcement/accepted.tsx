@@ -1,8 +1,12 @@
 import ConfirmationButtons from "./confirmation-buttons";
 import QRMagazineButtons from "./qr-magazine-buttons";
 import { Button } from "@/components/ui/button";
-import { getUserConfirmation, getUserTicket } from "@/lib/query";
-import { confirmationDate, mainEventEndDate } from "@/lib/special-date";
+import {
+  getUserConfirmation,
+  getUserTicket,
+  isUserAllowedFeedback,
+} from "@/lib/query";
+import { confirmationDate, feedbackStartDate } from "@/lib/special-date";
 import { Session } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +22,8 @@ async function Accepted(props: { session: Session }) {
   const ticketId = await getUserTicket(props.session.id);
   const isQRMagazineShown = ticketId !== null;
 
-  const isFeedbackShown = ticketId !== null && dateNow > mainEventEndDate;
+  const checkAllow = await isUserAllowedFeedback(props.session.id);
+  const isFeedbackShown = checkAllow && dateNow > feedbackStartDate;
 
   return (
     <main className="flex flex-col items-center font-anderson text-ted-white">
@@ -46,7 +51,7 @@ async function Accepted(props: { session: Session }) {
             <div className="flex flex-col-reverse justify-between gap-8 lg:flex-row lg:flex-wrap-reverse">
               <div className="flex flex-col gap-2">
                 <p className="text-sm lg:text-xl">
-                  Date: Saturday, March 2nd 2024
+                  Date: Saturday, March 9th 2024
                 </p>
                 <p className="text-sm lg:text-xl">
                   Location: The House Convention Hall, Paskal 23

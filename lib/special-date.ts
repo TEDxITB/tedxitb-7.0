@@ -18,8 +18,6 @@ export const startVotingDate = new Date("February 1, 2024 01:00:00").getTime();
 // 7 Februari 21:00 WIB
 export const endVotingDate = new Date("February 7, 2024 13:00:00").getTime();
 
-export const mainEventEndDate = new Date("March 2, 2024 13:30:00").getTime();
-
 export const feedbackStartDate = new Date("March 9, 2024 11:00:00").getTime();
 
 export const feedbackEndDate = new Date("March 9, 2024 11:00:00").getTime();
