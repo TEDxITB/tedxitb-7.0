@@ -26,8 +26,8 @@ async function Accepted(props: { session: Session }) {
   const isFeedbackShown = checkAllow && dateNow > feedbackStartDate;
 
   return (
-    <main className="flex flex-col items-center font-anderson text-ted-white">
-      <section className="relative h-[1100px] w-full lg:h-[1200px] xl:h-[900px]">
+    <main className="flex flex-col items-center text-ted-white">
+      <section className="relative h-[1100px] w-full font-anderson lg:h-[1200px] xl:h-[900px]">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
@@ -133,7 +133,7 @@ async function Accepted(props: { session: Session }) {
                 <span>RIGINATOR </span>
                 <span>HUB</span>
               </h2>
-              <p className="leading-7 tracking-wide lg:text-xl">
+              <p className="font-anderson leading-7 tracking-wide lg:text-xl">
                 The TEDx Magazine, with its creative design and exclusive
                 content, delivers profound insights from diverse speakers,
                 inspiring readers to explore the revolutionary ideas shared on

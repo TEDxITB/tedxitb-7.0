@@ -5,7 +5,7 @@ export const startComingSoonAnnouncementDate = new Date(
 ).getTime();
 
 export const startAnnouncementDate = new Date(
-  "February 20, 2024 03:00:00"
+  "February 20, 2023 03:00:00"
 ).getTime();
 
 export const confirmationDate = new Date(
