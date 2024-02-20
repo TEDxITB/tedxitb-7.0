@@ -19,17 +19,10 @@ export const HeroSection = () => {
         {/* Texts */}
         <div className="flex flex-col justify-center gap-6 lg:gap-12">
           <div className="flex flex-col gap-2 lg:gap-4">
-            <h1
-              data-aos="fade-right"
-              className="font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] sm:uppercase lg:text-8xl"
-            >
+            <h1 className="animate-in-faderight-h1 font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] sm:uppercase lg:text-8xl">
               MAGAZINE
             </h1>
-            <h2
-              data-aos="fade-right"
-              data-aos-delay="150"
-              className="font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
-            >
+            <h2 className="animate-in-faderight-h2 font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
               <span className="mr-2 font-graziela text-5xl lg:text-8xl">R</span>
               <span>EAD </span>
               <span>FOR </span>
@@ -39,12 +32,7 @@ export const HeroSection = () => {
             </h2>
           </div>
 
-          <a
-            href="#catalogue"
-            className="w-fit"
-            data-aos="fade-right"
-            data-aos-delay="250"
-          >
+          <a href="#catalogue" className="animate-in-faderight-link w-fit">
             <Button size="lg" className="flex-none px-8 text-base">
               See More <ArrowDownCircle className="ml-2 h-5 w-5" />
             </Button>
@@ -53,8 +41,7 @@ export const HeroSection = () => {
 
         {/* Magazine Image Prview */}
         <Image
-          data-aos="fade-left"
-          className="w-[250px] self-end lg:w-[450px]"
+          className="animate-in-fadeleft-image w-[250px] self-end lg:w-[450px]"
           src={"/magazine/hero-1.jpg"}
           width={500}
           height={500}

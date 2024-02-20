@@ -50,17 +50,10 @@ async function page() {
           />
           <div className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-6 text-center lg:gap-12">
             <div className="flex w-full flex-col items-center justify-center gap-2 text-ted-white lg:gap-4 ">
-              <h1
-                data-aos="zoom-in-up"
-                className="text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl"
-              >
+              <h1 className="animate-in-fadetop-h1 text-center font-anderson text-5xl font-bold tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-8xl">
                 MAIN EVENT
               </h1>
-              <h2
-                data-aos="zoom-in-up"
-                data-aos-delay="150"
-                className="text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
-              >
+              <h2 className="animate-in-fadetop-h2 text-center font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
                 <span className="mr-2 font-graziela text-5xl lg:text-8xl">
                   T
                 </span>
@@ -73,7 +66,7 @@ async function page() {
                 <span>HUB</span>
               </h2>
             </div>
-            <Link data-aos="zoom-in-up" data-aos-delay="250" href={redirect}>
+            <Link className="animate-in-fadetop-link" href={redirect}>
               {dateNow > startComingSoonAnnouncementDate ? (
                 <Button
                   size={"lg"}
