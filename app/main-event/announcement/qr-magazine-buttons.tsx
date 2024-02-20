@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import SmoothScrollButton from "@/components/ui/smooth-scroll-button";
 import QRCode from "react-qr-code";
 
 function QRMagazineButtons({ ticketId }: { ticketId: string }) {
@@ -37,30 +38,50 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
   };
 
   return (
-    <div className="grid grid-rows-2 sm:grid-cols-2 sm:gap-8 sm:self-start">
+    <div className="grid w-full max-w-sm grid-rows-2 justify-items-center gap-8 self-center py-4 sm:w-auto sm:max-w-none sm:grid-cols-2 sm:grid-rows-none sm:self-start">
+      <div className="flex w-full">
+        <SmoothScrollButton
+          targetId="magazine"
+          offset={-20}
+          size={"lg"}
+          variant={"secondary"}
+          className="grow sm:px-10 lg:py-6 lg:text-lg"
+        >
+          See Magazine
+        </SmoothScrollButton>
+      </div>
       <Dialog>
-        <DialogTrigger className="mt-4 flex self-start">
+        <DialogTrigger className="flex w-full">
           <Button
-            variant={"primary"}
             size={"lg"}
-            className="grow sm:px-10 lg:py-6 lg:text-lg"
+            className="flex grow gap-4 bg-[#FEB20E] text-ted-black hover:bg-[#e5a00d] sm:px-10 lg:py-6 lg:text-lg"
           >
-            Magazine
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="border-none bg-[#1C1C1C] font-anderson text-ted-white">
-          <DialogTitle>Are you sure to confirm ABSENCE?</DialogTitle>
-          <DialogDescription className="text-ted-white">
-            If you find yourself able to attend the event after confirming your
-            absence, please contact us.
-          </DialogDescription>
-        </DialogContent>
-      </Dialog>
-
-      <Dialog>
-        <DialogTrigger className="mt-4 flex self-start">
-          <Button size={"lg"} className="grow sm:px-10 lg:py-6 lg:text-lg">
-            Ticket
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="lucide lucide-qr-code"
+            >
+              <rect width="5" height="5" x="3" y="3" rx="1" />
+              <rect width="5" height="5" x="16" y="3" rx="1" />
+              <rect width="5" height="5" x="3" y="16" rx="1" />
+              <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+              <path d="M21 21v.01" />
+              <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+              <path d="M3 12h.01" />
+              <path d="M12 3h.01" />
+              <path d="M12 16v.01" />
+              <path d="M16 12h1" />
+              <path d="M21 12v.01" />
+              <path d="M12 21v-1" />
+            </svg>
+            QR Code
           </Button>
         </DialogTrigger>
         <DialogContent className="border-none bg-[#1C1C1C] p-8 font-anderson text-ted-white">

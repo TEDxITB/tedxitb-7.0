@@ -53,7 +53,7 @@ function RegisterPage(props: { session: Session | null }) {
   return (
     <main className="bg-[#1E1E1E] font-anderson text-ted-white">
       <Form {...form}>
-        <form className="relative mx-auto my-16 flex w-4/5 flex-col gap-12 overflow-hidden rounded-lg bg-[#1E1E1E] p-8 drop-shadow-[2px_4px_25px_rgba(75,75,75,0.5)] lg:gap-16 lg:p-16">
+        <form className="relative mx-auto flex max-w-5xl flex-col gap-12 overflow-hidden rounded-lg bg-[#1E1E1E] p-8 drop-shadow-[2px_4px_25px_rgba(75,75,75,0.5)] lg:my-16 lg:gap-16 lg:p-16">
           <div className="flex flex-col gap-4">
             <h2 className="w-fit bg-gradient-to-r from-[#FDB10E] via-transparent to-transparent text-2xl font-bold italic lg:text-5xl">
               FORMULIR PENDAFTARAN

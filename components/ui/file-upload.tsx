@@ -127,8 +127,9 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
 
         toast.dismiss(idToastLoading);
         if (!res.ok) {
+          const data = await res.json();
           toast.error("Error!", {
-            description: "Something went wrong",
+            description: data?.message || "Something went wrong",
           });
 
           const image: CustomImage = {
@@ -383,11 +384,11 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             {...props}
           />
         </div>
-        <div className="flex h-[100px] w-full flex-col justify-start sm:flex-[1.1]">
+        <div className="flex min-h-[100px] w-full flex-col justify-start sm:flex-[1.1]">
           <h2 className="w-full font-anderson text-base text-ted-white sm:text-2xl">
             Uploaded File
           </h2>
-          <Separator className="my-2 h-[1px] bg-black/20" />
+          <Separator className="my-2 h-[1px] bg-white" />
           <FileItems
             images={images}
             handleDelete={handleDelete}

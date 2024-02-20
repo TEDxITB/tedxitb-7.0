@@ -15,7 +15,7 @@ export const POST = async (req: NextRequest) => {
   const session = await getServerSession(authOptions);
   if (!session) {
     return NextResponse.json(
-      { error: "Unauthorized", message: "No Accsess" },
+      { error: "Unauthorized", message: "No Access" },
       { status: 401 }
     );
   }

@@ -1,24 +1,38 @@
 import ConfirmationButtons from "./confirmation-buttons";
 import QRMagazineButtons from "./qr-magazine-buttons";
-import { getUserConfirmation, getUserTicket } from "@/lib/query";
-import { confirmationDate } from "@/lib/special-date";
+import { Button } from "@/components/ui/button";
+import {
+  getUserConfirmation,
+  getUserTicket,
+  isUserAllowedFeedback,
+  isUserFeedbacked,
+} from "@/lib/query";
+import { confirmationDate, feedbackStartDate } from "@/lib/special-date";
 import { Session } from "next-auth";
 import Image from "next/image";
+import Link from "next/link";
 
 async function Accepted(props: { session: Session }) {
   const dateNow = new Date().getTime();
 
-  const confirmation = await getUserConfirmation(props.session.id);
+  const [confirmation, ticketId, checkAllow, isFeedbacked] = await Promise.all([
+    getUserConfirmation(props.session.id),
+    getUserTicket(props.session.id),
+    isUserAllowedFeedback(props.session.id),
+    isUserFeedbacked(props.session.id),
+  ]);
 
   const isConfirmationButtonsShown =
     dateNow < confirmationDate && confirmation === null;
 
-  const ticketId = await getUserTicket(props.session.id);
   const isQRMagazineShown = ticketId !== null;
 
+  const isFeedbackShown =
+    checkAllow && !isFeedbacked && dateNow > feedbackStartDate;
+
   return (
-    <main className="font-anderson text-ted-white">
-      <section className="relative h-[950px] w-full lg:h-[1200px] xl:h-[900px]">
+    <main className="flex flex-col items-center text-ted-white">
+      <section className="relative h-[1100px] w-full font-anderson lg:h-[1200px] xl:h-[900px]">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
@@ -42,12 +56,12 @@ async function Accepted(props: { session: Session }) {
             <div className="flex flex-col-reverse justify-between gap-8 lg:flex-row lg:flex-wrap-reverse">
               <div className="flex flex-col gap-2">
                 <p className="text-sm lg:text-xl">
-                  Date: Saturday, March 2nd 2024
+                  Date: Saturday, March 9th 2024
                 </p>
                 <p className="text-sm lg:text-xl">
-                  Location: The House Convention Hall, Paskal 23
+                  Location: Cornerstone Auditorium, Paskal 23
                 </p>
-                <p className="text-sm lg:text-xl">Time: 15:00 - 20:30 WIB</p>
+                <p className="text-sm lg:text-xl">Time: 15:00 - 21:10 WIB</p>
                 <p className="text-sm lg:text-xl">
                   Contact Person: @mulan19aja (Line ID)
                 </p>
@@ -61,9 +75,21 @@ async function Accepted(props: { session: Session }) {
                 )}
 
                 {isQRMagazineShown && <QRMagazineButtons ticketId={ticketId} />}
+
+                {isFeedbackShown && (
+                  <div className="flex flex-col gap-4 py-8">
+                    <Button
+                      variant={"outline"}
+                      className="self-start border-ted-white"
+                    >
+                      <Link href={"/main-event/feedback"}>Send Feedback</Link>
+                    </Button>
+                    <p>We&apos;ll gratefully welcome your feedback</p>
+                  </div>
+                )}
               </div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7985193189184!2d107.59057777499645!3d-6.914676593084865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e78e0372cfc7%3A0x54f02d7a7d90f635!2sThe%20House%20Convention%20Hall!5e0!3m2!1sen!2sid!4v1704370854993!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7952748168636!2d107.59018527593359!3d-6.915063593084478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e76cd8210f39%3A0xf0e786d25b365488!2sCornerstone%20Auditorium!5e0!3m2!1sen!2sid!4v1708423537723!5m2!1sen!2sid"
                 width="400"
                 height="300"
                 style={{ border: 0 }}
@@ -84,6 +110,52 @@ async function Accepted(props: { session: Session }) {
           className="absolute left-1/2 top-3/4 w-[100px] -translate-x-1/2 opacity-20"
         />
       </section>
+
+      {/* <section
+        id="magazine"
+        className="h-full w-[95%] py-8 md:w-[90%] lg:w-4/5 lg:pb-32"
+      >
+        <div className="relative min-h-[300px] w-full rounded-lg md:min-h-[400px] lg:min-h-[565px]">
+          <Image
+            src="/main-event/bg-magazine.png"
+            alt="Magazine"
+            fill
+            className="absolute rounded-lg bg-ted-white object-cover brightness-[0.25]"
+            priority
+          />
+
+          <div className="z-10 flex w-full flex-col items-center justify-between gap-16 p-8 sm:flex-row lg:p-16">
+            <div className="z-10 flex max-w-3xl flex-col gap-8">
+              <h2 className="font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
+                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
+                  T
+                </span>
+                <span>HE </span>
+                <span>IMPACT </span>
+                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
+                  O
+                </span>
+                <span>RIGINATOR </span>
+                <span>HUB</span>
+              </h2>
+              <p className="font-anderson leading-7 tracking-wide lg:text-xl">
+                The TEDx Magazine, with its creative design and exclusive
+                content, delivers profound insights from diverse speakers,
+                inspiring readers to explore the revolutionary ideas shared on
+                the TEDx stage.
+              </p>
+            </div>
+
+            <Image
+              className="z-10 h-full w-[200px] self-center rounded-lg md:w-[250px] xl:w-[350px]"
+              src={"/magazine/hero-1.jpg"}
+              width={500}
+              height={500}
+              alt="Magazine"
+            />
+          </div>
+        </div>
+      </section> */}
     </main>
   );
 }

@@ -59,13 +59,14 @@ const DocumentationPage = async () => {
               <span>HISTORY</span>
             </h2>
           </div>
-
-          <div className="animate-in-fadetop-link">
-            {" "}
-            <SmoothScrollButton targetId="carousel">
-              See More <ArrowDownCircle className="ml-2 h-5 w-5" />
-            </SmoothScrollButton>
-          </div>
+          <SmoothScrollButton
+            targetId="carousel"
+            offset={56}
+            className="flex-none px-8 text-base animate-in-fadetop-link"
+            size={"lg"}
+          >
+            See More <ArrowDownCircle className="ml-2 h-5 w-5" />
+          </SmoothScrollButton>
         </div>
       </section>
 

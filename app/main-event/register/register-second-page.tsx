@@ -95,8 +95,10 @@ function SecondPage({
       update();
       router.refresh();
     } else {
+      const data = await res.json();
       toast.error("Error!", {
-        description: "An error occured while submitting your form",
+        description:
+          data?.message || "An error occured while submitting your form",
       });
     }
   }
@@ -113,7 +115,7 @@ function SecondPage({
 
   return (
     <>
-      <div className="flex max-w-[950px] flex-col gap-1">
+      <div className="z-50 flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q3"
@@ -217,7 +219,7 @@ function SecondPage({
         />
       </div>
 
-      <div className="flex max-w-[950px] flex-col gap-1">
+      <div className="z-50 flex max-w-[950px] flex-col gap-1">
         <FormField
           control={form.control}
           name="q6"
@@ -240,24 +242,28 @@ function SecondPage({
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:self-start">
-        <Button
-          variant={"secondary"}
-          size={"lg"}
-          className="px-10"
-          type="button"
-          onClick={prevPage}
-        >
-          Back
-        </Button>
-        <Button
-          type="submit"
-          size={"lg"}
-          className="px-10"
-          onClick={form.handleSubmit(submitHandler)}
-        >
-          Submit
-        </Button>
+      <div className="z-50 flex max-w-[950px] flex-col gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:self-start">
+          <Button
+            variant={"secondary"}
+            size={"lg"}
+            className="px-10"
+            type="button"
+            onClick={prevPage}
+            disabled={form.formState.isSubmitting}
+          >
+            Back
+          </Button>
+          <Button
+            type="submit"
+            size={"lg"}
+            className="px-10"
+            onClick={form.handleSubmit(submitHandler)}
+            disabled={form.formState.isSubmitting}
+          >
+            Submit
+          </Button>
+        </div>
       </div>
     </>
   );
