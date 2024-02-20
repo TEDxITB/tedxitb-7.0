@@ -61,7 +61,7 @@ async function Accepted(props: { session: Session }) {
                 <p className="text-sm lg:text-xl">
                   Location: Cornerstone Auditorium, Paskal 23
                 </p>
-                <p className="text-sm lg:text-xl">Time: 15:00 - 21:00 WIB</p>
+                <p className="text-sm lg:text-xl">Time: 15:00 - 21:10 WIB</p>
                 <p className="text-sm lg:text-xl">
                   Contact Person: @mulan19aja (Line ID)
                 </p>
