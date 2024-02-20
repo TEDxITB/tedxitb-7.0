@@ -18,21 +18,20 @@ async function page() {
     redirect("/auth/sign-in");
   }
 
-  const isRegistered = await isUserRegistered(session.id);
+  const [isRegistered, status, checkAllow, isFeedbacked] = await Promise.all([
+    isUserRegistered(session.id),
+    isUserPassed(session.id),
+    isUserAllowedFeedback(session.id),
+    isUserFeedbacked(session.id),
+  ]);
 
   if (!isRegistered) {
     redirect("/main-event/announcement");
   }
 
-  const status = await isUserPassed(session.id);
-
   if (!status) {
     redirect("/main-event/announcement");
   }
-
-  // To Do: Add the condition to check if the user has submitted the feedback
-  const checkAllow = await isUserAllowedFeedback(session.id);
-  const isFeedbacked = await isUserFeedbacked(session.id);
 
   if (isFeedbacked) {
     redirect("/main-event/announcement");

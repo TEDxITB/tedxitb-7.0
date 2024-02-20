@@ -35,7 +35,11 @@ export const POST = async (req: NextRequest) => {
   // }
 
   // Check if feedbacked
-  const check1 = await isUserFeedbacked(session.id);
+  const [check1, check2] = await Promise.all([
+    isUserFeedbacked(session.id),
+    isUserAllowedFeedback(session.id),
+  ]);
+
   if (check1) {
     return NextResponse.json(
       { error: "Bad Request", message: "Feedback already made" },
@@ -44,7 +48,6 @@ export const POST = async (req: NextRequest) => {
   }
 
   // Check if user passed to main event
-  const check2 = await isUserAllowedFeedback(session.id);
   if (!check2) {
     return NextResponse.json(
       {

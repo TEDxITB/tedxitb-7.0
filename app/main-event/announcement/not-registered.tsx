@@ -3,7 +3,7 @@ import Image from "next/image";
 function NotRegistered() {
   return (
     <main className="font-anderson text-ted-white">
-      <section className="relative h-[750px] w-full">
+      <section className="relative flex h-full min-h-[calc(100vh-96px)] w-full items-center justify-center py-16 px-4 sm:p-16">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
@@ -12,8 +12,8 @@ function NotRegistered() {
           priority
         />
 
-        <div className="absolute left-1/2 top-1/2 z-20 flex h-[95%] w-[95%] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 rounded-lg bg-[#1F1F1F] bg-opacity-40 shadow-2xl shadow-[##1F1F1F] md:h-[90%] md:w-[90%] lg:h-4/5 lg:w-4/5 lg:gap-12">
-          <div className="relative my-auto flex flex-col gap-8 px-8 md:max-w-none lg:px-16">
+        <div className="z-20 flex w-[95%] flex-col items-center gap-8 rounded-lg bg-[#1F1F1F] bg-opacity-40 p-8 shadow-2xl shadow-[##1F1F1F] md:w-[90%] lg:w-4/5 lg:gap-12 lg:p-16">
+          <div className="relative my-auto flex flex-col gap-8 md:max-w-none">
             <p className="text-3xl lg:text-5xl">Dear Originators,</p>
             <p className="leading-7 tracking-wide lg:text-xl">
               We appreciate your interest in participating in TEDxITB 7.0.

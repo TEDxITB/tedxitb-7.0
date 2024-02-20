@@ -36,12 +36,16 @@ async function page() {
     redirect("/auth/sign-in");
   }
 
+  // Paralel query
+  const [isRegistered, status] = await Promise.all([
+    isUserRegistered(session.id),
+    isUserPassed(session.id),
+  ]);
+
   // State 1
   if (dateNow < startRegisDate) {
     redirect("/main-event/register");
   }
-
-  const isRegistered = await isUserRegistered(session.id);
 
   // State 2
   if (!isRegistered && dateNow < startComingSoonAnnouncementDate) {
@@ -65,9 +69,6 @@ async function page() {
   }
 
   // State 4
-  // Status lolos atau ga
-  const status = await isUserPassed(session.id);
-
   // Kalo status lolos, tampilkan halaman lolos
   if (status) {
     return <Accepted session={session} />;
