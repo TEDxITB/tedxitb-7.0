@@ -3,7 +3,7 @@ import Image from "next/image";
 function NotRegistered() {
   return (
     <main className="font-anderson text-ted-white">
-      <section className="relative flex h-full min-h-[calc(100vh-96px)] w-full items-center justify-center py-16 px-4 sm:p-16">
+      <section className="relative flex h-full min-h-[calc(100vh-96px)] w-full items-center justify-center px-4 py-16 sm:p-16">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
