@@ -71,6 +71,9 @@ const DocumentationPage = async () => {
             targetId="carousel"
             data-aos="zoom-in-up"
             data-aos-delay="250"
+            offset={56}
+            className="flex-none px-8 text-base"
+            size={"lg"}
           >
             See More <ArrowDownCircle className="ml-2 h-5 w-5" />
           </SmoothScrollButton>

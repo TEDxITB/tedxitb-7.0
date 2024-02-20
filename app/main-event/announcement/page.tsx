@@ -5,7 +5,11 @@ import Rejected from "./rejected";
 import { authOptions } from "@/lib/auth-options";
 import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import { isUserPassed, isUserRegistered } from "@/lib/query";
-import { startAnnouncementDate, startRegisDate } from "@/lib/special-date";
+import {
+  startAnnouncementDate,
+  startComingSoonAnnouncementDate,
+  startRegisDate,
+} from "@/lib/special-date";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
@@ -32,15 +36,19 @@ async function page() {
     redirect("/auth/sign-in");
   }
 
+  // Paralel query
+  const [isRegistered, status] = await Promise.all([
+    isUserRegistered(session.id),
+    isUserPassed(session.id),
+  ]);
+
   // State 1
   if (dateNow < startRegisDate) {
     redirect("/main-event/register");
   }
 
-  const isRegistered = await isUserRegistered(session.id);
-
   // State 2
-  if (!isRegistered && dateNow < startAnnouncementDate) {
+  if (!isRegistered && dateNow < startComingSoonAnnouncementDate) {
     redirect("/main-event/register");
   }
 
@@ -61,9 +69,6 @@ async function page() {
   }
 
   // State 4
-  // Status lolos atau ga
-  const status = await isUserPassed(session.id);
-
   // Kalo status lolos, tampilkan halaman lolos
   if (status) {
     return <Accepted session={session} />;
