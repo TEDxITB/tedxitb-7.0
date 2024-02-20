@@ -62,7 +62,7 @@ const DocumentationPage = async () => {
           <SmoothScrollButton
             targetId="carousel"
             offset={56}
-            className="flex-none px-8 text-base animate-in-fadetop-link"
+            className="animate-in-fadetop-link flex-none px-8 text-base"
             size={"lg"}
           >
             See More <ArrowDownCircle className="ml-2 h-5 w-5" />
