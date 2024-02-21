@@ -14,6 +14,10 @@ export type Communication =
   | {
       info: "idUpdate";
       id: string;
+    }
+  | {
+      info: "customSourceUpdate";
+      data: Magazine;
     };
 
 export type Magazine =
