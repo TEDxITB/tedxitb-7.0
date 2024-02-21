@@ -255,7 +255,7 @@ async function page() {
               data-aos="fade-right"
               className="text-3xl italic text-[#FDB10E] lg:text-5xl"
             >
-              15.00 WIB - 21:10 WIB
+              15.00 WIB - 21:00 WIB
             </p>
             <div data-aos="fade-right" className="flex gap-2 align-middle">
               <MapPin className="h-4 w-4 lg:h-8 lg:w-8" />
