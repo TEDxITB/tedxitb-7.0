@@ -1,6 +1,12 @@
 import ConfirmationButtons from "./confirmation-buttons";
+import MagazineSection from "./magazine";
 import QRMagazineButtons from "./qr-magazine-buttons";
 import { Button } from "@/components/ui/button";
+import {
+  getCMSData,
+  mainEventMagazineQuery,
+  mainEventMagazineTags,
+} from "@/lib/cms";
 import {
   getUserConfirmation,
   getUserTicket,
@@ -8,6 +14,7 @@ import {
   isUserFeedbacked,
 } from "@/lib/query";
 import { confirmationDate, feedbackStartDate } from "@/lib/special-date";
+import { MainEventMagazineQueryResult } from "@/types/cms";
 import { Session } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,6 +36,11 @@ async function Accepted(props: { session: Session }) {
 
   const isFeedbackShown =
     checkAllow && !isFeedbacked && dateNow > feedbackStartDate;
+
+  const magazineData: MainEventMagazineQueryResult = await getCMSData(
+    mainEventMagazineQuery,
+    mainEventMagazineTags
+  );
 
   return (
     <main className="flex flex-col items-center text-ted-white">
@@ -110,52 +122,7 @@ async function Accepted(props: { session: Session }) {
           className="absolute left-1/2 top-3/4 w-[100px] -translate-x-1/2 opacity-20"
         />
       </section>
-
-      {/* <section
-        id="magazine"
-        className="h-full w-[95%] py-8 md:w-[90%] lg:w-4/5 lg:pb-32"
-      >
-        <div className="relative min-h-[300px] w-full rounded-lg md:min-h-[400px] lg:min-h-[565px]">
-          <Image
-            src="/main-event/bg-magazine.png"
-            alt="Magazine"
-            fill
-            className="absolute rounded-lg bg-ted-white object-cover brightness-[0.25]"
-            priority
-          />
-
-          <div className="z-10 flex w-full flex-col items-center justify-between gap-16 p-8 sm:flex-row lg:p-16">
-            <div className="z-10 flex max-w-3xl flex-col gap-8">
-              <h2 className="font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
-                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
-                  T
-                </span>
-                <span>HE </span>
-                <span>IMPACT </span>
-                <span className="mr-2 font-graziela text-5xl lg:text-8xl">
-                  O
-                </span>
-                <span>RIGINATOR </span>
-                <span>HUB</span>
-              </h2>
-              <p className="font-anderson leading-7 tracking-wide lg:text-xl">
-                The TEDx Magazine, with its creative design and exclusive
-                content, delivers profound insights from diverse speakers,
-                inspiring readers to explore the revolutionary ideas shared on
-                the TEDx stage.
-              </p>
-            </div>
-
-            <Image
-              className="z-10 h-full w-[200px] self-center rounded-lg md:w-[250px] xl:w-[350px]"
-              src={"/magazine/hero-1.jpg"}
-              width={500}
-              height={500}
-              alt="Magazine"
-            />
-          </div>
-        </div>
-      </section> */}
+      <MagazineSection data={magazineData} />
     </main>
   );
 }

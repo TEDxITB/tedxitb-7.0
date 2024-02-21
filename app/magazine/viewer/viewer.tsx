@@ -85,7 +85,7 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
   useEffect(() => renderSync.current.resolve(), [magazine]);
 
   const setMagazine = async (data: Magazine) => {
-    if (idRef.current == data.id) {
+    if (data.id != "" && idRef.current == data.id) {
       pageFlipRef.current.turnToPage(0);
       return;
     }
