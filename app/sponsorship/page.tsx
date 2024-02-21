@@ -24,7 +24,15 @@ export default async function Sponsorship() {
     sponsorshipTags
   );
   const {
-    sponsorship: { xlSponsor, lSponsor, mSponsor, sSponsor },
+    sponsorship: {
+      xlSponsor,
+      lSponsor,
+      mSponsor,
+      sSponsor,
+      mMediaPartner,
+      lMediaPartner,
+      xlMediaPartner,
+    },
   } = sponsorshipQueryResult;
 
   return (
@@ -73,9 +81,17 @@ export default async function Sponsorship() {
       <div className="relative flex w-full flex-col items-center gap-24 overflow-hidden bg-[#1C1C1C] px-4 py-28 sm:py-32 lg:gap-32 lg:py-52">
         {/* Sponsors Div Group */}
         <div className="z-20 flex w-full max-w-[287px] flex-col gap-12 sm:max-w-[620px] lg:max-w-[990px] lg:gap-16">
+          {/* Title */}
+          <h2
+            data-aos="zoom-in-up"
+            className="stroke-ted-white text-center font-anderson text-4xl font-bold text-ted-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+          >
+            SPONSORS
+          </h2>
+
           {/* First Class */}
           <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8">
-            {xlSponsor.map((data, index) => {
+            {xlSponsor.map((data) => {
               return (
                 <div
                   key={data.id}
@@ -96,7 +112,7 @@ export default async function Sponsorship() {
 
           {/* Second Class */}
           <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 sm:gap-5 lg:gap-6">
-            {lSponsor.map((data, index) => {
+            {lSponsor.map((data) => {
               return (
                 <div
                   key={data.id}
@@ -117,7 +133,7 @@ export default async function Sponsorship() {
 
           {/* Third Class */}
           <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 lg:gap-6">
-            {mSponsor.map((data, index) => {
+            {mSponsor.map((data) => {
               return (
                 <div
                   key={data.id}
@@ -138,7 +154,81 @@ export default async function Sponsorship() {
 
           {/* Fourth Class */}
           <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 lg:gap-6">
-            {sSponsor.map((data, index) => {
+            {sSponsor.map((data) => {
+              return (
+                <div
+                  key={data.id}
+                  data-aos="zoom-in-up"
+                  className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] lg:h-[115px] lg:w-[140px] lg:p-4"
+                >
+                  <Image
+                    src={data.url}
+                    width={data.width}
+                    height={data.height}
+                    alt={data.alt}
+                    className="h-full w-full object-contain object-center transition duration-300 ease-in-out hover:scale-110"
+                  />
+                </div>
+              );
+            })}
+          </section>
+        </div>
+
+        {/* Media Partner Div Group */}
+        <div className="z-20 flex w-full max-w-[287px] flex-col gap-12 sm:max-w-[620px] lg:max-w-[990px] lg:gap-16">
+          {/* Title */}
+          <h2
+            data-aos="zoom-in-up"
+            className="stroke-ted-white text-center font-anderson text-4xl font-bold text-ted-white drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
+          >
+            MEDIA PARTNER
+          </h2>
+
+          {/* First Class */}
+          <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 sm:gap-5 lg:gap-6">
+            {xlMediaPartner.map((data) => {
+              return (
+                <div
+                  key={data.id}
+                  data-aos="zoom-in-up"
+                  className="flex h-[125px] w-[135px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[125px] sm:w-[140px] sm:p-4 lg:h-[200px] lg:w-[225px]"
+                >
+                  <Image
+                    src={data.url}
+                    width={data.width}
+                    height={data.height}
+                    alt={data.alt}
+                    className="h-full w-full object-contain object-center transition duration-300 ease-in-out hover:scale-110"
+                  />
+                </div>
+              );
+            })}
+          </section>
+
+          {/* Second Class */}
+          <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 lg:gap-6">
+            {lMediaPartner.map((data) => {
+              return (
+                <div
+                  key={data.id}
+                  data-aos="zoom-in-up"
+                  className="flex h-[75px] w-[85px] items-center justify-center overflow-hidden rounded-md bg-white p-2 shadow-[2px_4px_25px_0px_rgba(255,255,255,0.25)] sm:h-[95px] sm:w-[110px] sm:p-4 lg:h-[150px] lg:w-[175px]"
+                >
+                  <Image
+                    src={data.url}
+                    width={data.width}
+                    height={data.height}
+                    alt={data.alt}
+                    className="h-full w-full object-contain object-center transition duration-300 ease-in-out hover:scale-110"
+                  />
+                </div>
+              );
+            })}
+          </section>
+
+          {/* Third Class */}
+          <section className="flex w-full flex-row flex-wrap items-center justify-center gap-4 lg:gap-6">
+            {mMediaPartner.map((data) => {
               return (
                 <div
                   key={data.id}

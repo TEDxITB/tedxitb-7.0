@@ -14,6 +14,9 @@ export interface SponsorshipQueryResult {
     lSponsor: ImageCMS[];
     mSponsor: ImageCMS[];
     sSponsor: ImageCMS[];
+    mMediaPartner: ImageCMS[];
+    lMediaPartner: ImageCMS[];
+    xlMediaPartner: ImageCMS[];
   };
 }
 
