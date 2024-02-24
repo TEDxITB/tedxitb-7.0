@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import SmoothScrollButton from "@/components/ui/smooth-scroll-button";
-import { BookOpenText } from "lucide-react";
+import { BookOpenText, QrCode } from "lucide-react";
 import QRCode from "react-qr-code";
 
 function QRMagazineButtons({ ticketId }: { ticketId: string }) {
@@ -39,49 +39,23 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
   };
 
   return (
-    <div className="grid w-full max-w-sm grid-rows-2 justify-items-center gap-8 self-center py-4 sm:w-auto sm:max-w-none sm:grid-cols-2 sm:grid-rows-none sm:self-start">
-      <div className="flex w-full">
-        <SmoothScrollButton
-          targetId="magazine"
-          offset={-20}
-          size={"lg"}
-          variant={"secondary"}
-          className="grow sm:px-10 lg:py-6 lg:text-lg"
-        >
-          <BookOpenText className="mr-2 h-5 w-5" /> See Magazine
-        </SmoothScrollButton>
-      </div>
+    <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+      {/* <SmoothScrollButton
+        targetId="magazine"
+        offset={-20}
+        size={"lg"}
+        variant={"secondary"}
+        className="w-full"
+      >
+        <BookOpenText className="mr-2 h-5 w-5" /> See Magazine
+      </SmoothScrollButton> */}
       <Dialog>
-        <DialogTrigger className="flex w-full">
+        <DialogTrigger asChild>
           <Button
             size={"lg"}
-            className="flex grow gap-4 bg-[#FEB20E] text-ted-black hover:bg-[#e5a00d] sm:px-10 lg:py-6 lg:text-lg"
+            className="bg-[#FEB20E] px-10 text-ted-black hover:bg-[#e5a00d]"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-qr-code"
-            >
-              <rect width="5" height="5" x="3" y="3" rx="1" />
-              <rect width="5" height="5" x="16" y="3" rx="1" />
-              <rect width="5" height="5" x="3" y="16" rx="1" />
-              <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
-              <path d="M21 21v.01" />
-              <path d="M12 7v3a2 2 0 0 1-2 2H7" />
-              <path d="M3 12h.01" />
-              <path d="M12 3h.01" />
-              <path d="M12 16v.01" />
-              <path d="M16 12h1" />
-              <path d="M21 12v.01" />
-              <path d="M12 21v-1" />
-            </svg>
+            <QrCode className="mr-2 h-5 w-5" />
             QR Code
           </Button>
         </DialogTrigger>
