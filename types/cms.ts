@@ -36,18 +36,28 @@ export interface MainEventTopicQueryResult {
   }[];
 }
 
+type Magazine = {
+  id: string;
+  url: string;
+  alt: string;
+  width: string;
+  height: string;
+};
+
 export interface MagazineQueryResult {
   allMonthlyMagazines: {
     id: string;
     title: string;
-    magazine: {
-      id: string;
-      url: string;
-      alt: string;
-      width: string;
-      height: string;
-    }[];
+    magazine: Magazine[];
   }[];
+}
+
+export interface MainEventMagazineQueryResult {
+  mainEventMagazine: {
+    paragraph: string;
+    title: string;
+    magazine: Magazine[];
+  };
 }
 
 export interface StudentSpeakerCandidate {

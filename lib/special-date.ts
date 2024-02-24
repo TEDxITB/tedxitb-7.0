@@ -5,11 +5,11 @@ export const startComingSoonAnnouncementDate = new Date(
 ).getTime();
 
 export const startAnnouncementDate = new Date(
-  "February 20, 2023 03:00:00"
+  "February 20, 2024 03:00:00"
 ).getTime();
 
 export const confirmationDate = new Date(
-  "February 23, 2024 17:00:00"
+  "February 25, 2024 17:00:00"
 ).getTime();
 
 // 1 Februari 08:00 WIB

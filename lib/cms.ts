@@ -130,6 +130,21 @@ export const magazineQuery = `{
   }
 }`;
 
+export const mainEventMagazineTags = ["main-event-magazine"];
+export const mainEventMagazineQuery = `{
+  mainEventMagazine {
+    title
+		paragraph
+    magazine {
+      id
+      url
+      alt
+      width
+      height
+    }
+  }
+}`;
+
 export const studentSpeakerTags = ["student-speaker"];
 export const studentSpeakerQuery = `{
   allStudentSpeakerCandidates {

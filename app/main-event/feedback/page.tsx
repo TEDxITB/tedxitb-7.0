@@ -1,16 +1,30 @@
 import FeedbackPage from "./feedback-page";
 import { authOptions } from "@/lib/auth-options";
+import { openGraphTemplate, twitterTemplate } from "@/lib/metadata";
 import {
-  isUserAllowedFeedback,
+  getUserTicket,
   isUserFeedbacked,
   isUserPassed,
   isUserRegistered,
 } from "@/lib/query";
 import { feedbackStartDate } from "@/lib/special-date";
+import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-async function page() {
+export const metadata: Metadata = {
+  title: "Feedback | TEDxITB 7.0",
+  openGraph: {
+    ...openGraphTemplate,
+    title: "Feedback | TEDxITB 7.0",
+  },
+  twitter: {
+    ...twitterTemplate,
+    title: "Feedback | TEDxITB 7.0",
+  },
+};
+
+async function Page() {
   const session = await getServerSession(authOptions);
   const dateNow = new Date().getTime();
 
@@ -18,12 +32,13 @@ async function page() {
     redirect("/auth/sign-in");
   }
 
-  const [isRegistered, status, checkAllow, isFeedbacked] = await Promise.all([
+  const [isRegistered, status, ticketId, isFeedbacked] = await Promise.all([
     isUserRegistered(session.id),
     isUserPassed(session.id),
-    isUserAllowedFeedback(session.id),
+    getUserTicket(session.id),
     isUserFeedbacked(session.id),
   ]);
+  const isUserHaveTicket = ticketId !== null;
 
   if (!isRegistered) {
     redirect("/main-event/announcement");
@@ -37,11 +52,11 @@ async function page() {
     redirect("/main-event/announcement");
   }
 
-  if (!checkAllow || dateNow < feedbackStartDate) {
+  if (!isUserHaveTicket || dateNow < feedbackStartDate) {
     redirect("/main-event/announcement");
   }
 
   return <FeedbackPage />;
 }
 
-export default page;
+export default Page;

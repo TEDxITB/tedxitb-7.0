@@ -2,7 +2,6 @@
 
 import { Communication, Magazine, createWaiter } from "../shared";
 import { cn } from "@/lib/utils";
-import { MagazineQueryResult } from "@/types/cms";
 import { ChevronLeft, ChevronRight, Loader2, X } from "lucide-react";
 import Image from "next/image";
 import { PageFlip } from "page-flip";
@@ -86,7 +85,7 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
   useEffect(() => renderSync.current.resolve(), [magazine]);
 
   const setMagazine = async (data: Magazine) => {
-    if (idRef.current == data.id) {
+    if (data.id != "" && idRef.current == data.id) {
       pageFlipRef.current.turnToPage(0);
       return;
     }
@@ -112,6 +111,8 @@ export const Viewer = ({ data }: { data: Record<string, Magazine> }) => {
       const msg = JSON.parse(e.data) as Communication;
       if (msg.info == "idUpdate") {
         setMagazine(data[msg.id]);
+      } else if (msg.info == "customSourceUpdate") {
+        setMagazine(msg.data);
       }
     });
 
