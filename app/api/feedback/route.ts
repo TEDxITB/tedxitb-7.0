@@ -2,7 +2,7 @@ import { authOptions } from "@/lib/auth-options";
 import { appendGoogleSheets } from "@/lib/google-sheets";
 import PostHogClient from "@/lib/posthog-server";
 import { prisma } from "@/lib/prisma";
-import { isUserAllowedFeedback, isUserFeedbacked } from "@/lib/query";
+import { getUserTicket, isUserFeedbacked } from "@/lib/query";
 import { feedbackEndDate, feedbackStartDate } from "@/lib/special-date";
 import { feedbackSchema } from "@/lib/zod";
 import { getServerSession } from "next-auth";
@@ -35,10 +35,11 @@ export const POST = async (req: NextRequest) => {
   // }
 
   // Check if feedbacked
-  const [check1, check2] = await Promise.all([
+  const [check1, ticketId] = await Promise.all([
     isUserFeedbacked(session.id),
-    isUserAllowedFeedback(session.id),
+    getUserTicket(session.id),
   ]);
+  const isHaveTicket = ticketId !== null;
 
   if (check1) {
     return NextResponse.json(
@@ -48,7 +49,7 @@ export const POST = async (req: NextRequest) => {
   }
 
   // Check if user passed to main event
-  if (!check2) {
+  if (!isHaveTicket) {
     return NextResponse.json(
       {
         error: "Bad Request",
