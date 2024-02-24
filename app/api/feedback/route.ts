@@ -3,7 +3,7 @@ import { appendGoogleSheets } from "@/lib/google-sheets";
 import PostHogClient from "@/lib/posthog-server";
 import { prisma } from "@/lib/prisma";
 import { getUserTicket, isUserFeedbacked } from "@/lib/query";
-import { feedbackEndDate, feedbackStartDate } from "@/lib/special-date";
+import { feedbackStartDate } from "@/lib/special-date";
 import { feedbackSchema } from "@/lib/zod";
 import { getServerSession } from "next-auth";
 import { type NextRequest, NextResponse } from "next/server";

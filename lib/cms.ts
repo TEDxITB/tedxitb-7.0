@@ -56,6 +56,27 @@ export const sponsorshipQuery = `{
       width
       height
     }
+    mMediaPartner {
+      id
+      url
+      alt
+      width
+      height
+    }
+    lMediaPartner {
+      id
+      url
+      alt
+      width
+      height
+    }
+    xlMediaPartner{
+      id
+      url
+      alt
+      width
+      height
+    }
   }
 }`;
 
