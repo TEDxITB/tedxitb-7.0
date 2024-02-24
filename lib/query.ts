@@ -84,17 +84,3 @@ export async function isUserFeedbacked(userId: string) {
     return false;
   }
 }
-
-export async function isUserAllowedFeedback(userId: string) {
-  const checkAllow = await prisma.confirmation.findUnique({
-    where: {
-      userId: userId,
-      attendance: true,
-    },
-  });
-  if (checkAllow) {
-    return true;
-  } else {
-    return false;
-  }
-}

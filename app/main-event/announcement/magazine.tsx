@@ -11,6 +11,7 @@ export default function MagazineSection(props: {
 }) {
   const [MagazineIFrame, setMagazine] = MagazineViewer();
   const coverRef = useRef<HTMLImageElement>(null);
+  const title = props.data.mainEventMagazine.title;
   const paragraph = props.data.mainEventMagazine.paragraph;
   const magazine: Magazine = {
     id: "",
@@ -18,12 +19,9 @@ export default function MagazineSection(props: {
   };
 
   return (
-    <section
-      id="magazine"
-      className="h-full w-[95%] py-8 md:w-[90%] lg:w-4/5 lg:pb-32"
-    >
+    <section id="magazine" className="w-full max-w-7xl">
       {MagazineIFrame}
-      <div className="relative min-h-[300px] w-full rounded-lg md:min-h-[400px] lg:min-h-[565px]">
+      <div className="relative flex min-h-[300px] w-full justify-center rounded-lg md:min-h-[400px] lg:min-h-[565px]">
         <Image
           src="/main-event/bg-magazine.png"
           alt="Magazine"
@@ -32,15 +30,33 @@ export default function MagazineSection(props: {
           priority
         />
 
-        <div className="z-10 flex w-full flex-col items-center justify-between gap-16 p-8 sm:flex-row lg:p-16">
+        <div className="z-10 flex w-full flex-col items-center justify-between gap-16 p-8 lg:p-24 xl:flex-row">
           <div className="z-10 flex max-w-3xl flex-col gap-8">
             <h2 className="font-garamond text-3xl font-medium tracking-wider drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl">
-              <span className="mr-2 font-graziela text-5xl lg:text-8xl">T</span>
-              <span>HE </span>
-              <span>IMPACT </span>
-              <span className="mr-2 font-graziela text-5xl lg:text-8xl">O</span>
-              <span>RIGINATOR </span>
-              <span>HUB</span>
+              {
+                // Render logic garamond
+                title.split(" ").map((word, idx) => {
+                  const length = title.split(" ").length;
+                  if (idx % 2 == 0) {
+                    return (
+                      <>
+                        <span className="mr-2 font-graziela text-5xl uppercase lg:text-8xl">
+                          {word[0]}
+                        </span>
+                        <span className="uppercase">{word.slice(1)}</span>
+                        {length - 1 !== idx && <span> </span>}
+                      </>
+                    );
+                  } else {
+                    return (
+                      <>
+                        <span className="uppercase">{word}</span>
+                        {length - 1 !== idx && <span> </span>}
+                      </>
+                    );
+                  }
+                })
+              }
             </h2>
             <p className="font-anderson leading-7 tracking-wide lg:text-xl">
               {paragraph}
@@ -51,17 +67,19 @@ export default function MagazineSection(props: {
             onClick={() =>
               setMagazine(magazine, coverRef.current as HTMLImageElement)
             }
-            className="z-10 flex h-full w-full flex-col"
+            className="z-10 flex aspect-[0.707] w-72 flex-none flex-col gap-3"
           >
             <Image
               ref={coverRef}
-              className="z-10 h-full w-[200px] self-center rounded-lg md:w-[250px] xl:w-[350px]"
+              className="z-10 h-full w-full self-center rounded-lg"
               src={magazine.magazine[0].url}
               width={500}
               height={500}
               alt="Magazine"
             />
-            <p className="m-auto">Click to Open</p>
+            <p className="m-auto font-anderson text-base font-medium lg:text-lg">
+              Click to Open
+            </p>
           </button>
         </div>
       </div>

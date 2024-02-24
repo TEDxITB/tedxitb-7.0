@@ -9,6 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import SmoothScrollButton from "@/components/ui/smooth-scroll-button";
+import { BookOpenText } from "lucide-react";
 import QRCode from "react-qr-code";
 
 function QRMagazineButtons({ ticketId }: { ticketId: string }) {
@@ -47,7 +48,7 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
           variant={"secondary"}
           className="grow sm:px-10 lg:py-6 lg:text-lg"
         >
-          See Magazine
+          <BookOpenText className="mr-2 h-5 w-5" /> See Magazine
         </SmoothScrollButton>
       </div>
       <Dialog>

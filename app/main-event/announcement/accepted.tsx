@@ -10,7 +10,6 @@ import {
 import {
   getUserConfirmation,
   getUserTicket,
-  isUserAllowedFeedback,
   isUserFeedbacked,
 } from "@/lib/query";
 import { confirmationDate, feedbackStartDate } from "@/lib/special-date";
@@ -22,29 +21,28 @@ import Link from "next/link";
 async function Accepted(props: { session: Session }) {
   const dateNow = new Date().getTime();
 
-  const [confirmation, ticketId, checkAllow, isFeedbacked] = await Promise.all([
+  const [confirmation, ticketId, isFeedbacked] = await Promise.all([
     getUserConfirmation(props.session.id),
     getUserTicket(props.session.id),
-    isUserAllowedFeedback(props.session.id),
     isUserFeedbacked(props.session.id),
   ]);
 
   const isConfirmationButtonsShown =
     dateNow < confirmationDate && confirmation === null;
 
-  const isQRMagazineShown = ticketId !== null;
+  const isHaveTicket = ticketId !== null;
 
   const isFeedbackShown =
-    checkAllow && !isFeedbacked && dateNow > feedbackStartDate;
+    isHaveTicket && !isFeedbacked && dateNow > feedbackStartDate;
 
-  const magazineData: MainEventMagazineQueryResult = await getCMSData(
+  const magazineData = await getCMSData<MainEventMagazineQueryResult>(
     mainEventMagazineQuery,
     mainEventMagazineTags
   );
 
   return (
-    <main className="flex flex-col items-center text-ted-white">
-      <section className="relative h-[1100px] w-full font-anderson lg:h-[1200px] xl:h-[900px]">
+    <main className="flex flex-col items-center gap-20 px-5 py-16 text-ted-white sm:p-16 lg:gap-40 lg:p-24">
+      <section className="relative flex w-full justify-center font-anderson">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
@@ -53,8 +51,8 @@ async function Accepted(props: { session: Session }) {
           priority
         />
 
-        <div className="absolute left-1/2 top-1/2 z-20 flex h-[95%] w-[95%] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 rounded-lg bg-[#1F1F1F] bg-opacity-40 shadow-2xl shadow-[##1F1F1F] md:h-[90%] md:w-[90%] lg:h-4/5 lg:w-4/5 lg:gap-12">
-          <div className="relative my-auto flex flex-col gap-8 px-8 md:max-w-none lg:px-16">
+        <div className="z-20 flex w-full max-w-7xl flex-col items-center gap-8 rounded-lg bg-[#1F1F1F] bg-opacity-40 shadow-2xl shadow-[##1F1F1F] lg:gap-12">
+          <div className="relative flex flex-col gap-8 px-6 py-12 md:max-w-none lg:p-24">
             <p className="text-3xl lg:text-5xl">Dear {props.session.name},</p>
             <p className="leading-7 tracking-wide lg:text-xl">
               As we anticipate a high level of interest and limited seating
@@ -67,29 +65,27 @@ async function Accepted(props: { session: Session }) {
             </p>
             <div className="flex flex-col-reverse justify-between gap-8 lg:flex-row lg:flex-wrap-reverse">
               <div className="flex flex-col gap-2">
-                <p className="text-sm lg:text-xl">
-                  Date: Saturday, March 9th 2024
-                </p>
-                <p className="text-sm lg:text-xl">
+                <p className="lg:text-xl">Date: Saturday, March 9th 2024</p>
+                <p className="lg:text-xl">
                   Location: Cornerstone Auditorium, Paskal 23
                 </p>
-                <p className="text-sm lg:text-xl">Time: 15:00 - 21:10 WIB</p>
-                <p className="text-sm lg:text-xl">
+                <p className="lg:text-xl">Time: 15:00 - 21:10 WIB</p>
+                <p className="lg:text-xl">
                   Contact Person: @mulan19aja (Line ID)
                 </p>
                 {isConfirmationButtonsShown ? (
                   <ConfirmationButtons />
                 ) : (
-                  <p className="grow text-sm lg:text-xl">
+                  <p className="grow lg:text-xl">
                     Confirmation Status:{" "}
                     {confirmation ? "Attendance" : "Absence"}
                   </p>
                 )}
 
-                {isQRMagazineShown && <QRMagazineButtons ticketId={ticketId} />}
+                {isHaveTicket && <QRMagazineButtons ticketId={ticketId} />}
 
                 {isFeedbackShown && (
-                  <div className="flex flex-col gap-4 py-8">
+                  <div className="my-8 flex flex-col gap-4">
                     <Button
                       variant={"outline"}
                       className="self-start border-ted-white"
