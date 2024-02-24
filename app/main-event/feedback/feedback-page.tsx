@@ -55,7 +55,7 @@ function FeedbackPage() {
 
   const form = useForm<FormValues>({
     defaultValues: {
-      q1: 7,
+      q1: 5,
       q7: [],
     },
     resolver: zodResolver(feedbackSchema),
@@ -147,22 +147,23 @@ function FeedbackPage() {
                     className="leading-6 tracking-wide lg:text-lg"
                     htmlFor="q1"
                   >
-                    What do you think of TEDxITB 7.0 Talks? (Rate 1-10)
+                    What do you think of TEDxITB 7.0 Talks? (Rate 0-10)
                   </FormLabel>
                   <FormControl onBlur={handleFocus}>
                     <Slider
                       id="q1"
-                      defaultValue={[form.getValues("q1") - 1 ?? 2]}
+                      defaultValue={[5]}
                       min={0}
-                      max={9}
+                      max={10}
                       step={1}
-                      onValueChange={(vals) => field.onChange(vals[0] + 1)}
+                      onValueChange={(vals) => field.onChange(vals[0])}
+                      value={[field.value as number]}
                     />
                   </FormControl>
                   <div className="flex justify-between">
-                    {Array.from({ length: 10 }).map((_, i) => (
+                    {Array.from({ length: 11 }).map((_, i) => (
                       <span className="text-ted-white" key={i}>
-                        {i + 1}
+                        {i}
                       </span>
                     ))}
                   </div>

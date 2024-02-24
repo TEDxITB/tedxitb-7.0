@@ -2,8 +2,8 @@ import Image from "next/image";
 
 function Rejected(props: { name?: string }) {
   return (
-    <main className="font-anderson text-ted-white">
-      <section className="relative h-[700px] w-full">
+    <main className="flex flex-col items-center gap-20 px-5 py-16 text-ted-white sm:p-16 lg:gap-40 lg:p-24">
+      <section className="relative flex w-full justify-center font-anderson">
         <Image
           src="/main-event/impact-originator.png"
           alt="Impact Originator"
@@ -11,8 +11,8 @@ function Rejected(props: { name?: string }) {
           className="object-cover"
         />
 
-        <div className="absolute left-1/2 top-1/2 z-20 flex h-[95%] w-[95%] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 rounded-lg bg-[#1F1F1F] bg-opacity-40 shadow-2xl shadow-[##1F1F1F] md:h-[90%] md:w-[90%] lg:h-4/5 lg:w-4/5 lg:gap-12">
-          <div className="relative my-auto flex flex-col gap-8 px-8 md:max-w-none lg:px-16">
+        <div className="z-20 flex w-full max-w-7xl flex-col items-center gap-8 rounded-lg bg-[#1F1F1F] bg-opacity-40 shadow-2xl shadow-[##1F1F1F] lg:gap-12">
+          <div className="relative flex flex-col gap-8 px-6 py-12 md:max-w-none lg:p-24">
             <p className="text-3xl lg:text-5xl">Dear {props.name},</p>
             <p className="leading-7 tracking-wide lg:text-xl">
               Thank you for your participation in the participant selection for
