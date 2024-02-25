@@ -9,7 +9,7 @@ export const startAnnouncementDate = new Date(
 ).getTime();
 
 export const confirmationDate = new Date(
-  "February 25, 2024 17:00:00"
+  "February 26, 2024 17:00:00"
 ).getTime();
 
 // 1 Februari 08:00 WIB
