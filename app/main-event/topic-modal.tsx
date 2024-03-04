@@ -15,7 +15,7 @@ function TopicModal(props: {
       <DialogTrigger className="sm:self-end">
         <Button className="w-full md:px-8">See Details</Button>
       </DialogTrigger>
-      <DialogContent className="h-fit bg-[#1C1C1C] font-anderson text-white">
+      <DialogContent className="h-fit max-h-[85vh] overflow-y-auto bg-[#1C1C1C] font-anderson text-white sm:max-h-[75vh]">
         <article className="space-y-6">
           <Image
             src={props.image.url}
@@ -25,7 +25,7 @@ function TopicModal(props: {
             className="mt-6 w-full rounded-lg object-cover object-center sm:aspect-[5/3]"
           />
           <h2 className="text-2xl font-bold">{props.title}</h2>
-          <div className="font-light">
+          <div className="flex flex-col gap-5 text-justify font-light">
             <StructuredText data={props.description} />
           </div>
         </article>
