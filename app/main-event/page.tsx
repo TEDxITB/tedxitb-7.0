@@ -88,7 +88,7 @@ async function page() {
       </section>
 
       {/* Topic */}
-      {/* <section className="relative flex flex-col gap-16 bg-[#1C1C1C] px-8 py-16 text-ted-white sm:p-16 lg:px-24 lg:py-48">
+      <section className="relative flex flex-col gap-16 bg-[#1C1C1C] px-8 py-16 text-ted-white sm:p-16 lg:px-24 lg:py-48">
         <h2
           data-aos="zoom-in-up"
           className="stroke-ted-white text-center font-anderson text-4xl font-bold drop-shadow-[2px_4px_25px_rgba(255,255,255,0.9)] lg:text-6xl"
@@ -123,7 +123,7 @@ async function page() {
           alt="Background Blur"
           className="absolute -bottom-40 -right-1/2 w-[1000px] sm:-bottom-56 sm:-right-96"
         />
-      </section> */}
+      </section>
 
       {/* Networking Originator Lounge */}
       <section className="relative flex items-center justify-center text-ted-white">
