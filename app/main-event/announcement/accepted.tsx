@@ -67,7 +67,7 @@ async function Accepted(props: { session: Session }) {
               <div className="flex flex-col gap-2">
                 <p className="lg:text-xl">Date: Saturday, March 9th 2024</p>
                 <p className="lg:text-xl">
-                  Location: Cornerstone Auditorium, Paskal 23
+                  Location: Cornerstone Auditorium, Paskal Hyper Square
                 </p>
                 <p className="lg:text-xl">Time: 15:00 - 21:10 WIB</p>
                 <p className="lg:text-xl">

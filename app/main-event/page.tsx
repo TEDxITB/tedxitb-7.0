@@ -259,7 +259,9 @@ async function page() {
             </p>
             <div data-aos="fade-right" className="flex gap-2 align-middle">
               <MapPin className="h-4 w-4 lg:h-8 lg:w-8" />
-              <p className="lg:text-2xl">Cornerstone Auditorium, Paskal 23</p>
+              <p className="lg:text-2xl">
+                Cornerstone Auditorium, Paskal Hyper Square
+              </p>
             </div>
             <div data-aos="fade-right">
               <iframe
