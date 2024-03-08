@@ -84,7 +84,13 @@ export const POST = async (req: NextRequest) => {
   await appendGoogleSheets(sheetId, sheetRange, sheetValueInputOption, values);
 
   return NextResponse.json(
-    { message: "Success Verifying Ticket" },
+    {
+      message: "Success Verifying Ticket",
+      userId: ticket.user.id,
+      name: ticket.user.name,
+      email: ticket.user.email,
+      ticketId: ticket.id,
+    },
     { status: 200 }
   );
 };
