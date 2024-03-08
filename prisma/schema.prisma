@@ -102,6 +102,7 @@ model Ticket {
   madeAt         DateTime     @default(now())
   confirmationId String       @unique
   confirmation   Confirmation @relation(fields: [confirmationId], references: [id], onDelete: Cascade)
+  checkIn        CheckIn?
 }
 
 model Vote {
@@ -132,4 +133,12 @@ model Feedback {
   feedbackAt DateTime @default(now())
   userId     String   @unique
   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model CheckIn {
+  id         String   @id @default(cuid())
+  ticketId   String   @unique
+  ticket     Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  verifiedBy String
+  createdAt  DateTime @default(now())
 }

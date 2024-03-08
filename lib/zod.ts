@@ -73,3 +73,5 @@ export const feedbackSchema = z.object({
     message: "Pilih minimal satu",
   }),
 });
+
+export const ticketIdSchema = z.string();
