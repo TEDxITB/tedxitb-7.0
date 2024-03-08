@@ -60,14 +60,16 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
           </Button>
         </DialogTrigger>
         <DialogContent className="border-none bg-[#1C1C1C] p-8 font-anderson text-ted-white">
-          <DialogTitle className="text-xl sm:text-2xl">Your Ticket</DialogTitle>
+          <DialogTitle className="font-anderson text-xl font-bold lg:text-3xl">
+            Your Ticket
+          </DialogTitle>
           <DialogDescription className="flex flex-col gap-8">
             <QRCode
               size={300}
               value={ticketId}
               viewBox={`0 0 256 256`}
               id="QRCode"
-              className="h-auto w-full max-w-[300px] self-center"
+              className="h-auto w-full max-w-[300px] self-center rounded-md border-8 border-ted-red"
             />
             <Button
               size={"lg"}
