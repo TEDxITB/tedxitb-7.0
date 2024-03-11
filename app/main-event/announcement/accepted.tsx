@@ -118,7 +118,7 @@ async function Accepted(props: { session: Session }) {
           className="absolute left-1/2 top-3/4 w-[100px] -translate-x-1/2 opacity-20"
         />
       </section>
-      {/* <MagazineSection data={magazineData} /> */}
+      <MagazineSection data={magazineData} />
     </main>
   );
 }
