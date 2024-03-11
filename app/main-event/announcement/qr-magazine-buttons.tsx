@@ -53,7 +53,7 @@ function QRMagazineButtons({ ticketId }: { ticketId: string }) {
         <DialogTrigger asChild>
           <Button
             size={"lg"}
-            className="bg-[#FEB20E] px-10 w-full text-ted-black hover:bg-[#e5a00d]"
+            className="w-full bg-[#FEB20E] px-10 text-ted-black hover:bg-[#e5a00d]"
           >
             <QrCode className="mr-2 h-5 w-5" />
             QR Code
